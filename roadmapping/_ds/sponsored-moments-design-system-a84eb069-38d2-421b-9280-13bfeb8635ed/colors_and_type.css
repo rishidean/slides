@@ -1,0 +1,134 @@
+/* Sponsored Moments — core design tokens
+   Ported from apps/sizzle-reel/scenes-primitives.jsx (SM tokens). */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────── */
+  --sm-bg:         #FAFAFA;   /* scene background — cool off-white */
+  --sm-paper:      #F2F1EE;   /* warm off-white — AV interior, card wells */
+  --sm-ink:        #0A0A0A;   /* primary text / strong UI */
+  --sm-ink-muted:  #6B6B6B;   /* secondary text */
+  --sm-ink-faint:  #B5B5B5;   /* tertiary text / labels */
+  --sm-line:       #E6E6E6;   /* hairline dividers */
+  --sm-accent:     #CF0090;   /* hot magenta — CTAs, underlines, highlights */
+  --sm-accent-deep:#820076;   /* deeper plum — QR inks, hovered accent */
+  --sm-black:      #000000;   /* pure black — dark panels, wallet pill */
+
+  /* Semantic — foreground / background */
+  --fg-1: var(--sm-ink);
+  --fg-2: var(--sm-ink-muted);
+  --fg-3: var(--sm-ink-faint);
+  --bg-1: var(--sm-bg);
+  --bg-2: var(--sm-paper);
+  --border-hairline: var(--sm-line);
+
+  /* ── Type families ──────────────────────────────────────── */
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* ── Type scale (at 1080-wide authoring space) ─────────── */
+  --t-display:  160px;   /* "APPS", "Sponsored Moments" — uncomfortably large */
+  --t-title-1: 110px;    /* scene titles that fill the frame */
+  --t-title-2:  72px;    /* mid-section headings */
+  --t-title-3:  56px;    /* card titles */
+  --t-body-lg:  44px;    /* captions below hero */
+  --t-body:     26px;    /* on-card body copy */
+  --t-body-sm:  22px;    /* secondary body */
+  --t-label:    13px;    /* mono-uppercase labels */
+
+  /* ── Spacing — scene-scale, in px. ──────────────────────── */
+  --sp-0:  0;     /* @kind spacing */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  14px;
+  --sp-4:  18px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  44px;
+  --sp-8:  60px;
+  --sp-9:  88px;
+
+  /* ── Radii ──────────────────────────────────────────────── */
+  --r-sm: 4px;       /* small UI pills */
+  --r-md: 10px;      /* buttons, inputs */
+  --r-lg: 14px;      /* CTA buttons */
+  --r-xl: 28px;      /* cards */
+  --r-2xl: 36px;     /* push-notification pills */
+  --r-phone: 72px;   /* phone bezel */
+
+  /* ── Shadows ────────────────────────────────────────────── */
+  --sh-card:   0 40px 80px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.04);
+  --sh-pass:   0 40px 80px rgba(0,0,0,0.10), 0 8px 20px rgba(0,0,0,0.05);
+  --sh-push:   0 30px 80px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.06);
+  --sh-device: 0 60px 120px rgba(0,0,0,0.35), 0 0 0 1.5px rgba(255,255,255,0.08);
+
+  /* ── Motion tokens ──────────────────────────────────────── */
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);   /* @kind other */
+  --ease-in-cubic:  cubic-bezier(0.55, 0.055, 0.675, 0.19); /* @kind other */
+  --ease-in-out:    cubic-bezier(0.645, 0.045, 0.355, 1);   /* @kind other */
+  --fade-in-dur:  400ms;  /* @kind other */
+  --fade-out-dur: 300ms;  /* @kind other */
+}
+
+/* ── Named type presets — spread into style objects. ───────── */
+.t-display {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--fg-1);
+}
+.t-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--fg-1);
+}
+.t-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+  color: var(--fg-1);
+}
+.t-caption {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--fg-1);
+}
+.t-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.t-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* ── Accent underline — 4px bar under section titles ──────── */
+.accent-bar {
+  width: 48px;
+  height: 4px;
+  background: var(--sm-accent);
+  border-radius: 2px;
+}
+
+/* ── Reset for design cards ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}

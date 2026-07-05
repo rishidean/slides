@@ -1,0 +1,265 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "ui_kits/sizzle-reel/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Manrope|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Manrope, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HeroTitle'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|sponsor|title|body|align|key|ref|className|style|children)$/]",
+        "message": "<HeroTitle> doesn't accept that prop. Declared props: eyebrow, sponsor, title, body, align."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HeroTitle'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:center|left)$/]",
+        "message": "<HeroTitle> align must be one of 'center' | 'left'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Interstitial'] > JSXAttribute > JSXIdentifier[name!=/^(?:kicker|label|width|height|key|ref|className|style|children)$/]",
+        "message": "<Interstitial> doesn't accept that prop. Declared props: kicker, label, width, height."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='LoungePassCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:airline|flight|route|lounge|gate|heroImg|qrText|key|ref|className|style|children)$/]",
+        "message": "<LoungePassCard> doesn't accept that prop. Declared props: airline, flight, route, lounge, gate, heroImg, qrText."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PassCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:eyebrow|sponsor|title|body|cta|width|children|key|ref|className|style|children)$/]",
+        "message": "<PassCard> doesn't accept that prop. Declared props: eyebrow, sponsor, title, body, cta, width, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PhoneFrame'] > JSXAttribute > JSXIdentifier[name!=/^(?:width|height|children|screenBg|key|ref|className|style|children)$/]",
+        "message": "<PhoneFrame> doesn't accept that prop. Declared props: width, height, children, screenBg."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PushNotification'] > JSXAttribute > JSXIdentifier[name!=/^(?:app|sponsor|time|title|body|icon|iconColor|width|theme|key|ref|className|style|children)$/]",
+        "message": "<PushNotification> doesn't accept that prop. Declared props: app, sponsor, time, title, body, icon, iconColor, width, theme."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PushNotification'] > JSXAttribute[name.name='theme'] > Literal[value!=/^(?:dark|light)$/]",
+        "message": "<PushNotification> theme must be one of 'dark' | 'light'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Waveform'] > JSXAttribute > JSXIdentifier[name!=/^(?:width|height|animated|key|ref|className|style|children)$/]",
+        "message": "<Waveform> doesn't accept that prop. Declared props: width, height, animated."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "HeroTitle": {
+        "replaces": []
+      },
+      "Interstitial": {
+        "replaces": []
+      },
+      "LoungePassCard": {
+        "replaces": []
+      },
+      "PassCard": {
+        "replaces": []
+      },
+      "PhoneFrame": {
+        "replaces": []
+      },
+      "PushNotification": {
+        "replaces": []
+      },
+      "Waveform": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--bg-1",
+      "--bg-2",
+      "--border-hairline",
+      "--code-bg",
+      "--code-blue",
+      "--code-body",
+      "--code-border",
+      "--code-dim",
+      "--deck-card-hover-border",
+      "--deck-card-hover-fill",
+      "--deck-edge",
+      "--deck-edge-min",
+      "--deck-h",
+      "--deck-link",
+      "--deck-link-border",
+      "--deck-t-body",
+      "--deck-t-divider",
+      "--deck-t-subtitle",
+      "--deck-t-title",
+      "--deck-t-title-display",
+      "--deck-w",
+      "--ease-in-cubic",
+      "--ease-in-out",
+      "--ease-out-cubic",
+      "--fade-in-dur",
+      "--fade-out-dur",
+      "--fg-1",
+      "--fg-2",
+      "--fg-3",
+      "--font-mono",
+      "--font-sans",
+      "--footer-ink-dark",
+      "--footer-ink-light",
+      "--r-2xl",
+      "--r-lg",
+      "--r-md",
+      "--r-phone",
+      "--r-sm",
+      "--r-xl",
+      "--sh-card",
+      "--sh-device",
+      "--sh-pass",
+      "--sh-push",
+      "--sm-accent",
+      "--sm-accent-deep",
+      "--sm-bg",
+      "--sm-black",
+      "--sm-ink",
+      "--sm-ink-faint",
+      "--sm-ink-muted",
+      "--sm-line",
+      "--sm-paper",
+      "--sp-0",
+      "--sp-1",
+      "--sp-2",
+      "--sp-3",
+      "--sp-4",
+      "--sp-5",
+      "--sp-6",
+      "--sp-7",
+      "--sp-8",
+      "--sp-9",
+      "--status-green",
+      "--status-red",
+      "--t-body",
+      "--t-body-lg",
+      "--t-body-sm",
+      "--t-display",
+      "--t-label",
+      "--t-title-1",
+      "--t-title-2",
+      "--t-title-3"
+    ],
+    "tokenKinds": {
+      "--sm-bg": "color",
+      "--sm-paper": "color",
+      "--sm-ink": "color",
+      "--sm-ink-muted": "color",
+      "--sm-ink-faint": "color",
+      "--sm-line": "color",
+      "--sm-accent": "color",
+      "--sm-accent-deep": "color",
+      "--sm-black": "color",
+      "--fg-1": "color",
+      "--fg-2": "color",
+      "--fg-3": "color",
+      "--bg-1": "color",
+      "--bg-2": "color",
+      "--border-hairline": "color",
+      "--font-sans": "font",
+      "--font-mono": "font",
+      "--t-display": "spacing",
+      "--t-title-1": "spacing",
+      "--t-title-2": "spacing",
+      "--t-title-3": "spacing",
+      "--t-body-lg": "spacing",
+      "--t-body": "spacing",
+      "--t-body-sm": "spacing",
+      "--t-label": "spacing",
+      "--sp-0": "spacing",
+      "--sp-1": "spacing",
+      "--sp-2": "spacing",
+      "--sp-3": "spacing",
+      "--sp-4": "spacing",
+      "--sp-5": "spacing",
+      "--sp-6": "spacing",
+      "--sp-7": "spacing",
+      "--sp-8": "spacing",
+      "--sp-9": "spacing",
+      "--r-sm": "spacing",
+      "--r-md": "spacing",
+      "--r-lg": "spacing",
+      "--r-xl": "spacing",
+      "--r-2xl": "spacing",
+      "--r-phone": "spacing",
+      "--sh-card": "shadow",
+      "--sh-pass": "shadow",
+      "--sh-push": "shadow",
+      "--sh-device": "shadow",
+      "--ease-out-cubic": "other",
+      "--ease-in-cubic": "other",
+      "--ease-in-out": "other",
+      "--fade-in-dur": "other",
+      "--fade-out-dur": "other",
+      "--deck-w": "spacing",
+      "--deck-h": "spacing",
+      "--deck-edge": "spacing",
+      "--deck-edge-min": "spacing",
+      "--status-green": "color",
+      "--status-red": "color",
+      "--code-bg": "color",
+      "--code-border": "color",
+      "--code-body": "color",
+      "--code-blue": "color",
+      "--code-dim": "color",
+      "--footer-ink-light": "color",
+      "--footer-ink-dark": "color",
+      "--deck-t-title-display": "spacing",
+      "--deck-t-title": "spacing",
+      "--deck-t-divider": "spacing",
+      "--deck-t-subtitle": "spacing",
+      "--deck-t-body": "spacing",
+      "--deck-link": "color",
+      "--deck-link-border": "color",
+      "--deck-card-hover-fill": "color",
+      "--deck-card-hover-border": "color"
+    },
+    "fontFamilies": [
+      "JetBrains Mono",
+      "Manrope"
+    ]
+  }
+}

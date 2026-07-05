@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flight Plan: Authoring Roadmaps for Agents</title>
+<meta name="description" content="A hands-on workshop: write the roadmap your agent reads first, built to survive every reprioritization.">
+<link rel="canonical" href="https://slides.rishidean.com/roadmapping/">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #0a0a0a; }
+  body { font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  section[data-label] { position: relative; }
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Cover" data-speaker-notes="Sequel to Getting Airborne. That workshop built the engine — a loop that builds, verifies, and documents unattended. It marched through a file called roadmap.md, and we treated that file as furniture. Today we earn it. The map is a PM artifact, so this one's for you." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline; font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.26em; text-transform:uppercase; color:#B5B5B5;">
+    <span>Authoring roadmaps for agents · Hands-on workshop</span>
+    <span>2026</span>
+  </div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:80px 0 44px;"></div>
+  <h1 style="font-size:208px; font-weight:800; letter-spacing:-0.045em; line-height:0.92; margin:0;">Flight plan</h1>
+  <p style="font-size:38px; font-weight:500; line-height:1.4; color:#6B6B6B; max-width:1180px; margin:52px 0 0;">Last session we got airborne. Today we build the map the loop relies on: the roadmap your agent reads first, written so it survives every reprioritization you throw at it.</p>
+  <div style="flex:1;"></div>
+  <div style="display:flex; justify-content:space-between; align-items:baseline; font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:0.18em; text-transform:uppercase; color:#0A0A0A;">
+    <span>Rishi Dean</span>
+    <span style="color:#CF0090; border-bottom:2px solid rgba(207,0,144,0.32); padding-bottom:3px;">github.com/rishidean/agentic-roadmap</span>
+  </div>
+</section>
+
+<section data-label="How to read this" data-speaker-notes="Same shape as Airborne. Self-paced, jumpable. The payoff at the end is hands-on: you clone a repo and reprioritize a live roadmap without breaking a single reference. Tell them where we'll land so the theory has a destination." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">How to read this · Self-paced</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:66px; font-weight:700; letter-spacing:-0.03em; line-height:1.0; margin:0;">Mapping the route.</h2>
+  <p style="font-size:28px; line-height:1.4; color:#6B6B6B; margin:22px 0 0;">Read straight through, or jump to the part you need.</p>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px 60px; margin-top:44px;">
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">01</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">The recap</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">Where we left off, and the one file that steered it all.</div></div></div>
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">02</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">The frame</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">What we're building today, and why the agent reads it first.</div></div></div>
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">03</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">What is a roadmap</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">The manifest and its anatomy.</div></div></div>
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">04</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">The stack it controls</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">The spec stack under each line.</div></div></div>
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">05</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">But it rots</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">The trap, if you're not careful.</div></div></div>
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">06</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">So it survives change</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">The convention, proven against three rounds of churn.</div></div></div>
+    <div style="display:flex; gap:22px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:15px; color:#CF0090; min-width:48px;">07</span><div><div style="font-size:24px; font-weight:700; letter-spacing:-0.01em;">Your turn</div><div style="font-size:19px; color:#6B6B6B; margin-top:3px;">Clone it, run two skills, do it to your own.</div></div></div>
+  </div>
+  <div style="flex:1;"></div>
+  <p style="font-size:21px; line-height:1.4; color:#0A0A0A; margin:0; max-width:1100px;">Every claim here is runnable — the repo is a real roadmap that survives three reprioritizations.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>02</span></div>
+</section>
+
+<section data-label="A quick caveat" data-speaker-notes="Lift Airborne's humility wholesale. People fixate on whether it's roadmap.md or a database or a Jira plugin. Doesn't matter. The convention is a few ideas; the files are just where I happen to put them. If you leave arguing about filenames I've failed." style="background:#F2F1EE; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">A quick caveat</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:84px; font-weight:700; letter-spacing:-0.035em; line-height:1.0; margin:0; max-width:1400px;">This is one way. <br>Not the way.</h2>
+  <p style="font-size:32px; line-height:1.45; color:#6B6B6B; max-width:1180px; margin:40px 0 0;">There are many ways to make a roadmap legible to agents. This is a simplified version of what I do. The tools are moving fast, and some of this may even be outdated by the time you finish reading this deck.</p>
+  <p style="font-size:32px; line-height:1.45; color:#0A0A0A; font-weight:600; max-width:1180px; margin:30px 0 0;">Take the principles, not the syntax. The shape of the roadmap matters more than which file holds what.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>03</span></div>
+</section>
+
+<section data-label="Part 1 · The recap" data-speaker-notes="Short part. Reset the shared context so newcomers aren't lost and veterans get a running start. Land on the handoff: the loop was the star last time, but a file we barely discussed was doing the steering." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part one</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:128px; font-weight:800; letter-spacing:-0.04em; line-height:0.96; margin:0;">The recap</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1100px; margin:44px 0 0;">Where we left off in Airborne, and the one artifact that quietly steered the whole loop.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>04</span></div>
+</section>
+
+<section data-label="The AI adoption continuum" data-speaker-notes="The frame from Airborne, re-anchored. Most teams are in ground transport, going a bit faster, concluding that's all there is. The 10× teams changed their process, not their speed. Engineering and product are the helicopter — the first to leave the ground." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The AI adoption continuum</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0; max-width:1500px;">Think of AI adoption as modes of transport.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:0 70px; margin-top:56px; align-items:stretch;">
+    <div style="padding-right:10px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:0.16em; text-transform:uppercase; color:#6B6B6B;">Ground · same work, faster</div>
+      <div style="font-size:40px; font-weight:700; letter-spacing:-0.02em; margin:24px 0 0; color:#5A5A5A;">Walking · Biking · Driving</div>
+      <div style="display:flex; align-items:baseline; gap:18px; margin-top:36px;"><span style="font-size:96px; font-weight:800; letter-spacing:-0.04em; color:#0A0A0A;">~10–20%</span></div>
+      <div style="font-size:24px; color:#6B6B6B; margin-top:8px;">faster · 95% of teams live here</div>
+    </div>
+    <div style="background:#E6E6E6; width:1px;"></div>
+    <div style="padding-left:10px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:16px; letter-spacing:0.16em; text-transform:uppercase; color:#CF0090;">Air · a different process</div>
+      <div style="font-size:40px; font-weight:700; letter-spacing:-0.02em; margin:24px 0 0; color:#0A0A0A;">Helicopter · Jet · Rocket</div>
+      <div style="display:flex; align-items:baseline; gap:18px; margin-top:36px;"><span style="font-size:96px; font-weight:800; letter-spacing:-0.04em; color:#CF0090;">10×</span></div>
+      <div style="font-size:24px; color:#6B6B6B; margin-top:8px;">faster, and a different shape — where the 10× live</div>
+    </div>
+  </div>
+  <div style="flex:1;"></div>
+  <p style="font-size:26px; line-height:1.45; color:#0A0A0A; margin:0; max-width:1500px;">Driving the tools harder gets you 10–20%. The 10× doesn't come from typing faster; it comes from leaving the ground — restructuring how you plan, build, and verify around what the agent can do.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>05</span></div>
+</section>
+
+<section data-label="We got airborne" data-speaker-notes="One-breath recap. The headline from last time: the intelligence is in the scaffolding, not just the engine. Stateless sessions, real progress, because the files carried the state. Spotlight roadmap.md so the next slide can point at it." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">We got airborne</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.04; margin:0; max-width:1400px;">A loop that builds, verifies, and documents, unattended.</h2>
+  <div style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:70px; margin-top:48px; align-items:center;">
+    <div>
+      <p style="font-size:26px; line-height:1.45; color:#6B6B6B; margin:0;">In Airborne we ran a real autonomous loop. A fresh agent woke up each sprint, did the work, checked it, wrote down what it learned, and handed off to the next sprint. No human at the keyboard.</p>
+      <p style="font-size:26px; line-height:1.45; color:#0A0A0A; margin:24px 0 0;">The trick wasn't the model. It was the files: continuity lived in a handful of plain-text artifacts the loop read and rewrote, not in the model's memory.</p>
+    </div>
+    <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:40px 40px 44px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:#6B6B6B;">The outer loop, each sprint</div>
+      <div style="display:flex; align-items:center; gap:14px; margin:26px 0 30px; opacity:0.42;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#D8D8D8; border:1px solid #2f2f2f; border-radius:9px; padding:10px 16px;">Build</span>
+        <span style="color:#6B6B6B; font-size:22px;">→</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#D8D8D8; border:1px solid #2f2f2f; border-radius:9px; padding:10px 16px;">Verify</span>
+        <span style="color:#6B6B6B; font-size:22px;">→</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#D8D8D8; border:1px solid #2f2f2f; border-radius:9px; padding:10px 16px;">Document</span>
+        <span style="color:#6B6B6B; font-size:22px;">↻</span>
+      </div>
+      <div style="background:#160011; border:1.5px solid #CF0090; border-radius:12px; padding:22px 24px; box-shadow:0 0 0 6px rgba(207,0,144,0.10);">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:600; color:#FFFFFF;">roadmap.md</div>
+        <div style="font-size:18px; color:#E59BD0; margin-top:8px;">read first, every turn — the manifest that decides what's next</div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>06</span></div>
+</section>
+
+<section data-label="The artifact we took for granted" data-speaker-notes="Bridge from Airborne to today. The loop is only as good as the map you hand it. Last session we admired the engine; today we author the steering. If the roadmap is illegible to the machine, the loop's autonomy works against you." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The artifact we took for granted</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:72px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0; max-width:1500px;">One file told the loop what to build next.</h2>
+  <p style="font-size:30px; line-height:1.45; color:#6B6B6B; max-width:1250px; margin:38px 0 0;">Every sprint, the agent opened the same file to decide what to do: the manifest. The roadmap. It was the state machine the whole loop marched through — and we treated it as given.</p>
+  <p style="font-size:32px; line-height:1.4; color:#0A0A0A; font-weight:600; max-width:1250px; margin:30px 0 0;">A flawless loop on a confused roadmap just builds the wrong things, efficiently. The engine was the easy half. Steering is this workshop.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>07</span></div>
+</section>
+
+<section data-label="Part 2 · The frame" data-speaker-notes="Short part. Relocate the roadmap in their mental model — from 'a slide for the leadership review' to 'the index of the corpus my agent reads first.' Then state the job and the four properties it has to hit." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part two</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:128px; font-weight:800; letter-spacing:-0.04em; line-height:0.96; margin:0;">The frame</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1100px; margin:44px 0 0;">What we're building today, why the agent reads it first, and what makes it trustworthy.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>08</span></div>
+</section>
+
+<section data-label="The inversion" data-speaker-notes="The seed insight, and the reason the room is here. Write for the machine, generate the human view. Of everything in the corpus, the roadmap is read first and reordered most — so it's where the inversion bites hardest, and where we start. Ref: The Context Inversion." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The inversion</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:64px; font-weight:700; letter-spacing:-0.03em; line-height:1.04; margin:0; max-width:1560px;">Your specs are no longer read by the people who wrote them.</h2>
+  <p style="font-size:30px; line-height:1.45; color:#6B6B6B; max-width:1300px; margin:38px 0 0;">For decades we wrote specs for humans, and machines scraped them as an afterthought. That's reversed. The agent is now the <strong style="color:#0A0A0A; font-weight:700;">primary reader</strong>; the human view is generated on top.</p>
+  <p style="font-size:30px; line-height:1.45; color:#0A0A0A; font-weight:600; max-width:1300px; margin:26px 0 0;">The roadmap is the very top of that machine-readable corpus — the first thing the agent opens. If it's not legible to the machine, nothing downstream is.</p>
+  <div style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.06em; color:#B5B5B5; margin-top:40px;">Ref: "The Context Inversion."</div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>09</span></div>
+</section>
+
+<section data-label="The 4Cs" data-speaker-notes="The inversion's payoff, stated as properties. These four are why the agent doesn't reconstruct the world every run. Every team piling on connectors is trying to do at runtime what these do upfront. If your agent needs a search tool to find the roadmap, you've already failed Contextual." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">What a trustworthy corpus needs · The 4Cs</span></div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.04; margin:0; max-width:1500px;">Four properties, or the agent goes back to guessing.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:44px;">
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">Consolidated.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:8px;">Synthesized once, not re-derived on every run.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">Close-to-code.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:8px;">Machine-native and structured, not a human narrative about the code.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">Contextual.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:8px;">In the repo, next to the code; no connector to go find it.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">Current.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:8px;">Regenerated or validated on change, so it can't drift.</div></div>
+  </div>
+  <div style="flex:1;"></div>
+  <p style="font-size:25px; line-height:1.45; color:#0A0A0A; margin:0; max-width:1560px;">Everything that follows builds a roadmap with all four. Miss one and the agent is back to stitching context at runtime — exactly what the inversion gets us out of.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>10</span></div>
+</section>
+
+<section data-label="What this workshop does" data-speaker-notes="Set the success criterion before the solution, so the design choices read as inevitable. 'Reconstruct nothing' is the whole game. 'Scale it' is the second half people forget: the convention has to hold at one product and at fifty." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">What this workshop does</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:72px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0; max-width:1400px;">Build the roadmap for agents. Then scale it.</h2>
+  <p style="font-size:30px; line-height:1.45; color:#6B6B6B; max-width:1300px; margin:38px 0 0;">Two jobs today. First, author a roadmap an agent can read with zero reconstruction. Second, structure it so it survives going from one product area to many without rotting.</p>
+  <div style="background:#F2F1EE; border-left:4px solid #CF0090; border-radius:0 14px 14px 0; padding:32px 40px; margin-top:40px; max-width:1500px;">
+    <p style="font-size:28px; line-height:1.45; color:#0A0A0A; margin:0;">The bar: a fresh agent opens one file and immediately knows <strong>what exists</strong>, <strong>what's next</strong>, and <strong>what to build right now</strong> — no connector, no search, no stitching across five systems.</p>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>11</span></div>
+</section>
+
+<section data-label="Part 3 · What is a roadmap" data-speaker-notes="The part the old version skipped, and it cost the rot section its punch. You can't appreciate the failure until you know the structure. Keep this descriptive — the anatomy, not yet the clever bit." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part three</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:120px; font-weight:800; letter-spacing:-0.04em; line-height:0.96; margin:0;">What is a roadmap</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1200px; margin:44px 0 0;">Before we talk about what breaks, let's be precise about the artifact: what it's for, how it's laid out, and how the loop works it.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>12</span></div>
+</section>
+
+<section data-label="The manifest" data-speaker-notes="Define the vocabulary cleanly: epic = a coherent goal you can state in one sentence; sprint = a buildable slice of that goal. The roadmap is the index; the specs are the chapters. Half the room calls these different things — plant the terms you'll use for the rest of the deck." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The manifest</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:64px; font-weight:700; letter-spacing:-0.03em; line-height:1.04; margin:0; max-width:1500px;">The list the agent reads to know what to build next.</h2>
+  <p style="font-size:30px; line-height:1.45; color:#6B6B6B; max-width:1300px; margin:38px 0 0;">A roadmap is the manifest for the loop. It holds the <strong style="color:#0A0A0A;">epics</strong> — the big goals — each broken into <strong style="color:#0A0A0A;">sprints</strong>, the slices that actually get built. The agent reads it, picks the next open sprint, and goes.</p>
+  <p style="font-size:32px; line-height:1.4; color:#0A0A0A; font-weight:600; max-width:1300px; margin:26px 0 0;">Everything else in the corpus hangs off a line in this file. Get this artifact right and the rest has somewhere to attach.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>13</span></div>
+</section>
+
+<section data-label="The anatomy" data-speaker-notes="The map of the map. Walk it once: the pointer is what the agent acts on, the schedule is the priority call, the catalog is the inventory. This is the real PEDAL roadmap — the same one in the repo they'll clone." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The anatomy · PEDAL roadmap</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Three questions, three sections.</h2>
+  <div style="display:grid; grid-template-columns:1.25fr 1fr; gap:56px; margin-top:44px; align-items:center;">
+    <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:36px 38px; font-family:'JetBrains Mono',monospace; font-size:20px; line-height:1.9;">
+      <div><span style="color:#7FB0FF;">## NOW</span> <span style="color:#D8D8D8;">→ NEARBY-S2</span>&nbsp;&nbsp;&nbsp;<span style="color:#7FB0FF;">NEXT</span> <span style="color:#D8D8D8;">→ NEARBY-S3, BOOKING-S1</span>&nbsp;&nbsp;<span style="color:#6B6B6B;">← what's in flight</span></div>
+      <div style="height:18px;"></div>
+      <div><span style="color:#7FB0FF;">## SCHEDULE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">← what order</span></div>
+      <div style="color:#D8D8D8;">1. NEARBY&nbsp;&nbsp;2. BOOKING&nbsp;&nbsp;3. CHECKOUT&nbsp;&nbsp;4. RIDE&nbsp;&nbsp;5. RATINGS</div>
+      <div style="height:18px;"></div>
+      <div><span style="color:#7FB0FF;">## CATALOG</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">← what exists</span></div>
+      <div style="color:#D8D8D8;">NEARBY · BOOKING · CHECKOUT · RIDE · RATINGS · NOTIFY</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:26px;">
+      <div><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">What exists</div><div style="font-size:22px; color:#6B6B6B; margin-top:4px;">the catalog — the inventory</div></div>
+      <div><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">What order</div><div style="font-size:22px; color:#6B6B6B; margin-top:4px;">the schedule — the priority call</div></div>
+      <div><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">What's in flight</div><div style="font-size:22px; color:#6B6B6B; margin-top:4px;">the pointer — what the agent acts on</div></div>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>14</span></div>
+</section>
+
+<section data-label="Section 1 · Catalog" data-speaker-notes="The catalog is the dictionary. There's deliberately no order here — rows could be alphabetical, by creation, whatever. Status is a property of the thing, not its position. Hold the question of why the names look the way they do; we earn that later." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Section 1 · Catalog</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 22px;"></div>
+  <div style="display:flex; align-items:baseline; gap:28px;"><h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.0; margin:0;">What exists.</h2><span style="font-size:24px; color:#6B6B6B;">every epic that exists · unordered</span></div>
+  <p style="font-size:26px; line-height:1.45; color:#6B6B6B; max-width:1450px; margin:26px 0 0;">Every epic that has ever existed, each with a permanent name. The catalog answers one question — "is this a real thing?" — and nothing else.</p>
+  <div style="margin-top:34px; border:1px solid #E6E6E6; border-radius:14px; overflow:hidden;">
+    <div style="display:grid; grid-template-columns:1.1fr 2.4fr 0.9fr 1.4fr; background:#F2F1EE; font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.12em; text-transform:uppercase; color:#6B6B6B;">
+      <div style="padding:18px 28px;">Epic</div><div style="padding:18px 28px;">What it is</div><div style="padding:18px 28px;">Status</div><div style="padding:18px 28px;">Depends on</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1.1fr 2.4fr 0.9fr 1.4fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">ACCOUNTS</div><div style="padding:20px 28px; color:#6B6B6B;">Sign-up, profile, sign-in</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">done</div><div style="padding:20px 28px; color:#B5B5B5;">—</div></div>
+    <div style="display:grid; grid-template-columns:1.1fr 2.4fr 0.9fr 1.4fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">NEARBY</div><div style="padding:20px 28px; color:#6B6B6B;">Pedicabs on a live map</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#CF0090; font-weight:600;">active</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">ACCOUNTS</div></div>
+    <div style="display:grid; grid-template-columns:1.1fr 2.4fr 0.9fr 1.4fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">BOOKING</div><div style="padding:20px 28px; color:#6B6B6B;">Request a ride</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">todo</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">NEARBY</div></div>
+    <div style="display:grid; grid-template-columns:1.1fr 2.4fr 0.9fr 1.4fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">CHECKOUT</div><div style="padding:20px 28px; color:#6B6B6B;">Pay the fare</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">todo</div><div style="padding:20px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">ACCOUNTS, BOOKING</div></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>15</span></div>
+</section>
+
+<section data-label="Section 2 · Schedule" data-speaker-notes="Plant this carefully — it pays off twice. The 1, 2, 3 is the line number, not data stored on the epic. When you drag CHECKOUT above BOOKING, you move a line; nothing else changes. The audience won't see why that matters until the rot section." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Section 2 · Schedule</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 22px;"></div>
+  <div style="display:flex; align-items:baseline; gap:28px;"><h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.0; margin:0;">What order.</h2><span style="font-size:24px; color:#6B6B6B;">the only place order lives · rewrite freely</span></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:40px; align-items:center;">
+    <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:38px 42px; font-family:'JetBrains Mono',monospace; font-size:28px; line-height:2.0;">
+      <div><span style="color:#6B6B6B;">1.</span> <span style="color:#D8D8D8;">NEARBY</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#CF0090;">← NOW (S2)</span></div>
+      <div><span style="color:#6B6B6B;">2.</span> <span style="color:#D8D8D8;">BOOKING</span></div>
+      <div><span style="color:#6B6B6B;">3.</span> <span style="color:#D8D8D8;">CHECKOUT</span></div>
+      <div><span style="color:#6B6B6B;">4.</span> <span style="color:#D8D8D8;">RIDE</span></div>
+    </div>
+    <div>
+      <p style="font-size:30px; line-height:1.45; color:#6B6B6B; margin:0;">A plain ordered list you rewrite freely. The number is the line's position, read at a glance — never written into the item itself.</p>
+      <p style="font-size:34px; line-height:1.35; color:#0A0A0A; font-weight:700; letter-spacing:-0.02em; margin:30px 0 0;">Reorder by moving lines. That's the whole operation.</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>16</span></div>
+</section>
+
+<section data-label="Section 3 · Sprints" data-speaker-notes="Sprints are a sequence you extend, not a priority you reshuffle. That distinction — append vs. reorder — turns out to be the hinge of the whole convention, but don't tip it yet. Right now it's just 'here's where the buildable slices live.'" style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Section 3 · Sprints</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 22px;"></div>
+  <div style="display:flex; align-items:baseline; gap:28px;"><h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.0; margin:0;">The in-flight detail.</h2></div>
+  <p style="font-size:26px; line-height:1.45; color:#6B6B6B; max-width:1450px; margin:24px 0 0;">Inside an epic, sprints are a counter you append to: <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">CHECKOUT-S1</span>, <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">CHECKOUT-S2</span>. They run in creation order, and you rarely reference them weeks later.</p>
+  <div style="margin-top:30px; border:1px solid #E6E6E6; border-radius:14px; overflow:hidden;">
+    <div style="display:grid; grid-template-columns:1.3fr 3fr 1fr; background:#F2F1EE; font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.12em; text-transform:uppercase; color:#6B6B6B;"><div style="padding:18px 28px;">Sprint</div><div style="padding:18px 28px;">Scope</div><div style="padding:18px 28px;">State</div></div>
+    <div style="display:grid; grid-template-columns:1.3fr 3fr 1fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">CHECKOUT-S1</div><div style="padding:18px 28px; color:#6B6B6B;">Card entry + charge happy path</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">done</div></div>
+    <div style="display:grid; grid-template-columns:1.3fr 3fr 1fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">CHECKOUT-S2</div><div style="padding:18px 28px; color:#6B6B6B;">Saved payment methods</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">done</div></div>
+    <div style="display:grid; grid-template-columns:1.3fr 3fr 1fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">CHECKOUT-S3</div><div style="padding:18px 28px; color:#6B6B6B;">Tip selection</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; color:#6B6B6B;">done</div></div>
+    <div style="display:grid; grid-template-columns:1.3fr 3fr 1fr; border-top:1px solid #E6E6E6; font-size:24px; align-items:center;"><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-weight:600;">CHECKOUT-S4</div><div style="padding:18px 28px; color:#6B6B6B;">Full fare breakdown</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; color:#CF0090; font-weight:600;">active</div></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>17</span></div>
+</section>
+
+<section data-label="How the agent works the file" data-speaker-notes="Closes the anatomy by connecting it back to the loop from Part 1. The pointer is the entry point; the checkbox is the state transition. A stateless agent reads where the last one left off, builds one sprint, ticks the box, hands off — no memory required, because the file remembers. The pointer is recomputed from line order, never stored." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">How the agent works the file</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:56px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Read NOW, build it, tick it, pick up the next.</h2>
+  <div style="display:grid; grid-template-columns:0.95fr 1.05fr; gap:60px; margin-top:36px; align-items:center;">
+    <div>
+      <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:30px 34px; font-family:'JetBrains Mono',monospace; font-size:22px;"><span style="color:#7FB0FF;">## NOW</span> <span style="color:#D8D8D8;">→ NEARBY-S2</span>&nbsp;&nbsp;&nbsp;<span style="color:#7FB0FF;">NEXT</span> <span style="color:#D8D8D8;">→ NEARBY-S3, BOOKING-S1</span></div>
+      <p style="font-size:25px; line-height:1.45; color:#0A0A0A; margin:30px 0 0;">State lives in the file, not the model. The roadmap is the state machine the loop marches through, one ticked box at a time.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:18px;">
+      <div style="display:flex; gap:22px; align-items:flex-start;"><span style="font-family:'JetBrains Mono',monospace; font-size:20px; color:#CF0090; font-weight:600; min-width:96px;">Read NOW</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">Take the sprint the pointer names — position 1's next open sprint.</span></div>
+      <div style="display:flex; gap:22px; align-items:flex-start; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:20px; color:#CF0090; font-weight:600; min-width:96px;">Build it</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">Execute that sprint's spec.</span></div>
+      <div style="display:flex; gap:22px; align-items:flex-start; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:20px; color:#CF0090; font-weight:600; min-width:96px;">Tick it</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">On success, flip the sprint's row to <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">done</span>; the checkbox ticks.</span></div>
+      <div style="display:flex; gap:22px; align-items:flex-start; border-top:1px solid #E6E6E6; padding-top:18px;"><span style="font-family:'JetBrains Mono',monospace; font-size:20px; color:#CF0090; font-weight:600; min-width:96px;">Advance</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">The pointer recomputes to the next open sprint; the next session picks up there.</span></div>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>18</span></div>
+</section>
+
+<section data-label="Part 4 · The stack it controls" data-speaker-notes="We've defined the roadmap and shown how the loop works it. Now: what each line points down into. This is where the Context Inversion's 'operator authors source, system generates view' becomes concrete file paths, and where the 4Cs get their home." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part four</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:120px; font-weight:800; letter-spacing:-0.04em; line-height:0.96; margin:0;">The stack it controls</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1200px; margin:44px 0 0;">The roadmap is the index. Under each line sits a four-artifact stack — the contract you author and the cache the agent regenerates.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>19</span></div>
+</section>
+
+<section data-label="Contract above, cache below" data-speaker-notes="The single most important line: if a plan ever contradicts the brief, the brief wins and the plan gets regenerated. You never edit the cache to record intent. Delete the whole plans/ directory and the agent rebuilds it from your contract and the codebase, losing nothing. This is 'Current' from the 4Cs in practice." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Contract above, cache below</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Four artifacts per epic, split by one line.</h2>
+  <div style="margin-top:32px; border:1px solid #E6E6E6; border-radius:14px; overflow:hidden;">
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1.2fr 2.4fr; background:#F2F1EE; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.12em; text-transform:uppercase; color:#6B6B6B;"><div style="padding:16px 28px;">Artifact</div><div style="padding:16px 28px;">Author</div><div style="padding:16px 28px;">Durability</div><div style="padding:16px 28px;">Path</div></div>
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1.2fr 2.4fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center; background:#FBF4F9;"><div style="padding:18px 28px; font-weight:700;">Epic spec</div><div style="padding:18px 28px; color:#CF0090; font-weight:600;">operator</div><div style="padding:18px 28px; color:#6B6B6B;">curated</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-size:19px; color:#6B6B6B;">specs/{SLUG}/{SLUG}.md</div></div>
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1.2fr 2.4fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center; background:#FBF4F9;"><div style="padding:18px 28px; font-weight:700;">Sprint brief</div><div style="padding:18px 28px; color:#CF0090; font-weight:600;">operator</div><div style="padding:18px 28px; color:#6B6B6B;">durable</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-size:19px; color:#6B6B6B;">specs/{SLUG}/{SLUG}-S{n}.md</div></div>
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1.2fr 2.4fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:18px 28px; font-weight:700;">Functional design</div><div style="padding:18px 28px; color:#6B6B6B; font-weight:600;">system</div><div style="padding:18px 28px; color:#6B6B6B;">regenerable</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-size:19px; color:#9A9A9A;">specs/{SLUG}/plans/{SLUG}-S{n}.design.md</div></div>
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1.2fr 2.4fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:18px 28px; font-weight:700;">Implementation plan</div><div style="padding:18px 28px; color:#6B6B6B; font-weight:600;">system</div><div style="padding:18px 28px; color:#6B6B6B;">disposable</div><div style="padding:18px 28px; font-family:'JetBrains Mono',monospace; font-size:19px; color:#9A9A9A;">specs/{SLUG}/plans/{SLUG}-S{n}.plan.md</div></div>
+  </div>
+  <p style="font-size:25px; line-height:1.45; color:#0A0A0A; margin:30px 0 0; max-width:1560px;">You hand-write the top two: that's the <strong>contract</strong>. The agent derives the bottom two from the contract plus your code: that's the <strong>cache</strong>. If a plan contradicts the brief, the brief wins — and the plan gets regenerated.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>20</span></div>
+</section>
+
+<section data-label="Why two operator docs" data-speaker-notes="Answers the 'isn't that redundant?' objection. The brief is small, durable, human-authored: the irreducible intent. The design is large, regenerable, code-aware: the agent's reading of how to honor that intent in this codebase. Different authors, different lifecycles, different jobs." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Why two operator docs</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">The brief is intent. The design is elaboration.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:44px;">
+    <div style="background:#F2F1EE; border-radius:18px; padding:40px 44px;"><div style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:#CF0090;">Sprint brief · you</div><div style="font-size:34px; font-weight:800; letter-spacing:-0.02em; margin:18px 0 14px;">The contract</div><div style="font-size:25px; line-height:1.45; color:#6B6B6B;">What this slice delivers, acceptance criteria, what's explicitly out of scope.</div></div>
+    <div style="background:#F2F1EE; border-radius:18px; padding:40px 44px;"><div style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:#6B6B6B;">Functional design · agent</div><div style="font-size:34px; font-weight:800; letter-spacing:-0.02em; margin:18px 0 14px;">The elaboration</div><div style="font-size:25px; line-height:1.45; color:#6B6B6B;">Edge cases, state transitions, data shapes — inferred by reading the actual codebase.</div></div>
+  </div>
+  <p style="font-size:32px; line-height:1.35; color:#0A0A0A; font-weight:700; letter-spacing:-0.02em; margin:40px 0 0;">The brief constrains the design. The design can never overrule the brief.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>21</span></div>
+</section>
+
+<section data-label="The promotion ladder" data-speaker-notes="The answer to 'do I have to spec everything up front?' No, and you shouldn't. Detail is expensive and rots if written too early. You write the brief when a sprint is NEXT, let the agent plan it when it's NOW. The pointer literally tells you what to brief next and what to plan now." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The promotion ladder</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">A sprint earns its detail as it approaches NOW.</h2>
+  <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; margin-top:38px; align-items:center;">
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <div style="display:flex; align-items:center; gap:26px; padding:16px 0;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:#0A0A0A; min-width:130px;">listed</span><span style="font-size:23px; color:#6B6B6B;">a row in the epic spec's sprint table</span></div>
+      <div style="display:flex; align-items:center; gap:26px; padding:16px 0 16px 40px; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:#0A0A0A; min-width:130px;">briefed</span><span style="font-size:23px; color:#6B6B6B;">operator writes {SLUG}-S{n}.md once the sprint is NEXT</span></div>
+      <div style="display:flex; align-items:center; gap:26px; padding:16px 0 16px 80px; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:#CF0090; min-width:130px;">planned</span><span style="font-size:23px; color:#6B6B6B;">agent generates .design.md + .plan.md once it is NOW</span></div>
+      <div style="display:flex; align-items:center; gap:26px; padding:16px 0 16px 120px; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:#0A0A0A; min-width:130px;">built</span><span style="font-size:23px; color:#6B6B6B;">agent executes the plan; commits key off SLUG-S{n}</span></div>
+      <div style="display:flex; align-items:center; gap:26px; padding:16px 0 16px 160px; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:#0A0A0A; min-width:130px;">done</span><span style="font-size:23px; color:#6B6B6B;">row flips to done; plans/ left as a build record</span></div>
+    </div>
+    <p style="font-size:27px; line-height:1.45; color:#0A0A0A; margin:0;">You brief one or two ahead and plan only the one in flight. The hand-authored surface stays small; the regenerable surface stays fresh.</p>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>22</span></div>
+</section>
+
+<section data-label="The stack, for real · CHECKOUT-S4" data-speaker-notes="This is in the repo they'll clone — real files, not a mockup. CHECKOUT-S4 is the 'show the full fare before you charge' sprint: base, distance, surge, booking fee, tip, all visible before Confirm Ride enables, reconciled against the final charge within a tolerance. Surge transparency is a real, topical problem in this category." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The stack, for real · CHECKOUT-S4</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:56px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0; max-width:1560px;">At Helicopter, you write the brief. The agent writes the plan.</h2>
+  <div style="display:grid; grid-template-columns:1.35fr 1fr; gap:56px; margin-top:36px; align-items:center;">
+    <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:36px 40px; font-family:'JetBrains Mono',monospace; font-size:20px; line-height:1.7;">
+      <div style="color:#7FB0FF;">specs/CHECKOUT/</div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#D8D8D8;">CHECKOUT.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#CF0090;">operator · epic spec</span></div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#D8D8D8;">CHECKOUT-S4.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#CF0090;">operator · sprint brief</span></div>
+      <div><span style="color:#6B6B6B;">└──</span> <span style="color:#D8D8D8;">plans/</span></div>
+      <div><span style="color:#6B6B6B;">&nbsp;&nbsp;&nbsp;&nbsp;├──</span> <span style="color:#9A9A9A;">CHECKOUT-S4.design.md</span>&nbsp;&nbsp;<span style="color:#6B6B6B;">system · design</span></div>
+      <div><span style="color:#6B6B6B;">&nbsp;&nbsp;&nbsp;&nbsp;└──</span> <span style="color:#9A9A9A;">CHECKOUT-S4.plan.md</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">system · plan</span></div>
+    </div>
+    <div>
+      <p style="font-size:27px; line-height:1.45; color:#6B6B6B; margin:0;"><span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">CHECKOUT-S4</span> is in flight, so all four exist. Commits key off the slug:</p>
+      <div style="background:#F2F1EE; border-radius:12px; padding:22px 26px; margin-top:24px; font-family:'JetBrains Mono',monospace; font-size:22px; color:#0A0A0A;">feat(<span style="color:#CF0090;">CHECKOUT-S4</span>): full fare breakdown</div>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>23</span></div>
+</section>
+
+<section data-label="Part 5 · But it rots" data-speaker-notes="The turn. Up to now everything looked tidy. Now we reveal the catch and pay off the 'hold that question' moments from Part 3. This is the intellectual core; if they get it, they can rederive the whole convention." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part five</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:128px; font-weight:800; letter-spacing:-0.04em; line-height:0.96; margin:0;">But it rots</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1200px; margin:44px 0 0;">The artifact is clean on day one. Then you do the one thing you always do — reprioritize — and the obvious way to build it betrays you.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>24</span></div>
+</section>
+
+<section data-label="You reorder this weekly" data-speaker-notes="Make it visceral. Everyone has shipped a roadmap where the epic numbers no longer sort. We laughed it off when a human read it — a human just re-derives the real order. The agent can't. It reads exactly what's on the page, every time, with no priors about your last standup." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">You reorder this weekly</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">The one constant is that the order changes.</h2>
+  <p style="font-size:27px; line-height:1.45; color:#6B6B6B; max-width:1500px; margin:24px 0 0;">A roadmap isn't written once. You reprioritize constantly — and hand a roadmap built for a human to an agent, and it hits three failures:</p>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; margin-top:38px;">
+    <div style="border-top:3px solid #FF6FC8; padding-top:22px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">Renumber rot.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:12px;">Number the epics, and one reorder gives you <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">E5, E9, E6, E11</span>. The numbers now lie.</div></div>
+    <div style="border-top:3px solid #FF6FC8; padding-top:22px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">The scavenger hunt.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:12px;">The real order lives in your head and three tools. The agent picks one source and commits. You learn which in the build.</div></div>
+    <div style="border-top:3px solid #FF6FC8; padding-top:22px;"><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em;">Drift.</div><div style="font-size:23px; color:#6B6B6B; line-height:1.4; margin-top:12px;">"Done" lives in your memory, not the file. The agent reads a stale line and acts on it.</div></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>25</span></div>
+</section>
+
+<section data-label="Identity vs position" data-speaker-notes="The fulcrum. Identity is a handle other things grab; position is a decision you revisit every week. They have opposite update rules. Any scheme that ignores that is borrowing trouble — and numbering the epics is exactly that scheme." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Identity vs position</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Two properties that want opposite things.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:44px;">
+    <div style="border:1px solid #E6E6E6; border-radius:18px; padding:40px 44px;"><div style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:#6B6B6B;">Identity</div><div style="font-size:36px; font-weight:800; letter-spacing:-0.02em; margin:16px 0 14px;">What it <span style="font-style:italic;">is</span>.</div><div style="font-size:25px; line-height:1.45; color:#6B6B6B;">Must <strong style="color:#0A0A0A;">never</strong> change — commits, branches, and specs all point at it. Wants to be frozen.</div></div>
+    <div style="border:1px solid #E6E6E6; border-radius:18px; padding:40px 44px;"><div style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.16em; text-transform:uppercase; color:#CF0090;">Position</div><div style="font-size:36px; font-weight:800; letter-spacing:-0.02em; margin:16px 0 14px;">Where it sits in line.</div><div style="font-size:25px; line-height:1.45; color:#6B6B6B;">Changes <strong style="color:#0A0A0A;">constantly</strong> — because you reprioritize. Wants to move freely.</div></div>
+  </div>
+  <p style="font-size:30px; line-height:1.4; color:#0A0A0A; font-weight:600; margin:38px 0 0; max-width:1500px;">The trouble starts the instant you make one token carry both.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>26</span></div>
+</section>
+
+<section data-label="The bug, in one number" data-speaker-notes="The aha. The number isn't wrong because numbers are bad — it's wrong because it's doing two jobs with opposite update rules. The fix isn't a better numbering scheme. It's refusing to let one token be both. Which is exactly what the catalog/schedule split was already doing." style="background:#0A0A0A; color:#FFFFFF; padding:118px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#6B6B6B;">The bug, in one number</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 30px;"></div>
+  <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:180px; font-weight:800; letter-spacing:-0.04em; line-height:0.9; color:#FFFFFF;">E5</div>
+      <div style="font-size:28px; color:#9A9A9A; margin-top:16px;">a position pretending to be a name</div>
+    </div>
+    <div>
+      <h2 style="font-size:50px; font-weight:700; letter-spacing:-0.03em; line-height:1.08; margin:0;"><span style="font-family:'JetBrains Mono',monospace;">E5</span> tries to be identity and position at once.</h2>
+      <div style="margin-top:30px; display:flex; flex-direction:column; gap:18px;">
+        <div style="display:flex; gap:18px; align-items:flex-start;"><span style="color:#FF6FC8; font-size:24px;">→</span><span style="font-size:24px; line-height:1.4; color:#D8D8D8;">Move it ahead of <span style="font-family:'JetBrains Mono',monospace;">E9</span> → the number now lies about where it sits.</span></div>
+        <div style="display:flex; gap:18px; align-items:flex-start;"><span style="color:#FF6FC8; font-size:24px;">→</span><span style="font-size:24px; line-height:1.4; color:#D8D8D8;">Renumber to fix the lie → every commit, branch, and spec that referenced <span style="font-family:'JetBrains Mono',monospace;">E5</span> rots.</span></div>
+      </div>
+      <p style="font-size:26px; line-height:1.4; color:#FFFFFF; font-weight:600; margin:30px 0 0;">One number doing two jobs can't win: every reorder forces a choice between a lie and a break.</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>27</span></div>
+</section>
+
+<section data-label="Part 6 · So it survives change" data-speaker-notes="Now we name the fix the anatomy was quietly implementing, and then stress-test it. This is the payoff section — the 'watch nothing rot' moment that makes the whole thing land." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part six</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:112px; font-weight:800; letter-spacing:-0.04em; line-height:0.98; margin:0;">So it survives change</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1200px; margin:44px 0 0;">The convention's answer, and the proof: one roadmap, three rounds of change, zero broken references.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>28</span></div>
+</section>
+
+<section data-label="The fix" data-speaker-notes="Land the refrain — say it out loud, slowly; the room will repeat it by the end. Then close the loop on Part 3: the separation they took as 'just the layout' was the entire fix. The catalog never holds order; the schedule never holds identity." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The fix</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:84px; font-weight:700; letter-spacing:-0.035em; line-height:1.0; margin:0;">Give each its own home.</h2>
+  <p style="font-size:30px; line-height:1.45; color:#6B6B6B; max-width:1400px; margin:36px 0 0;">Identity gets a name that never moves — a <strong style="color:#0A0A0A;">slug</strong>. Position gets a list you rewrite freely — the <strong style="color:#0A0A0A;">schedule</strong>. They never touch.</p>
+  <div style="border-left:5px solid #CF0090; padding:8px 0 8px 36px; margin:40px 0 0; max-width:1500px;">
+    <p style="font-size:38px; line-height:1.35; color:#0A0A0A; font-weight:700; letter-spacing:-0.02em; margin:0;">Slugs name what exists. The schedule names what's next. Neither one renumbers the other.</p>
+  </div>
+  <p style="font-size:25px; line-height:1.45; color:#6B6B6B; margin:34px 0 0; max-width:1400px;">You've already seen the shape of this: it's the catalog and schedule from Part 3. Now you know why they're separate.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>29</span></div>
+</section>
+
+<section data-label="Naming · why no numbers" data-speaker-notes="The no-number rule feels arbitrary until this slide. The absence of a sort order is the feature: it removes the 'this is out of order' signal entirely, because there was never an order to violate. And self-documentation is free — the agent never has to resolve E5 to a meaning." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Naming · why no numbers is the feature</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">A slug that can't be sorted reads as deliberate.</h2>
+  <div style="display:flex; gap:16px; margin-top:28px; align-items:center;"><span style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.1em; color:#6B6B6B;">Rules:</span><span style="font-family:'JetBrains Mono',monospace; font-size:18px; color:#0A0A0A; background:#F2F1EE; border-radius:8px; padding:8px 16px;">1–3 words · UPPERCASE · no numbers</span><span style="font-family:'JetBrains Mono',monospace; font-size:18px; color:#CF0090;">CHECKOUT · RIDE · REFUNDS</span></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; margin-top:36px;">
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#5FCF8f; font-weight:600;">CHECKOUT, NEARBY, BOOKING</div><div style="font-size:22px; color:#6B6B6B; line-height:1.4; margin-top:14px;">In any order reads as intentional — slugs have no natural sort, so nothing looks broken.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#FF6FC8; font-weight:600;">E9, E5, E6</div><div style="font-size:22px; color:#6B6B6B; line-height:1.4; margin-top:14px;">Reads as broken even when it's correct, because numbers beg to be sorted.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-family:'JetBrains Mono',monospace; font-size:22px; color:#0A0A0A; font-weight:600;">CHECKOUT-S4</div><div style="font-size:22px; color:#6B6B6B; line-height:1.4; margin-top:14px;">A slug says what the thing <span style="font-style:italic;">is</span>. Self-documenting; <span style="font-family:'JetBrains Mono',monospace;">E5-S2</span> makes you go look up E5.</div></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>30</span></div>
+</section>
+
+<section data-label="v1 → v2 · reorder + insert" data-speaker-notes="These three are exactly the moves that used to produce E9, E5, E6, E11. Here they're three edits to one list, and every slug still points at the same thing it always did. NEARBY is NEARBY in every commit even as the line numbers around it churn. Insert costs nothing because the numbers were never real." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">v1 → v2 · reorder + insert</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Three line edits. Nothing renumbered.</h2>
+  <div style="display:flex; flex-direction:column; gap:14px; margin-top:30px; max-width:1560px;">
+    <div style="display:flex; gap:20px; align-items:baseline;"><span style="font-size:24px; font-weight:800; min-width:230px;">ACCOUNTS done</span><span style="font-size:23px; color:#6B6B6B; line-height:1.35;">dropped from the schedule, status flipped in the catalog.</span></div>
+    <div style="display:flex; gap:20px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:14px;"><span style="font-size:24px; font-weight:800; min-width:230px;">Inserted PLACES</span><span style="font-size:23px; color:#6B6B6B; line-height:1.35;">building BOOKING made it obvious you can't request a ride without searchable places. New catalog entry, slug dropped into the schedule.</span></div>
+    <div style="display:flex; gap:20px; align-items:baseline; border-top:1px solid #E6E6E6; padding-top:14px;"><span style="font-size:24px; font-weight:800; min-width:230px;">Moved RIDE up</span><span style="font-size:23px; color:#6B6B6B; line-height:1.35;">test live ride tracking early against a mocked checkout. One line moved.</span></div>
+  </div>
+  <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:30px 36px; margin-top:34px; font-family:'JetBrains Mono',monospace; font-size:23px; line-height:1.9;">
+    <div><span style="color:#6B6B6B;">v1:</span>&nbsp;&nbsp;<span style="color:#9A9A9A;">1.ACCOUNTS←done</span>&nbsp;&nbsp;<span style="color:#D8D8D8;">2.NEARBY&nbsp;&nbsp;3.BOOKING&nbsp;&nbsp;4.CHECKOUT&nbsp;&nbsp;5.RIDE&nbsp;&nbsp;6.RATINGS</span></div>
+    <div><span style="color:#CF0090;">v2:</span>&nbsp;&nbsp;<span style="color:#D8D8D8;">1.NEARBY&nbsp;&nbsp;2.BOOKING&nbsp;&nbsp;</span><span style="color:#CF0090;">3.PLACES</span><span style="color:#D8D8D8;">&nbsp;&nbsp;</span><span style="color:#5FCF8f;">4.RIDE</span><span style="color:#D8D8D8;">&nbsp;&nbsp;5.CHECKOUT&nbsp;&nbsp;6.RATINGS</span></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>31</span></div>
+</section>
+
+<section data-label="v2 → v3 · reopen + tombstone + new epic" data-speaker-notes="Three events, three rules, none touched an identifier. A death that leaves a marked grave; a return from 'done' with no fake version number; and a new thing that resists being called CHECKOUT2. The next two slides zoom into the two people get wrong." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">v2 → v3 · reopen + tombstone + new epic</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:54px; font-weight:700; letter-spacing:-0.03em; line-height:1.04; margin:0; max-width:1560px;">Three "the plan changed" events. Zero identifiers disturbed.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:30px; margin-top:44px;">
+    <div style="background:#F2F1EE; border-radius:18px; padding:36px 38px;"><div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B;">Tombstoned</div><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em; margin:14px 0 12px;">PLACES</div><div style="font-size:22px; line-height:1.4; color:#6B6B6B;">Pickup and destination belong inside booking, so the work folded into BOOKING. The slug stays in the catalog with <span style="font-family:'JetBrains Mono',monospace;">⛔</span> and a pointer.</div></div>
+    <div style="background:#F2F1EE; border-radius:18px; padding:36px 38px;"><div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B;">Reopened</div><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em; margin:14px 0 12px;">CHECKOUT</div><div style="font-size:22px; line-height:1.4; color:#6B6B6B;">A fare-transparency pass found checkout charged before showing the full fare. Same goal, unfinished → flip <span style="font-family:'JetBrains Mono',monospace;">done → active</span>, append <span style="font-family:'JetBrains Mono',monospace;">CHECKOUT-S4</span>.</div></div>
+    <div style="background:#F2F1EE; border-radius:18px; padding:36px 38px;"><div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#CF0090;">New epic</div><div style="font-size:30px; font-weight:800; letter-spacing:-0.02em; margin:14px 0 12px;">REFUNDS</div><div style="font-size:22px; line-height:1.4; color:#6B6B6B;">Returning money on a cancelled ride is a <span style="font-style:italic;">different goal</span> that shares payment code → its own slug with <span style="font-family:'JetBrains Mono',monospace;">depends_on: CHECKOUT</span>.</div></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>32</span></div>
+</section>
+
+<section data-label="The one judgment call" data-speaker-notes="The only real judgment call in the system, so spend a minute. The test is a one-liner: write the goal sentence. Matches the original → you weren't finished, reopen. A different sentence → new epic that happens to share code. CHECKOUT2 fails because 'the one after checkout' is a position wearing a name as a disguise." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The one judgment call</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Reopen, or new epic? One test.</h2>
+  <div style="background:#0A0A0A; color:#fff; border-radius:16px; padding:30px 40px; margin-top:28px; max-width:1560px;"><p style="font-size:30px; font-weight:600; line-height:1.35; margin:0;">Can you write a one-line goal for the new work that differs from the epic's original goal?</p></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:30px;">
+    <div style="border:1px solid #E6E6E6; border-radius:18px; padding:34px 38px;"><div style="font-size:26px; font-weight:800; color:#5FCF8f;">Same goal, just unfinished → reopen.</div><div style="font-size:22px; line-height:1.45; color:#6B6B6B; margin-top:14px;">CHECKOUT's goal: <span style="font-style:italic; color:#0A0A0A;">let a rider pay for their ride, knowing the fare.</span> The missing fare breakdown is that same goal, undone. Flip to active, append a sprint. "Done" is a status you flip, not a sealed tomb.</div></div>
+    <div style="border:1px solid #E6E6E6; border-radius:18px; padding:34px 38px;"><div style="font-size:26px; font-weight:800; color:#CF0090;">Different goal, shared code → new epic.</div><div style="font-size:22px; line-height:1.45; color:#6B6B6B; margin-top:14px;">REFUNDS' goal: <span style="font-style:italic; color:#0A0A0A;">return money when a ride is cancelled or fails.</span> Different goal. New slug, <span style="font-family:'JetBrains Mono',monospace;">depends_on: CHECKOUT</span>.</div></div>
+  </div>
+  <p style="font-size:28px; line-height:1.4; margin:30px 0 0;"><strong style="color:#0A0A0A;">Never</strong> <span style="font-family:'JetBrains Mono',monospace; color:#FF6FC8;">CHECKOUT2</span>. <span style="color:#6B6B6B;">The <span style="font-family:'JetBrains Mono',monospace;">2</span> is position smuggled back in through the side door.</span></p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>33</span></div>
+</section>
+
+<section data-label="Tombstones" data-speaker-notes="Silence is the enemy. An agent reading a catalog with a hole in it can't tell a deliberate deletion from a sync error, so it reconstructs — exactly what we're preventing. A tombstone is one line that says 'intentional, resolved, here's the pointer.' Cheap insurance against a confused reader." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Tombstones</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.04; margin:0; max-width:1560px;">A dead epic leaves a marked grave, never a silent gap.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:40px; align-items:center;">
+    <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:36px 40px; font-family:'JetBrains Mono',monospace; font-size:24px;"><span style="color:#6B6B6B;">|</span> <span style="color:#D8D8D8;">PLACES</span> <span style="color:#6B6B6B;">|</span> <span style="color:#FF6FC8;">⛔ folded into BOOKING</span> <span style="color:#6B6B6B;">|</span> <span style="color:#9A9A9A;">dead</span> <span style="color:#6B6B6B;">| — |</span></div>
+    <p style="font-size:26px; line-height:1.45; color:#6B6B6B; margin:0;">When PLACES folded into BOOKING, it didn't vanish — it stayed in the catalog. Delete the line and the next reader wonders what's missing and goes looking. The tombstone answers the question before it's asked: <span style="color:#0A0A0A; font-weight:600;">this was real, here's where the work went.</span></p>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>34</span></div>
+</section>
+
+<section data-label="Operations cheat-sheet" data-speaker-notes="The laminated card. Every row is a single, local edit — no cascading renumber, no cross-file reconciliation. That's the dividend of separating identity from position. Tell them to screenshot this slide; it's the whole convention operationalized." style="background:#FAFAFA; color:#0A0A0A; padding:100px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Operations cheat-sheet</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:24px 0 20px;"></div>
+  <h2 style="font-size:56px; font-weight:700; letter-spacing:-0.03em; line-height:1.0; margin:0;">Every change is one move.</h2>
+  <div style="margin-top:28px; border:1px solid #E6E6E6; border-radius:14px; overflow:hidden;">
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; background:#F2F1EE; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.12em; text-transform:uppercase; color:#6B6B6B;"><div style="padding:16px 30px;">You want to…</div><div style="padding:16px 30px;">You do…</div></div>
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:15px 30px; font-weight:700;">Add or insert an epic</div><div style="padding:15px 30px; color:#6B6B6B;">Catalog entry + drop the slug anywhere in the schedule.</div></div>
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:15px 30px; font-weight:700;">Reorder</div><div style="padding:15px 30px; color:#6B6B6B;">Rearrange the schedule list. That's the whole operation.</div></div>
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:15px 30px; font-weight:700;">Finish an epic</div><div style="padding:15px 30px; color:#6B6B6B;">Flip catalog status to <span style="font-family:'JetBrains Mono',monospace;">done</span>, remove its schedule line.</div></div>
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:15px 30px; font-weight:700;">Kill an epic</div><div style="padding:15px 30px; color:#6B6B6B;">Tombstone: <span style="font-family:'JetBrains Mono',monospace; color:#FF6FC8;">⛔</span> + a pointer to where the work went.</div></div>
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:15px 30px; font-weight:700;">Reopen finished work <span style="color:#6B6B6B; font-weight:400;">(same goal)</span></div><div style="padding:15px 30px; color:#6B6B6B;">Flip to <span style="font-family:'JetBrains Mono',monospace;">active</span>, append the next sprint. No new slug.</div></div>
+    <div style="display:grid; grid-template-columns:1fr 1.5fr; border-top:1px solid #E6E6E6; font-size:22px; align-items:center;"><div style="padding:15px 30px; font-weight:700;">New work that shares code <span style="color:#6B6B6B; font-weight:400;">(new goal)</span></div><div style="padding:15px 30px; color:#6B6B6B;">New slug with a <span style="font-family:'JetBrains Mono',monospace;">depends_on</span>. Never <span style="font-family:'JetBrains Mono',monospace; color:#FF6FC8;">SLUG2</span>.</div></div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>35</span></div>
+</section>
+
+<section data-label="Part 7 · Your turn" data-speaker-notes="Pivot to hands-on, the Airborne move. Everything until now was so this part lands. We give them the convention as executable skills, not a doc to admire." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#CF0090;">Part seven</div>
+  <div style="width:64px; height:5px; background:#CF0090; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:128px; font-weight:800; letter-spacing:-0.04em; line-height:0.96; margin:0;">Your turn</h2>
+  <p style="font-size:34px; line-height:1.4; color:#9A9A9A; max-width:1200px; margin:44px 0 0;">A convention you can't run is a blog post. Here's the repo, two skills, and the exercise.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>36</span></div>
+</section>
+
+<section data-label="Two skills" data-speaker-notes="The inversion applied to the convention itself: don't hand-maintain the artifact, author the source and let a skill compile it. create-roadmap is the cold start; update-roadmap is what you run weekly. Be honest: these ship as v0 drafts in the repo — we'll harden them together." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Two skills</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:62px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">One encodes the start. One encodes the change.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:42px;">
+    <div style="border:1px solid #E6E6E6; border-radius:18px; padding:38px 42px;"><div style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600;">create-roadmap</div><div style="font-size:24px; font-weight:700; margin:14px 0 10px;">Greenfield.</div><div style="font-size:22px; line-height:1.45; color:#6B6B6B;">Point it at a product description; it emits <span style="font-family:'JetBrains Mono',monospace;">roadmap.md</span> (NOW/NEXT + SCHEDULE + CATALOG) and the <span style="font-family:'JetBrains Mono',monospace;">specs/</span> scaffold, already in the convention.</div></div>
+    <div style="border:1px solid #E6E6E6; border-radius:18px; padding:38px 42px;"><div style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600;">update-roadmap</div><div style="font-size:24px; font-weight:700; margin:14px 0 10px;">The churn.</div><div style="font-size:22px; line-height:1.45; color:#6B6B6B;">Tell it "ship ACCOUNTS, pull RIDE up, we need refunds." It applies the right move per the cheat-sheet — reorder, insert, reopen, tombstone, or new epic — and never invents a <span style="font-family:'JetBrains Mono',monospace;">SLUG2</span>.</div></div>
+  </div>
+  <p style="font-size:28px; line-height:1.4; color:#0A0A0A; font-weight:600; margin:38px 0 0; max-width:1500px;">The convention isn't a doc you remember to follow. It's a skill that follows it for you.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>37</span></div>
+</section>
+
+<section data-label="Clone it · three steps" data-speaker-notes="Mirror Airborne's 'three steps to your first run.' Low floor: you don't reorganize the org, you do one product area. The repo they clone is PEDAL fully worked — three roadmap versions, the CHECKOUT spec stack, both skills." style="background:#FAFAFA; color:#0A0A0A; padding:96px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Clone it · three steps</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:22px 0 18px;"></div>
+  <h2 style="font-size:52px; font-weight:700; letter-spacing:-0.03em; line-height:1.0; margin:0;">Copy the convention, generate one, run the churn.</h2>
+  <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:56px; margin-top:30px; align-items:center;">
+    <div style="background:#0E0E0E; border:1px solid #232323; border-radius:14px; padding:30px 36px; font-family:'JetBrains Mono',monospace; font-size:18px; line-height:1.65;">
+      <div style="color:#7FB0FF;">your-product/</div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#D8D8D8;">CONVENTIONS.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">the rules</span></div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#D8D8D8;">CLAUDE.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">standing map + rules</span></div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#D8D8D8;">prompt.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">per-turn marching orders</span></div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#CF0090;">roadmap.md</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">NOW/NEXT · SCHEDULE · CATALOG</span></div>
+      <div><span style="color:#6B6B6B;">├──</span> <span style="color:#D8D8D8;">specs/</span></div>
+      <div><span style="color:#6B6B6B;">│&nbsp;&nbsp;&nbsp;└──</span> <span style="color:#D8D8D8;">{SLUG}/</span>&nbsp;&nbsp;&nbsp;<span style="color:#6B6B6B;">epic · brief · plans/</span></div>
+      <div><span style="color:#6B6B6B;">└──</span> <span style="color:#D8D8D8;">.claude/skills/</span></div>
+      <div><span style="color:#6B6B6B;">&nbsp;&nbsp;&nbsp;&nbsp;├──</span> <span style="color:#D8D8D8;">create-roadmap/</span></div>
+      <div><span style="color:#6B6B6B;">&nbsp;&nbsp;&nbsp;&nbsp;└──</span> <span style="color:#D8D8D8;">update-roadmap/</span></div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <div style="display:flex; gap:20px; align-items:flex-start;"><span style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#CF0090; font-weight:700;">1</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">Drop <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">CONVENTIONS.md</span> into one product area.</span></div>
+      <div style="display:flex; gap:20px; align-items:flex-start;"><span style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#CF0090; font-weight:700;">2</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">Run <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">create-roadmap</span> on its description.</span></div>
+      <div style="display:flex; gap:20px; align-items:flex-start;"><span style="font-family:'JetBrains Mono',monospace; font-size:30px; color:#CF0090; font-weight:700;">3</span><span style="font-size:24px; color:#6B6B6B; line-height:1.35;">Run <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">update-roadmap</span> every time priorities move.</span></div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:18px; color:#CF0090; margin-top:6px; border-top:1px solid #E6E6E6; padding-top:20px;">github.com/rishidean/agentic-roadmap</div>
+    </div>
+  </div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>38</span></div>
+</section>
+
+<section data-label="The exercise" data-speaker-notes="Give them the falsifiable win. The whole pitch is 'reorder freely and nothing breaks,' so make them try to break it in the room. The aha is physical: you move four lines, every reference still resolves, and you realize the renumber tax you've paid for years was optional." style="background:#FAFAFA; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The exercise</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Take your messiest roadmap and try to break it.</h2>
+  <div style="display:flex; flex-direction:column; gap:0; margin-top:40px; max-width:1560px;">
+    <div style="display:flex; gap:26px; align-items:flex-start; padding:20px 0;"><span style="font-family:'JetBrains Mono',monospace; font-size:26px; color:#CF0090; font-weight:700; min-width:40px;">1</span><span style="font-size:27px; color:#6B6B6B; line-height:1.4;">Pick the product area whose roadmap reorders the most.</span></div>
+    <div style="display:flex; gap:26px; align-items:flex-start; padding:20px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:26px; color:#CF0090; font-weight:700; min-width:40px;">2</span><span style="font-size:27px; color:#6B6B6B; line-height:1.4;">Express it once in the convention (or let <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">create-roadmap</span> do it).</span></div>
+    <div style="display:flex; gap:26px; align-items:flex-start; padding:20px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:26px; color:#CF0090; font-weight:700; min-width:40px;">3</span><span style="font-size:27px; color:#6B6B6B; line-height:1.4;">Now reprioritize live — insert, reopen, kill something — and watch every commit, branch, and spec reference survive untouched.</span></div>
+  </div>
+  <p style="font-size:32px; line-height:1.35; color:#0A0A0A; font-weight:700; letter-spacing:-0.02em; margin:36px 0 0;">If nothing rots, you're done. That's the test.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>39</span></div>
+</section>
+
+<section data-label="Any system of record" data-speaker-notes="The Slide 3 caveat cashed out at the end, heading off the 'but we live in Jira' objection. Jira already gives you PEDAL-142 (stable identity, a creation-order counter you never reorder) and a separate board rank (position) — exactly identity-apart-from-position. Lowest common denominator first, then port the idea." style="background:#F2F1EE; color:#0A0A0A; padding:118px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Any system of record</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 24px;"></div>
+  <h2 style="font-size:64px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">You can build this out of anything.</h2>
+  <p style="font-size:27px; line-height:1.45; color:#6B6B6B; max-width:1560px; margin:28px 0 0;">Plain files are the lowest common denominator: any agent, any repo, zero integration. But the format isn't the point — the convention is. Put it in Jira, Linear, Asana, a database, a spreadsheet. Identity in a permanent key, order in a view you rearrange, sprints appended underneath.</p>
+  <p style="font-size:27px; line-height:1.45; color:#0A0A0A; margin:24px 0 0; max-width:1560px;">Your tracker probably already separates a stable issue key from a draggable rank. That separation <span style="font-weight:700;">is</span> this convention. Most teams just don't treat it as sacred.</p>
+  <div style="border-left:5px solid #CF0090; padding:6px 0 6px 32px; margin:34px 0 0; max-width:1560px;"><p style="font-size:28px; line-height:1.35; color:#0A0A0A; font-weight:700; letter-spacing:-0.02em; margin:0;">The tool changes. The idea doesn't: name what exists, derive what's next, never let one token do both.</p></div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>40</span></div>
+</section>
+
+<section data-label="Why this is yours" data-speaker-notes="The 'only you can fly the helicopter' beat from Airborne, retargeted at PMs. Don't outsource the roadmap's machine-legibility to engineering — it's an authoring decision, and authoring the priority artifact is the job. The convention is how you keep doing your job in a world where a machine reads it first." style="background:#FAFAFA; color:#0A0A0A; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Why this is yours</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:56px; font-weight:700; letter-spacing:-0.03em; line-height:1.06; margin:0; max-width:1620px;">The roadmap was always the PM's. Now it's also the agent's first read.</h2>
+  <p style="font-size:29px; line-height:1.45; color:#6B6B6B; max-width:1500px; margin:36px 0 0;">In the agentic loop, the roadmap is two things at once: the priority artifact you've always owned, and the top of the corpus the agent reads before it builds anything. Engineering owns the loop. <strong style="color:#0A0A0A;">You</strong> own what the loop is pointed at.</p>
+  <p style="font-size:32px; line-height:1.4; color:#0A0A0A; font-weight:600; max-width:1500px; margin:26px 0 0;">If the map isn't legible to the machine, the loop flies blind — fast, and in the wrong direction.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>41</span></div>
+</section>
+
+<section data-label="The ask" data-speaker-notes="Concrete, small, time-boxed — same as Airborne's 90-day ask. Not 'reorganize everything,' just one roadmap, the messiest one, this quarter. Close on the refrain one last time; by now the room can say it with you." style="background:#0A0A0A; color:#FFFFFF; padding:130px 140px 90px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#6B6B6B;">The ask</div>
+  <div style="width:48px; height:4px; background:#CF0090; border-radius:2px; margin:30px 0 28px;"></div>
+  <h2 style="font-size:60px; font-weight:700; letter-spacing:-0.03em; line-height:1.08; margin:0; max-width:1600px;">One product area. One roadmap in the convention. This quarter.</h2>
+  <p style="font-size:29px; line-height:1.45; color:#9A9A9A; max-width:1500px; margin:34px 0 0;">Pick the area whose priorities churn the most — the one that produces <span style="font-family:'JetBrains Mono',monospace; color:#FFFFFF;">E9, E5, E6, E11</span>. Express it once in the convention and run the loop against it.</p>
+  <p style="font-size:34px; line-height:1.35; color:#FFFFFF; font-weight:700; letter-spacing:-0.02em; margin:28px 0 0;">Stop hand-maintaining order. Author identity; derive position.</p>
+  <div style="border-left:5px solid #CF0090; padding:6px 0 6px 32px; margin:36px 0 0; max-width:1560px;"><p style="font-size:26px; line-height:1.4; color:#E59BD0; font-style:italic; margin:0;">Slugs name what exists. The schedule names what's next. Neither one renumbers the other.</p></div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>42</span></div>
+</section>
+
+<section data-label="Appendix" data-speaker-notes="Optional reference for those implementing. The detail slides that follow are supporting material — read the tier as supporting, not headline." style="background:#F2F1EE; color:#0A0A0A; padding:130px 140px; display:flex; flex-direction:column; justify-content:center; font-family:'Manrope',sans-serif;">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#6B6B6B;">Appendix</div>
+  <div style="width:64px; height:5px; background:#B5B5B5; border-radius:2px; margin:36px 0 40px;"></div>
+  <h2 style="font-size:112px; font-weight:800; letter-spacing:-0.04em; line-height:0.98; margin:0; color:#0A0A0A;">For implementers</h2>
+  <p style="font-size:34px; line-height:1.4; color:#6B6B6B; max-width:1200px; margin:44px 0 0;">Anti-patterns, the files that ship, the division of labor, and the principles that outlast the syntax.</p>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>43</span></div>
+</section>
+
+<section data-label="Appendix · Anti-patterns" data-speaker-notes="The relapses. Every one is position trying to re-enter through a side door after you evicted it from the front. The 2 suffix is the most common and the most seductive because it feels like a name. It isn't." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Anti-patterns</span><span style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.1em; color:#B5B5B5;">01 / 04</span></div>
+  <div style="width:48px; height:4px; background:#B5B5B5; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">The ways position sneaks back in.</h2>
+  <div style="display:flex; flex-direction:column; gap:0; margin-top:34px; max-width:1620px;">
+    <div style="display:flex; gap:24px; align-items:baseline; padding:18px 0;"><span style="font-size:25px; font-weight:800; min-width:380px;">Numbers as position</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">at any layer you reorder. The whole problem.</span></div>
+    <div style="display:flex; gap:24px; align-items:baseline; padding:18px 0; border-top:1px solid #E6E6E6;"><span style="font-size:25px; font-weight:800; min-width:380px;">The <span style="font-family:'JetBrains Mono',monospace;">2</span> suffix</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;"><span style="font-family:'JetBrains Mono',monospace;">CHECKOUT2</span> — position disguised as identity.</span></div>
+    <div style="display:flex; gap:24px; align-items:baseline; padding:18px 0; border-top:1px solid #E6E6E6;"><span style="font-size:25px; font-weight:800; min-width:380px;">Storing the ordinal</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;"><span style="font-family:'JetBrains Mono',monospace;">CHECKOUT (3)</span> in the catalog. Now order lives in two places and drifts on the first reorder.</span></div>
+    <div style="display:flex; gap:24px; align-items:baseline; padding:18px 0; border-top:1px solid #E6E6E6;"><span style="font-size:25px; font-weight:800; min-width:380px;">Emojis as IDs</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">Unsortable, untypeable, render inconsistently across terminals and agents. (<span style="font-family:'JetBrains Mono',monospace;">⛔</span> is a status marker, not an ID.)</span></div>
+    <div style="display:flex; gap:24px; align-items:baseline; padding:18px 0; border-top:1px solid #E6E6E6;"><span style="font-size:25px; font-weight:800; min-width:380px;">Deleting dead epics</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">A silent gap reads as missing. Tombstone instead.</span></div>
+  </div>
+  <div style="flex:1;"></div>
+  <div style="font-family:'JetBrains Mono',monospace; font-size:17px; color:#6B6B6B;">that's the relapse list → <span style="color:#0A0A0A;">CONVENTIONS.md / anti-patterns</span></div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>44</span></div>
+</section>
+
+<section data-label="Appendix · The files" data-speaker-notes="Orient them in the repo so reading it isn't a maze. Suggested order: README, then CONVENTIONS, then walk v1→v2→v3 to watch the convention absorb change, then open specs/CHECKOUT/ to see the full operator-to-agent handoff on one sprint." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">The files</span><span style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.1em; color:#B5B5B5;">02 / 04</span></div>
+  <div style="width:48px; height:4px; background:#B5B5B5; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">What ships in the repo.</h2>
+  <div style="display:flex; flex-direction:column; gap:0; margin-top:30px; max-width:1620px;">
+    <div style="display:flex; gap:26px; align-items:baseline; padding:15px 0;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#7FB0FF; min-width:340px;">CONVENTIONS.md</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">the full rules.</span></div>
+    <div style="display:flex; gap:26px; align-items:baseline; padding:15px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#7FB0FF; min-width:340px;">roadmap.v1 → v2 → v3.md</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">the worked example, evolving. Each has a "what changed since" block; the diffs are the lesson.</span></div>
+    <div style="display:flex; gap:26px; align-items:baseline; padding:15px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#7FB0FF; min-width:340px;">specs/CHECKOUT/</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">a full spec stack on one active sprint: epic → brief → design → plan.</span></div>
+    <div style="display:flex; gap:26px; align-items:baseline; padding:15px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#7FB0FF; min-width:340px;">specs/REFUNDS/</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">the new-epic case, with the boundary that explains why it isn't <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">CHECKOUT2</span>.</span></div>
+    <div style="display:flex; gap:26px; align-items:baseline; padding:15px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#7FB0FF; min-width:340px;">skills/*-roadmap</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">v0 drafts; <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">SKILLS-DESIGN.md</span> has the intended behavior.</span></div>
+    <div style="display:flex; gap:26px; align-items:baseline; padding:15px 0; border-top:1px solid #E6E6E6;"><span style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#7FB0FF; min-width:340px;">CLAUDE.md + prompt.md</span><span style="font-size:22px; color:#6B6B6B; line-height:1.35;">how the convention wires into the loop: standing map vs. per-turn traversal of <span style="font-family:'JetBrains Mono',monospace; color:#0A0A0A;">roadmap.md</span>.</span></div>
+  </div>
+  <div style="flex:1;"></div>
+  <div style="font-family:'JetBrains Mono',monospace; font-size:17px; color:#6B6B6B;">start here → <span style="color:#0A0A0A;">README → CONVENTIONS.md → v1→v2→v3</span></div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>45</span></div>
+</section>
+
+<section data-label="Appendix · Division of labor" data-speaker-notes="For implementers. The trap is putting the loop steps in CLAUDE.md (now two files describe the traversal, and they drift), or the file layout in prompt.md. Procedure in prompt.md, structure in CLAUDE.md, state in roadmap.md, rules in CONVENTIONS.md." style="background:#FAFAFA; color:#0A0A0A; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#B5B5B5;">Division of labor</span><span style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.1em; color:#B5B5B5;">03 / 04</span></div>
+  <div style="width:48px; height:4px; background:#B5B5B5; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Three files, three jobs.</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; margin-top:36px;">
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#0A0A0A; font-weight:600;">prompt.md</div><div style="font-size:22px; font-weight:700; margin:12px 0 8px;">Owns the loop.</div><div style="font-size:21px; line-height:1.4; color:#6B6B6B;">The per-turn traversal of <span style="font-family:'JetBrains Mono',monospace;">roadmap.md</span>: read NOW, build, verify, tick the row and advance. The roadmap mechanics live here, nowhere else.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#0A0A0A; font-weight:600;">CLAUDE.md</div><div style="font-size:22px; font-weight:700; margin:12px 0 8px;">Owns the map and rules.</div><div style="font-size:21px; line-height:1.4; color:#6B6B6B;">Where specs live, contract-above-cache, the slug rules, the definition of done, and a pointer to <span style="font-family:'JetBrains Mono',monospace;">CONVENTIONS.md</span>. It is not the loop.</div></div>
+    <div style="border-top:2px solid #0A0A0A; padding-top:20px;"><div style="font-family:'JetBrains Mono',monospace; font-size:21px; color:#0A0A0A; font-weight:600;">roadmap.md</div><div style="font-size:22px; font-weight:700; margin:12px 0 8px;">Is state.</div><div style="font-size:21px; line-height:1.4; color:#6B6B6B;"><span style="font-family:'JetBrains Mono',monospace;">CONVENTIONS.md</span> is the full ruleset <span style="font-family:'JetBrains Mono',monospace;">CLAUDE.md</span> points at.</div></div>
+  </div>
+  <p style="font-size:25px; line-height:1.45; color:#0A0A0A; margin:34px 0 0; max-width:1620px;">Each is referenced once, never duplicated — duplication across them is the drift the convention exists to prevent.</p>
+  <div style="flex:1;"></div>
+  <div style="font-family:'JetBrains Mono',monospace; font-size:17px; color:#6B6B6B;">procedure → <span style="color:#0A0A0A;">prompt.md</span> · structure → <span style="color:#0A0A0A;">CLAUDE.md</span> · state → <span style="color:#0A0A0A;">roadmap.md</span></div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#B5B5B5; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>46</span></div>
+</section>
+
+<section data-label="Appendix · The principles" data-speaker-notes="Close the appendix the way Airborne did — the durable principles abstracted from the specific files. If someone reimplements this in a database or a different tool, these five are what they must preserve. Everything else is negotiable." style="background:#0A0A0A; color:#FFFFFF; padding:108px 140px 90px; display:flex; flex-direction:column; font-family:'Manrope',sans-serif;">
+  <div style="display:flex; justify-content:space-between; align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.28em; text-transform:uppercase; color:#6B6B6B;">The principles, not the syntax</span><span style="font-family:'JetBrains Mono',monospace; font-size:15px; letter-spacing:0.1em; color:#6B6B6B;">04 / 04</span></div>
+  <div style="width:48px; height:4px; background:#6B6B6B; border-radius:2px; margin:28px 0 22px;"></div>
+  <h2 style="font-size:58px; font-weight:700; letter-spacing:-0.03em; line-height:1.02; margin:0;">Filenames change. These don't.</h2>
+  <div style="display:flex; flex-direction:column; gap:0; margin-top:32px; max-width:1620px;">
+    <div style="display:flex; gap:28px; align-items:baseline; padding:17px 0;"><span style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600; min-width:44px;">1</span><span style="font-size:27px; color:#D8D8D8; line-height:1.35;"><strong style="color:#FFFFFF;">Identity apart from position.</strong> Name what exists; derive what's next.</span></div>
+    <div style="display:flex; gap:28px; align-items:baseline; padding:17px 0; border-top:1px solid #232323;"><span style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600; min-width:44px;">2</span><span style="font-size:27px; color:#D8D8D8; line-height:1.35;"><strong style="color:#FFFFFF;">No numbers where you reorder.</strong> Slugs for epics, a list for order.</span></div>
+    <div style="display:flex; gap:28px; align-items:baseline; padding:17px 0; border-top:1px solid #232323;"><span style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600; min-width:44px;">3</span><span style="font-size:27px; color:#D8D8D8; line-height:1.35;"><strong style="color:#FFFFFF;">Contract above, cache below.</strong> Hand-author intent; regenerate the rest.</span></div>
+    <div style="display:flex; gap:28px; align-items:baseline; padding:17px 0; border-top:1px solid #232323;"><span style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600; min-width:44px;">4</span><span style="font-size:27px; color:#D8D8D8; line-height:1.35;"><strong style="color:#FFFFFF;">Earn detail late.</strong> Brief at NEXT, plan at NOW.</span></div>
+    <div style="display:flex; gap:28px; align-items:baseline; padding:17px 0; border-top:1px solid #232323;"><span style="font-family:'JetBrains Mono',monospace; font-size:24px; color:#CF0090; font-weight:600; min-width:44px;">5</span><span style="font-size:27px; color:#D8D8D8; line-height:1.35;"><strong style="color:#FFFFFF;">Mark the graves.</strong> Tombstone, never delete.</span></div>
+  </div>
+  <div style="flex:1;"></div>
+  <div style="font-family:'JetBrains Mono',monospace; font-size:17px; color:#6B6B6B;">this is my way → <span style="color:#D8D8D8;">the syntax will change; these won't</span></div>
+  <div style="position:absolute; left:140px; right:140px; bottom:40px; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:#6B6B6B; pointer-events:none;"><span>rishidean/agentic-roadmap · Self-paced</span><span>47</span></div>
+</section>
+
+<!--SLIDES-END-->
+</x-import>
+</x-dc>
+</body>
+</html>

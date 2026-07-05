@@ -1,0 +1,86 @@
+/* Sponsored Moments — DECK tokens
+   Landscape 16:9 slide surface. EXTENDS colors_and_type.css — load that first.
+   These tokens add deck-only values; they never restate or override the core
+   palette/type. No new brand colors are introduced. */
+
+:root {
+  /* ── Canvas ─────────────────────────────────────────────── */
+  --deck-w: 1920px;          /* authoring width (landscape) */
+  --deck-h: 1080px;          /* authoring height — 16:9 */
+  --deck-edge: 140px;        /* outer edge padding (range 96–140px) */
+  --deck-edge-min: 96px;
+
+  /* ── Status semantics ───────────────────────────────────── */
+  --status-green: #5FCf8f;   /* pass / good / prompt */
+  --status-red:   #FF6FC8;   /* fail / warn / bug — a pink, NOT the accent magenta */
+
+  /* ── Dark code-mock card ────────────────────────────────── */
+  --code-bg:     #0E0E0E;    /* terminal / file-view background */
+  --code-border: #232323;    /* 1px card border */
+  --code-body:   #D8D8D8;    /* default mono body text */
+  --code-blue:   #7FB0FF;    /* filenames & section headers */
+  --code-dim:    #9A9A9A;    /* comments / dimmed lines (down to #6B6B6B) */
+  /* success/prompt reuses --status-green; bug highlight reuses --status-red */
+
+  /* ── Persistent footer ──────────────────────────────────── */
+  --footer-ink-light: #B5B5B5;  /* footer on light slides (== --sm-ink-faint) */
+  --footer-ink-dark:  #6B6B6B;  /* footer on dark slides (== --sm-ink-muted) */
+
+  /* ── Deck type scale (at 1920×1080) ─────────────────────── */
+  --deck-t-title-display: 200px;  /* title-slide h1 (188–208px) */
+  --deck-t-title:          66px;  /* content-slide title (60–72px) */
+  --deck-t-divider:       128px;  /* section-divider headline */
+  --deck-t-subtitle:       34px;  /* muted subtitle under a title */
+  --deck-t-body:           28px;  /* on-slide body */
+
+  /* ── Inline magenta link (title subtitle) ───────────────── */
+  --deck-link:        var(--sm-accent);
+  --deck-link-border: rgba(207, 0, 144, 0.32);
+
+  /* ── Nav/index card hover ───────────────────────────────── */
+  --deck-card-hover-fill:   #FFF5FB;        /* pale magenta wash */
+  --deck-card-hover-border: var(--sm-accent);
+}
+
+/* ── Stage scaffold ───────────────────────────────────────────
+   A .deck-slide is the 1920×1080 fixed canvas; wrap it in a stage that
+   scales to fit. (Scene-scale type/spacing assumes this authoring size.) */
+.deck-slide {
+  position: relative;
+  width: var(--deck-w);
+  height: var(--deck-h);
+  background: var(--sm-bg);
+  overflow: hidden;
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+}
+.deck-slide.is-paper { background: var(--sm-paper); }
+.deck-slide.is-dark  { background: var(--sm-ink); color: #fff; }
+.deck-slide.is-black { background: var(--sm-black); color: #fff; }
+
+/* ── Persistent footer ───────────────────────────────────────── */
+.deck-footer {
+  position: absolute;
+  left: 56px; right: 56px; bottom: 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--footer-ink-light);
+  pointer-events: none;
+}
+.deck-slide.is-dark .deck-footer,
+.deck-slide.is-black .deck-footer { color: var(--footer-ink-dark); }
+/* Title slide carries no footer — simply omit .deck-footer on it. */
+
+/* ── Accent bar (deck-scale) ─────────────────────────────────── */
+.deck-accent-bar {
+  width: 48px; height: 4px;
+  background: var(--sm-accent);
+  border-radius: 2px;
+}
+
+/* ── Status colors ───────────────────────────────────────────── */
+.is-pass { color: var(--status-green); }
+.is-fail { color: var(--status-red); }
