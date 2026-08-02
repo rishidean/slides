@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escape Velocity: From Faster Tasks to a Different Product System</title>
+<meta name="description" content="AI Week opening keynote: from individual AI productivity to the cross-functional system that ships the product.">
+<link rel="canonical" href="https://slides.rishidean.com/intro/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="slides.rishidean.com">
+<meta property="og:url" content="https://slides.rishidean.com/intro/">
+<meta property="og:title" content="Escape Velocity: From Faster Tasks to a Different Product System">
+<meta property="og:description" content="AI Week opening keynote: from individual AI productivity to the cross-functional system that ships the product.">
+<meta property="og:image" content="https://slides.rishidean.com/intro/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Escape Velocity — keynote title slide">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Escape Velocity: From Faster Tasks to a Different Product System">
+<meta name="twitter:description" content="AI Week opening keynote: from individual AI productivity to the cross-functional system that ships the product.">
+<meta name="twitter:image" content="https://slides.rishidean.com/intro/og-image.png">
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0A0A0A"/>
+    <rect x="430" y="300" width="120" height="11" rx="5" fill="#CF0090"/>
+    <text x="430" y="400" font-family="Manrope, sans-serif" font-size="84" font-weight="800" letter-spacing="-3" fill="#FAFAFA">Escape</text>
+    <text x="430" y="500" font-family="Manrope, sans-serif" font-size="84" font-weight="800" letter-spacing="-3" fill="#FAFAFA">Velocity</text>
+  </svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0A0A0A; }
+  * { box-sizing: border-box; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Title" data-speaker-notes="Welcome to AI Week. Most of the sessions you attend this week will focus on individual speed — how to write a prompt, generate a snippet, summarize a document faster. This session is different. We are going to focus on the entire cross-functional system that produces your product. Our goal is to shift our analysis from the person using AI to the team system that actually ships software to customers." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:104px 140px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span style="color:#0A0A0A;">AI WEEK · OPENING KEYNOTE</span>
+    <span>20 MINUTES&nbsp;<span style="letter-spacing: 5.6px;">· AUGUST 2026</span></span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:40px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;"></div>
+    <h1 style="margin:0;font-weight:800;letter-spacing:-0.045em;line-height:0.9;font-size:208px;">Escape<br>velocity</h1>
+    <p style="margin:0;max-width:1000px;font-size:38px;line-height:1.32;letter-spacing:-0.01em;color:#6B6B6B;">From faster tasks to a different product development process — shifting the unit of analysis from <em>the person using AI</em> to <em>the system that ships the product</em>.</p>
+    
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.18em;text-transform:uppercase;color:#B5B5B5;">
+    
+    <span style="color:#0A0A0A;">RISHI DEAN&nbsp;·&nbsp;<a href="https://slides.rishidean.com" style="color:#CF0090;text-decoration:none;border-bottom:2px solid rgba(207,0,144,0.32);">slides.rishidean.com</a></span>
+  </div>
+</section>
+
+<section data-label="Divider: Act 1" data-speaker-notes="Act 1: The discrepancy. The market is split on whether this works at all. Same machine, wildly different results — we start by explaining why." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#6B6B6B;">Act one</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
+  <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">The discrepancy</h2>
+  <p style="margin:48px 0 0;max-width:900px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">The market can’t agree on whether AI works. Both sides are looking at the same machine.</p>
+  <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers: why 95% see nothing while a few see 10x.</div>
+</section>
+
+<section data-label="The Paradox · ADAPT" data-speaker-notes="Both true at once. MIT, Nobel laureates, McKinsey measured almost no productivity gain from AI. And yet some practitioners see 10x, 50x. How can both be true? That's the question." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>THE PARADOX</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:56px 0 0;"></div>
+  <h2 style="margin:36px 0 0;font-weight:700;font-size:72px;letter-spacing:-0.03em;line-height:1.0;max-width:1200px;">Two realities coexist in the world</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:72px;">
+    <div style="border:1px solid #E6E6E6;border-radius:18px;background:#FFFFFF;padding:56px 56px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.24em;text-transform:uppercase;color:#B5B5B5;margin-bottom:28px;">The measured reality</div>
+      <div style="font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.9;">95%</div>
+      <p style="margin:28px 0 0;font-size:34px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">of businesses fail to see meaningful returns on AI.</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:18px;background:#FFF5FB;padding:56px 56px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.24em;text-transform:uppercase;color:#CF0090;margin-bottom:28px;">The lived reality</div>
+      <div style="font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.9;color:#CF0090;">10×</div>
+      <p style="margin:28px 0 0;font-size:34px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Solo builders ship in a week what used to take a quarter.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:18px;"></div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <p style="margin:0;font-weight:700;font-size:44px;letter-spacing:-0.02em;line-height:1.05;">How can both of these be true?</p>
+      <p style="margin:0;font-size:27px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Both are true. The difference is <span style="color:#0A0A0A;font-weight:600;">how they move</span>, not how hard they work — that's the map, next&nbsp;<span style="color:#CF0090;">→</span></p>
+    </div>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>4</span></div>
+</section>
+
+<section data-label="Same Car" data-speaker-notes="[Pause. Let it land.] Here's the reframe for every objection you've heard — 'AI hallucinates,' 'it can't do X,' 'we saw it fail at another company.' Put an automatic-only driver in an F1 car and they spin it into the wall, then file a report on why it's undrivable. Put a pro in the same seat and it's the fastest thing on Earth. The failure reports are real — but they're about drivers, not the car. Which driver you are in two years is up to you." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;box-sizing:border-box;position:relative;overflow:hidden;">
+  <img src="uploads/F1_Cockpit.jpeg" alt="F1 cockpit and steering wheel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:0;">
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(6,6,6,0.99) 0%, rgba(6,6,6,0.97) 22%, rgba(6,6,6,0.88) 40%, rgba(6,6,6,0.62) 58%, rgba(6,6,6,0.30) 78%, rgba(6,6,6,0.34) 100%);pointer-events:none;"></div>
+  <div style="position:absolute;left:120px;right:120px;bottom:104px;z-index:2;display:flex;flex-direction:column;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">THE OPERATOR VS. THE TOOL</div>
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:28px 0 0;"></div>
+    <h2 style="margin:30px 0 0;font-weight:800;font-size:104px;letter-spacing:-0.04em;line-height:0.96;">Same car. Different driver.</h2>
+    <p style="margin:26px 0 0;max-width:1180px;font-family:'JetBrains Mono',monospace;font-size:23px;line-height:1.5;letter-spacing:-0.005em;color:#9A9A9A;">“AI hallucinates.” &nbsp;“It can't do X.” &nbsp;“We've seen it fail at other companies.”</p>
+    <p style="margin:34px 0 0;max-width:1500px;font-size:33px;line-height:1.36;letter-spacing:-0.015em;color:#E8E8E8;">Put an automatic-only driver in this car and they spin it into the wall...then tell you why it's undrivable. Put a pro in the same seat, and it's the fastest thing on Earth. Both are correct.</p>
+    
+    <div style="margin-top:34px;display:flex;align-items:center;gap:22px;">
+      <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
+      <p style="margin:0;font-weight:700;font-size:40px;line-height:1.05;letter-spacing:-0.02em;color:#CF0090;">The car you drive in two years is up to you.</p>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>5</span></div>
+</section>
+
+<section data-label="The Doubt Loop (Trust Trap) · RENAME" data-speaker-notes="Here's why the gap persists even when the map is obvious. It's not the tools — it's a loop of doubt that masquerades as good judgment. Before the reps are in you're low-proficiency, so the output disappoints — a hallucination, some slop. Distrust hardens — must be the tool. Confirmation bias sets in — knew I couldn't rely on it — and that's the engine of the whole loop. So you retreat to old ways, which means no reps, which keeps you low. Skepticism reads as rigor; retreat reads as responsibility. Underneath, it's low proficiency and low agency talking. Distrust isn't a verdict on the model — it's a status report on your scaffolding." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:72px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">Why the gap persists</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:28px 0 0;"></div>
+  <h2 style="margin:24px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.0;color:#0A0A0A;max-width:1320px;">What sounds like rigor, is often a <span style="color:#CF0090;">skills gap.</span></h2>
+  <p style="margin:16px 0 0;font-size:27px;line-height:1.3;letter-spacing:-0.01em;color:#6B6B6B;font-style:italic;">The most responsible-sounding teams are often the least practiced.</p>
+
+  <div style="position:absolute;left:96px;right:96px;top:316px;bottom:240px;display:flex;align-items:center;justify-content:center;">
+    <div style="position:relative;width:900px;height:500px;">
+      <svg width="900" height="500" viewBox="0 0 900 500" fill="none" style="position:absolute;inset:0;">
+        <defs>
+          <marker id="trapA" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#CF0090"></path></marker>
+          <marker id="trapR" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0A0A0A"></path></marker>
+        </defs>
+        <circle cx="450" cy="250" r="125" stroke="#E0E0E0" stroke-width="1.5" stroke-dasharray="2 9" stroke-linecap="round"></circle>
+        <path d="M478.1 128.2 A 125 125 0 0 1 557.2 185.6" stroke="#CF0090" stroke-width="2.5" marker-end="url(#trapA)"></path>
+        <path d="M574.5 239.1 A 125 125 0 0 1 544.3 332.0" stroke="#CF0090" stroke-width="2.5" marker-end="url(#trapA)"></path>
+        <path d="M498.8 365.1 A 125 125 0 0 1 401.2 365.1" stroke="#CF0090" stroke-width="2.5" marker-end="url(#trapA)"></path>
+        <path d="M355.7 332.0 A 125 125 0 0 1 325.5 239.1" stroke="#CF0090" stroke-width="2.5" marker-end="url(#trapA)"></path>
+        <path d="M342.8 185.6 A 125 125 0 0 1 421.9 128.2" stroke="#0A0A0A" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round" marker-end="url(#trapR)"></path>
+        <text x="450" y="244" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="15" letter-spacing="3" fill="#B5B5B5">THE DOUBT</text>
+        <text x="450" y="270" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="15" letter-spacing="3" fill="#B5B5B5">LOOP</text>
+        <circle cx="450" cy="125" r="19" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5"></circle>
+        <text x="450" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="600" fill="#FFFFFF">1</text>
+        <circle cx="568.9" cy="211.4" r="19" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5"></circle>
+        <text x="568.9" y="217.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="600" fill="#FFFFFF">2</text>
+        <circle cx="523.5" cy="351.1" r="19" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5"></circle>
+        <text x="523.5" y="357.1" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="600" fill="#FFFFFF">3</text>
+        <circle cx="376.5" cy="351.1" r="19" fill="#CF0090" stroke="#CF0090" stroke-width="1.5"></circle>
+        <text x="376.5" y="357.1" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="600" fill="#fff">4</text>
+        <circle cx="331.1" cy="211.4" r="19" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.5"></circle>
+        <text x="331.1" y="217.4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="600" fill="#FFFFFF">5</text>
+      </svg>
+      <div style="position:absolute;left:450px;top:68px;transform:translate(-50%,-50%);width:300px;text-align:center;font-size:23px;line-height:1.22;letter-spacing:-0.01em;color:#0A0A0A;font-weight:700;">Low proficiency<br><span style="color:#6B6B6B;font-weight:500;font-size:20px;">before the reps are in</span></div>
+      <div style="position:absolute;left:723px;top:177px;transform:translate(-50%,-50%);width:280px;text-align:center;font-size:23px;line-height:1.22;letter-spacing:-0.01em;color:#0A0A0A;font-weight:700;">Output disappoints<br><span style="color:#6B6B6B;font-weight:500;font-size:20px;">a hallucination, some slop</span></div>
+      <div style="position:absolute;left:600px;top:423px;transform:translate(-50%,-50%);width:260px;text-align:center;font-size:23px;line-height:1.22;letter-spacing:-0.01em;color:#0A0A0A;font-weight:700;">Distrust hardens<br><span style="color:#6B6B6B;font-weight:500;font-size:20px;">must be the tool</span></div>
+      <div style="position:absolute;left:300px;top:423px;transform:translate(-50%,-50%);width:260px;text-align:center;font-size:23px;line-height:1.22;letter-spacing:-0.01em;color:#CF0090;font-weight:700;">Confirmation bias<br><span style="color:#6B6B6B;font-weight:500;font-size:20px;">knew I couldn't rely on it</span></div>
+      <div style="position:absolute;left:197px;top:177px;transform:translate(-50%,-50%);width:280px;text-align:center;font-size:23px;line-height:1.22;letter-spacing:-0.01em;color:#0A0A0A;font-weight:700;">Retreat to old ways<br><span style="color:#6B6B6B;font-weight:500;font-size:20px;">known beats unknown</span></div>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:96px;right:96px;bottom:60px;">
+    <p style="margin:0;font-size:25px;line-height:1.5;letter-spacing:-0.005em;color:#6B6B6B;">Every stage of this loop masquerades as good judgment; however it is really a signal of low proficiency + low agency.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <i>Distrust is a status report on your scaffolding.</i></p>
+    <p style="margin:18px 0 0;font-size:25px;line-height:1.45;letter-spacing:-0.005em;color:#0A0A0A;">And the hallucination fear assumes the model is always guessing...it isn't. <span style="color: rgb(154, 154, 154);">Hold that thought.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>12</span></div>
+</section>
+
+<section data-label="Two Crafts · PH" data-speaker-notes="This boundary is a shift in craft. Vibe coding is fine for a weekend toy; it does not scale to production. High-leverage teams practice agentic engineering: shift the burden from the model to the specification and the scaffolding. They don&#x27;t just use agents to code; they build systems that govern how agents code." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">Two Crafts</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>Vibe Coding:</strong> YOLO, skip checks, never read the code — fine only for throwaways.</p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>AI-Assisted:</strong> [TBD — middle column unfilled in outline]</p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>Agentic Engineering:</strong> bounded context, strict specs, deterministic verification, system literacy.</p></div>
+</section>
+
+<section data-label="Divider: Act 2" data-speaker-notes="Act 2: The map. The continuum of operating modes, the identity that goes with each, and an honest look at where we sit today." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#6B6B6B;">Act two</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
+  <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">The map</h2>
+  <p style="margin:48px 0 0;max-width:900px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">A continuum of operating modes — and where you actually sit on it.</p>
+  <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers: the modes of transport, and where teams really are.</div>
+</section>
+
+<section data-label="AI Adoption Continuum · Layer 1" data-speaker-notes="This is the map. The 95% who see no gains are at Biking and Driving — they bought tools and called it transformation. But Driving is still ground transport: same work, faster. The gains live at Helicopter and beyond — where you cross from better tools to a different process. Not a faster car. A different dimension of movement." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>THE AI ADOPTION CONTINUUM</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.0;max-width:1320px;">Think of AI adoption as modes of transport.</h2>
+
+  <div style="position:absolute;left:120px;right:120px;top:392px;">
+    <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,1fr);">
+      <sc-for list="{{ stationsGrey }}" as="s" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;">
+          <div style="height:22px;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:10px;white-space:nowrap;">{{ s.markerText }}</div>
+          <div style="height:58px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">{{ s.icon }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.16em;color:{{ s.kicker }};margin-bottom:10px;">{{ s.num }}</div>
+          <div style="font-weight:700;font-size:29px;letter-spacing:-0.02em;color:{{ s.nameColor }};">{{ s.name }}</div>
+          <div style="position:relative;width:100%;height:52px;display:flex;align-items:center;justify-content:center;">
+            <div style="position:absolute;left:0;right:0;top:50%;height:2px;background:{{ s.railColor }};transform:translateY(-50%);"></div>
+            <div style="position:relative;width:{{ s.dot }};height:{{ s.dot }};border-radius:50%;background:{{ s.dotBg }};border:3px solid {{ s.dotBorder }};box-shadow:{{ s.dotShadow }};"></div>
+          </div>
+          <div style="font-size:20px;line-height:1.3;color:#6B6B6B;margin-top:8px;max-width:230px;">{{ s.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>7</span></div>
+</section>
+
+<section data-label="AI Adoption Continuum · Layer 2" data-speaker-notes="This is the map. The 95% who see no gains are at Biking and Driving — they bought tools and called it transformation. But Driving is still ground transport: same work, faster. The gains live at Helicopter and beyond — where you cross from better tools to a different process. Not a faster car. A different dimension of movement." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>THE AI ADOPTION CONTINUUM</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.0;max-width:1320px;">Six ways to move. Only some leave the ground.</h2>
+
+  <div style="position:absolute;left:120px;right:120px;top:392px;">
+    <div style="position:absolute;left:280px;top:4px;width:560px;height:286px;background:rgba(10,10,10,0.04);border-radius:16px;z-index:0;"></div>
+    <div style="position:absolute;left:280px;top:-28px;width:560px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;color:#9A9A9A;">95% of teams live here</div>
+    <div style="position:absolute;left:840px;right:0;top:4px;height:286px;background:rgba(207,0,144,0.07);border-radius:16px;z-index:0;"></div>
+    <div style="position:absolute;left:840px;right:0;top:-28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;">THE 10X LIVE HERE</div>
+    <div style="position:absolute;left:840px;top:-26px;width:2px;height:322px;background:repeating-linear-gradient(#CF0090,#CF0090 6px,transparent 6px,transparent 12px);z-index:2;transform:translateX(-1px);"></div>
+    <div style="position: absolute; left: 831px; top: -54px; transform: translateX(-50%); white-space: nowrap; background: #FAFAFA; padding: 0 12px; font-family: 'JetBrains Mono',monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #CF0090; z-index: 3">GROUND&nbsp; &nbsp; &nbsp; &nbsp; AIR</div>
+    <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,1fr);">
+      <sc-for list="{{ stations }}" as="s" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;">
+          <div style="height:22px;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:10px;white-space:nowrap;">{{ s.markerText }}</div>
+          <div style="height:58px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">{{ s.icon }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.16em;color:{{ s.kicker }};margin-bottom:10px;">{{ s.num }}</div>
+          <div style="font-weight:700;font-size:29px;letter-spacing:-0.02em;color:{{ s.nameColor }};">{{ s.name }}</div>
+          <div style="position:relative;width:100%;height:52px;display:flex;align-items:center;justify-content:center;">
+            <div style="position:absolute;left:0;right:0;top:50%;height:2px;background:{{ s.railColor }};transform:translateY(-50%);"></div>
+            <div style="position:relative;width:{{ s.dot }};height:{{ s.dot }};border-radius:50%;background:{{ s.dotBg }};border:3px solid {{ s.dotBorder }};box-shadow:{{ s.dotShadow }};"></div>
+          </div>
+          <div style="font-size:20px;line-height:1.3;color:#6B6B6B;margin-top:8px;max-width:230px;">{{ s.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:36px;font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;">
+      <span style="color:#B5B5B5;">Ground — same work, faster</span>
+      <span style="color:#CF0090;">Airborne — a different process</span>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>8</span></div>
+</section>
+
+<section data-label="Identity Shift (Three Paradigms) · ADAPT" data-speaker-notes="Three ways to work with AI, and how your role changes across them. Autocomplete: it's linear — you're in every step, the AI fills the next token, you stay the player on the field. Agentic: it's cyclical — you set a goal and the agent loops through plan, act, verify on its own; you've stepped back to coach, managing the loop. Orchestration: it's systemic — you set strategy and a fleet of agents works in parallel, checking each other; you're the conductor, verifying outcomes, not plays. The leverage moves up and to the right. The rest of this deck is about getting to that third column." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:72px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">How you operate</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:28px 0 0;"></div>
+  <h2 style="margin:24px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.0;color:#0A0A0A;">The shift from player, to coach, to <span style="color:#CF0090;">conductor.</span></h2>
+  
+
+  <div style="position:absolute;left:80px;right:80px;top:298px;bottom:70px;display:flex;">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:0 30px;">
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;color:#0A0A0A;">Autocomplete</div>
+      <div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:#B5B5B5;">Player</div>
+      <div style="flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;margin:18px 0;"><svg viewBox="0 0 420 470" style="width:100%;height:100%;" preserveAspectRatio="xMidYMid meet" fill="none">
+  <defs><marker id="aGry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B5B5B5"></path></marker></defs>
+  <g transform="translate(210,48)" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-9" r="7.5"></circle><path d="M-12 13 A 13 12 0 0 1 12 13"></path></g>
+  <text x="234" y="54" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">You</text>
+  <line x1="210" y1="80" x2="210" y2="162" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#aGry)"></line>
+  <g stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round">
+    <path d="M174 196H182"></path><path d="M174 210H182"></path><path d="M174 224H182"></path>
+    <path d="M238 196H246"></path><path d="M238 210H246"></path><path d="M238 224H246"></path>
+    <path d="M196 176V184"></path><path d="M210 176V184"></path><path d="M224 176V184"></path>
+    <path d="M196 236V244"></path><path d="M210 236V244"></path><path d="M224 236V244"></path>
+  </g>
+  <rect x="182" y="184" width="56" height="52" rx="11" fill="#fff" stroke="#0A0A0A" stroke-width="2.4"></rect>
+  <text x="210" y="217" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="700" font-size="17" fill="#0A0A0A">AI</text>
+  <text x="256" y="216" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">AI</text>
+  <line x1="210" y1="258" x2="210" y2="356" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#aGry)"></line>
+  <g transform="translate(210,392)" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-9" r="7.5"></circle><path d="M-12 13 A 13 12 0 0 1 12 13"></path></g>
+  <text x="234" y="398" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">You</text>
+</svg></div>
+      <div style="font-size:22px;line-height:1.3;color:#9A9A9A;letter-spacing:-0.005em;text-align:center;">Linear. You in every step.</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:0 30px;border-left:1px solid #E6E6E6;">
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;color:#0A0A0A;">Agentic</div>
+      <div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:#B5B5B5;">Coach</div>
+      <div style="flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;margin:18px 0;"><svg viewBox="0 0 420 512" style="width:100%;height:100%;" preserveAspectRatio="xMidYMid meet" fill="none">
+  <defs><marker id="gGry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B5B5B5"></path></marker></defs>
+  <g transform="translate(210,42)" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-9" r="7.5"></circle><path d="M-12 13 A 13 12 0 0 1 12 13"></path></g>
+  <text x="234" y="48" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">You set goal</text>
+  <line x1="210" y1="72" x2="210" y2="126" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#gGry)"></line>
+  <circle cx="210" cy="300" r="96" stroke="#E0E0E0" stroke-width="1.5" stroke-dasharray="2 9" stroke-linecap="round"></circle>
+  <text x="210" y="296" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="16" letter-spacing="1" fill="#9A9A9A">Agent</text>
+  <text x="210" y="316" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="16" letter-spacing="1" fill="#9A9A9A">loops</text>
+  <path d="M246 211 A 96 96 0 0 1 305 313" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#gGry)"></path>
+  <path d="M269 376 A 96 96 0 0 1 151 376" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#gGry)"></path>
+  <path d="M115 313 A 96 96 0 0 1 174 211" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#gGry)"></path>
+  <circle cx="210" cy="204" r="30" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="210" y="210" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="17" fill="#0A0A0A">Plan</text>
+  <circle cx="293" cy="348" r="30" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="293" y="354" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="17" fill="#0A0A0A">Act</text>
+  <circle cx="127" cy="348" r="30" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="127" y="354" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="17" fill="#0A0A0A">Verify</text>
+  <line x1="210" y1="400" x2="210" y2="450" stroke="#B5B5B5" stroke-width="2.2" marker-end="url(#gGry)"></line>
+  <g transform="translate(210,474)" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-9" r="7.5"></circle><path d="M-12 13 A 13 12 0 0 1 12 13"></path></g>
+  <text x="234" y="480" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">You review</text>
+</svg></div>
+      <div style="font-size:22px;line-height:1.3;color:#9A9A9A;letter-spacing:-0.005em;text-align:center;">Cyclical. You manage the loop.</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:0 30px;border-left:1px solid #E6E6E6;">
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;color:#CF0090;">Orchestration</div>
+      <div style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;">Conductor</div>
+      <div style="flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;margin:18px 0;"><svg viewBox="0 0 460 512" style="width:100%;height:100%;" preserveAspectRatio="xMidYMid meet" fill="none">
+  <defs>
+    <marker id="oAcc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#CF0090"></path></marker>
+    <marker id="oGry" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B5B5B5"></path></marker>
+  </defs>
+  <g transform="translate(230,42)" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-9" r="7.5"></circle><path d="M-12 13 A 13 12 0 0 1 12 13"></path></g>
+  <text x="256" y="48" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">You set strategy</text>
+  <line x1="222" y1="72" x2="160" y2="172" stroke="#CF0090" stroke-width="2.4" marker-end="url(#oAcc)"></line>
+  <line x1="238" y1="72" x2="300" y2="172" stroke="#CF0090" stroke-width="2.4" marker-end="url(#oAcc)"></line>
+  <line x1="188" y1="215" x2="272" y2="215" stroke="#CF0090" stroke-width="2.4" marker-start="url(#oAcc)" marker-end="url(#oAcc)"></line>
+  <line x1="188" y1="350" x2="272" y2="350" stroke="#CF0090" stroke-width="2.4" marker-start="url(#oAcc)" marker-end="url(#oAcc)"></line>
+  <line x1="150" y1="253" x2="150" y2="312" stroke="#B5B5B5" stroke-width="2" marker-start="url(#oGry)" marker-end="url(#oGry)"></line>
+  <line x1="310" y1="253" x2="310" y2="312" stroke="#B5B5B5" stroke-width="2" marker-start="url(#oGry)" marker-end="url(#oGry)"></line>
+  <line x1="177" y1="242" x2="283" y2="323" stroke="#CF0090" stroke-width="2.4" marker-start="url(#oAcc)" marker-end="url(#oAcc)"></line>
+  <line x1="283" y1="242" x2="177" y2="323" stroke="#CF0090" stroke-width="2.4" marker-start="url(#oAcc)" marker-end="url(#oAcc)"></line>
+  <path d="M119.4 188.6 A 14 14 0 1 1 123.6 184.4" stroke="#C9C9C9" stroke-width="1.8" marker-end="url(#oGry)"></path><path d="M336.4 184.4 A 14 14 0 1 1 340.6 188.6" stroke="#C9C9C9" stroke-width="1.8" marker-end="url(#oGry)"></path><path d="M123.6 380.6 A 14 14 0 1 1 119.4 376.4" stroke="#C9C9C9" stroke-width="1.8" marker-end="url(#oGry)"></path><path d="M340.6 376.4 A 14 14 0 1 1 336.4 380.6" stroke="#C9C9C9" stroke-width="1.8" marker-end="url(#oGry)"></path>
+  <circle cx="150" cy="215" r="38" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="150" y="220" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="15" fill="#0A0A0A">Agent A</text>
+  <circle cx="310" cy="215" r="38" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="310" y="220" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="15" fill="#0A0A0A">Agent B</text>
+  <circle cx="150" cy="350" r="38" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="150" y="355" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="15" fill="#0A0A0A">Agent C</text>
+  <circle cx="310" cy="350" r="38" fill="#fff" stroke="#C9C9C9" stroke-width="1.5"></circle><text x="310" y="355" text-anchor="middle" font-family="'Manrope',sans-serif" font-weight="600" font-size="15" fill="#0A0A0A">Agent D</text>
+  <line x1="150" y1="388" x2="216" y2="448" stroke="#CF0090" stroke-width="2.4" marker-end="url(#oAcc)"></line>
+  <line x1="310" y1="388" x2="244" y2="448" stroke="#CF0090" stroke-width="2.4" marker-end="url(#oAcc)"></line>
+  <g transform="translate(230,468)" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"><circle cx="0" cy="-9" r="7.5"></circle><path d="M-12 13 A 13 12 0 0 1 12 13"></path></g>
+  <text x="256" y="463" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">You verify</text>
+  <text x="256" y="485" font-family="'JetBrains Mono',monospace" font-size="19" fill="#6B6B6B">outcome</text>
+</svg></div>
+      <div style="font-size:22px;line-height:1.3;color:#9A9A9A;letter-spacing:-0.005em;text-align:center;">Systemic. You conduct the fleet.</div>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>9</span></div>
+</section>
+
+<section data-label="Where We Are · CARRYOVER" data-speaker-notes="Most engineering teams are here today. You've adopted Claude, Copilot, AI-native workflows. That's good — but it's still ground transport. The gains from Driving are real: 10, maybe 20% faster. Not the 10x the solo builders see. The difference isn't talent. It's mode of transport." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span><span style="letter-spacing: 5.6px;">PLACING THE MAJORITY</span></span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.0;max-width:1320px;">We're widely still in the ground transport phase.</h2>
+  <p style="margin:22px 0 0;max-width:1380px;font-size:30px;line-height:1.34;color:#6B6B6B;letter-spacing:-0.01em;">Driving gets you <span style="color: rgb(10, 10, 10); font-weight: 600;">~10–20% faster,</span>&nbsp;but not the <span style="color: rgb(10, 10, 10); font-weight: 600;">10×</span> solo builders see. The difference lies in the&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;mode of transport.</p>
+  <div style="position:absolute;left:120px;right:120px;top:392px;">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);">
+      <sc-for list="{{ stationsDriving }}" as="s" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;">
+          <div style="height:22px;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:10px;white-space:nowrap;">{{ s.markerText }}</div>
+          <div style="height:58px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">{{ s.icon }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.16em;color:{{ s.kicker }};margin-bottom:10px;">{{ s.num }}</div>
+          <div style="font-weight:700;font-size:29px;letter-spacing:-0.02em;color:{{ s.nameColor }};">{{ s.name }}</div>
+          <div style="position:relative;width:100%;height:52px;display:flex;align-items:center;justify-content:center;">
+            <div style="position:absolute;left:0;right:0;top:50%;height:2px;background:{{ s.railColor }};transform:translateY(-50%);"></div>
+            <div style="position:relative;width:{{ s.dot }};height:{{ s.dot }};border-radius:50%;background:{{ s.dotBg }};border:3px solid {{ s.dotBorder }};box-shadow:{{ s.dotShadow }};"></div>
+          </div>
+          <div style="font-size:20px;line-height:1.3;color:#6B6B6B;margin-top:8px;max-width:230px;">{{ s.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>11</span></div>
+</section>
+
+<section data-label="Time Traveler's Dilemma · PH" data-speaker-notes="The reason this gap is hard to close: the Time Traveler&#x27;s Dilemma. You cannot explain a smartphone to someone in 1955 — no frame of reference. People at opposite ends of the AI continuum cannot even have a productive conversation. One is describing a future the other cannot see from the ground." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">The Time Traveler's Dilemma</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><em>You cannot explain a smartphone to someone in 1955.</em></p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;">People at opposite ends of the continuum cannot have a productive conversation — a vocabulary and strategy gap.</p></div>
+</section>
+
+<section data-label="Divider: Act 3" data-speaker-notes="The pivot: everything so far was individual craft. Closing the gap is organizational. We look at the system physics — why faster tasks don't make faster products — and arrive at the thesis: make intent executable; keep execution governed." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#6B6B6B;">Act three</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
+  <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">The system</h2>
+  <p style="margin:48px 0 0;max-width:900px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">Closing the gap is organizational, not individual. A faster task is not a faster product — the team is the unit of change.</p>
+  <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers: what has to change in the system — and the thesis that follows.</div>
+</section>
+
+<section data-label="Faster Task ≠ Faster Product · PH" data-speaker-notes="System physics. If AI makes an engineer write code 10x faster but the PM still takes weeks on specs, the designer a month on screens, and QA is buried in manual testing — you haven&#x27;t shipped faster. You&#x27;ve relocated the bottleneck to the next functional boundary." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">A Faster Task is Not a Faster Product</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;">Product → Design → <strong>Build</strong> → Review → Verify</p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;">Animation: Build shrinks 10× — the pile forms at Review and Verify.</p></div>
+</section>
+
+<section data-label="Bottleneck Moved · PH" data-speaker-notes="The hinge of the argument. A faster task is not a faster product. Accelerate one step in isolation and you create a backlog of unreviewed, unverified, undecided work in flight. To transform product delivery, the team — not the heroic individual — must be the unit of change." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">The Bottleneck Moved, The System Didn’t</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><em>Local speed is not system throughput.</em></p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><em>Faster individuals create more review, more rework, more undecided work in flight.</em></p></div>
+</section>
+
+<section data-label="The Thesis · PH" data-speaker-notes="The core thesis of Escape Velocity. We do not hand product decisions to black-box models. We turn shared human intent into explicit, machine-readable, executable artifacts. We delegate bounded execution to agents, and we keep human governance over acceptance." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">Make intent executable;<br>keep execution governed.</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><em>AI changes product development when a team turns shared intent into executable artifacts that agents can build from and people can govern.</em></p></div>
+</section>
+
+<section data-label="Artifacts are the Interface · PH" data-speaker-notes="Prompts are ephemeral; they rot and disappear. Artifacts remain. The brief, the domain rules, the roadmap, the sprint specs are the explicit contracts between human roles and agents. A shared, legible interface that prevents information loss and preserves intent across roles and models." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">Artifacts are the Interface</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><em>A prompt disappears. An artifact remains.</em></p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>The chain:</strong> Vision → Brief → Flows → Business Rules → Roadmap → Sprint Specs</p></div>
+</section>
+
+<section data-label="Delegation Returns Evidence · PH" data-speaker-notes="Once artifacts are executable, we delegate — but delegation must return evidence. The model generates code (probabilistic); the testing harness verifies it (deterministic). We never rely on the model&#x27;s opinion of its own work. Done means a green, verifiable verdict of ground truth." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">Delegation Returns Evidence</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>Plan → Build → Verify → Record</strong></p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><em>The model generates; deterministic tools verify.</em></p></div>
+</section>
+
+<section data-label="Divider: Act 4" data-speaker-notes="Act 5: The path. Why this lands on you specifically, and how the two workshops this week turn the thesis into practice." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#6B6B6B;">Act four</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
+  <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">The path</h2>
+  <p style="margin:48px 0 0;max-width:900px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">What this means for you — and where we go this week.</p>
+  <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers: your role in this, and the map for the week ahead.</div>
+</section>
+
+<section data-label="What Has to Change (Why You) · REWORK" data-speaker-notes="Look at who owns each level. Walking through Driving — that's IT. They buy tools and roll them out. But Helicopter is owned by Engineering Leaders. Not the CTO. Not the VP. The people who write the code. The org can't get airborne unless individuals do — and the ones who get there first become the leaders who pull everyone up." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>WHY US&nbsp;<span style="letter-spacing: 5.6px;">·&nbsp;</span>WHY NOW</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.0;max-width:1300px;">Only you can fly the helicopter</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:72px;">
+    <div style="border:1px solid #E6E6E6;border-radius:14px;padding:44px 40px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:24px;">Walking → Driving</div>
+      <div style="font-weight:700;font-size:42px;letter-spacing:-0.02em;margin-bottom:16px;">IT</div>
+      <p style="margin:0;font-size:26px;line-height:1.35;color:#6B6B6B;">Buys the tools. Rolls them out. Provides foundation &amp; infra</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:14px;padding:44px 40px;background:#FFF5FB;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:24px;">Helicopter</div>
+      <div style="font-weight:700;font-size:42px;letter-spacing:-0.02em;margin-bottom:16px;color:#CF0090;">Engineering</div>
+      <p style="margin:0;font-size:26px;line-height:1.35;color:#6B6B6B;">The people who write the code. The org can't get airborne until we do.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;padding:44px 40px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:24px;">Jet → Rocket</div>
+      <div style="font-weight:700;font-size:42px;letter-spacing:-0.02em;margin-bottom:16px;">CTO / CEO</div>
+      <p style="margin:0;font-size:26px;line-height:1.35;color:#6B6B6B;">System-wide change — but only after Helicopter is proven.</p>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>14</span></div>
+</section>
+
+<section data-label="The Map Ahead · PH" data-speaker-notes="This keynote is the diagnostic frame. The work happens in the two workshops. First: turn vague ideas into agent-ready specifications. Final: start from zero application code and watch the harness consume those specs to build the app live. We&#x27;re not selling a framework; we&#x27;re opening a live lab. Bring your product partners." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:48px;left:48px;right:48px;bottom:48px;border:3px dashed #D8D5D0;border-radius:16px;pointer-events:none;"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;margin-bottom:40px;">PLACEHOLDER · TO BUILD</div>
+  <h1 style="margin:0 0 48px 0;font-weight:800;letter-spacing:-0.03em;line-height:1.0;font-size:96px;">The Map Ahead: AI Week Workshops</h1>
+  <div style="display:flex;flex-direction:column;gap:20px;max-width:1400px;"><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>1. DISCOVERY &amp; DEFINITION</strong> (90 min) — develop an idea with an LLM; synthesize decisions into an agent-ready defined repo.</p><p style="margin:0;font-size:40px;line-height:1.4;letter-spacing:-0.01em;color:#4A4A4A;"><strong>2. DEVELOPMENT</strong> (90 min) — Getting Airborne: the harness builds PEDAL live. Breaking Atmosphere: behaviors compile into deterministic rules.</p></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
+class Component extends DCLogic {
+  makeIcon(key, color) {
+    const raw = {
+      walk: '<circle cx="12" cy="4" r="2"/><path d="M12 6v6"/><path d="m12 12-3 8"/><path d="m12 12 2.5 4 1.5 4"/><path d="m7.5 10 4.5 2 4.5-2.5"/>',
+      bike: '<circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/>',
+      car: '<path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8A2 2 0 0 0 2 14v2c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+      heli: '<path d="M3 6h18"/><path d="M12 4v2"/><path d="M5 14a5 5 0 0 1 5-4h3l5 3.2a1 1 0 0 1-.5 1.8H6a1 1 0 0 1-1-1Z"/><path d="M17.5 12.5 21 11"/><path d="M9 18h6"/><path d="M12 15v3"/>',
+      jet: '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.4-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.8.5-1.2Z"/>',
+      rocket: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+    };
+    return React.createElement('svg', {
+      width: 52, height: 52, viewBox: '0 0 24 24', fill: 'none', stroke: color,
+      strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round',
+      dangerouslySetInnerHTML: { __html: raw[key] || '' },
+    });
+  }
+  buildStations(hereIndex, grey) {
+    const ground = { kicker: '#B5B5B5', nameColor: '#0A0A0A', dotBg: '#FAFAFA', dotBorder: '#B5B5B5', dotShadow: 'none', dot: '18px' };
+    const air = { kicker: '#CF0090', nameColor: '#0A0A0A', dotBg: '#FAFAFA', dotBorder: '#CF0090', dotShadow: 'none', dot: '18px' };
+    const here = { kicker: '#CF0090', nameColor: '#CF0090', dotBg: '#CF0090', dotBorder: '#CF0090', dotShadow: '0 0 0 9px rgba(207,0,144,0.14)', dot: '26px' };
+    const base = [
+      { num: '01', name: 'Walking',    desc: 'Chat tools',            air: false, key: 'walk' },
+      { num: '02', name: 'Biking',     desc: 'Autocomplete',          air: false, key: 'bike' },
+      { num: '03', name: 'Driving',    desc: 'Agent coding',          air: false, key: 'car' },
+      { num: '04', name: 'Helicopter', desc: 'Agent harness',         air: true,  key: 'heli' },
+      { num: '05', name: 'Jet',        desc: 'SDLC transformation',   air: true,  key: 'jet' },
+      { num: '06', name: 'Rocket',     desc: 'Autonomous agents',     air: true,  key: 'rocket' },
+    ];
+    return base.map((s, i) => {
+      const isHere = i === hereIndex;
+      const style = isHere ? here : (grey ? ground : (s.air ? air : ground));
+      return {
+        ...s, ...style,
+        icon: this.makeIcon(s.key, grey ? '#5A5A5A' : (s.air ? '#CF0090' : '#5A5A5A')),
+        railColor: grey ? '#E6E6E6' : (s.air ? '#CF0090' : '#E6E6E6'),
+        markerText: isHere ? 'You are here ↓' : '',
+      };
+    });
+  }
+  navTo(label) {
+    try {
+      const stage = document.querySelector('deck-stage');
+      const secs = Array.from(document.querySelectorAll('section[data-label]'));
+      const idx = secs.findIndex(function (s) { return s.getAttribute('data-label') === label; });
+      if (stage && idx >= 0 && typeof stage.goTo === 'function') stage.goTo(idx);
+    } catch (e) {}
+  }
+  renderVals() {
+    return {
+      navPart1: () => this.navTo('Part 1'),
+      navPart2: () => this.navTo('Part 2'),
+      navPart3: () => this.navTo('Your Turn'),
+      navPart4: () => this.navTo('Part 4'),
+      navWhyItWorks: () => this.navTo('Why It Works'),
+      navExtending: () => this.navTo('Extending This Model'),
+      navMakingItRun: () => this.navTo('Making It Run'),
+      stations: this.buildStations(-1),
+      stationsGrey: this.buildStations(-1, true),
+      stationsDriving: this.buildStations(2),
+      stationsHeli: this.buildStations(3),
+      iconHeli: this.makeIcon('heli', '#CF0090'),
+      iconJet: this.makeIcon('jet', '#CF0090'),
+      iconRocket: this.makeIcon('rocket', '#CF0090'),
+      shiftGround: ['Better tools', 'Same workflow, faster', 'You write code with AI help', 'Incremental'],
+      shiftAir: ['Different process', 'A new workflow entirely', 'AI writes code, you write specs', 'Transformational'],
+      systemCols: [
+        { tag: 'Setup', title: 'What it knows', items: ['Tech Lead', 'PM', 'Design', 'QA Lead'] },
+        { tag: 'Actors', title: 'Who does the work', items: ['The Builder', 'QA Team (x3)', 'QA Manager'] },
+        { tag: 'Orchestrator', title: 'What keeps it moving', items: ['Eng Manager', 'PM'] },
+      ],
+      builderSteps: [
+        { verb: 'Reads', text: 'Broad context, the spec, and the manifest.', border: 'border-right:1px solid #E6E6E6;' },
+        { verb: 'Does', text: 'Builds the feature for this one sprint.', border: 'border-right:1px solid #E6E6E6;padding-left:36px;' },
+        { verb: 'Then', text: 'Invokes QA on its own work.', border: 'border-right:1px solid #E6E6E6;padding-left:36px;' },
+        { verb: 'Finally', text: 'Updates the manifest, writes a handoff note.', border: 'padding-left:36px;' },
+      ],
+      epics: [
+        { num: '0', theme: 'Setup', goal: 'Schema, scaffold, environment — a standing skeleton', status: 'Done', statusColor: '#1F8A4C', dotBg: '#1F8A4C' },
+        { num: '1', theme: 'Core CRUD', goal: 'Read/write every entity through the UI', status: 'Done', statusColor: '#1F8A4C', dotBg: '#1F8A4C' },
+        { num: '2', theme: 'AI Bridge', goal: 'Every operation agent-callable; command-mode UX', status: 'Active', statusColor: '#CF0090', dotBg: '#CF0090' },
+        { num: '3', theme: 'Memory & Context', goal: 'Cross-session memory, layered context, a learning loop', status: 'Not started', statusColor: '#B5B5B5', dotBg: '#FAFAFA' },
+      ],
+      artifacts: [
+        { path: 'docs/vision.md', status: 'Done', statusColor: '#1F8A4C', dotBg: '#1F8A4C' },
+        { path: 'docs/specs/flows.md', status: 'Done', statusColor: '#1F8A4C', dotBg: '#1F8A4C' },
+        { path: 'db/schema.yaml', status: 'Done', statusColor: '#1F8A4C', dotBg: '#1F8A4C' },
+        { path: 'design/prototype/', status: 'Done', statusColor: '#1F8A4C', dotBg: '#1F8A4C' },
+        { path: 'docs/specs/architecture.md', status: 'Active', statusColor: '#CF0090', dotBg: '#CF0090' },
+      ],
+      qaCrew: [
+        { mark: '{ }', name: 'Linter', job: 'Formatting & style.', model: 'haiku', file: '.claude/agents/linter.md',
+          snippet: 'name: linter\ntools: Read, Edit, Bash\nmodel: haiku\n---\n1. HTML well-formed?\n2. node --check inline JS\n3. unclosed strings, undef vars\n→ "CLEAN" or error list' },
+        { mark: '✓', name: 'Code reviewer', job: 'Bugs & security — read-only.', model: 'sonnet', file: '.claude/agents/code-reviewer.md',
+          snippet: 'name: code-reviewer\ntools: Read, Grep, Glob\n---\nReview vs spec · read-only\nlogic bugs · stale state\nmissing criteria\n→ CRITICAL / WARN / NIT' },
+        { mark: '▶', name: 'E2E tester', job: 'Behavior & acceptance criteria.', model: 'sonnet', file: '.claude/agents/playwright-tester.md',
+          snippet: 'name: playwright-tester\ntools: Read, Write, Bash\n---\nWrite + run Playwright test\nunaffordable hire → blocked\nnever below 0\n→ "GREEN" or "RED" + details' },
+      ],
+      changedFrom: ['You write code with AI help', 'You review every line', 'Quality = your eyeballs', 'One session, one task', 'You are the builder'],
+      changedTo: ['AI writes code, you write specs', 'You review at checkpoints', 'Quality = automated QA crew', 'Multi-session, memory, continuity', 'You are the architect'],
+      accel: [
+        { span: 'Years', label: 'Walking → Biking', flex: '4', h: '230px', bg: '#EDEDED', fg: '#6B6B6B' },
+        { span: 'A year', label: 'Biking → Driving', flex: '2.4', h: '168px', bg: '#E2E2E2', fg: '#6B6B6B' },
+        { span: 'Months', label: 'Driving → Helicopter', flex: '1.3', h: '120px', bg: '#F3B4DE', fg: '#0A0A0A' },
+        { span: 'Now', label: 'Helicopter → Jet', flex: '0.8', h: '78px', bg: '#CF0090', fg: '#CF0090' },
+      ],
+      timeline: [
+        { leap: 'Walking → Biking', when: '~1 year · 2024', bar: '300px', barColor: '#DADADA', color: '#6B6B6B', size: '40px' },
+        { leap: 'Biking → Driving', when: '~6 months · early 2025', bar: '150px', barColor: '#B5B5B5', color: '#6B6B6B', size: '40px' },
+        { leap: 'Driving → Helicopter', when: '2 hours · today', bar: '40px', barColor: '#CF0090', color: '#0A0A0A', size: '52px' },
+      ],
+      pathRows: [
+        { who: 'You, now', stage: 'Helicopter', text: 'Ship features using the loop. Prove it works on your service.', accent: '#CF0090', bg: '#FFF5FB', tagColor: '#CF0090', nameColor: '#CF0090' },
+        { who: 'The team, next', stage: 'Commercial pilot', text: 'The loop becomes the default. Specs become the interface between roles.', accent: '#E0E0E0', bg: 'transparent', tagColor: '#B5B5B5', nameColor: '#0A0A0A' },
+        { who: 'The org, eventually', stage: 'Astronaut', text: 'Headcount models change. The company operates differently.', accent: '#E0E0E0', bg: 'transparent', tagColor: '#B5B5B5', nameColor: '#0A0A0A' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
