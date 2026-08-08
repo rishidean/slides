@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discovery &amp; Definition: From a Vague Idea to Artifacts Agents Can Execute</title>
+<meta name="description" content="Agentic Engineering Workshop 1: Discovery develops an idea with an LLM; Definition synthesizes the decisions into agent-ready artifacts.">
+<link rel="canonical" href="https://slides.rishidean.com/discovery-definition/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="slides.rishidean.com">
+<meta property="og:url" content="https://slides.rishidean.com/discovery-definition/">
+<meta property="og:title" content="Discovery &amp; Definition: From a Vague Idea to Artifacts Agents Can Execute">
+<meta property="og:description" content="Agentic Engineering Workshop 1: Discovery develops an idea with an LLM; Definition synthesizes the decisions into agent-ready artifacts.">
+<meta property="og:image" content="https://slides.rishidean.com/discovery-definition/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Discovery &amp; Definition — workshop title slide">
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Discovery &amp; Definition: From a Vague Idea to Artifacts Agents Can Execute">
+<meta name="twitter:description" content="Agentic Engineering Workshop 1: Discovery develops an idea with an LLM; Definition synthesizes the decisions into agent-ready artifacts.">
+<meta name="twitter:image" content="https://slides.rishidean.com/discovery-definition/og-image.png">
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0A0A0A"/>
+    <rect x="380" y="300" width="120" height="11" rx="5" fill="#CF0090"/>
+    <text x="380" y="400" font-family="Manrope, sans-serif" font-size="84" font-weight="800" letter-spacing="-3" fill="#FAFAFA">Discovery &amp;</text>
+    <text x="380" y="500" font-family="Manrope, sans-serif" font-size="84" font-weight="800" letter-spacing="-3" fill="#FAFAFA">Definition</text>
+  </svg>
+</template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0A0A0A; }
+  * { box-sizing: border-box; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Title" data-speaker-notes="No wind-up. You heard the argument: make intent executable, keep execution governed. This is the first half of doing it. In the next ninety minutes we take one idea from a sentence in someone's head to a repository an agent can build from, and you'll run every step of that route yourselves. Two jobs today, one continuous move: Discovery turns a vague idea into resolved product decisions; Definition turns those decisions into artifacts agents can execute." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:104px 140px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <a href="https://slides.rishidean.com" style="color:#0A0A0A;text-decoration:none;">AGENTIC ENGINEERING WORKSHOP&nbsp;|&nbsp;PARTS 2&ndash;3 OF 5</a>
+    <a href="https://slides.rishidean.com" style="color:inherit;text-decoration:none;">SUMMER 2026</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:40px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;"></div>
+    <h1 style="margin:0;font-weight:800;letter-spacing:-0.045em;line-height:0.9;font-size:128px;">Discovery &amp; Definition</h1>
+    <p style="margin:0;max-width:1100px;font-size:38px;line-height:1.32;letter-spacing:-0.01em;color:#6B6B6B;">From a vague idea to <em>artifacts agents can execute</em>.</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.18em;text-transform:uppercase;color:#B5B5B5;">
+    <span style="color:#0A0A0A;">RISHI DEAN</span>
+    <span>WORKSHOP&nbsp;&nbsp;·&nbsp;&nbsp;90 MIN&nbsp;&nbsp;·&nbsp;&nbsp;HANDS-ON</span>
+  </div>
+</section>
+
+<section data-label="One Continuous Move" data-speaker-notes="Here's the whole route on one slide. An idea becomes a destination. The destination exposes a map of decisions. The map gives you a frontier: the questions that matter and are answerable now. Evidence resolves them, one at a time. Then the seam: the resolved decisions get synthesized into durable artifacts, the artifacts get ordered into a roadmap, and the roadmap's first slice becomes sprint specifications an agent can execute. Notice what the handoff is. Not the chat. Not the prototype. The decisions, preserved as artifacts. Everything left of the seam is Discovery; everything right of it is Definition; and the far end is where the next workshop picks up." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>THE ROUTE</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:62px;letter-spacing:-0.03em;line-height:1.05;max-width:1500px;">One continuous move, two different jobs</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:56px;">
+    <div style="border:1px solid #E6E6E6;border-radius:18px;background:#FFFFFF;padding:44px 48px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.24em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">DISCOVERY</div>
+      <p style="margin:0;font-size:33px;line-height:1.35;letter-spacing:-0.01em;color:#0A0A0A;">Uses an LLM to turn a vague idea into <strong>resolved product decisions</strong>.</p>
+      <p style="margin:18px 0 0;font-size:25px;line-height:1.4;color:#6B6B6B;">Not &ldquo;generate an app.&rdquo; Think <em>with</em> the model: name the destination, map the decisions, resolve the frontier with evidence.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:18px;background:#FFFFFF;padding:44px 48px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.24em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">DEFINITION</div>
+      <p style="margin:0;font-size:33px;line-height:1.35;letter-spacing:-0.01em;color:#0A0A0A;">Turns those decisions into <strong>artifacts agents can execute</strong>.</p>
+      <p style="margin:18px 0 0;font-size:25px;line-height:1.4;color:#6B6B6B;">Synthesize the agreement, order the roadmap, and make one sprint executable without a material guess.</p>
+    </div>
+  </div>
+  <div style="margin-top:64px;">
+    <div style="display:flex;align-items:center;gap:0;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.02em;color:#0A0A0A;flex-wrap:nowrap;">
+      <span style="background:#FFFFFF;border:1px solid #E6E6E6;border-radius:10px;padding:14px 20px;white-space:nowrap;">Idea</span><span style="color:#B5B5B5;padding:0 10px;">→</span>
+      <span style="background:#FFFFFF;border:1px solid #E6E6E6;border-radius:10px;padding:14px 20px;white-space:nowrap;">Destination</span><span style="color:#B5B5B5;padding:0 10px;">→</span>
+      <span style="background:#FFFFFF;border:1px solid #E6E6E6;border-radius:10px;padding:14px 20px;white-space:nowrap;">Decision map</span><span style="color:#B5B5B5;padding:0 10px;">→</span>
+      <span style="background:#FFFFFF;border:1px solid #E6E6E6;border-radius:10px;padding:14px 20px;white-space:nowrap;">Evidence</span><span style="color:#CF0090;padding:0 10px;font-weight:600;">‖</span>
+      <span style="background:#FFF5FB;border:2px solid #CF0090;border-radius:10px;padding:14px 20px;white-space:nowrap;">Artifacts</span><span style="color:#B5B5B5;padding:0 10px;">→</span>
+      <span style="background:#FFF5FB;border:2px solid #CF0090;border-radius:10px;padding:14px 20px;white-space:nowrap;">Roadmap</span><span style="color:#B5B5B5;padding:0 10px;">→</span>
+      <span style="background:#FFF5FB;border:2px solid #CF0090;border-radius:10px;padding:14px 20px;white-space:nowrap;">Sprint specs</span><span style="color:#B5B5B5;padding:0 10px;">→</span>
+      <span style="background:#0A0A0A;color:#FFFFFF;border-radius:10px;padding:14px 20px;white-space:nowrap;">DEVELOPMENT</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;">
+      <span style="color:#B5B5B5;">Discovery: remove consequential ambiguity</span>
+      <span style="color:#CF0090;">Definition: preserve the agreement</span>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The handoff is <span style="color:#0A0A0A;font-weight:600;">the decisions</span>. Not the chat, and not the prototype.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>2</span></div>
+</section>
+
+<section data-label="How This Room Works" data-speaker-notes="Three things about how the next ninety minutes run. First, this is a workshop, not a talk: you'll work in small groups, and there are six short exercises. Second, meet PEDAL, our workbook: a deliberately basic, rider-only pedicab booking app. Front-end only, mocked matching, no backend, no auth; the rider pays the driver directly. It's small on purpose; you learn the method on a frictionless plane. Third, the rebase model: practice on your own idea whenever you want, and at each checkpoint the room resets to the official PEDAL state, so nobody's half-finished map strands us. Your reps are yours; the shared dependency is PEDAL's. Prompt cards are in the repo, so you never have to remember syntax." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>HOW THIS ROOM WORKS</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:62px;letter-spacing:-0.03em;line-height:1.05;">Hands-on, with a safety net</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:64px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 42px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#B5B5B5;margin-bottom:22px;">01 · THE FORMAT</div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:16px;">Six short exercises</div>
+      <p style="margin:0;font-size:25px;line-height:1.4;color:#6B6B6B;">Small groups, laptops open. I demonstrate each move on screen, then you perform it. Prompt cards carry the syntax so you can focus on the decisions.</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:44px 42px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;margin-bottom:22px;">02 · THE WORKBOOK</div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:16px;color:#CF0090;">PEDAL</div>
+      <p style="margin:0;font-size:25px;line-height:1.4;color:#6B6B6B;">A deliberately basic, rider-only pedicab hailing app. Front-end only, mocked matching, no backend, no auth. Small on purpose: the physics show clearly.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 42px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#B5B5B5;margin-bottom:22px;">03 · THE SAFETY NET</div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:16px;">The rebase model</div>
+      <p style="margin:0;font-size:25px;line-height:1.4;color:#6B6B6B;">Practice on your own idea anytime. At each checkpoint the room resets to the official PEDAL state, so the workshop never depends on unfinished work.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The reps are yours; <span style="color:#0A0A0A;font-weight:600;">the shared dependency is PEDAL's.</span> Nobody gets stranded.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>3</span></div>
+</section>
+
+<section data-label="Divider: Discovery" data-speaker-notes="Discovery. The job here is not to generate an app; it's to think with the model. A vague idea goes in; what comes out is a destination, a visible decision space, and a set of product choices a human actually made, each backed by evidence. Forty minutes, four moves." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#9A9A9A;">Part one</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
+  <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">Discovery</h2>
+  <p style="margin:48px 0 0;max-width:1000px;font-size:34px;line-height:1.35;color:#B5B5B5;letter-spacing:-0.01em;">Think <em>with</em> the model. Don&rsquo;t ask it for an app.</p>
+  <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#7A7A7A;">What this answers: how a vague idea becomes resolved product decisions.</div>
+</section>
+
+<section data-label="The Rough Idea" data-speaker-notes="Every product starts like this. Read that sentence; it sounds like alignment. Now watch it fall apart. 'Hail a pedicab' could mean a live map, a reservation, or a text to a dispatcher. 'Know that someone is coming' could be a spinner, a driver name, or a live ETA. 'Quick and easy' means six different things to six people. [Ask two or three people what app THEY imagined; let the answers disagree.] That's the trap: a team can agree with the sentence while imagining different products. None of those readings is irrational, which is exactly the problem, and exactly why Discovery exists." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · THE STARTING POINT</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Every product starts as a sentence</h2>
+  <div style="margin-top:48px;border:1px solid #E6E6E6;border-left:6px solid #CF0090;border-radius:14px;background:#FFFFFF;padding:44px 52px;">
+    <p style="margin:0;font-size:36px;line-height:1.45;letter-spacing:-0.015em;color:#0A0A0A;">&ldquo;I want an app that helps people <strong>hail a pedicab</strong>. A rider should be able to <strong>say where they are going</strong>, request a ride, and <strong>know that someone is coming</strong>. It should feel <strong>quick and easy</strong>. We can figure out the complicated parts later.&rdquo;</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;">
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">&ldquo;Know someone is coming&rdquo;</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#6B6B6B;">A spinner? A driver name? An ETA? A live map? A text message?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">&ldquo;Quick and easy&rdquo;</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#6B6B6B;">No account? Immediate estimate? One-tap confirm? All of the above?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">&ldquo;Complicated parts later&rdquo;</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#6B6B6B;">Payments, matching, maps, cancellations... which can be mocked without changing the product?</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-weight:700;font-size:36px;letter-spacing:-0.02em;line-height:1.15;">A team can agree with the sentence while imagining <span style="color:#CF0090;">different products</span>.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>5</span></div>
+</section>
+
+<section data-label="Two Moves" data-speaker-notes="Here's the first fork in the road, and most teams take the wrong branch. The weak move asks the model to fill every blank at once: 'turn this into a complete PRD and design the app.' You'll get something polished, and polish hides the guesses. The model invents users, policy, and edge cases because you never separated what's known from what still requires judgment. The Discovery move changes the model's job: don't answer, interrogate. Ask focused questions until we can state the destination in two sentences. Recommend, but don't decide; the deciding is ours. Same model, same idea; a completely different working relationship." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · THE FIRST MOVE</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Don&rsquo;t ask for answers. Ask for questions.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:56px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:40px 44px;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#B5B5B5;margin-bottom:24px;">THE WEAK MOVE</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.55;color:#6B6B6B;background:#F5F4F2;border-radius:10px;padding:28px 32px;">&ldquo;Turn this into a complete product requirements document and design the app.&rdquo;</div>
+      <p style="margin:26px 0 0;font-size:25px;line-height:1.4;color:#6B6B6B;">Polished output, hidden guesses. The model invents users, policy, and edge cases; you never see which parts are its judgment instead of yours.</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:40px 44px;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;margin-bottom:24px;">THE DISCOVERY MOVE</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.55;color:#0A0A0A;background:#FFFFFF;border-radius:10px;padding:28px 32px;">&ldquo;Help me clarify this idea before we plan implementation. <strong>Ask focused questions</strong> until we can state the destination, primary user, desired outcome, and explicit boundary in two sentences. <strong>Recommend an answer with each question, but do not decide for me.</strong>&rdquo;</div>
+      <p style="margin:26px 0 0;font-size:25px;line-height:1.4;color:#6B6B6B;">The model interrogates; the human decides. Every consequential choice becomes visible before anything gets built.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Polish can hide the model&rsquo;s guesses. <span style="color:#0A0A0A;font-weight:600;">Separate what&rsquo;s known from what still requires judgment.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>6</span></div>
+</section>
+
+<section data-label="Name the Destination" data-speaker-notes="The interview converges on a destination statement: four facts in two sentences. Primary user. Desired outcome. Explicit boundary. Completion condition. Here's PEDAL's, and notice what it is not: it is not 'build a ride-hailing platform.' It's a deliberately basic, rider-only teaching app, and saying so out loud is what makes every later decision easier: half the decision space just fell away. An LLM can't help you choose a route until you've named where you're going. The destination changes which questions even matter." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · MOVE 1</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Name the destination</h2>
+  <p style="margin:22px 0 0;font-size:29px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;max-width:1300px;">Four facts, two sentences. The model can&rsquo;t help you choose a route until you name where you&rsquo;re going.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;">
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">01 · Primary user</div>
+      <p style="margin:0;font-size:23px;line-height:1.35;color:#0A0A0A;font-weight:600;">Who is this for?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">02 · Outcome</div>
+      <p style="margin:0;font-size:23px;line-height:1.35;color:#0A0A0A;font-weight:600;">What can they do when it works?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">03 · Boundary</div>
+      <p style="margin:0;font-size:23px;line-height:1.35;color:#0A0A0A;font-weight:600;">What is explicitly not this product?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">04 · Completion</div>
+      <p style="margin:0;font-size:23px;line-height:1.35;color:#0A0A0A;font-weight:600;">What marks the end of Discovery?</p>
+    </div>
+  </div>
+  <div style="margin-top:44px;border:2px solid #CF0090;border-radius:14px;background:#FFF5FB;padding:38px 48px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:18px;">PEDAL&rsquo;S DESTINATION</div>
+    <p style="margin:0;font-size:31px;line-height:1.45;letter-spacing:-0.01em;color:#0A0A0A;">A <strong>deliberately basic, rider-only</strong> pedicab hailing app: select a destination, see an estimate, request, watch matching resolve, ride, and pay the driver directly. <span style="color:#6B6B6B;">Not a ride-hailing platform; no drivers, no payments, no backend. Done when the ride loop works end to end on mocked services.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>7</span></div>
+</section>
+
+<section data-label="Your Turn 01" data-speaker-notes="First exercise, eight minutes. Give the LLM your rough idea, or PEDAL's if you'd rather practice on the workbook. Use the prompt card; its job is to make the model interview you. Answer the questions until your group can state the destination in two sentences that cover user, outcome, boundary, and completion. Recommendations are welcome; decisions are yours. If you finish early, stress-test the boundary: name one thing adjacent to your product that you're explicitly not building." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">YOUR TURN · 01</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;background:#CF0090;border-radius:999px;padding:10px 24px;">8 MIN</div>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:800;font-size:84px;letter-spacing:-0.035em;line-height:1.0;">The destination interview</h2>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:56px;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">1</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Give the LLM your rough idea (or PEDAL&rsquo;s sentence) using the <strong>destination prompt card</strong>.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">2</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Answer its focused questions. Take its recommendations as input, not verdicts.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">3</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Write the destination: <strong>two sentences</strong> covering user, outcome, boundary, and completion.</p>
+      </div>
+    </div>
+    <div style="border:1px solid #333;border-radius:16px;background:#141414;padding:36px 40px;height:fit-content;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:20px;">DONE LOOKS LIKE</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#FFFFFF;">Anyone in your group can read the two sentences and describe the same product.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.06em;color:#7A7A7A;">Prompt cards: PEDAL repo · facilitator/discovery/Prompt-Cards.md</div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>8</span></div>
+</section>
+
+<section data-label="Map the Decision Space" data-speaker-notes="With a destination named, the next move is to map before you drill. The failure mode here is disappearing into the first interesting detail while nine bigger questions sit unasked. So we go breadth-first: ask the model to lay out the whole decision space as a lightweight map. Seven sections, and the vocabulary matters. Candidate decisions are the material questions that determine how the product works. The frontier is the subset that's both important and answerable right now. Fog is in scope but too vague to frame as a precise question yet. Out of scope is deliberate exclusion, written down so it stays excluded. And decisions-so-far is the record of what a human actually settled, with the why. This map is how you keep the model oriented across sessions, and how you keep yourselves honest about what's actually been decided." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · MOVE 2</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Map breadth-first before drilling down</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px;">
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#0A0A0A;font-weight:500;">Destination</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">What marks the end of Discovery?</p>
+      </div>
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#0A0A0A;font-weight:500;">Notes &amp; constraints</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">What&rsquo;s already known: context, tools, boundaries.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#0A0A0A;font-weight:500;">Candidate decisions</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">The material questions that shape how the product works.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#0A0A0A;font-weight:500;">Decisions so far</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">What a human actually settled, and why.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:2px solid #CF0090;border-radius:12px;background:#FFF5FB;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#CF0090;font-weight:500;">Frontier</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">Important <em>and</em> answerable now. Work happens here.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#0A0A0A;font-weight:500;">Fog</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">In scope, but too vague to frame as a precise question yet.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:22px 28px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#0A0A0A;font-weight:500;">Out of scope</div>
+        <p style="margin:0;font-size:22px;line-height:1.35;color:#6B6B6B;">Deliberately excluded, written down so it stays excluded.</p>
+      </div>
+      <div style="border-radius:12px;background:#0A0A0A;padding:22px 28px;display:flex;align-items:center;">
+        <p style="margin:0;font-size:22px;line-height:1.4;color:#FFFFFF;">The map organizes <strong style="color:#F3B4DE;">uncertainty</strong> before implementation. A roadmap orders implementation <em>after</em>.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The map is not a backlog. It&rsquo;s <span style="color:#0A0A0A;font-weight:600;">the uncertainty, made visible.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>9</span></div>
+</section>
+
+<section data-label="Four Ways to Resolve" data-speaker-notes="A frontier question doesn't resolve itself; you pick a tool. Four of them. Research: the answer exists in the world, go get it. Grilling: the answer exists in your heads, and focused questioning extracts it; most product decisions fall here. Prototype: the answer requires seeing or touching something, so you build the cheapest slice that settles the question. Prerequisite task: something has to exist before the question can even be framed. That's the whole toolkit. The skill isn't using the tools; it's matching the tool to the question, and noticing that most questions don't need the expensive one." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · MOVE 3</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Four ways to resolve a frontier question</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:64px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:40px 36px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">RESEARCH</div>
+      <div style="font-weight:700;font-size:32px;letter-spacing:-0.02em;margin-bottom:16px;">The answer exists in the world</div>
+      <p style="margin:0;font-size:23px;line-height:1.4;color:#6B6B6B;">Market norms, technical limits, prior art. Go look it up.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:40px 36px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">GRILLING</div>
+      <div style="font-weight:700;font-size:32px;letter-spacing:-0.02em;margin-bottom:16px;">The answer exists in your heads</div>
+      <p style="margin:0;font-size:23px;line-height:1.4;color:#6B6B6B;">Focused questioning extracts and pressure-tests it. Most decisions live here.</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:40px 36px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">PROTOTYPE</div>
+      <div style="font-weight:700;font-size:32px;letter-spacing:-0.02em;margin-bottom:16px;color:#CF0090;">The answer requires seeing it</div>
+      <p style="margin:0;font-size:23px;line-height:1.4;color:#6B6B6B;">Build the cheapest slice that settles the question. Then discard it.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:40px 36px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">PREREQUISITE</div>
+      <div style="font-weight:700;font-size:32px;letter-spacing:-0.02em;margin-bottom:16px;">Something must exist first</div>
+      <p style="margin:0;font-size:23px;line-height:1.4;color:#6B6B6B;">A task, not a question. Do it, then the question becomes frameable.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The skill is <span style="color:#0A0A0A;font-weight:600;">matching the tool to the question</span>; most questions don&rsquo;t need the expensive one.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>10</span></div>
+</section>
+
+<section data-label="Your Turn 02" data-speaker-notes="Second exercise, eight minutes. Ask the model to map your decision space breadth-first; the prompt card gives it the seven sections. Then do the human part: pick out five to seven material decisions, sort them into frontier, fog, and out of scope, and select exactly one frontier question for the next exercise. Consequential and answerable now; those are the two tests. If your best candidate is fog, that's a finding: ask what would make it frameable, and that becomes your question." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">YOUR TURN · 02</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;background:#CF0090;border-radius:999px;padding:10px 24px;">8 MIN</div>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:800;font-size:84px;letter-spacing:-0.035em;line-height:1.0;">Map your decision space</h2>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:56px;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">1</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Ask the LLM for a <strong>breadth-first decision map</strong> of your idea (prompt card 2).</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">2</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Identify <strong>5&ndash;7 material decisions</strong>; sort them into frontier, fog, and out of scope.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">3</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Select <strong>one frontier question</strong>: consequential, and answerable now.</p>
+      </div>
+    </div>
+    <div style="border:1px solid #333;border-radius:16px;background:#141414;padding:36px 40px;height:fit-content;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:20px;">DONE LOOKS LIKE</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#FFFFFF;">A one-page map, and one selected question your group agrees would change the product depending on its answer.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.06em;color:#7A7A7A;">Reference: PEDAL&rsquo;s canonical map · facilitator/discovery/.scratch/pedal-discovery/map.md</div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>11</span></div>
+</section>
+
+<section data-label="A Prototype Is a Question" data-speaker-notes="Now the tool everyone wants to reach for first: the prototype. Here's the rule: you never build a prototype without knowing which decision it's meant to settle. A prototype is a question, made touchable. Watch the contrast. The weak use of Figma Make is 'generate the PEDAL app': you get twelve plausible screens, you feel productive, and zero decisions get made; worse, plausible behavior starts masquerading as decided behavior. The strong use is a thin slice aimed at one question, judged against the destination, recorded as a decision, and then thrown away. The code never crosses into Development. Screen count is not progress. Uncertainty removed is progress." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · MOVE 3</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">A prototype is a question, not a product</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;overflow:hidden;">
+    <div style="padding:32px 44px 24px;border-bottom:1px solid #F0EEEA;border-right:1px solid #F0EEEA;font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#B5B5B5;">WEAK USE OF FIGMA MAKE</div>
+    <div style="padding:32px 44px 24px;border-bottom:1px solid #F0EEEA;font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;background:#FFF5FB;">STRONG USE OF FIGMA MAKE</div>
+    <div style="padding:24px 44px;border-bottom:1px solid #F0EEEA;border-right:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#6B6B6B;">Generate a polished PEDAL app</div>
+    <div style="padding:24px 44px;border-bottom:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#0A0A0A;background:#FFF5FB;">Test what a rider needs to see <strong>while the app is matching</strong></div>
+    <div style="padding:24px 44px;border-bottom:1px solid #F0EEEA;border-right:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#6B6B6B;">Treat generated behavior as truth</div>
+    <div style="padding:24px 44px;border-bottom:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#0A0A0A;background:#FFF5FB;">Compare behavior with the destination and existing decisions</div>
+    <div style="padding:24px 44px;border-bottom:1px solid #F0EEEA;border-right:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#6B6B6B;">Carry prototype code into DEVELOPMENT</div>
+    <div style="padding:24px 44px;border-bottom:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#0A0A0A;background:#FFF5FB;">Record the product decision and <strong>discard the code</strong></div>
+    <div style="padding:24px 44px;border-right:1px solid #F0EEEA;font-size:26px;line-height:1.4;color:#6B6B6B;">Judge progress by screen count</div>
+    <div style="padding:24px 44px;font-size:26px;line-height:1.4;color:#0A0A0A;background:#FFF5FB;">Judge progress by <strong>uncertainty removed</strong></div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Plausible screens start masquerading as <span style="color:#0A0A0A;font-weight:600;">decided behavior</span>. Aim the prototype at one question.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>12</span></div>
+</section>
+
+<section data-label="The Matching Decision" data-speaker-notes="[Demo beat: run this live in Figma Make, recorded fallback cued.] Watch the method on PEDAL's best question: what does the rider see between tapping Request and getting a driver? The first slice comes back with the obvious answer, a spinner. Looks fine, tells the rider nothing, and hides every decision. So we revise deliberately: stage the sequence. Estimate first, then a visible search, then assignment with a driver name and ETA. Now compare against the destination: for a teaching app with mocked matching, the staged sequence wins because it makes the states explicit. That's the decision, and the rationale gets one line. Look at what just happened: the prototype didn't build the product; it settled a product behavior. The code is now garbage; the decision is now durable, and you'll see exactly where it lands after the seam: Flows, BusinessRules, and the E1-S2 spec." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;">
+    <span style="color:#B5B5B5;">DISCOVERY · WATCH IT RUN</span>
+    <span style="color:#CF0090;">LIVE DEMO</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">One question: what does the rider see while matching?</h2>
+  <div style="display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-top:56px;align-items:stretch;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:40px 44px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">SLICE 1 · THE OBVIOUS ANSWER</div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:18px;">A passive spinner</div>
+      <p style="margin:0;font-size:25px;line-height:1.45;color:#6B6B6B;">&ldquo;Finding your ride...&rdquo; Looks fine. Tells the rider nothing, and hides every decision: is there an estimate? A wait? A moment of assignment?</p>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;font-size:40px;color:#CF0090;">→</div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:40px 44px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">SLICE 2 · THE DELIBERATE REVISION</div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:18px;color:#CF0090;">A staged sequence</div>
+      <p style="margin:0;font-size:25px;line-height:1.45;color:#6B6B6B;">Estimate shown → visible driver search → assignment with driver name and ETA. The states are explicit, and each one is now a decision on the record.</p>
+    </div>
+  </div>
+  <div style="margin-top:44px;border-radius:14px;background:#0A0A0A;padding:34px 48px;display:flex;align-items:center;gap:36px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#F3B4DE;flex-shrink:0;">DECISION RECORDED</div>
+    <p style="margin:0;font-size:26px;line-height:1.4;color:#FFFFFF;">Matching is a visible sequence, not a loading state. <span style="color:#9A9A9A;">Rationale: the staged flow exposes what the rider needs and what DEVELOPMENT must implement.</span></p>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The code is now garbage. <span style="color:#0A0A0A;font-weight:600;">The decision is now durable.</span> Watch where it lands after the seam.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>13</span></div>
+</section>
+
+<section data-label="Your Turn 03" data-speaker-notes="Third exercise, ten minutes, and it's the heart of Discovery. Take the frontier question you selected and resolve it with evidence. If it's a seeing question, build or modify one thin Figma Make slice; one behavior, not an app. If it's a knowing question, grill it: have the model pressure-test the options against your destination. Groups on PEDAL can inspect the official reference prototype instead of building. Either way, the exit is the same: write the decision down, one line of what you chose and one line of why the evidence settled it. If the evidence surprised you, even better; say what changed." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">YOUR TURN · 03</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;background:#CF0090;border-radius:999px;padding:10px 24px;">10 MIN</div>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:800;font-size:84px;letter-spacing:-0.035em;line-height:1.0;">Resolve one decision with evidence</h2>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:56px;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">1</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Pick your tool: a <strong>thin Figma Make slice</strong> (one behavior, not an app), a grilling session, or the official PEDAL reference.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">2</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Judge the evidence <strong>against your destination</strong>, not against whether it looks good.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">3</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Record the decision: <strong>what you chose, and why the evidence settled it</strong>.</p>
+      </div>
+    </div>
+    <div style="border:1px solid #333;border-radius:16px;background:#141414;padding:36px 40px;height:fit-content;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:20px;">DONE LOOKS LIKE</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#FFFFFF;">One resolved decision with a one-line rationale; the prototype, if you built one, is already disposable.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.06em;color:#7A7A7A;">Reference: facilitator/discovery/03-Prototype-Evidence.md</div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>14</span></div>
+</section>
+
+<section data-label="Update, Then Rebase" data-speaker-notes="Two things happen before we cross the seam. First, the resolution goes back into the map, and watch the ripple: one answer clears fog, changes dependencies, or exposes the next decision. Deciding matching as a staged sequence suddenly makes 'what states exist' a precise question instead of fog. The frontier moves; that's the sign the method is working. Second, the rebase. A real discovery effort runs across multiple focused sessions; we had forty minutes. So the room now switches to the completed PEDAL discovery packet: destination, full map, resolved decisions, rationale. Keep your own map; it's your practice and your method. But from here forward, the shared dependency is PEDAL's, so every group crosses the seam with the same inputs and nobody's half-finished map strands the room." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DISCOVERY · MOVE 4</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Write it back. Then rebase the room.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:56px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 48px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;margin-bottom:22px;">THE UPDATE</div>
+      <div style="font-weight:700;font-size:38px;letter-spacing:-0.02em;margin-bottom:18px;">One answer moves the frontier</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#6B6B6B;">The resolution clears fog, changes dependencies, or exposes the next decision. &ldquo;Matching is a staged sequence&rdquo; turns <em>&ldquo;what states exist?&rdquo;</em> from fog into a precise question.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 48px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;margin-bottom:22px;">THE REBASE</div>
+      <div style="font-weight:700;font-size:38px;letter-spacing:-0.02em;margin-bottom:18px;">Switch to the canonical packet</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#6B6B6B;">A real effort spans multiple sessions; we had forty minutes. The room resets to PEDAL&rsquo;s completed discovery packet, so everyone crosses the seam with the same inputs.</p>
+    </div>
+  </div>
+  <div style="margin-top:48px;border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:34px 48px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">DISCOVERY IS COMPLETE ENOUGH WHEN YOU CAN STATE</div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:23px;line-height:1.3;">
+      <span style="border:1px solid #E6E6E6;border-radius:999px;padding:12px 26px;color:#0A0A0A;">The destination and boundary</span>
+      <span style="border:1px solid #E6E6E6;border-radius:999px;padding:12px 26px;color:#0A0A0A;">The major decisions</span>
+      <span style="border:1px solid #E6E6E6;border-radius:999px;padding:12px 26px;color:#0A0A0A;">The one you resolved, with evidence</span>
+      <span style="border:1px solid #E6E6E6;border-radius:999px;padding:12px 26px;color:#0A0A0A;">What remains fog or excluded</span>
+      <span style="border:1px solid #E6E6E6;border-radius:999px;padding:12px 26px;color:#0A0A0A;">What the prototype taught you</span>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The reset separates <span style="color:#0A0A0A;font-weight:600;">practice</span> from <span style="color:#0A0A0A;font-weight:600;">shared dependency</span>. Your reps stay yours.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>15</span></div>
+</section>
+
+<section data-label="Divider: Definition" data-speaker-notes="Definition. Discovery removed the consequential ambiguity; Definition preserves the resulting agreement. The move now is synthesis: the resolved decisions become durable artifacts, the artifacts become a roadmap, and the roadmap's first slice becomes work an agent can execute without inventing your product. This is the half where the PMs, designers, and data partners in the room stop watching and start owning files." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#9A9A9A;">Part two</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
+  <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">Definition</h2>
+  <p style="margin:48px 0 0;max-width:1050px;font-size:34px;line-height:1.35;color:#B5B5B5;letter-spacing:-0.01em;">Discovery removed the ambiguity. Definition <em>preserves the agreement</em>.</p>
+  <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#7A7A7A;">What this answers: how resolved decisions become artifacts agents can execute.</div>
+</section>
+
+<section data-label="Cross the Seam" data-speaker-notes="First, the seam itself, because this is where teams smuggle the wrong things across. Three candidates for the handoff. The chat history: three hours of exploration, dead ends, and half-revised opinions; an agent reading it can't tell the decision from the detour. The prototype code: Figma Make wrote something that looks right with none of the decisions inside it; carry it forward and you've adopted a codebase nobody chose. Both die at the seam. What crosses is the third thing: the resolved decisions with their rationale. That's the entire handoff, and it's why Definition exists as a discipline instead of an export button." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DEFINITION · THE SEAM</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">What crosses the seam. What dies there.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:64px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 42px;position:relative;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">THE CHAT HISTORY</div>
+      <div style="font-weight:700;font-size:34px;letter-spacing:-0.02em;margin-bottom:16px;color:#9A9A9A;text-decoration:line-through;text-decoration-color:#CF0090;text-decoration-thickness:3px;">Dies at the seam</div>
+      <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">Exploration, dead ends, half-revised opinions. An agent can&rsquo;t tell the decision from the detour.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 42px;position:relative;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">THE PROTOTYPE CODE</div>
+      <div style="font-weight:700;font-size:34px;letter-spacing:-0.02em;margin-bottom:16px;color:#9A9A9A;text-decoration:line-through;text-decoration-color:#CF0090;text-decoration-thickness:3px;">Dies at the seam</div>
+      <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">Looks right, decides nothing. Carry it forward and you&rsquo;ve adopted a codebase nobody chose.</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:44px 42px;position:relative;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">THE RESOLVED DECISIONS</div>
+      <div style="font-weight:700;font-size:34px;letter-spacing:-0.02em;margin-bottom:16px;color:#CF0090;">Cross, with rationale</div>
+      <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">What you chose, what you excluded, and why. The entire handoff, preserved as artifacts.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:18px;"></div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <p style="margin:0;font-weight:700;font-size:44px;letter-spacing:-0.02em;line-height:1.05;">The decisions are the handoff.</p>
+      <p style="margin:0;font-size:27px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Decision work is over; implementation work hasn&rsquo;t started. Definition is the bridge between them.</p>
+    </div>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>17</span></div>
+</section>
+
+<section data-label="Synthesize, Don't Dump" data-speaker-notes="The first Definition move is synthesis, and the instruction to the model matters: condense the completed decision set, don't transcribe the journey. Preserve the agreement and the rationale; remove the exploration residue, the discarded paths, the three options we didn't pick. And then the human job, which is the whole reason this step needs you: review the draft for invented behavior. The model will helpfully fill gaps; every gap it fills is a product decision you didn't make. Reading the draft against your decision record is how the agreement stays yours." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DEFINITION · MOVE 1</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Synthesize the agreement. Don&rsquo;t dump the chat.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:64px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 42px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">PRESERVE</div>
+      <div style="font-weight:700;font-size:34px;letter-spacing:-0.02em;margin-bottom:16px;">The agreement</div>
+      <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">What was decided, what was excluded, and the rationale behind each consequential call.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 42px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;margin-bottom:20px;">REMOVE</div>
+      <div style="font-weight:700;font-size:34px;letter-spacing:-0.02em;margin-bottom:16px;">The residue</div>
+      <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">Discarded paths, dead ends, the options you didn&rsquo;t pick. Exploration stays behind the seam.</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:44px 42px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:20px;">REVIEW FOR</div>
+      <div style="font-weight:700;font-size:34px;letter-spacing:-0.02em;margin-bottom:16px;color:#CF0090;">Invented behavior</div>
+      <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">The model fills gaps helpfully. Every gap it fills is a product decision you didn&rsquo;t make. Catch them here.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The LLM drafts; <span style="color:#0A0A0A;font-weight:600;">the human keeps the agreement honest.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>18</span></div>
+</section>
+
+<section data-label="The Artifact Set" data-speaker-notes="Here's where the decisions land: six artifacts, and every one is a plain, legible file in the repository. Vision holds the destination: user, outcome, boundary. The functional brief holds the selected experience and the explicit non-goals. Flows holds the rider's sequence: screens, states, transitions. BusinessRules holds domain truth: entities, states, invariants, what's mocked, what's deferred. The roadmap holds ordered implementation intent, and the sprint specs hold work an agent can execute without a material guess. Watch the matching decision travel: the staged sequence shows up in Flows as states, in BusinessRules as transitions, and in the E1-S2 spec as acceptance criteria. One decision, preserved in the files that govern it. That's the interface between your roles, and between your team and the agents." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DEFINITION · THE ARTIFACT SET</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:36px 0 0;"></div>
+  <h2 style="margin:26px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.05;">Six files carry the whole agreement</h2>
+  <div style="display:flex;flex-direction:column;gap:14px;margin-top:44px;">
+    <div style="display:grid;grid-template-columns:420px 1fr 330px;gap:28px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:20px 32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#0A0A0A;">docs/Vision.md</div>
+      <p style="margin:0;font-size:23px;line-height:1.3;color:#6B6B6B;">Destination, primary user, outcome, and the product boundary</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#B5B5B5;text-align:right;">from the destination</div>
+    </div>
+    <div style="display:grid;grid-template-columns:420px 1fr 330px;gap:28px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:20px 32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#0A0A0A;">docs/FunctionalBrief.md</div>
+      <p style="margin:0;font-size:23px;line-height:1.3;color:#6B6B6B;">The selected experience and the explicit non-goals</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#B5B5B5;text-align:right;">from scope decisions</div>
+    </div>
+    <div style="display:grid;grid-template-columns:420px 1fr 330px;gap:28px;align-items:center;border:2px solid #CF0090;border-radius:12px;background:#FFF5FB;padding:20px 32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;">docs/Flows.md</div>
+      <p style="margin:0;font-size:23px;line-height:1.3;color:#6B6B6B;">Rider screens, states, and transitions <strong style="color:#0A0A0A;">(the matching sequence lives here)</strong></p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#CF0090;text-align:right;">from evidence</div>
+    </div>
+    <div style="display:grid;grid-template-columns:420px 1fr 330px;gap:28px;align-items:center;border:2px solid #CF0090;border-radius:12px;background:#FFF5FB;padding:20px 32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;">docs/BusinessRules.md</div>
+      <p style="margin:0;font-size:23px;line-height:1.3;color:#6B6B6B;">Entities, states, invariants, mock boundaries, deferred behavior</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#CF0090;text-align:right;">from evidence</div>
+    </div>
+    <div style="display:grid;grid-template-columns:420px 1fr 330px;gap:28px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:20px 32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#0A0A0A;">docs/Roadmap.md</div>
+      <p style="margin:0;font-size:23px;line-height:1.3;color:#6B6B6B;">Ordered EPICs, sprint outcomes, dependencies, future work</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#B5B5B5;text-align:right;">from priorities</div>
+    </div>
+    <div style="display:grid;grid-template-columns:420px 1fr 330px;gap:28px;align-items:center;border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:20px 32px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#0A0A0A;">docs/specs/EPIC1/*.md</div>
+      <p style="margin:0;font-size:23px;line-height:1.3;color:#6B6B6B;">Work executable without a material product guess</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#B5B5B5;text-align:right;">from the roadmap</div>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:12px;"></div>
+    <p style="margin:0;font-size:27px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Plain, legible files: <span style="color:#0A0A0A;font-weight:600;">the contract between PM, design, engineering, data, and the agents.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>19</span></div>
+</section>
+
+<section data-label="Your Turn 04" data-speaker-notes="Fourth exercise, eight minutes, and now we're on PEDAL's canonical decisions. Take one resolved decision from the packet; the matching sequence is the worked example, so pick a different one if you want the harder rep. First name where it belongs: is this vision, brief, flows, or business rules? Saying why is the learning. Then have the LLM draft that artifact section, and read the draft like a reviewer: anything in there you didn't decide? Strike it or flag it. That review reflex is the single most valuable habit in this half of the workshop." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">YOUR TURN · 04</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;background:#CF0090;border-radius:999px;padding:10px 24px;">8 MIN</div>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:800;font-size:84px;letter-spacing:-0.035em;line-height:1.0;">Put one decision in its artifact</h2>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:56px;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">1</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Pick one resolved PEDAL decision and <strong>name its destination artifact</strong>: vision, brief, flows, or business rules. Say why.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">2</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Have the LLM <strong>draft that artifact section</strong> from the decision and its rationale.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">3</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Review the draft for <strong>invented behavior</strong>: strike anything you didn&rsquo;t decide.</p>
+      </div>
+    </div>
+    <div style="border:1px solid #333;border-radius:16px;background:#141414;padding:36px 40px;height:fit-content;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:20px;">DONE LOOKS LIKE</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#FFFFFF;">One reviewed artifact contribution, with at least one model invention caught and struck (there&rsquo;s almost always one).</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.06em;color:#7A7A7A;">Reference: facilitator/discovery/04-Discovery-Handoff.md · the decision-to-artifact table</div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>20</span></div>
+</section>
+
+<section data-label="The Roadmap" data-speaker-notes="Now the roadmap, and one distinction carries this slide: a decision map organizes uncertainty before implementation; a roadmap orders implementation after the material uncertainty is resolved. A roadmap is not a list of ideas; it's ordered implementation intent. It appears only after the product agreement is coherent, and it needs at least two EPICs to be honest. EPIC 1 is the workshop build, fully decomposed and ready. EPIC 2 is where product realism lives: cancellation, the no-driver timeout, real maps, the driver side, in-app payment. Everything we deliberately excluded has a home there, which is exactly what keeps an agent from helpfully adding it back to EPIC 1." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DEFINITION · MOVE 2</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">A roadmap is ordered implementation intent</h2>
+  <p style="margin:22px 0 0;font-size:29px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;max-width:1400px;">Not a list of ideas. It appears only after the agreement is coherent, and it holds at least two EPICs.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:52px;">
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:44px 48px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;">EPIC 1 · BASIC RIDER BOOKING</div>
+        <span style="background:#CF0090;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;">Fully specified</span>
+      </div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:16px;color:#CF0090;">The workshop build</div>
+      <p style="margin:0;font-size:25px;line-height:1.45;color:#6B6B6B;">The complete rider-only path, decomposed into three ready sprints. This is what the harness executes in the next workshop.</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#FFFFFF;padding:44px 48px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.2em;text-transform:uppercase;color:#B5B5B5;">EPIC 2 · EXCEPTIONS &amp; REALISM</div>
+        <span style="background:#F2F1EE;color:#6B6B6B;font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;">Directional</span>
+      </div>
+      <div style="font-weight:700;font-size:36px;letter-spacing:-0.02em;margin-bottom:16px;">Where realism lives</div>
+      <p style="margin:0;font-size:25px;line-height:1.45;color:#6B6B6B;">Cancellation, no-driver timeout, real maps, richer matching, the driver experience, in-app payment. Excluded from EPIC 1 <em>on the record</em>.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">A written EPIC 2 is what stops an agent from <span style="color:#0A0A0A;font-weight:600;">helpfully adding the future back</span> into EPIC 1. An exclusion without a home reads as an oversight.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>21</span></div>
+</section>
+
+<section data-label="EPIC 1: Three Sprints" data-speaker-notes="EPIC 1 decomposes into three sprints, and the discipline is that each one names a demonstrable outcome; not a theme, not a vibe, a thing you can watch work. S1: a locally runnable rider shell, typed state, fixtures, mock boundaries. S2: the request path, destination through estimate through matching to a mocked driver assignment; our matching decision becomes buildable here. S3: the ride lifecycle, arriving through completion to pay-the-driver-directly and reset. They run in order, each one assumes the last, and together they're the complete promise of the next workshop: the harness builds all three, live, from these files." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DEFINITION · THE BUILD ORDER</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:60px;letter-spacing:-0.03em;line-height:1.05;">Every sprint names a demonstrable outcome</h2>
+  <div style="display:flex;flex-direction:column;gap:24px;margin-top:56px;">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center;border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:34px 44px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#CF0090;margin-bottom:8px;">E1-S1</div>
+        <div style="font-weight:700;font-size:30px;letter-spacing:-0.02em;">App Setup &amp; Shell</div>
+      </div>
+      <p style="margin:0;font-size:26px;line-height:1.4;color:#6B6B6B;">A locally runnable React + TypeScript rider shell: visual system, typed state, deterministic fixtures, and mock boundaries.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center;border:2px solid #CF0090;border-radius:14px;background:#FFF5FB;padding:34px 44px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#CF0090;margin-bottom:8px;">E1-S2</div>
+        <div style="font-weight:700;font-size:30px;letter-spacing:-0.02em;">Ride Request</div>
+      </div>
+      <p style="margin:0;font-size:26px;line-height:1.4;color:#6B6B6B;">Destination → estimate → request → <strong style="color:#0A0A0A;">matching as a visible sequence</strong> → mocked driver assignment and ETA. The discovery decision, now buildable.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center;border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:34px 44px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#CF0090;margin-bottom:8px;">E1-S3</div>
+        <div style="font-weight:700;font-size:30px;letter-spacing:-0.02em;">Ride Lifecycle</div>
+      </div>
+      <p style="margin:0;font-size:26px;line-height:1.4;color:#6B6B6B;">Driver arriving → ride in progress → completion → pay the driver directly → reset. The loop closes.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">In order, each assuming the last. <span style="color:#0A0A0A;font-weight:600;">The next workshop&rsquo;s promise is all three, built live from these files.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>22</span></div>
+</section>
+
+<section data-label="Your Turn 05" data-speaker-notes="Fifth exercise, six minutes, quick one. Take the capability you carried through the morning and place it: which EPIC does it belong to, and what's its one demonstrable sprint outcome? The test for the outcome: could you demo it in two minutes to someone who wasn't in the room? 'Improve the matching experience' fails; 'rider sees estimate, search, and assignment as distinct states' passes. Name one dependency: what has to exist before your sprint can start? If you're on PEDAL, repair the E1 ordering instead: argue why S2 can't come first." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">YOUR TURN · 05</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;background:#CF0090;border-radius:999px;padding:10px 24px;">6 MIN</div>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:800;font-size:84px;letter-spacing:-0.035em;line-height:1.0;">Make a roadmap increment</h2>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:56px;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">1</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Place your capability into an EPIC: <strong>the build now, or the realism later?</strong></p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">2</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Define <strong>one demonstrable sprint outcome</strong>: something you could demo in two minutes.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">3</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Name <strong>one dependency</strong>: what must exist before this sprint can start?</p>
+      </div>
+    </div>
+    <div style="border:1px solid #333;border-radius:16px;background:#141414;padding:36px 40px;height:fit-content;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:20px;">THE OUTCOME TEST</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#FFFFFF;">&ldquo;Improve the matching experience&rdquo; fails. &ldquo;Rider sees estimate, search, and assignment as distinct states&rdquo; passes.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.06em;color:#7A7A7A;">On PEDAL? Repair the ordering instead: argue why E1-S2 can&rsquo;t come first.</div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>23</span></div>
+</section>
+
+<section data-label="Make One Sprint Executable" data-speaker-notes="The last mile of Definition: turning a roadmap item into a specification an agent can execute. Eight fields, and each one is a question you answer on purpose. Outcome: what demonstrable state exists when the sprint completes? Scope: what's in, and what's explicitly out? Behavior: what must the rider be able to do or observe? Rules: which states and invariants govern the work? Dependencies: what may the agent assume already exists? Constraints: which boundaries can't be crossed? Acceptance: which observable conditions decide pass or fail? And verification and record: what evidence comes back, and where does the result get written? Notice the shape: this isn't documentation of the work; it's the contract for it. Leave a field vague and you haven't saved time, you've delegated a product decision to a code generator." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>DEFINITION · MOVE 3</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:36px 0 0;"></div>
+  <h2 style="margin:26px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.05;">Eight fields make a sprint executable</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px;">
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Outcome</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">What demonstrable state exists when it&rsquo;s done?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Scope</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">What&rsquo;s included, and what&rsquo;s explicitly excluded?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Behavior</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">What must the rider be able to do or observe?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Rules</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">Which states, transitions, and invariants govern it?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Dependencies</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">What prior state and artifacts may the agent assume?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Constraints</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">Which technical and product boundaries can&rsquo;t be crossed?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Acceptance</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">Which observable conditions decide pass or fail?</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:12px;background:#FFFFFF;padding:28px 28px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">Verification &amp; record</div>
+      <p style="margin:0;font-size:21px;line-height:1.35;color:#6B6B6B;">What evidence returns, and where is the result written?</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">A vague field doesn&rsquo;t save time. It <span style="color:#0A0A0A;font-weight:600;">delegates a product decision to a code generator</span>.</p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>24</span></div>
+</section>
+
+<section data-label="The Readiness Gate" data-speaker-notes="One question decides whether Definition is complete, and it's worth the whole workshop. Read a spec and ask: what material product decision would the agent still have to invent? If the answer is 'none,' the sprint is ready; hand it off. If the answer is nontrivial, you found the gap now, in a document you can fix in five minutes, instead of later, in a codebase where the agent already decided for you. This is the gate every spec passes through before it earns a place in the repo." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 160px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:0.3em;text-transform:uppercase;color:#CF0090;">THE READINESS GATE</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h1 style="margin:48px 0 0;font-weight:800;font-size:104px;letter-spacing:-0.04em;line-height:1.06;max-width:1560px;">What material product decision would the agent <span style="color:#CF0090;">still have to invent?</span></h1>
+  <p style="margin:56px 0 0;max-width:1350px;font-size:33px;line-height:1.45;letter-spacing:-0.01em;color:#9A9A9A;">If the answer is nontrivial, Definition is not complete. Find the gap in a document you can fix in five minutes, <span style="color:#FFFFFF;font-weight:600;">not in a codebase where the agent already decided for you.</span></p>
+</section>
+
+<section data-label="Your Turn 06" data-speaker-notes="Last exercise, eight minutes, and it's the exam. Take one PEDAL sprint spec; E1-S2 is the interesting one because the matching decision runs through it. Walk the eight fields, then apply the gate: what material product decision would the agent still have to invent? I've left real gaps in the exercise copy, so there is something to find. When you find one, repair it: write the missing decision into the right field, or trace it back to the artifact that should govern it. Groups that finish early: run the gate on E1-S1 and argue about whether 'visual system' is specified or smuggled." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#CF0090;">YOUR TURN · 06</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.2em;text-transform:uppercase;color:#FFFFFF;background:#CF0090;border-radius:999px;padding:10px 24px;">8 MIN</div>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:800;font-size:84px;letter-spacing:-0.035em;line-height:1.0;">Repair a sprint spec</h2>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:56px;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">1</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Open the exercise copy of a PEDAL sprint spec and <strong>walk the eight fields</strong>.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">2</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Apply the gate: <strong>what would the agent still have to invent?</strong> There are real gaps to find.</p>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#CF0090;flex-shrink:0;padding-top:4px;">3</div>
+        <p style="margin:0;font-size:29px;line-height:1.4;color:#E8E8E8;">Repair it: write the missing decision into the right field, or trace it to the artifact that governs it.</p>
+      </div>
+    </div>
+    <div style="border:1px solid #333;border-radius:16px;background:#141414;padding:36px 40px;height:fit-content;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.2em;text-transform:uppercase;color:#9A9A9A;margin-bottom:20px;">DONE LOOKS LIKE</div>
+      <p style="margin:0;font-size:26px;line-height:1.45;color:#FFFFFF;">One named gap, one written repair, and a spec that now passes the gate.</p>
+    </div>
+  </div>
+  <div style="margin-top:auto;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.06em;color:#7A7A7A;">Finished early? Run the gate on E1-S1: is the &ldquo;visual system&rdquo; specified, or smuggled?</div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>26</span></div>
+</section>
+
+<section data-label="defined" data-speaker-notes="And here's where the morning lands: the canonical PEDAL repository at the tag called defined. Look at what's in it, and look harder at what isn't. Six artifacts, three ready sprint specs, a README that tells an agent how to begin. Zero application code. No src directory, no components, not one line of TypeScript beyond what the specs describe. Everything we did today is preserved in these files: the destination became Vision, the evidence became Flows and BusinessRules, the priorities became the roadmap, and the matching decision you can trace through four files by hand. This is the first durable repository state of the whole series, and it's the exact boundary the next workshop starts from. Compare your exercise output against it; steal what's better, notice what's missing." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;">
+    <span style="color:#B5B5B5;">DEFINITION · THE REVEAL</span>
+    <span style="color:#CF0090;">REPO ON SCREEN</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:36px 0 0;"></div>
+  <h2 style="margin:26px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.05;">This is <span style="font-family:'JetBrains Mono',monospace;color:#CF0090;">defined</span>: all agreement, no code</h2>
+  <div style="display:grid;grid-template-columns:760px 1fr;gap:56px;margin-top:44px;align-items:start;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#0A0A0A;padding:40px 48px;font-family:'JetBrains Mono',monospace;font-size:23px;line-height:1.75;color:#E8E8E8;">
+      <div style="color:#7A7A7A;">pedal/ · tag: <span style="color:#CF0090;">defined</span></div>
+      <div>├── README.md</div>
+      <div>└── docs/</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;├── Vision.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;├── FunctionalBrief.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;├── Flows.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;├── BusinessRules.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;├── Roadmap.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;└── specs/EPIC1/</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── E1-S1-App-Setup-and-Shell.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── E1-S2-Ride-Request.md</div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── E1-S3-Ride-Lifecycle.md</div>
+      <div style="margin-top:16px;color:#7A7A7A;">src/&nbsp;&nbsp;<span style="color:#CF0090;">← does not exist</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:32px 36px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">TRACE ONE DECISION</div>
+        <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">Matching as a visible sequence: states in <strong style="color:#0A0A0A;">Flows.md</strong>, transitions in <strong style="color:#0A0A0A;">BusinessRules.md</strong>, ordering in <strong style="color:#0A0A0A;">Roadmap.md</strong>, acceptance in <strong style="color:#0A0A0A;">E1-S2</strong>.</p>
+      </div>
+      <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:32px 36px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">THE STANDING RULE</div>
+        <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">Do not recover intent from a conversation or a prototype. <strong style="color:#0A0A0A;">Read the artifacts, execute one ready sprint, return evidence, record the result.</strong></p>
+      </div>
+      <div style="border:2px solid #CF0090;border-radius:14px;background:#FFF5FB;padding:32px 36px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">YOUR MOVE</div>
+        <p style="margin:0;font-size:24px;line-height:1.45;color:#6B6B6B;">Compare your exercise output against the canonical files. <strong style="color:#0A0A0A;">Name one thing you&rsquo;d improve.</strong></p>
+      </div>
+    </div>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/discovery-definition</span><span>27</span></div>
+</section>
+
+<section data-label="Handoff to Development" data-speaker-notes="Here's the whole morning in one breath. We started with an idea that lived in someone's head. We used the LLM to make the questions visible, used evidence to settle the ones that mattered, and turned those decisions into a roadmap and three sprint contracts. The next workshop begins with no application code. We hand these artifacts to a harness and find out whether it can build the complete first EPIC, live, without inventing the product along the way. And through all of it, four things never leave human hands: the intent, the consequential ambiguity, the acceptance, and the recovery. That's the trade: agents get the execution; you keep the judgment. Same time, same room, bring your product partners; next stop is getting airborne." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:110px 160px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:0.3em;text-transform:uppercase;color:#CF0090;">NEXT: PART 4 OF 5 · AGENT HARNESSES</div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h1 style="margin:48px 0 0;font-weight:800;font-size:100px;letter-spacing:-0.04em;line-height:1.04;max-width:1560px;">The next workshop starts with <span style="color:#CF0090;">zero application code.</span></h1>
+  <p style="margin:48px 0 0;max-width:1400px;font-size:33px;line-height:1.45;letter-spacing:-0.01em;color:#9A9A9A;">The harness reads <span style="font-family:'JetBrains Mono',monospace;font-size:28px;color:#FFFFFF;">Roadmap.md</span>, executes E1-S1 through E1-S3 live, returns evidence, and records the results. <span style="color:#FFFFFF;font-weight:600;">You just authored everything it needs.</span></p>
+  <div style="margin-top:56px;display:flex;align-items:center;gap:22px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:23px;letter-spacing:0.18em;text-transform:uppercase;color:#FFFFFF;">HUMANS KEEP: INTENT&nbsp;&nbsp;·&nbsp;&nbsp;AMBIGUITY&nbsp;&nbsp;·&nbsp;&nbsp;ACCEPTANCE&nbsp;&nbsp;·&nbsp;&nbsp;RECOVERY</p>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1920,&quot;height&quot;:1080}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
