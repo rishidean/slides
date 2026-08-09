@@ -423,6 +423,51 @@
   <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>16</span></div>
 </section>
 
+<section data-label="Inside a Sprint Spec" data-speaker-notes="So what's actually in a sprint spec? Eight fields, and each one exists to close a category of guess. Outcome: what demos when it's done. Scope: what's in, and explicitly what's out. Behavior: what the rider can do or observe. Rules: which states and invariants govern the work. Dependencies: what the agent may assume already exists. Constraints: what it may not touch. Acceptance: the observable conditions that mean pass. Verification and record: what evidence comes back and where the result gets written. Read any field and ask what an agent would do if it were blank; that blank is a product decision you just delegated. In Session 2, the harness consumes these files directly. This is the contract it builds against." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>ANATOMY · SPRINT SPEC</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:62px;letter-spacing:-0.03em;line-height:1.05;">Inside a sprint spec: eight fields</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:26px;margin-top:52px;flex:1;">
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">01 · OUTCOME</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">What demos when it&rsquo;s done</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">02 · SCOPE</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">What&rsquo;s in, and explicitly out</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">03 · BEHAVIOR</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">What the rider can do or observe</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">04 · RULES</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">States and invariants that govern it</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">05 · DEPENDENCIES</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">What the agent may assume exists</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">06 · CONSTRAINTS</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">What it may not touch or cross</p>
+    </div>
+    <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">07 · ACCEPTANCE</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">Observable conditions that mean pass</p>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:14px;background:#FFF5FB;padding:28px 30px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:12px;">08 · VERIFY + RECORD</div>
+      <p style="margin:0;font-size:22px;line-height:1.4;color:#0A0A0A;">Evidence returned, result written down</p>
+    </div>
+  </div>
+  <div style="margin-top:44px;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Read any field and ask what an agent would do if it were blank. <span style="color:#0A0A0A;font-weight:600;">That blank is a product decision you just delegated.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>17</span></div>
+</section>
+
 <section data-label="Feature, Defined" data-speaker-notes="A feature is one verifiable behavior, and the whole trick is in the word verifiable. The vague version: 'rider can request a ride.' A human reads that and asks questions; an agent reads it and invents the answers. The explicit version lists acceptance criteria a machine can check: estimate appears before request, matching runs as a staged sequence, assignment shows driver and ETA, mock data only. When the criteria are explicit, the build is trivial and QA is decisive. When they're vague, the build is a guess wearing your product's name. Every vague field delegates a product decision to a code generator." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>ANATOMY · FEATURE</span></div>
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
@@ -448,7 +493,48 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Explicit criteria: the build is trivial, QA is decisive. Vague criteria: <span style="color:#0A0A0A;font-weight:600;">a product decision delegated to a code generator.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>17</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>18</span></div>
+</section>
+<section data-label="Inside a Feature Spec" data-speaker-notes="And one level down, the feature spec: the file an agent actually executes, small enough to build and verify in one pass. Overview: what and why, two paragraphs max. Dependencies: which features must exist first. Acceptance criteria as checkboxes a machine can tick, including commands like typecheck passes. Files to create, with explicit paths, never 'create a component.' Component specs where the shapes matter. Verification: the exact commands to run. And a definition of done that ends in a commit message format, so the git log becomes the ledger. Three writing rules carry the whole thing: be specific, name the file paths, make every criterion checkable. The kit ships a skill that drafts these from your sprint spec; the drafting is cheap. Your judgment on what it drafted is the work." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>ANATOMY · FEATURE SPEC</span></div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:44px 0 0;"></div>
+  <h2 style="margin:30px 0 0;font-weight:700;font-size:62px;letter-spacing:-0.03em;line-height:1.05;">Inside a feature spec: the file the agent executes</h2>
+  <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;margin-top:48px;flex:1;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#0A0A0A;padding:30px 38px;font-family:'JetBrains Mono',monospace;font-size:19px;line-height:1.78;color:#DDDDDD;overflow:hidden;">
+      <div style="color:#FF6BC1;"># F2.3: Ride Request</div>
+      <div><span style="color:#7A7A7A;">## Overview</span> &nbsp;what and why, briefly</div>
+      <div><span style="color:#7A7A7A;">## Dependencies</span> &nbsp;[ ] F2.1 destination entry</div>
+      <div><span style="color:#7A7A7A;">## Acceptance Criteria</span></div>
+      <div>&nbsp;&nbsp;[ ] estimate shown before request enabled</div>
+      <div>&nbsp;&nbsp;[ ] <span style="color:#59D499;">npm run typecheck</span> passes</div>
+      <div><span style="color:#7A7A7A;">## Files to Create</span> &nbsp;src/ride/RideRequest.tsx</div>
+      <div><span style="color:#7A7A7A;">## Verification</span> &nbsp;run-qa &rarr; GREEN</div>
+      <div><span style="color:#7A7A7A;">## Definition of Done</span> &nbsp;feat(F2.3): Ride Request</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;">
+      <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:26px 32px;">
+        <div style="font-weight:700;font-size:24px;letter-spacing:-0.015em;margin-bottom:8px;">Be specific</div>
+        <p style="margin:0;font-size:20px;line-height:1.4;color:#6B6B6B;">&#10005; &ldquo;displays nicely&rdquo; &nbsp;&nbsp;&#10003; &ldquo;right-aligned, bg-slate-800&rdquo;</p>
+      </div>
+      <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:26px 32px;">
+        <div style="font-weight:700;font-size:24px;letter-spacing:-0.015em;margin-bottom:8px;">Name the file paths</div>
+        <p style="margin:0;font-size:20px;line-height:1.4;color:#6B6B6B;">&#10005; &ldquo;create a component&rdquo; &nbsp;&nbsp;&#10003; &ldquo;src/ride/RideRequest.tsx&rdquo;</p>
+      </div>
+      <div style="border:1px solid #E6E6E6;border-radius:14px;background:#FFFFFF;padding:26px 32px;">
+        <div style="font-weight:700;font-size:24px;letter-spacing:-0.015em;margin-bottom:8px;">Make it checkable</div>
+        <p style="margin:0;font-size:20px;line-height:1.4;color:#6B6B6B;">&#10005; &ldquo;works correctly&rdquo; &nbsp;&nbsp;&#10003; &ldquo;typecheck passes&rdquo;</p>
+      </div>
+      <div style="border:2px solid #CF0090;border-radius:14px;background:#FFF5FB;padding:26px 32px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:#CF0090;margin-bottom:8px;">IN THE KIT</div>
+        <p style="margin:0;font-size:20px;line-height:1.4;color:#0A0A0A;">A skill drafts these from your sprint spec. <strong>Your review is the work.</strong></p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:40px;display:flex;align-items:flex-start;gap:24px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Small enough to build and verify in one pass; the commit format makes <span style="color:#0A0A0A;font-weight:600;">the git log the ledger.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>19</span></div>
 </section>
 <section data-label="What It Looks Like" data-speaker-notes="On the page, three sections. The catalog is the inventory: every epic that exists, no order implied. The schedule is the priority list: what's next, and you rewrite it as often as reality changes. The sprints section is what's in flight right now, with the marker the agent reads first. Three sections because they change at three different speeds: the catalog slowly, the schedule weekly, the sprints every cycle." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;"><span>ANATOMY · THE FILE</span></div>
@@ -498,7 +584,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Three sections because they change at <span style="color:#0A0A0A;font-weight:600;">three different speeds.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>18</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>20</span></div>
 </section>
 
 <section data-label="Names Carry Identity" data-speaker-notes="You reorder your roadmap weekly; that is the job, not a failure. Numbered roadmaps rot under it: renumber rot breaks every reference, status scatters, the file drifts from reality. All of it traces to one bug, and the bug fits in one number. E5 is doing two jobs: identity, which must never change because commits, branches, and specs all point at it, and priority, which changes every time you reorder. It can't do both. The fix: epics get names, real words, no numbers, and the schedule alone carries order. The name is the feature: BOOKING means something to a human skimming a commit log and to an agent resolving a reference, and it means the same thing forever. Sprint counters inside an epic are fine; they count creation order, which never changes." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -531,7 +617,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The name means the same thing forever, <span style="color:#0A0A0A;font-weight:600;">to a human skimming a commit log and to an agent resolving a reference.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>19</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>21</span></div>
 </section>
 
 <section data-label="Who Writes What" data-speaker-notes="One line runs through everything the roadmap governs. Above it, the contracts: the roadmap and the epic definitions. Humans own these, and you revise them deliberately, because the other party builds against them. Below it, the caches: the plans and elaborations agents generate from your contracts. You already know the rule for caches: never hand-edit one. Wrong plan? Don't fix it; delete it, sharpen the contract, regenerate. PMs, this is your bucket: everything above the line is yours, and nothing below it should ever need your keyboard." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -570,7 +656,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">PMs: everything above the line is yours, and <span style="color:#0A0A0A;font-weight:600;">nothing below it should ever need your keyboard.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>20</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>22</span></div>
 </section>
 
 <section data-label="Divider: Demo" data-speaker-notes="Concept done. Now the worked example, live." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -610,7 +696,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Today&rsquo;s question: given an agreed product, <span style="color:#0A0A0A;font-weight:600;">put the work in an order an agent can execute.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>22</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>24</span></div>
 </section>
 
 <section data-label="Build It (Live)" data-speaker-notes="[Build live; narrate the three sections as they fill.] The generation is fast, and the generation is not the work. Watch the pass I make after: are the epics named, not numbered? Is anything in the catalog actually a wish, not a decision? Does each sprint end in a two-minute demo? Is the far work fenced as directional? That review is the skill you're taking home; the typing was never the hard part." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -647,7 +733,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The generation is fast, and the generation is not the work. <span style="color:#0A0A0A;font-weight:600;">The review is the skill you&rsquo;re taking home.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>23</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>25</span></div>
 </section>
 
 <section data-label="Change It (Live)" data-speaker-notes="[Apply the reorder live; show the diff.] The Tuesday-morning scenario: leadership wants the new thing now. One command, three edits, and look at the diff: the schedule is rewritten, the catalog gained a tombstone and a new entry, and not one downstream reference broke. Reprioritization stops being a renumbering project and becomes an edit." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -681,7 +767,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Reprioritization stops being a renumbering project and <span style="color:#0A0A0A;font-weight:600;">becomes an edit.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>24</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>26</span></div>
 </section>
 
 <section data-label="The Test" data-speaker-notes="Before an agent touches any of this, one question decides whether you're done: what material product decision would the agent still have to invent? Read the NOW sprint and ask it. A real answer means the roadmap isn't ready, and the fix is never a better prompt; it's a decision you owe the document. This question is the definition of agentic-ready, and it's about to be your turn to ask it." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 160px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -745,7 +831,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">You&rsquo;re not deciding what PEDAL is today. <span style="color:#0A0A0A;font-weight:600;">You&rsquo;re giving it a roadmap.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>27</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>29</span></div>
 </section>
 <section data-label="The Exercise" data-speaker-notes="Fifteen minutes, three steps. Generate the roadmap from the packet. Then make the pass you watched me make: fix the names, check every sprint demos in two minutes, fence the far work. Then flip your change card, apply the reprioritization, and check the diff: did anything break? Prompt cards are in the packet; the tools do the typing so you can spend the fifteen minutes on judgment." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -775,7 +861,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The tools do the typing so you can spend the fifteen minutes <span style="color:#0A0A0A;font-weight:600;">on judgment.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>28</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>30</span></div>
 </section>
 
 <section data-label="Gate Your Roadmap" data-speaker-notes="Last step of the lab. Read your NOW sprint and ask the question: what would the agent still have to invent? Write down the first real answer you find, and fix it in the roadmap. If you can't find one, trade roadmaps with the next group; they'll find one in yours." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -803,7 +889,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Can&rsquo;t find one? Trade roadmaps with the next group; <span style="color:#0A0A0A;font-weight:600;">they&rsquo;ll find one in yours.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>29</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>31</span></div>
 </section>
 
 <section data-label="Compare" data-speaker-notes="The official answer, next to yours. Differences are fine; identical catalogs with different schedules just means you prioritized differently, and the convention holds either way. Name one thing yours does better and one thing the official one caught that yours didn't. Both lists matter." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -832,7 +918,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Differences are fine. <span style="color:#0A0A0A;font-weight:600;">The convention is what you&rsquo;re checking, not the taste.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>30</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>32</span></div>
 </section>
 
 <section data-label="Yours, In Any Tool" data-speaker-notes="Two things before you go. Everything today was plain text, and none of it requires plain text: named identity, separated order, demoable sprints, and the gate work in Jira, Linear, or a database. The convention is the principles, not the file format. And second: the roadmap is still product's to own. Agents didn't take that job; they made it precise. If you run product, this discipline is yours to bring home, and engineering will thank you for it." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -860,7 +946,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">The convention is <span style="color:#0A0A0A;font-weight:600;">the principles, not the file format.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>31</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>33</span></div>
 </section>
 
 <section data-label="The Principles" data-speaker-notes="If the syntax fades, keep these five. Identity apart from position. No numbers anywhere you reorder. Contract above, cache below. Earn detail late: specify the near, fence the far. And mark the graves: tombstone, never delete. Every failure we looked at today violates one of these; every fix restores one." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -895,7 +981,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;margin-top:14px;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;color:#6B6B6B;letter-spacing:-0.01em;">Every failure today violates one of these; <span style="color:#0A0A0A;font-weight:600;">every fix restores one.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>32</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>34</span></div>
 </section>
 
 <section data-label="The Kit" data-speaker-notes="The kit has everything: the packet, the official roadmap, the prompts verbatim, the two skills, the cheat-sheet, and a walkthrough for doing this on a real product instead of a pedicab app. One ask. This week, pick the messiest area you own and give it this treatment. Not the easy one; the messy one, because that's where the convention pays." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -932,7 +1018,7 @@
     <div style="font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.22em;text-transform:uppercase;color:#CF0090;margin-bottom:14px;">THE ASK · THIS WEEK</div>
     <p style="margin:0;font-size:30px;line-height:1.4;color:#0A0A0A;font-weight:600;">Pick the messiest area you own and give it this treatment. Not the easy one; the messy one. That&rsquo;s where the convention pays.</p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>33</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/roadmaps</span><span>35</span></div>
 </section>
 
 <section data-label="Next Session" data-speaker-notes="Session 2 is where this pays off. We take the roadmap you just learned to write, hand it to a harness with zero application code behind it, and watch it build the entire first epic live: three sprints, verified, demoed. Then we show you where this road goes past that, and it's further than you think. What stays human, there and everywhere: intent, the judgment calls, acceptance, and recovery. Bring your messy-area roadmap. See you there." style="width:100%;height:100%;background:#0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:110px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
