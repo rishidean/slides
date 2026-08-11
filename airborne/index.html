@@ -224,6 +224,39 @@
   <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>5</span></div>
 </section>
 
+<section data-label="Reading the Demo" data-speaker-notes="How to read the demo, said before anyone has to ask. The app is deliberately trivial so that the loop is the only variable in the experiment. That is a minimal reproducible case, and it is the same move every engineer in the room already makes without arguing about it: you strip a system down to the smallest thing that still exhibits the behaviour. Nobody answers a repro with the claim that it is too small so the bug is not real. What a bigger repo genuinely adds is more context to route, more invariants to protect and more ways to be wrong, and all of that changes the anchors rather than the shape of the loop. The one thing the demo honestly cannot prove is that your worst-case bug is as cheap as mine. Concede that here, then pay it off properly at the blast radius slide in Part 4." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;padding:92px 140px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>HOW TO READ THE DEMO</span><span>MINIMAL REPRODUCIBLE CASE</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 0;"></div>
+  <h2 style="margin:24px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.0;max-width:1400px;">The demo is a <span style="color:#CF0090;">repro</span>, not a product.</h2>
+  <p style="margin:16px 0 0;max-width:1200px;font-size:28px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">The app is deliberately trivial, so that the loop is the only variable.</p>
+  <div style="display:flex;flex-direction:column;margin-top:34px;border-top:1px solid #E6E6E6;">
+    <div style="display:grid;grid-template-columns:340px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:29px;letter-spacing:-0.01em;color:#CF0090;">What&rsquo;s under test</div>
+      <div style="font-size:27px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">The loop — spec, build, verify, document, state in files. <span style="color:#6B6B6B;">Not the app it happens to produce.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:340px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:29px;letter-spacing:-0.01em;color:#CF0090;">Why it&rsquo;s small</div>
+      <div style="font-size:27px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">You strip a system to the smallest thing that still shows the behaviour. <span style="color:#6B6B6B;">Standard practice. Nobody answers a repro with &ldquo;too small, so the bug isn&rsquo;t real.&rdquo;</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:340px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:29px;letter-spacing:-0.01em;color:#CF0090;">What scale adds</div>
+      <div style="font-size:27px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">More context to route, more invariants to protect, more ways to be wrong. <span style="color:#6B6B6B;">That changes the anchors — not the shape of the loop.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:340px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:29px;letter-spacing:-0.01em;color:#CF0090;">What it can&rsquo;t prove</div>
+      <div style="font-size:27px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">That your worst-case bug is as cheap as mine. <span style="color:#6B6B6B;">That one is real. It gets its own slide in Part 4.</span></div>
+    </div>
+  </div>
+  <div style="margin-top:auto;border-top:1px solid #E6E6E6;padding-top:26px;display:flex;align-items:center;gap:22px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">Judge the mechanism first. <span style="color:#6B6B6B;">Then argue about blast radius — I&rsquo;ll make that argument for you.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>6</span></div>
+</section>
+
+
 <section data-label="Part 1" data-speaker-notes="Part 1: Where we left off. A sixty-second recap of the keynote — the continuum, ground versus air, and how you operate. If you were in Session 1 this will feel familiar; that's the point. Then we pick up exactly where it stopped: at the jump." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.3em;text-transform:uppercase;color:#6B6B6B;">Part one</div>
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
@@ -232,7 +265,7 @@
   <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers: what the keynote established, and where today picks up.</div>
   
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>6</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>7</span></div>
 </section>
 
 <section data-label="Continuum (clean)" data-speaker-notes="Recap, not new material — the keynote built this map; here it is in one breath. The 95% who see no gains are at Biking and Driving — they bought tools and called it transformation. But Driving is still ground transport: same work, faster. The gains live at Helicopter and beyond — where you cross from better tools to a different process. Not a faster car. A different dimension of movement." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -260,7 +293,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>7</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>8</span></div>
 </section>
 
 <section data-label="The Continuum" data-speaker-notes="Recap, continued. The keynote's punchline in one picture: ground is the same work faster; air is a different process. The 95% who see no gains are at Biking and Driving — they bought tools and called it transformation. But Driving is still ground transport: same work, faster. The gains live at Helicopter and beyond — where you cross from better tools to a different process. Not a faster car. A different dimension of movement." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -298,7 +331,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>8</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>9</span></div>
 </section>
 
 <section data-label="Three Paradigms" data-speaker-notes="Last recap beat. Three ways to work with AI, and how your role changes across them. Autocomplete: it's linear — you're in every step, the AI fills the next token, you stay the player on the field. Agentic: it's cyclical — you set a goal and the agent loops through plan, act, verify on its own; you've stepped back to coach, managing the loop. Orchestration: it's systemic — you set strategy and a fleet of agents works in parallel, checking each other; you're the conductor, verifying outcomes, not plays. The leverage moves up and to the right. The rest of this deck is about getting to that third column." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:72px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -387,7 +420,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>9</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>10</span></div>
 </section>
 
 <section data-label="The Jump" data-speaker-notes="The bridge from recap to new material. The keynote ended pointing at this jump; today we make it. From using agents to code — Driving, a person in every step — to building agents that code: a system that runs the loop while you steer. That is the ground-to-air jump, and it is a different process, not a faster tool. Everything from here forward is new." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -395,7 +428,7 @@
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
   <h2 style="margin:0;font-weight:800;font-size:96px;letter-spacing:-0.04em;line-height:0.98;max-width:1500px;">From <span style="color:#6B6B6B;">using agents to code</span>, to <span style="color:#CF0090;">building agents that code.</span></h2>
   <p style="margin:48px 0 0;max-width:1240px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">That's the ground-to-air jump — a different process, not a faster tool. The keynote drew the map. Today we fly the first leg.</p>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>10</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>11</span></div>
 </section>
 
 <section data-label="Today's Mission" data-speaker-notes="By the end of this deck you'll understand a multi-sprint, self-verifying, autonomous development loop — and have everything you need to run it on your own service. Driving to Helicopter, demystified." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 160px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -404,7 +437,7 @@
   <h2 style="margin:0;font-weight:800;font-size:128px;letter-spacing:-0.04em;line-height:0.92;max-width:1500px;">Get<br>airborne.</h2>
   <p style="margin:52px 0 0;max-width:1180px;font-size:36px;line-height:1.35;letter-spacing:-0.01em;color:#B5B5B5;">By the end of this deck you'll understand a multi-sprint, self-verifying, autonomous development loop...and the means to run it yourself.</p>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>11</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>12</span></div>
 </section>
 
 <section data-label="Part 2" data-speaker-notes="Part 2: The Double Loop. The system that gets you airborne — and you're going to watch it run." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -415,7 +448,7 @@
   <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers: what the system is, and how it runs unattended.</div>
   
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>12</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>13</span></div>
 </section>
 
 <section data-label="The Insight" data-speaker-notes="Here's the thing nobody tells you about Helicopter. It's not complicated. No framework to install. No platform. No new language. Just a handful of files and a bash script. The whole system is legible because every piece does one thing." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 160px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -423,7 +456,7 @@
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin-bottom:56px;"></div><p style="margin:0;max-width:1480px;font-weight:700;font-size:76px;line-height:1.12;letter-spacing:-0.03em;"><span style="color: rgb(207, 0, 144);">Agentic Orchestration</span> is a fancy term,&nbsp; &nbsp; &nbsp; &nbsp; for some <span style="color: rgb(207, 0, 144);">files +&nbsp; a loop.</span></p>
   
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>13</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>14</span></div>
 </section>
 
 <section data-label="Model + Scaffolding" data-speaker-notes="Pre-empt the 'it's just a GPT wrapper' dismissal. The intelligence isn't only the model. It's the model plus the files plus the loop. The model is the engine, the files are the judgment, the loop is the discipline. Take any one away and it stops working — and most of what makes this good lives in the files, not the weights." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -455,7 +488,7 @@
       <p style="margin:0;font-size:31px;line-height:1.28;letter-spacing:-0.015em;color:#0A0A0A;">Take any one away and it stops working. <span style="color:#6B6B6B;">And most of what makes it good isn't the model.&nbsp;It's the files (and what we'll cover in the rest of this deck.)</span></p>
     </div>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>14</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>15</span></div>
 </section>
 
 <section data-label="Agentic, Defined" data-speaker-notes="Define the category before the metaphor does the work. Agentic isn't fancy autocomplete. It means the model runs a loop: it sets its own intermediate steps, calls tools, checks its own work, and keeps going until a goal is met — not one prompt, one answer." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -488,7 +521,7 @@
       </div>
     </div>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>15</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>16</span></div>
 </section>
 
 <section data-label="Generate vs Call" data-speaker-notes="The keystone, and the thing that actually kills the hallucination fear. The model does two different things. Generate: it produces text from its weights — that's the ONLY place hallucination lives. Call: it emits a structured request, a deterministic system runs it — code, a search, a test — and hands back a fact the model then reads. In a loop, most of the work is tool calls returning ground truth, not the model free-associating. run-qa's Playwright test actually ran in a real browser; the model didn't decide it passed, the test did. That's why you can trust the verdict. Name the concept: a call is an anchor — a node that can't be argued with. The word comes back at the QA gate and in the objections appendix." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -526,7 +559,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">In a loop, most of the work is <span style="font-weight: 600;">tool calls returning ground truth</span>&nbsp;not the model free-associating. <span style="color: rgb(107, 107, 107);">run-qa’s Playwright test actually ran; the model didn’t decide it passed.</span> <span style="font-weight: 600;">A call is an anchor</span> — <span style="color: rgb(107, 107, 107);">a result that can’t be argued with.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>16</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>17</span></div>
 </section>
 
 <section data-label="Primitives" data-speaker-notes="Quick vocabulary before we go deeper — seven words you'll hear all afternoon, and everything else is just these arranged. A session is one run of Claude Code, with a fresh memory each time — nothing carries over. The context window is the working memory that session holds at once — it's finite, so when it fills, quality drops; that's why fresh sessions matter. CLAUDE.md is the context file it reads automatically at the start of every session. The Task tool is how one session hands a job to a subagent and gets the result back — it's literally how run-qa calls its three agents. A skill is a reusable procedure Claude can invoke by name, like run-qa. A command is a saved prompt you trigger with a slash, like /review. And a subagent is a scoped helper it spins up for one narrow job, often on a cheaper, faster model. Seven words. Hold onto them — the rest of the hour is just these, wired together." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -567,7 +600,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>17</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>18</span></div>
 </section>
 
 <section data-label="The System" data-speaker-notes="That's the whole architecture. Setup is what the system knows before it starts. Actors are who does the work. The orchestrator keeps it moving. Before the details, here's how they fit together." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -599,7 +632,7 @@
     </sc-for>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>18</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>19</span></div>
 </section>
 
 <section data-label="The Double Loop" data-speaker-notes="Here's the full topology. One loop inside another. The outer loop marches through sprints — fresh brain each time. The inner loop is one session: build, QA, document. If QA is RED, fix and re-check. If GREEN, tick the manifest, write a handoff note, and the outer loop moves on. Three verbs: build, verify, document." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -651,7 +684,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>19</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>20</span></div>
 </section>
 
 <section data-label="The Loop, By File" data-speaker-notes="Same loop — now made concrete. The outer loop IS run.sh, walking the roadmap.md manifest, launching a fresh session each turn that reads prompt.md. Inside, the Builder reads CLAUDE.md and the sprint spec to build, calls the run-qa skill — which runs linter, code-reviewer, and playwright-tester — to verify, then ticks roadmap.md and appends to PROGRESS.md to document. Every box on the conceptual loop is a real file in the repo." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -722,7 +755,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>20</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>21</span></div>
 </section>
 
 <section data-label="Loops vs Graphs" data-speaker-notes="Objection handling — you may have heard loops are dead and graphs won. Category error: a graph is a data structure, a loop is an executor — every graph framework runs a plain loop that walks the graph. What the critics actually hate is model-held control flow: one long session deciding what to do next while its context bloats. Look at what you just saw — the control flow lives in files, not in the model. Relabel it in their vocabulary and it was a graph the whole time: nodes with one bounded job, conditional edges on the verdict, checkpointed state, run.sh as the traversal engine. Then run their own test: an edge is real only if data moves across it. Build feeds QA, QA gates the handoff — every arrow carries data. Their own conclusion follows: when every step reads the last step's output, a loop is fine. Loops buy depth; graphs buy breadth. Jet is this same architecture fanned wide — hold that thought for the capability ladder in Part 4." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -754,7 +787,7 @@
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
     <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">An edge is real only if <span style="font-weight: 600;">data moves across it</span> — and every arrow here carries data. <span style="color: rgb(107, 107, 107);">By the graph crowd’s own rule, “a loop is fine.” Loops buy depth; graphs buy breadth — Jet is this, fanned wide.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>21</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>22</span></div>
 </section>
 
 <section data-label="The System" data-speaker-notes="That's the whole architecture. Setup is what the system knows before it starts. Actors are who does the work. The orchestrator keeps it moving. Before the details, here's how they fit together." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -802,7 +835,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>22</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>23</span></div>
 </section>
 
 <section data-label="Broad Context" data-speaker-notes="Open CLAUDE.md. This is everything true for every sprint — tech stack, conventions, and the definition of done: 'Not done until run-qa returns GREEN.' That one line makes the whole system work. Then prompt.md — what the Builder reads at the start of every session. Same instructions every time. The prompt is the method; the specs are the content." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:grid;grid-template-columns:1fr 1.05fr;gap:80px;box-sizing:border-box;position:relative;overflow:hidden;align-items:center;">
@@ -840,7 +873,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>23</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>24</span></div>
 </section>
 
 <section data-label="Manifest" data-speaker-notes="Session 1 bridge: the Roadmapping talk taught agentic roadmaps as a methodology — this is that idea compiled to its smallest working form. Open roadmap.md. Three characters per line — that's your state machine. The orchestrator reads it to know if there's work left. The Builder reads it to know what to pick up. You read it to know where things stand. After each sprint the checkbox ticks. If something gets stuck, it marks [!] and stops. This file IS your project status." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:grid;grid-template-columns:1fr 1.05fr;gap:80px;box-sizing:border-box;position:relative;overflow:hidden;align-items:center;">
@@ -870,7 +903,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>24</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>25</span></div>
 </section>
 
 <section data-label="Anatomy of a Roadmap" data-speaker-notes="You learned the file format; here's how to decompose work into it. If this feels familiar from Session 1, good — this is the same vertical-slicing discipline, now feeding a machine instead of a team. A weak roadmap is horizontal layers — build all the models, then all the UI — and nothing runs until the very end. A good roadmap is vertical slices: each sprint ships something runnable, ordered by dependency, with the three-character state legible at a glance. Decomposition is half of moving up the stack." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -893,7 +926,7 @@
       <div style="margin-top:14px;font-size:22px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">Each slice ships a working app, ordered by dependency. <span style="font-family:'JetBrains Mono',monospace;font-size:19px;color:#CF0090;">[ ] [x] [!]</span> legible at a glance.</div>
     </div>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>25</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>26</span></div>
 </section>
 
 <section data-label="Specific Context" data-speaker-notes="Open specs/sprint-1.md. This is where YOUR engineering judgment lives. The spec defines what to build, how to verify it, and what to watch out for. A good spec makes the build trivial; a vague spec makes it unpredictable. At Driving you write code. At Helicopter you write specs. Your brain moves up the stack." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:grid;grid-template-columns:1fr 1.05fr;gap:80px;box-sizing:border-box;position:relative;overflow:hidden;align-items:center;">
@@ -921,7 +954,7 @@
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>26</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>27</span></div>
 </section>
 
 <section data-label="Anatomy of a Spec" data-speaker-notes="This is where your judgment lives, so here's the texture. The vague spec — 'let players hire farmhands' — gives the builder nothing to verify, and the build comes out unpredictable. The fat spec spells out acceptance criteria and the trap to avoid: a hire you can't afford must be blocked, the score must never go negative. A good spec makes the build trivial and QA decisive." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -947,7 +980,7 @@ that help out automatically.</pre>
       <div style="margin-top:14px;font-size:22px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">Explicit criteria + the trap to avoid. The build is trivial; <span style="color:#CF0090;">QA is decisive.</span></div>
     </div>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>27</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>28</span></div>
 </section>
 
 <section data-label="The System" data-speaker-notes="That's the whole architecture. Setup is what the system knows before it starts. Actors are who does the work. The orchestrator keeps it moving. Before the details, here's how they fit together." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -995,7 +1028,7 @@ that help out automatically.</pre>
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>28</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>29</span></div>
 </section>
 
 <section data-label="Meet the Builder" data-speaker-notes="So who actually does the work? The Builder. And the Builder is nothing exotic — it's a single Claude Code session, spun up fresh for exactly one sprint, then thrown away. It reads the context, writes the code, checks its own work, and hands off. The magic isn't a smarter agent — it's that every sprint gets a clean brain, with no accumulated confusion from the last one." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:grid;grid-template-columns:0.82fr 1.18fr;gap:84px;box-sizing:border-box;position:relative;overflow:hidden;align-items:center;">
@@ -1034,7 +1067,7 @@ that help out automatically.</pre>
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>29</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>30</span></div>
 </section>
 
 <section data-label="The Skill" data-speaker-notes="Open SKILL.md. The skill is the bridge. When the Builder finishes coding it calls run-qa. The skill runs all three QA agents in sequence and returns one verdict: GREEN or RED. If RED, the Builder reads the failures, fixes them, tries again — up to 3 attempts. Still RED after 3, it marks the sprint blocked and stops. That's your signal to step in. Nothing passes without it." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1085,7 +1118,7 @@ Stop after 3 attempts; report to human.</pre>
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>30</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>31</span></div>
 </section>
 
 <section data-label="The QA Crew" data-speaker-notes="Open the .claude/agents folder. Three specialists. They don't build — they verify. Each has one job and a narrow scope. The linter catches formatting, the reviewer catches bugs, the tester catches broken behavior. They run on a cheaper, faster model — they just need to check. Together they're your automated code review. Precision beat: two of the three are anchors — the linter and the Playwright run are deterministic. The code-reviewer is a model — a fresh-context opinion — and anchors outrank opinions. Note it never shares the Builder's context: no one grades their own homework here." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1118,7 +1151,7 @@ Stop after 3 attempts; report to human.</pre>
     </sc-for>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>31</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>32</span></div>
 </section>
 
 <section data-label="The Inner Loop" data-speaker-notes="So what happens when QA comes back RED? It doesn't stop, and it doesn't ask you — it goes straight back to the Builder. The run-qa verdict isn't just pass/fail; on RED it carries the actual failures: the failed assertion, the lint error, the bug the reviewer flagged. The Builder reads those, fixes the code, and calls run-qa again. Verify, fix, re-verify — that's the inner loop, and it turns on its own until the verdict is GREEN. The one guardrail: three attempts. If it's still RED after the third try, it stops, marks the sprint blocked with [!], and that's your signal to step in. So it's autonomous, but it's not infinite — it knows when it's stuck." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1176,7 +1209,7 @@ Stop after 3 attempts; report to human.</pre>
     <div style="font-size:27px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">Three attempts, then it stops. Still RED after the third try → mark the sprint <span style="font-family:'JetBrains Mono',monospace;color:#CF0090;">[!]</span> blocked and hand back to a human. Autonomous, never infinite.</div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>32</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>33</span></div>
 </section>
 
 <section data-label="The System" data-speaker-notes="That's the whole architecture. Setup is what the system knows before it starts. Actors are who does the work. The orchestrator keeps it moving. Before the details, here's how they fit together." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1224,7 +1257,7 @@ Stop after 3 attempts; report to human.</pre>
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>33</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>34</span></div>
 </section>
 
 <section data-label="The Document Step" data-speaker-notes="Before the session ends — and only once QA is GREEN — it writes itself down. Three files, three different jobs. First it ticks the box in roadmap.md so the next turn knows this sprint is done. Then it appends a handoff to PROGRESS.md: what it built, the decisions it made, anything the next session needs. And if it discovered something durable — a convention, a gotcha, a rule that should hold for every future sprint — it promotes that up into CLAUDE.md so it becomes permanent context. Roadmap is state, PROGRESS is memory, CLAUDE is learning. That's how a stateless session compounds. One honest flag — physics class: the single-file handoff is a teaching simplification. In production you'd shard this across a real context-management system; the mechanism is the lesson, not the file count." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1279,7 +1312,7 @@ spend bug → fixed
     <p style="margin:0;font-size:24px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">A deliberate simplification. <span style="color: rgb(107, 107, 107);">In production this handoff is a context-management system writing to several stores — here it’s one file per job, so you can read the whole mechanism in one sitting.</span></p>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>34</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>35</span></div>
 </section>
 
 <section data-label="The Orchestrator" data-speaker-notes="Open run.sh. Read it. It's a while loop. While there are unchecked boxes and we haven't hit the max: launch a Claude session with the prompt. If anything gets blocked, stop. That's the orchestrator. It's dumb on purpose — all the intelligence is in the files it reads. Ten lines of bash running a multi-sprint autonomous development pipeline." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:84px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1302,7 +1335,7 @@ spend bug → fixed
   </div>
   <div style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:18px;color:#6B6B6B;letter-spacing:-0.01em;">The distilled core. The real <span style="color:#B5B5B5;">run.sh</span> wraps this with logging, timing, and a configurable sprint cap.</div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>35</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>36</span></div>
 </section>
 
 <section data-label="Your Turn" data-speaker-notes="Part 3: Your turn. Enough watching — now you run it yourself. A handful of files, one command, four sprints. Do it now in the room, or later at your desk; either way, here's the on-ramp." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1312,7 +1345,7 @@ spend bug → fixed
   <p style="margin:48px 0 0;max-width:1180px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">Enough theory. A handful of files, one command, four sprints — here's how you run it yourself, now or later.</p>
   <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#6B6B6B;">What this answers — how to run the loop on your own machine.</div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>36</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>37</span></div>
 </section>
 
 <section data-label="Set Up" data-speaker-notes="Step 1 — set up. Clone the repo, cd in, run setup.sh — that installs Playwright and Chromium and checks prereqs. Auth is either running claude once interactively or exporting your ANTHROPIC_API_KEY. The whole system is just a handful of files; here's the repo top to bottom, and the three things you do before the first run." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:64px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1373,7 +1406,7 @@ spend bug → fixed
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>37</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>38</span></div>
 </section>
 
 <section data-label="Run the Loop" data-speaker-notes="Step 2 — run. One command. ./run.sh for an emergent run, or DEMO_MODE=planted ./run.sh for the guaranteed Sprint-3 RED-to-GREEN we just watched. A fresh session spins up for each sprint — builds the feature, runs the QA gate, ticks the roadmap, hands off. Then the next sprint starts with a clean brain. You write specs; the loop writes code." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:84px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1396,7 +1429,7 @@ spend bug → fixed
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>38</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>39</span></div>
 </section>
 
 <section data-label="Go Hydrate" data-speaker-notes="A breather. You just launched the run — it'll take about five minutes to grind through all four sprints. Nothing for you to do here. Watch the console scroll if you like the theater, or step away, refill your water, and come back to a finished build. This is the whole point: it runs without you." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1406,7 +1439,7 @@ spend bug → fixed
   <p style="margin:44px 0 0;max-width:1320px;font-size:38px;line-height:1.4;color:#9A9A9A;letter-spacing:-0.01em;">A full run takes up to ten minutes. Watch the console scroll by if you like, or step away, stretch, refill your water, and <span style="color: rgb(232, 232, 232);">let the loop cook</span>. It doesn't need you for this part.</p>
   <div style="margin-top:46px;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:0.04em;color:#CF0090;">// back in a few</div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>39</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>40</span></div>
 </section>
 
 <section data-label="Watch It Work" data-speaker-notes="This is what a full run produces — no human at the keyboard. Four sprints build in sequence, QA gating every one. Sprint 3 is the payoff: QA catches a real bug (hiring a farmhand you can't afford sends the score negative), the verdict comes back RED, the Builder reads the failure, fixes it, and re-runs to GREEN — all on its own. Four sprints, four GREENs, zero keystrokes." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:84px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1442,7 +1475,7 @@ spend bug → fixed
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>40</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>41</span></div>
 </section>
 
 <section data-label="Play It" data-speaker-notes="Step 4 — play. Open index.html, or reference/index.html for the finished build. This is the thing the loop made — and you didn't write a line of it. Click to harvest, hire farmhands, watch idle income roll in. Four sprints, zero keystrokes from you." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:64px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1458,7 +1491,7 @@ spend bug → fixed
   </div>
   <p style="margin:22px 0 0;max-width:1480px;font-size:28px;line-height:1.4;color:#9A9A9A;letter-spacing:-0.005em;">Click to harvest. Hire farmhands. Watch idle income roll in. <span style="color:#E8E8E8;">Four sprints, zero keystrokes from you.</span></p>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>41</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>42</span></div>
 </section>
 
 <section data-label="What Just Happened" data-speaker-notes="The debrief. Three things just happened that matter. Continuity came from the files, not memory — stateless sessions, real progress. The gate caught a real bug — Sprint 3 let you overspend; the tester caught it, the Builder fixed it, the loop noticed, not a human. And four sprints shipped with zero keystrokes from you — you wrote specs; it wrote, tested, fixed, and documented." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1482,7 +1515,7 @@ spend bug → fixed
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>42</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>43</span></div>
 </section>
 
 <section data-label="Extend It" data-speaker-notes="The 'don't stop here' beat. The loop you just learned is the seed — the same shape extends in four directions. Encode judgment: the loop writes its own inputs (generate-roadmap, spec-sprint, plan-sprint). Add a gate: raise the bar on what GREEN means (security / a11y / perf agents, planning approval, PR-per-sprint + CI). Add structure: scale breadth (epics → sprints → features, parallel builders, multi-repo). Close the loop: durable and auditable (session-start / wrapup, structured logs + cost tracking, a compounding knowledge base). Low floor, high ceiling — every extension is just one more small file in .claude/. The depth lives in EXTENDING.md. Ties back to the spine: Helicopter (this repo) → Jet (a team) → Spaceship (an org)." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:72px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1542,7 +1575,7 @@ spend bug → fixed
     <div style="font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.03em;color:#6B6B6B;">the four moves in full <span style="color:#CF0090;">→</span> <span style="color:#D8D8D8;">“Extending this model” (appendix)</span></div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>43</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>44</span></div>
 </section>
 
 <section data-label="Part 4" data-speaker-notes="Part 4: Looking Ahead. You just got airborne — here's what it means, and the one thing I'm asking for." style="width:100%;height:100%;background:#F2F1EE;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1552,7 +1585,7 @@ spend bug → fixed
   <p style="margin:48px 0 0;max-width:980px;font-size:34px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">What being airborne means for you, the team, and the org — and the single ask that starts it.</p>
   <div style="margin-top:30px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.04em;color:#9A9A9A;">What this answers — what airborne means next, and the one ask.</div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>44</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>45</span></div>
 </section>
 
 <section data-label="Path Forward" data-speaker-notes="Here's how this spreads. You, now: ship features using the loop on your own service. The team, next: the loop becomes the default, specs become the interface between roles. The org, eventually: headcount models change, the company operates differently. It starts with one person proving it works." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1573,7 +1606,7 @@ spend bug → fixed
     </sc-for>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>45</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>46</span></div>
 </section>
 
 <section data-label="The Capability Ladder" data-speaker-notes="The direct answer to 'why is execution sequential?' — because that's the Helicopter column, on purpose. You learn the loop before you fleet it. Walk the rows: context goes from two files to layered and indexed to self-maintaining. Execution goes sequential, then parallel — fan out, reduce, verify, synthesize — then self-routing. Verification goes from one QA gate to a verifier on every edge to equivalence checks that graduate rules. Memory, cost, and control flow follow the same arc: what you hand-write at Helicopter, the system draws for itself at Spaceship. Everything in this talk is column one. Column two is the same parts fanned wide. Column three is the sequel — Breaking Atmosphere." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1632,8 +1665,43 @@ spend bug → fixed
 
   <div style="margin-top:auto;padding-top:26px;font-size:24px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;"><span style="color:#0A0A0A;font-weight:700;">Sequential is a choice, not a ceiling.</span> Everything in this talk is column one — learn the loop before you fleet it. Column three is the next talk.</div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>46</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>47</span></div>
 </section>
+
+<section data-label="Blast Radius" data-speaker-notes="The strongest objection to everything in this deck, answered directly. It is not that the example is small and it is not that real systems are complex. It is that autonomy is priced by what a missed mistake costs, and that price is a property of where you sit in the stack rather than how senior you are. High in the stack, something below you holds the line: types, the framework, the database, the platform. The worst realistic bug is transient, and a restart plus a state sync repairs it. Down where you are the invariant — schema migrations, money movement, concurrency, anything writing durable state — a missed mistake is silent, permanent and no restart touches it. I work high in the stack. Say that out loud, because it is the fair version of the toy critique and conceding it is what earns the rest. Then the actual answer: the loop still runs down there, the gate just moves. Keep a human on the diff instead of on the keystrokes, and spend the anchors you save on stronger verification — property tests, dry-run migrations, real invariant checks." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;padding:88px 120px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>WHERE THIS FLIES</span><span>KNOW YOUR BLAST RADIUS</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:30px 0 0;"></div>
+  <h2 style="margin:28px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.0;max-width:1520px;">Autonomy is priced by <span style="color:#CF0090;">what a missed mistake costs</span>.</h2>
+  <p style="margin:18px 0 0;max-width:1400px;font-size:28px;line-height:1.34;color:#6B6B6B;letter-spacing:-0.01em;">Not by your seniority, and not by how complex the system is. By what happens when the loop is wrong and nobody notices.</p>
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:44px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#fff;padding:38px 40px;display:flex;flex-direction:column;min-width:0;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#1F8A4C;">Cheap to miss</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#1F8A4C;background:#E9F7EE;border:1px solid #BFE6CC;border-radius:7px;padding:5px 10px;">run unattended</span>
+      </div>
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">Something below you holds the line</div>
+      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Types, the framework, the database, the platform enforce your invariants for you. The worst realistic bug is <span style='color:#0A0A0A;font-weight:600;'>transient</span> — restart, resync, gone.</div>
+      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;"><span style="color:#0A0A0A;">mistake</span><span style="color:#C4C4C4;">→</span><span style="color:#9A9A9A;">caught by the floor</span><span style="color:#C4C4C4;">→</span><span style="color:#1F8A4C;font-weight:600;">restart</span></div>
+    </div>
+    <div style="border:1px solid #E8D9A8;border-radius:16px;background:#FEFBF4;padding:38px 40px;display:flex;flex-direction:column;min-width:0;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#9A6B00;">Expensive to miss</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#9A6B00;background:#FBF3E0;border:1px solid #E8D9A8;border-radius:7px;padding:5px 10px;">gate the diff</span>
+      </div>
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">You are the invariant</div>
+      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Schema migrations, money movement, concurrency — anything that writes durable state. A missed mistake is <span style='color:#0A0A0A;font-weight:600;'>silent and permanent</span>, and no restart repairs it.</div>
+      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;"><span style="color:#0A0A0A;">mistake</span><span style="color:#C4C4C4;">→</span><span style="color:#9A9A9A;">durable</span><span style="color:#C4C4C4;">→</span><span style="color:#9A6B00;font-weight:600;">no undo</span></div>
+    </div>
+  </div>
+  <div style="margin-top:auto;border-top:1px solid #E6E6E6;padding-top:24px;display:flex;align-items:center;gap:22px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">I work high in the stack, where the floor catches me — <span style="font-weight:600;">that is the fair version of the &ldquo;toy&rdquo; critique</span>, and it was never that the example was small. <span style="color:#6B6B6B;">The loop still runs down there. The gate just moves: a human on the diff, not on the keystrokes.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>48</span></div>
+</section>
+
 
 <section data-label="You're Airborne" data-speaker-notes="The gap between Driving and Helicopter isn't talent — it's method. This is what the method looks like once it's running." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
@@ -1676,7 +1744,7 @@ spend bug → fixed
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>47</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>49</span></div>
 </section>
 
 <section data-label="The Acceleration" data-speaker-notes="Notice the compression. Each transition took less time than the last. The people who get airborne now have a compounding advantage — every week at Helicopter makes the next week more productive. The gap between Driving and Helicopter isn't closing. It's widening. The public receipt: the Bun runtime port — roughly 535 thousand lines of Zig translated to over a million lines of Rust in eleven days, about $165K in usage against roughly a year of engineer time. Serve it with the caveat attached: the review burden drew real criticism, and that part is earned. Volunteering the caveat is what separates this from hype." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1723,46 +1791,76 @@ spend bug → fixed
   </div>
   <div style="margin-top:30px;border-top:1px solid #E6E6E6;padding-top:22px;font-size:28px;color:#6B6B6B;letter-spacing:-0.01em;">The advantage compounds. The gap between Driving and Helicopter isn't closing — <span style="color:#CF0090;font-weight:600;">it's widening.</span> <span style=\"font-size:24px;\">In public: the Bun runtime port — ≈535K lines of Zig → 1M+ lines of Rust in 11 days, ≈$165K of usage against roughly a year of engineering. <span style=\"color:#9A9A9A;\">(The review-burden critique is real — and earned.)</span></span></div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>48</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>50</span></div>
 </section>
 
-<section data-label="The Cost Math" data-speaker-notes="The cost objection, met head on. It quietly compares token spend to zero — as if the alternative to a five-dollar sprint were a free sprint. The alternative is an engineer-day, and a loaded senior day runs $1,500 to $2,500. This afternoon's four-sprint run cost single-digit dollars and produced built, reviewed, tested, documented software. The only honest metric is cost per shipped, verified outcome — never cost per model call. Then the protocol, because this is a measured experiment and not faith: cap the first run — one repo, twenty items. Read the usage report. Ask three questions: did the loop produce something a single session couldn't, did the gate catch something the builder missed, did the result justify the cost. Yes to all three → double the cap. And concede the margin honestly: cost does ride usage over time — that critique is so right it's the subject of the sequel talk, Breaking Atmosphere." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+<section data-label="The Cost Math" data-speaker-notes="The cost objection, met head on and reframed. The complaint quietly prices the loop against zero, as if the alternative to a five-dollar sprint were a free sprint. Nothing is priced against zero. The real comparison is headcount: the engineer you would have to hire, the QA pass you would have to staff, the PM writing the ticket. All the same currency, and a loaded senior day runs fifteen hundred to twenty-five hundred dollars. Against that, my actual bill: hundreds of hours in Claude Code across a month of real work, five hundred to a thousand dollars. A month of heavy use costs less than a single engineer-day, and that holds at every corner of both ranges. Then the protocol, because this is a measured experiment and not faith: cap the first run at one repo and twenty items, read the usage report, earn the scale before doubling it. And concede the real limit rather than dodging it: cost rides usage. Move more work here and the bill grows, because at this altitude you pay full price on every single run. That is not a rebuttal — it is precisely why the second half of today exists. Breaking Atmosphere is about compiling the stable paths until they stop costing anything." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;padding:88px 120px;">
   <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
-    <span>THE COST OBJECTION</span><span>TOKENS VS ENGINEER-DAYS</span>
+    <span>THE COST OBJECTION</span><span>TOKENS VS HEADCOUNT</span>
   </div>
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:30px 0 0;"></div>
-  <h2 style="margin:28px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.0;max-width:1520px;">Tokens are the <span style="color: rgb(207, 0, 144);">cheapest thing</span> in the building.</h2>
-  <p style="margin:18px 0 0;max-width:1360px;font-size:28px;line-height:1.34;color:#6B6B6B;letter-spacing:-0.01em;">“An expensive way to spend tokens” compares the loop to zero. The real baseline is the alternative.</p>
-  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:46px;">
+  <h2 style="margin:28px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.0;max-width:1520px;">You&rsquo;re not buying tokens. You&rsquo;re buying <span style="color:#CF0090;">the headcount you didn&rsquo;t add</span>.</h2>
+  <p style="margin:18px 0 0;max-width:1400px;font-size:28px;line-height:1.34;color:#6B6B6B;letter-spacing:-0.01em;">&ldquo;An expensive way to spend tokens&rdquo; prices the loop against zero. Nothing is priced against zero — price it against the person you&rsquo;d have to hire.</p>
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:42px;">
     <div style="border:1px solid #E6E6E6;border-radius:16px;background:#fff;padding:38px 40px;display:flex;flex-direction:column;min-width:0;">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#9A9A9A;">The baseline</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#9A9A9A;">The real baseline</span>
         <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#9A6B00;background:#FBF3E0;border:1px solid #E8D9A8;border-radius:7px;padding:5px 10px;">loaded cost</span>
       </div>
-      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">An engineer-day: $1,500–2,500</div>
-      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Salary, benefits, overhead — the real price of a day of senior attention, <span style="color:#0A0A0A;font-weight:600;">before</span> a single meeting eats it.</div>
-      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;">
-        <span style="color:#0A0A0A;">task</span><span style="color:#C4C4C4;">→</span><span style="color:#9A9A9A;">engineer-day</span><span style="color:#C4C4C4;">→</span><span style="color:#9A6B00;">$$$$</span>
-      </div>
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">A day of senior attention: $1,500&ndash;2,500</div>
+      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Salary, benefits, overhead — <span style='color:#0A0A0A;font-weight:600;'>before</span> a single meeting eats it. The QA pass and the PM writing the ticket are the same currency.</div>
+      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;"><span style="color:#0A0A0A;">task</span><span style="color:#C4C4C4;">→</span><span style="color:#9A9A9A;">headcount</span><span style="color:#C4C4C4;">→</span><span style="color:#9A6B00;">$$$$</span></div>
     </div>
     <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:38px 40px;display:flex;flex-direction:column;min-width:0;box-shadow:0 12px 40px rgba(207,0,144,0.10);">
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;">This afternoon’s run</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#1F8A4C;background:#E9F7EE;border:1px solid #BFE6CC;border-radius:7px;padding:5px 10px;">shipped &amp; verified</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;">My actual bill</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#1F8A4C;background:#E9F7EE;border:1px solid #BFE6CC;border-radius:7px;padding:5px 10px;">measured, not modelled</span>
       </div>
-      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">Four sprints: single-digit dollars</div>
-      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Built, reviewed, tested, documented — while you hydrated. Judge cost per <span style="color:#0A0A0A;font-weight:600;">shipped, verified outcome</span>, never per model call.</div>
-      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;">
-        <span style="color:#0A0A0A;">spec</span><span style="color:#CF0090;">→</span><span style="color:#9A9A9A;">loop</span><span style="color:#CF0090;">→</span><span style="color:#1F8A4C;font-weight:600;">verified sprint</span><span style="color:#CF0090;">→</span><span style="color:#0A0A0A;">$</span>
-      </div>
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">A month of heavy use: $500&ndash;1,000</div>
+      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Hundreds of hours in Claude Code across a month of real work. <span style='color:#0A0A0A;font-weight:600;'>Less than one engineer-day</span> — at every corner of both ranges.</div>
+      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;"><span style="color:#0A0A0A;">spec</span><span style="color:#CF0090;">→</span><span style="color:#9A9A9A;">loop</span><span style="color:#CF0090;">→</span><span style="color:#1F8A4C;font-weight:600;">verified sprint</span><span style="color:#CF0090;">→</span><span style="color:#0A0A0A;">$</span></div>
     </div>
   </div>
-  <div style="margin-top:32px;border-top:1px solid #E6E6E6;padding-top:26px;display:flex;align-items:center;gap:22px;">
+  <div style="margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.02em;color:#9A9A9A;">Cap first: one repo, twenty items&nbsp;&nbsp;→&nbsp;&nbsp;read the usage report&nbsp;&nbsp;→&nbsp;&nbsp;earn the scale, then double.</div>
+  <div style="margin-top:auto;border-top:1px solid #E6E6E6;padding-top:22px;display:flex;align-items:center;gap:22px;">
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
-    <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">The protocol: <span style="font-weight: 600;">cap first — one repo, twenty items. Read the usage report. Earn the scale, then double.</span> <span style="color: rgb(107, 107, 107);">And yes — cost still rides usage at the margin. That critique is right; it’s the subject of the sequel talk.</span></p>
+    <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">The honest limit: <span style="font-weight:600;">cost rides usage</span> — at this altitude you pay full price on every run. <span style="color:#6B6B6B;">That isn&rsquo;t a rebuttal, it&rsquo;s why Part 2 exists: compiling the stable paths until they run free.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>49</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>51</span></div>
+</section><section data-label="The Budget Objection" data-speaker-notes="The budget objection, which is a different animal from the cost objection and needs answering separately. The complaint is that budgets would have to rise substantially, and that is true. A thousand engineers at twenty-five hundred dollars a month is two and a half million dollars, and that is a real number. But the fight is not about the size of the number, it is about which line it belongs on. Booked as a software seat it is indefensible and it should be — no tool on earth is worth twenty-five hundred dollars per user per month, and that is the comparison being made when someone puts it next to Jira and a laptop. Booked as capacity, against a loaded engineer costing thirty-one to fifty-two thousand a month, it is five to eight percent, and the bar becomes simple: does it return more than eight percent. Note that twenty-five hundred is already two and a half times my own actual spend, so this is the pessimistic version. And then the honest half, which has to be said out loud or none of the rest is credible: if the hours are not producing gains, it genuinely is waste. That is an argument for measuring it, not for skipping it." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;padding:88px 120px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>THE BUDGET OBJECTION</span><span>SEAT VS CAPACITY</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:30px 0 0;"></div>
+  <h2 style="margin:28px 0 0;font-weight:700;font-size:58px;letter-spacing:-0.03em;line-height:1.0;max-width:1520px;">$2.5M is only shocking if you <span style="color:#CF0090;">booked it as software</span>.</h2>
+  <p style="margin:18px 0 0;max-width:1400px;font-size:28px;line-height:1.34;color:#6B6B6B;letter-spacing:-0.01em;">A thousand engineers at $2,500 a month is a real number. The question was never whether it&rsquo;s big — it&rsquo;s which line it belongs on.</p>
+  <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:42px;">
+    <div style="border:1px solid #E6E6E6;border-radius:16px;background:#fff;padding:38px 40px;display:flex;flex-direction:column;min-width:0;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#9A9A9A;">Booked as a seat</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#9A6B00;background:#FBF3E0;border:1px solid #E8D9A8;border-radius:7px;padding:5px 10px;">indefensible</span>
+      </div>
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">$2,500 per user, per month</div>
+      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">No tool is worth that, and it shouldn&rsquo;t be. Sat next to Jira and a laptop it loses every time — <span style='color:#0A0A0A;font-weight:600;'>and that is the comparison being made</span>.</div>
+      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;"><span style="color:#0A0A0A;">spend</span><span style="color:#C4C4C4;">→</span><span style="color:#9A9A9A;">software line</span><span style="color:#C4C4C4;">→</span><span style="color:#9A6B00;">rejected</span></div>
+    </div>
+    <div style="border:2px solid #CF0090;border-radius:16px;background:#FFF5FB;padding:38px 40px;display:flex;flex-direction:column;min-width:0;box-shadow:0 12px 40px rgba(207,0,144,0.10);">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;color:#CF0090;">Booked as capacity</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.04em;color:#1F8A4C;background:#E9F7EE;border:1px solid #BFE6CC;border-radius:7px;padding:5px 10px;">the right line</span>
+      </div>
+      <div style="font-weight:700;font-size:33px;letter-spacing:-0.02em;margin-bottom:16px;">5&ndash;8% on top of a loaded engineer</div>
+      <div style="font-size:25px;line-height:1.36;color:#6B6B6B;">Against $31K&ndash;52K a month of loaded cost, the bar is arithmetic: <span style='color:#0A0A0A;font-weight:600;'>does it return more than 8%?</span> And $2,500 is already 2.5&times; my actual spend.</div>
+      <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:19px;color:#6B6B6B;flex-wrap:wrap;"><span style="color:#0A0A0A;">spend</span><span style="color:#CF0090;">→</span><span style="color:#9A9A9A;">capacity line</span><span style="color:#CF0090;">→</span><span style="color:#1F8A4C;font-weight:600;">8% to clear</span></div>
+    </div>
+  </div>
+  <div style="margin-top:auto;border-top:1px solid #E6E6E6;padding-top:24px;display:flex;align-items:center;gap:22px;">
+    <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
+    <p style="margin:0;font-size:28px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">And the honest half: <span style="font-weight:600;">if the hours aren&rsquo;t producing gains, it really is waste.</span> <span style="color:#6B6B6B;">Which is an argument for measuring it — not for skipping it.</span></p>
+  </div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>52</span></div>
 </section>
+
 
 <section data-label="One Ask" data-speaker-notes="One ask, 90 days: every service gets broad context (CLAUDE.md) and a quality gate (run-qa). Once those exist, the loop becomes possible — and once the loop is possible, you're airborne. Your first spec is the dumbest repetitive task you do every week. Write it this week. Run the loop on it." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:96px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">MY REQUEST OF YOU</div>
@@ -1779,7 +1877,7 @@ spend bug → fixed
     <span style="color:#6B6B6B;">scaffold the pattern into your own repo → <span style="color:#0A0A0A;">./scaffold-loop.sh</span></span>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>50</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>53</span></div>
 </section>
 
 <section data-label="Appendices" data-speaker-notes="" style="width:100%;height:100%;background:radial-gradient(circle at 7% 93%, rgba(207,0,144,0.20) 0%, rgba(207,0,144,0) 56%), #0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1790,7 +1888,7 @@ spend bug → fixed
   
   
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>51</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>54</span></div>
 </section>
 
 <section data-label="Why It Works" data-speaker-notes="Appendix, the theory layer. Five ideas sit under the loop. Each one is optional reading and resolves to a file you already ran — nothing here is new machinery, just the why behind what you saw." style="width:100%;height:100%;background:radial-gradient(circle at 7% 93%, rgba(207,0,144,0.20) 0%, rgba(207,0,144,0) 56%), #0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1798,7 +1896,7 @@ spend bug → fixed
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
   <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">Why it works</h2>
   <p style="margin:44px 0 0;max-width:1240px;font-size:32px;line-height:1.35;color:#9A9A9A;letter-spacing:-0.01em;">Five ideas under the loop — optional reading. Every one resolves to a file you already ran.</p>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>52</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>55</span></div>
 </section>
 
 <section data-label="Skill = Process" data-speaker-notes="A skill file holds a procedure, not facts — how to do a recurring job: run the three checks, return one verdict. The method becomes reusable and versioned, kept separate from any single task it runs on. — that’s the skill." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 130px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1813,7 +1911,7 @@ spend bug → fixed
     <span style="color:#CF0090;font-size:26px;line-height:1;">→</span>
     <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:-0.005em;color:#0A0A0A;background:#F2F1EE;border:1px solid #E6E6E6;border-radius:10px;padding:11px 18px;">SKILL.md / run-qa</span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>53</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>56</span></div>
 </section>
 
 <section data-label="Subagents = Clean Context" data-speaker-notes="Each subagent gets its own context window and exactly one narrow job. The reviewer never sees the builder’s scratch work; the tester starts fresh. Narrow scope means a cheaper model and no cross-contamination. — that’s the QA crew." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 130px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1828,7 +1926,7 @@ spend bug → fixed
     <span style="color:#CF0090;font-size:26px;line-height:1;">→</span>
     <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:-0.005em;color:#0A0A0A;background:#F2F1EE;border:1px solid #E6E6E6;border-radius:10px;padding:11px 18px;">linter · reviewer · tester</span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>54</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>57</span></div>
 </section>
 
 <section data-label="Fresh Sessions" data-speaker-notes="A model’s context is finite and degrades as it fills. So every sprint launches a new session with an empty window — the roadmap and PROGRESS files carry state forward, not the model’s fading memory. — that’s the clean brain per sprint." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 130px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1843,7 +1941,7 @@ spend bug → fixed
     <span style="color:#CF0090;font-size:26px;line-height:1;">→</span>
     <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:-0.005em;color:#0A0A0A;background:#F2F1EE;border:1px solid #E6E6E6;border-radius:10px;padding:11px 18px;">roadmap.md + PROGRESS.md</span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>55</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>58</span></div>
 </section>
 
 <section data-label="Self-Improvement" data-speaker-notes="When a session learns something durable — a gotcha, a convention — it writes it back into the broad context. The next session starts smarter. The system quietly edits its own instructions. — that’s the Document step." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 130px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1858,7 +1956,7 @@ spend bug → fixed
     <span style="color:#CF0090;font-size:26px;line-height:1;">→</span>
     <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:-0.005em;color:#0A0A0A;background:#F2F1EE;border:1px solid #E6E6E6;border-radius:10px;padding:11px 18px;">promotes → CLAUDE.md</span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>56</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>59</span></div>
 </section>
 
 <section data-label="Latent vs Deterministic" data-speaker-notes="Generation is fuzzy by nature — synthesis, design, judgment. Verification isn’t: the assertion passes or it doesn’t. You never trust the model’s opinion of its own work; you run a tool that returns a fact. — that’s why QA is a test." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 130px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1873,7 +1971,7 @@ spend bug → fixed
     <span style="color:#CF0090;font-size:26px;line-height:1;">→</span>
     <span style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:-0.005em;color:#0A0A0A;background:#F2F1EE;border:1px solid #E6E6E6;border-radius:10px;padding:11px 18px;">a test, not a vibe check</span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>57</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>60</span></div>
 </section>
 
 <section data-label="Extending This Model" data-speaker-notes="Appendix, going further. The four moves from the teaser, now in full. This is the detail moved out of the hands-on flow so the run-it momentum isn't interrupted. From a solo Helicopter to a team's Jet to an org's Spaceship." style="width:100%;height:100%;background:radial-gradient(circle at 7% 93%, rgba(207,0,144,0.20) 0%, rgba(207,0,144,0) 56%), #0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1881,7 +1979,7 @@ spend bug → fixed
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
   <h2 style="margin:0;font-weight:800;font-size:124px;letter-spacing:-0.04em;line-height:0.94;">Extending this model</h2>
   <p style="margin:44px 0 0;max-width:1240px;font-size:32px;line-height:1.35;color:#9A9A9A;letter-spacing:-0.01em;">The four moves in full — same shape every time, one small file in <span style="font-family:'JetBrains Mono',monospace;font-size:28px;color:#0A0A0A;">.claude/</span>.</p>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>58</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>61</span></div>
 </section>
 
 <section data-label="The Four Moves" data-speaker-notes="The four moves in full. Encode judgment: the loop writes its own roadmap and specs. Add a gate: raise the bar on what GREEN means. Add structure: scale breadth with epics and parallel builders. Close the loop: make it durable and auditable. Helicopter to Jet to Spaceship. Add structure is where the diamond lives — fan out, reduce, verify, synthesize — with a fresh-context verifier on every edge: run-qa at fleet scale." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:64px 110px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1916,7 +2014,7 @@ spend bug → fixed
     <span><span style="color:#E8E8E8;">Helicopter</span> <span style="color:#6B6B6B;">(this repo)</span> <span style="color:#3A3A3A;">→</span> <span style="color:#E8E8E8;">Jet</span> <span style="color:#6B6B6B;">(a team)</span> <span style="color:#3A3A3A;">→</span> <span style="color:#E8E8E8;">Spaceship</span> <span style="color:#6B6B6B;">(an org)</span></span>
     <span style="color:#6B6B6B;">full catalog <span style="color:#CF0090;">→</span> <span style="color:#D8D8D8;">EXTENDING.md</span></span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>59</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>62</span></div>
 </section>
 
 <section data-label="Add a PLAN Phase" data-speaker-notes="Lead example of Encode judgment, in depth. A plan phase can live in two places. Post-spec: before the Builder writes code on a non-trivial sprint, it plans first — files, order, risks — into plan.md, and a gate approves it before any code is written; cheap insurance that catches a bad approach before a full build-QA cycle. Pre-spec, going further: the model writes the roadmap and specs from intent, and you approve those instead of authoring them. The artifact for post-spec is a new per-sprint plan.md — intent, not memory, so it earns its own slot next to state, memory, and learning. The deeper point: judgment moves up a rung. That's the Jet step on the spine." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:64px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1964,7 +2062,7 @@ spend bug → fixed
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
     <p style="margin:0;font-size:26px;line-height:1.26;letter-spacing:-0.012em;color:#0A0A0A;">Judgment moves up a rung — you approve plans instead of writing specs. <span style="color:#6B6B6B;">That's the Jet step.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>60</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>63</span></div>
 </section>
 
 <section data-label="The Principles" data-speaker-notes="The principles, not the syntax. The commands and flags will change; these don't. Plan before you build. Verify before you call it done. One job per subagent. Fix, don't ask. Promote what you learn. This is the judgment layer — a callback to the disclaimer: this is my way, but the principles travel." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:80px 130px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -1995,7 +2093,7 @@ spend bug → fixed
   </div>
   </div>
   <div style="margin-top:auto;border-top:1px solid #E6E6E6;padding-top:26px;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.02em;color:#9A9A9A;">This is my way — the syntax will change, but these don’t.</div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>61</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>64</span></div>
 </section>
 
 <section data-label="Making It Run" data-speaker-notes="Appendix, the theory layer. Five ideas sit under the loop. Each one is optional reading and resolves to a file you already ran — nothing here is new machinery, just the why behind what you saw." style="width:100%;height:100%;background:radial-gradient(circle at 7% 93%, rgba(207,0,144,0.20) 0%, rgba(207,0,144,0) 56%), #0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2003,7 +2101,7 @@ spend bug → fixed
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
   <h2 style="margin:0;font-weight:800;font-size:150px;letter-spacing:-0.04em;line-height:0.92;">Making it run</h2>
   <p style="margin:44px 0 0;max-width:1240px;font-size:32px;line-height:1.35;color:#9A9A9A;letter-spacing:-0.01em;">The key file types for this model, and to run the exercises</p>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>62</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>65</span></div>
 </section>
 
 <section data-label="run.sh" data-speaker-notes="And the orchestrator. Ten lines of bash — dumb on purpose. While there are unchecked boxes, launch a fresh session, check if blocked, repeat. That's the whole system: files plus a dumb loop. Then: let's run it. ./run.sh on the projector." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2043,7 +2141,7 @@ echo <span style="color:#9ED49E;">"DONE — $n sprint(s) attempted"</span>
 cat PROGRESS.md</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>63</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>66</span></div>
 </section>
 
 <section data-label="CLAUDE.md" data-speaker-notes="This is the broad context — who we are, what we're building, and the definition of done. That one line — not done until run-qa is GREEN — is what makes the whole system work." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2085,7 +2183,7 @@ other sprints' specs. Ask before changing the schema.<span style="color:#9A9A9A;
 If RED, read it, fix it, re-run. Never ship on RED.</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>64</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>67</span></div>
 </section>
 
 <section data-label="prompt.md" data-speaker-notes="This is what every session reads first — its marching orders. Same instructions every time. The prompt is the method; the specs are the content." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2116,7 +2214,7 @@ Then run the run-qa skill until GREEN (max 3 attempts).
 <span style="color:#FF6FC8;">Updating the status is your final action — never skip it.</span></pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>65</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>68</span></div>
 </section>
 
 <section data-label="roadmap.md" data-speaker-notes="This is the manifest. Four unchecked boxes — that's our state machine. The orchestrator reads it to know if there's work left; the Builder reads it to know what to pick up. The checkbox ticks after each sprint." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2137,7 +2235,7 @@ Then run the run-qa skill until GREEN (max 3 attempts).
 - [ ] Sprint 4: Polish — number formatting + click pulse    <span style="color:#6B6B6B;">— specs/sprint-4.md</span></pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>66</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>69</span></div>
 </section>
 
 <section data-label="roadmap.md · scaled" data-speaker-notes="Same file, at scale. Four flat boxes don't cut it for a real project — but the same checkbox manifest does the job; it just nests. Epics are milestones; Sprints live inside them, each pointing at one spec; Features sit inside a Sprint. The top is a dashboard, one row per Epic. A gate can be a human checkpoint, not just code — the loop stops and waits. And the Current Status block at the bottom is the living handoff, rewritten at the end of every session. Same three-character state machine, same single file." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2191,7 +2289,7 @@ Gate     2-week dogfood window before E3</pre>
     </div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>67</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>70</span></div>
 </section>
 
 <section data-label="PROGRESS.md" data-speaker-notes="Starts empty. The Builder appends a handoff after each sprint — what it built, key decisions, gotchas, what the next session needs to know. This is how memory carries across fresh sessions." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:60px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2209,7 +2307,7 @@ Gate     2-week dogfood window before E3</pre>
 // what was built · key decisions · gotchas · next-up</div>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>68</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>71</span></div>
 </section>
 
 <section data-label="sprint-1.md" data-speaker-notes="This is the specific context for the first sprint — this is where your brain matters. A good spec makes the build trivial. In the demo, Sprint 1 is the one-shot: it reads this, writes index.html, runs QA, goes GREEN, and you open a working click farm in the browser." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2239,7 +2337,7 @@ score. Score persists across reloads.
 - Stable ids: #score, #harvest</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>69</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>72</span></div>
 </section>
 
 <section data-label="sprint-2.md" data-speaker-notes="Sprint 2 — adding farmhands. The loop continues automatically; it reads this spec and adds the hire button plus the auto-harvest tick. Refresh the browser and farmhands are earning on their own. A visible change, no human input." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2269,7 +2367,7 @@ A "Hire Farmhand" button (cost 10). Hiring deducts
 - setInterval 1000ms; persist state on each tick</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>70</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>73</span></div>
 </section>
 
 <section data-label="sprint-3.md" data-speaker-notes="Sprint 3 — this is where it gets interesting. The hire flow is a classic bug source: hire a farmhand you can't afford and the score goes negative. For the demo the bug is planted via a fixture swap, so QA reliably goes RED on the hire test — then the Builder reads the failure, fixes it, and re-runs to GREEN. That's the inner loop, live." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2301,7 +2399,7 @@ shows the NEXT price, updates after each hire.
   planted via the fixture swap, not the spec</span></pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>71</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>74</span></div>
 </section>
 
 <section data-label="sprint-4.md" data-speaker-notes="Sprint 4 — polish, if time allows. Number formatting and a click pulse. In the demo we usually stop after the Sprint 3 RED-to-GREEN; this one is here for the hands-on round." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2330,7 +2428,7 @@ Number formatting + click feedback.
 - Format on display only — never round the stored value</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>72</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>75</span></div>
 </section>
 
 <section data-label="SKILL.md" data-speaker-notes="This is the bridge. One call — run-qa — runs all three QA agents in sequence and returns a single verdict, GREEN or RED. If RED, fix the reported issues and re-run, max three attempts, then stop and hand to a human." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2366,7 +2464,7 @@ If RED: fix the issues, re-run from step 1.
 Stop after 3 attempts; then report to the human.</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>73</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>76</span></div>
 </section>
 
 <section data-label="linter.md" data-speaker-notes="The first QA specialist. Checks the HTML is well-formed and the inline JS parses. Auto-fixes trivial formatting; reports anything that needs a judgment call. Runs on a cheaper, faster model — it just needs to check." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2398,7 +2496,7 @@ Return "CLEAN" if no errors remain, else the list
 of remaining errors with location.</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>74</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>77</span></div>
 </section>
 
 <section data-label="code-reviewer.md" data-speaker-notes="The second specialist. Read-only — it never changes files. Looks for logic bugs, especially around localStorage read/write, and missing acceptance criteria. Returns findings as CRITICAL, WARN, or NIT. A CRITICAL is what turns the verdict RED." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2433,7 +2531,7 @@ Return findings as:
 For each: the issue + a one-line fix. Else "CLEAN".</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>75</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>78</span></div>
 </section>
 
 <section data-label="playwright-tester.md" data-speaker-notes="The third specialist. Writes and runs a Playwright test against the acceptance criteria. For Sprint 3 it specifically checks the hire flow — try to hire a farmhand you can't afford, confirm it's blocked and the score never goes below zero. That's the test that catches the bug. Returns GREEN, or RED with enough detail to fix it." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:56px 96px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2470,7 +2568,7 @@ Return "GREEN" if all pass, else "RED" plus, per
 failure: test name, failed assertion, actual result.</pre>
   </div>
 
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>76</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>79</span></div>
 </section>
 
 <section data-label="Objections" data-speaker-notes="Appendix D. The pushbacks that always come, with straight answers — built for Q&A. The through-line: the skeptic's instinct is correct, and the architecture is that instinct, formalized." style="width:100%;height:100%;background:radial-gradient(circle at 7% 93%, rgba(207,0,144,0.20) 0%, rgba(207,0,144,0) 56%), #0A0A0A;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2478,7 +2576,7 @@ failure: test name, failed assertion, actual result.</pre>
   <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:40px 0 44px;"></div>
   <h2 style="margin:0;font-weight:800;font-size:124px;letter-spacing:-0.04em;line-height:0.94;">Fair questions</h2>
   <p style="margin:44px 0 0;max-width:1240px;font-size:32px;line-height:1.35;color:#9A9A9A;letter-spacing:-0.01em;">The pushback this deck hears most — with straight answers. Take them into your own Q&amp;A.</p>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>77</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>80</span></div>
 </section>
 
 <section data-label="Objections 1" data-speaker-notes="Four objections, one shape of answer: the gate. Goodhart — a loop can only see its own metric — is the legitimate critique, and the answer is that the gate isn't the loop's metric: it's an anchor. Tests ran or they didn't; the loop can't argue with a failed assertion, and a human holds the top gate. Self-grading: correct — which is why worker and verifier never share a context and the verdict is anchored by lint and tests. Silent failure: a three-character state machine can't fail silently — [!] escalates. Context: yes, it's the hard part, and it's deliberately outside this talk's boundary — that's the sequel. Close with the reframe: if you don't trust the model, good — neither does the harness. Your distrust is load-bearing; it's called the QA gate. Come make it stricter." style="width:100%;height:100%;background:#000000;color:#FFFFFF;font-family:'Manrope',sans-serif;padding:64px 110px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2512,7 +2610,7 @@ failure: test name, failed assertion, actual result.</pre>
   <div style="margin-top:24px;padding-top:20px;border-top:1px solid #1F1F1F;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:19px;letter-spacing:0.03em;color:#B5B5B5;">
     <span><span style="color:#E8E8E8;">If you don’t trust the model — good.</span> <span style="color:#6B6B6B;">Neither does the harness. Your distrust is load-bearing: it’s called the QA gate.</span></span>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>78</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>81</span></div>
 </section>
 
 <section data-label="Objections 2" data-speaker-notes="The toys objection, met as physics. Click Farm is a pendulum, not a bridge — nobody watches a pendulum demo and concludes gravity only applies to pendulums. What the demo proves are the invariants, and invariants are scale-free: thick specs make building trivial, anchored gates catch what generation hallucinates, state survives in files. What changes at scale is the content of the specs and the gates — the edge cases, the tribal scar tissue, the rules an optimizer would bend. That content comes from senior engineers and nowhere else. Follow the complexity objection one step further and it concludes that the skeptics are the most important people in the room — let them arrive there. Receipts if pressed: the Bun port, a year of work in eleven days in public; the fan-out-and-verify diamond running in production inside Claude's own research feature; three separate communities converging on file-based state and deterministic gates without ever meeting." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
@@ -2542,7 +2640,7 @@ failure: test name, failed assertion, actual result.</pre>
     <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;flex-shrink:0;"></div>
     <p style="margin:0;font-size:24px;line-height:1.3;letter-spacing:-0.012em;color:#0A0A0A;">Receipts, if pressed: <span style="color: rgb(107, 107, 107);">the Bun port — a year of work in eleven days, in public · the fan-out-and-verify diamond running in production inside Claude’s research feature · three communities converging on file-based state and deterministic gates without ever meeting.</span></p>
   </div>
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>79</span></div>
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>github.com/rishidean/tutorials-agent-loop&nbsp;&nbsp;·&nbsp;&nbsp;Self-paced</span><span>82</span></div>
 </section>
 
 
