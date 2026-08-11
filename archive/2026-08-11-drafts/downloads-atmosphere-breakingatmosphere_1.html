@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breaking Atmosphere — When Software Maintains Itself</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0A0A; --body:#6B6B6B; --faint:#B5B5B5; --faint2:#9A9A9A;
+  --accent:#CF0090; --accent-soft:#FFF5FB;
+  --bg:#FAFAFA; --warm:#F2F1EE; --line:#E6E6E6; --line2:#D8D8D8;
+  --dark:#0A0A0A; --dark-card:#141414;
+  --sans:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
+#stage{width:1280px;height:720px;position:relative;transform-origin:center center}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;background:var(--bg);color:var(--ink);
+  padding:52px 84px 40px}
+.slide.active{display:flex}
+
+/* chrome */
+.eyebrow{display:flex;justify-content:space-between;align-items:flex-start;font-family:var(--mono);
+  font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--body)}
+.eyebrow .l{position:relative;padding-bottom:12px}
+.eyebrow .l::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:3px;background:var(--accent)}
+.eyebrow .r{color:var(--faint)}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.foot .pg{color:var(--faint2)}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center}
+
+/* type */
+h1.mega{font-weight:800;font-size:106px;line-height:.9;letter-spacing:-.045em;color:var(--ink)}
+h2.title{font-weight:800;font-size:52px;line-height:.98;letter-spacing:-.035em;color:var(--ink);max-width:1020px}
+.statement{font-weight:800;font-size:60px;line-height:.98;letter-spacing:-.04em;color:var(--ink);max-width:1040px}
+.hl{color:var(--accent)}
+p.lead{font-weight:500;font-size:23px;line-height:1.5;color:var(--body);max-width:900px;margin-top:22px}
+p.lead+p.lead{margin-top:16px}
+.kicker{font-weight:700;color:var(--ink)}
+.mono-note{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--faint2);margin-top:26px}
+.subtitle{font-weight:500;font-size:24px;color:var(--body);margin-top:20px;max-width:840px}
+
+/* title card — Airborne / Flight Plan style (light, left-aligned) */
+.slide.titlecard{background:var(--bg)}
+.titlecard .eyebrow .tl{color:var(--ink)}
+.titlecard .tbody{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1060px}
+.tbar{width:66px;height:5px;background:var(--accent);margin-bottom:34px}
+h1.hero{font-weight:800;font-size:140px;line-height:.84;letter-spacing:-.045em;color:var(--ink)}
+.tsub{font-weight:500;font-size:29px;line-height:1.34;color:var(--ink);margin-top:36px;max-width:820px}
+.tsub .hl{color:var(--accent)}
+.tcredit{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-top:54px}
+.tcredit .hl{color:var(--accent)}
+
+/* callout */
+.callout{margin-top:26px;background:var(--accent-soft);border-left:4px solid var(--accent);
+  padding:20px 26px;font-weight:600;font-size:20px;line-height:1.4;color:var(--ink);max-width:1000px}
+.callout .hl{font-weight:700}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+.cards.two{grid-template-columns:1fr 1fr}
+.card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:28px 26px}
+.card .num{font-weight:800;font-size:56px;line-height:1;color:var(--line2);letter-spacing:-.03em}
+.card h3{font-weight:800;font-size:20px;letter-spacing:.01em;margin-top:10px;color:var(--ink);text-transform:uppercase}
+.card p{font-weight:500;font-size:16px;line-height:1.5;color:var(--body);margin-top:12px}
+.card.dark{background:var(--dark-card);border-color:var(--dark-card)}
+.card.dark h3{color:#fff}.card.dark p{color:#c9c9c9}.card.dark .tag{color:var(--accent)}
+.card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.card.topbar{border-top:4px solid var(--line2)}
+.card.topbar.a{border-top-color:var(--ink)}
+.card.topbar.b{border-top-color:var(--accent)}
+.card.topbar.c{border-top-color:var(--faint)}
+
+/* divider slide */
+.slide.divider{background:var(--bg)}
+.divider .body{justify-content:center}
+.divider .act{font-family:var(--mono);font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--body);
+  position:relative;padding-bottom:16px;margin-bottom:26px}
+.divider .act::after{content:"";position:absolute;left:0;bottom:0;width:46px;height:3px;background:var(--accent)}
+.divider h2{font-weight:800;font-size:76px;letter-spacing:-.04em;line-height:.96;color:var(--ink)}
+
+/* title + fullbleed (dark) */
+.slide.dark{background:var(--dark);color:#fff;align-items:center;justify-content:center;text-align:center}
+.slide.dark .body{align-items:center;justify-content:center;text-align:center}
+.slide.dark h1.mega{color:#fff}
+.slide.dark .bar{width:64px;height:4px;background:var(--accent);margin:30px auto 26px}
+.slide.dark .sub{font-weight:500;font-size:24px;color:var(--faint);letter-spacing:.01em}
+.slide.dark .credit{position:absolute;bottom:44px;left:0;right:0;text-align:center;font-family:var(--mono);
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint2)}
+
+.slide.fullbleed{padding:0;background:#050608}
+.fullbleed .earth{position:absolute;inset:0;overflow:hidden;background:
+  radial-gradient(120% 90% at 50% 138%, #2b6fb0 0%, #123a63 30%, #05203c 52%, #030913 66%, #01040a 78%);}
+.fullbleed .glow{position:absolute;left:-10%;right:-10%;bottom:26%;height:5px;
+  background:linear-gradient(90deg,transparent, #7db8e6 20%, #bfe0ff 50%, #7db8e6 80%, transparent);
+  filter:blur(3px);opacity:.8;transform:rotate(-2deg)}
+.fullbleed .stars{position:absolute;inset:0;background-image:
+  radial-gradient(1px 1px at 20% 18%,#fff,transparent),
+  radial-gradient(1px 1px at 70% 12%,#fff,transparent),
+  radial-gradient(1px 1px at 45% 26%,#cfe,transparent),
+  radial-gradient(1px 1px at 85% 22%,#fff,transparent),
+  radial-gradient(1px 1px at 33% 8%,#fff,transparent);opacity:.7}
+.fullbleed .cap{position:absolute;left:0;right:0;bottom:118px;text-align:center;font-family:var(--mono);
+  font-size:15px;letter-spacing:.4em;text-transform:uppercase;color:#eaf2ff}
+.fullbleed .sub{position:absolute;left:12%;right:12%;bottom:52px;text-align:center;font-size:16.5px;
+  line-height:1.55;font-weight:500;color:#a9c2e0}
+.fullbleed .note{position:absolute;top:20px;left:20px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:#4a5a70;text-transform:uppercase}
+
+/* image slides */
+.imgrow{display:grid;gap:16px;margin-top:30px;align-items:stretch}
+.imgrow.four{grid-template-columns:repeat(4,1fr)}
+.imgrow.two{grid-template-columns:1fr 1fr}
+.imgrow figure{margin:0}
+.imgrow img{width:100%;height:220px;object-fit:cover;border-radius:3px;display:block;background:#eee}
+.imgrow.two img{height:300px}
+.imgrow figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint2);margin-top:8px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;margin-top:24px}
+.split img{width:100%;height:360px;object-fit:cover;border-radius:4px}
+
+/* diagrams */
+.continuum{display:flex;align-items:flex-start;justify-content:space-between;margin:56px 8px 0;position:relative}
+.continuum::before{content:"";position:absolute;left:5%;right:5%;top:26px;height:2px;background:var(--line2)}
+.node{position:relative;z-index:1;text-align:center;width:15%}
+.node .dot{width:54px;height:54px;border-radius:50%;background:#fff;border:2px solid var(--line2);
+  margin:0 auto;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--body)}
+.node.on .dot{border-color:var(--accent);background:var(--accent);color:#fff;box-shadow:0 0 0 6px var(--accent-soft)}
+.node .nm{font-weight:700;font-size:15px;margin-top:12px;color:var(--ink)}
+.node.on .nm{color:var(--accent)}
+.node .dd{font-size:12px;color:var(--faint2);margin-top:4px;font-weight:500}
+.zones{display:flex;justify-content:space-between;margin:22px 4px 0;font-family:var(--mono);font-size:11px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--faint)}
+
+.lifecycle{display:flex;gap:8px;margin:48px 0 0}
+.stage-pill{flex:1;text-align:center;padding:20px 8px;border-radius:4px;background:#fff;border:1px solid var(--line);
+  font-weight:700;font-size:16px;color:var(--ink);position:relative}
+.stage-pill .s{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--faint2);margin-bottom:8px}
+.stage-pill.live{background:var(--accent-soft);border-color:var(--accent)}
+.stage-pill.frontier{background:repeating-linear-gradient(45deg,#fff,#fff 8px,#faf6f9 8px,#faf6f9 16px);
+  color:var(--faint2);border-style:dashed}
+.stage-pill .d{display:block;font-size:11.5px;font-weight:500;color:var(--body);margin-top:6px;line-height:1.3}
+.arrowrow{display:flex;justify-content:space-around;font-size:22px;color:var(--faint);margin-top:2px}
+
+.pipeline{display:flex;align-items:center;gap:18px;margin:44px 0 0;justify-content:center}
+.pbox{flex:1;background:#fff;border:1px solid var(--line);border-radius:4px;padding:26px 20px;text-align:center}
+.pbox .t{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.pbox h4{font-weight:800;font-size:22px;margin-top:8px}
+.pbox p{font-size:14px;color:var(--body);margin-top:8px;font-weight:500}
+.parrow{font-size:26px;color:var(--faint2)}
+
+.flywheel{display:flex;gap:56px;align-items:center;margin-top:22px}
+.wheel{width:300px;height:300px;border-radius:50%;border:2px dashed var(--line2);position:relative;flex:none;margin:0 auto}
+.wheel .ctr{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+.wheel .ctr b{font-weight:800;font-size:20px;letter-spacing:-.02em}
+.wheel .ctr span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--faint2);margin-top:6px;text-transform:uppercase}
+.wlabel{position:absolute;font-weight:700;font-size:15px;color:var(--ink);background:var(--bg);padding:2px 8px}
+.wlabel.n{top:-14px;left:50%;transform:translateX(-50%)}
+.wlabel.e{top:50%;right:-30px;transform:translateY(-50%)}
+.wlabel.s{bottom:-14px;left:50%;transform:translateX(-50%);color:var(--accent)}
+.wlabel.w{top:50%;left:-40px;transform:translateY(-50%)}
+.wheel .ah{position:absolute;font-size:19px;color:var(--accent);line-height:1}
+.wheel .ah.ne{top:14.6%;left:85.4%;transform:translate(-50%,-50%) rotate(45deg)}
+.wheel .ah.se{top:85.4%;left:85.4%;transform:translate(-50%,-50%) rotate(135deg)}
+.wheel .ah.sw{top:85.4%;left:14.6%;transform:translate(-50%,-50%) rotate(225deg)}
+.wheel .ah.nw{top:14.6%;left:14.6%;transform:translate(-50%,-50%) rotate(315deg)}
+.wexit{position:absolute;top:calc(100% + 20px);left:50%;transform:translateX(-50%);text-align:center;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.wtext{flex:1}
+.wtext li{list-style:none;font-weight:500;font-size:19px;color:var(--body);line-height:1.5;margin-bottom:12px;padding-left:22px;position:relative}
+.wtext li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
+.wtext li b{color:var(--ink);font-weight:700}
+
+/* chart */
+.chartwrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;margin-top:20px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:4px;padding:18px}
+.legend{display:flex;gap:20px;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--body);margin-bottom:6px}
+.legend .k{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{width:14px;height:3px;display:inline-block}
+
+/* steps (demo) */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px;margin-top:26px}
+.step{display:flex;gap:16px}
+.step .n{font-family:var(--mono);font-weight:500;font-size:14px;color:#fff;background:var(--accent);
+  width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.step h4{font-weight:700;font-size:18px}
+.step p{font-size:15px;color:var(--body);font-weight:500;margin-top:3px;line-height:1.45}
+.step code{font-family:var(--mono);font-size:13px;background:var(--warm);padding:1px 5px;border-radius:3px;color:var(--ink)}
+
+/* io table */
+table.io{width:100%;border-collapse:collapse;margin-top:26px;font-size:16px}
+table.io th{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);
+  text-align:left;padding:8px 14px;border-bottom:2px solid var(--line2)}
+table.io td{padding:9px 14px;border-bottom:1px solid var(--line);color:var(--ink);font-weight:500}
+table.io td.i{color:var(--body)}
+table.io tr td:last-child{color:var(--accent);font-weight:600}
+
+/* code */
+pre.code{background:var(--dark);color:#e8e8e8;border-radius:6px;padding:24px 28px;margin-top:26px;
+  font-family:var(--mono);font-size:15px;line-height:1.7;overflow:auto}
+pre.code .c{color:#7a7a7a}
+pre.code .g{color:#59d99a}
+
+/* status list */
+.status{margin-top:34px}
+.status .row{display:flex;align-items:center;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.status .b{font-family:var(--mono);font-size:12px;letter-spacing:.16em;padding:4px 10px;border-radius:3px;flex:none;text-transform:uppercase}
+.status .b.on{background:var(--accent-soft);color:var(--accent)}
+.status .b.off{background:var(--warm);color:var(--faint2)}
+.status .row h4{font-weight:800;font-size:22px;width:180px;flex:none}
+.status .row p{font-weight:500;color:var(--body);font-size:16px}
+
+/* agenda (roadmapping #2 style) */
+.agenda{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:28px}
+.acol{display:flex;flex-direction:column}
+.aitem{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid var(--line)}
+.aitem:last-child{border-bottom:none}
+.aitem .an{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.1em;padding-top:5px}
+.aitem h4{font-weight:800;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.aitem p{font-weight:500;color:var(--body);font-size:15px;margin-top:2px}
+
+/* continuum (airborne #7) */
+svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.contin{display:flex;justify-content:space-between;align-items:flex-start;margin:42px 4px 0}
+.cnode{width:16%;text-align:center}
+.cnode .ico{height:38px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.cnode .no{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--faint);margin-top:12px}
+.cnode .nm{font-weight:800;font-size:20px;margin-top:5px;color:var(--ink);letter-spacing:-.01em}
+.cnode .line{height:2px;background:var(--line2);margin-top:14px;position:relative}
+.cnode .line::after{content:"";width:9px;height:9px;border-radius:50%;border:2px solid var(--line2);background:#fff;position:absolute;left:50%;top:-4px;transform:translateX(-50%)}
+.cnode .cap{font-size:14px;color:var(--body);margin-top:16px;font-weight:500}
+.cnode.on .ico,.cnode.on .nm{color:var(--accent)}
+.cnode.on .line{background:var(--accent)}.cnode.on .line::after{border-color:var(--accent);background:var(--accent)}
+
+/* continuum + zone overlay (direct mirror of airborne #8) */
+.zwrap{position:relative;margin-top:40px;padding:58px 0 56px}
+.zband{position:absolute;top:0;bottom:0;border-radius:10px}
+.zband.g{left:0;width:49%;background:#efefef}
+.zband.a{left:51%;right:0;background:var(--accent-soft);border:1px solid #f6cde6}
+.zband .zlab{position:absolute;top:14px;left:0;right:0;text-align:center;font-family:var(--mono);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint2)}
+.zband.a .zlab{color:var(--accent)}
+.zband .zbot{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-weight:700;font-size:15px;color:var(--body)}
+.zband .zbot b{color:var(--ink)}
+.zband.a .zbot{color:var(--accent)}.zband.a .zbot b{color:var(--accent)}
+.zband.n{background:#efefef}
+.zband.o{background:var(--accent-soft);border:1px solid #f6cde6}
+.zband.o .zlab,.zband.o .zbot,.zband.o .zbot b{color:var(--accent)}
+.zwrap .contin{margin:0 8px;position:relative;z-index:1}
+
+/* continuum overlay — ground/air/space (airborne #8) */
+.zonemap{display:flex;gap:16px;margin-top:44px;align-items:stretch}
+.zone{border-radius:8px;padding:22px 18px 18px;display:flex;flex-direction:column}
+.zone.ground{flex:3;background:#efefef}
+.zone.air{flex:2;background:var(--accent-soft)}
+.zone.space{flex:1.15;background:var(--accent-soft);border:1px solid #f6cde6}
+.ztop{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint2);text-align:center}
+.ztop.hl{color:var(--accent)}
+.znodes{display:flex;gap:16px;justify-content:center;margin:20px 0;flex:1;align-items:center}
+.zn{display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--ink)}
+.zone.air .zn,.zone.space .zn{color:var(--accent)}
+.zn svg{width:26px;height:26px}
+.zcap{text-align:center;font-weight:600;font-size:16px;color:var(--body);line-height:1.35}
+.zcap b{font-weight:800;color:var(--ink)}
+.zone.air .zcap b,.zone.space .zcap b{color:var(--accent)}
+
+/* full-bleed photo break slide */
+.slide.photo{padding:0;background:#000;overflow:hidden;justify-content:center}
+.photo .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.58}
+.photo .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,4,8,.85),rgba(4,4,8,.4) 58%,rgba(4,4,8,.12))}
+.photo .pc{position:relative;z-index:2;padding:0 84px;max-width:940px}
+.photo .pk{font-family:var(--mono);font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#f4a9d6;margin-bottom:22px}
+.photo h2{font-weight:800;font-size:74px;line-height:.98;letter-spacing:-.04em;color:#fff}
+.photo p{font-weight:500;font-size:24px;color:#dcdcdc;margin-top:20px;max-width:700px;line-height:1.4}
+.photo .pfoot{position:absolute;left:84px;right:84px;bottom:40px;z-index:2;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+
+/* issue → insight → product */
+.iip{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;margin-top:36px}
+.iip .col{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px 22px}
+.iip .col .t{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.iip .col h4{font-weight:800;font-size:22px;margin-top:8px;letter-spacing:-.01em;color:var(--ink)}
+.iip .col p{font-weight:500;font-size:15px;color:var(--body);margin-top:10px;line-height:1.5}
+.iip .ar{display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--faint2);padding:0 16px}
+
+/* layered context stack */
+.layers{margin-top:28px;display:flex;flex-direction:column;gap:9px;max-width:1050px}
+.layer{display:grid;grid-template-columns:88px 150px 1fr 210px;align-items:center;gap:20px;
+  border:1px solid var(--line);border-radius:4px;padding:14px 22px;background:#fff}
+.layer .lt{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase}
+.layer h4{font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.01em}
+.layer p{font-size:14.5px;color:var(--body);font-weight:500;line-height:1.4}
+.layer .ex{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;color:var(--accent);margin-top:5px}
+.layer .ld{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint2);text-align:right}
+.layer.l0{background:var(--dark-card);border-color:var(--dark-card)}
+.layer.l0 h4{color:#fff}.layer.l0 p{color:#c9c9c9}.layer.l0 .ld{color:#8a8a8a}
+.layer.l1{background:#2e2d2b;border-color:#2e2d2b}
+.layer.l1 h4{color:#fff}.layer.l1 p{color:#cfcfcf}.layer.l1 .ld{color:#9a9a9a}
+.layer.l2{background:var(--warm);border-color:var(--warm)}
+.layer.l3{background:var(--accent-soft);border:1px solid #f6cde6}
+.layer.l3 h4{color:var(--accent)}
+
+/* promotion ladder */
+.ladder{display:flex;align-items:center;gap:10px;margin-top:40px}
+.ladder .rung{flex:1;text-align:center;padding:18px 8px;border-radius:4px;background:#fff;border:1px solid var(--line);
+  font-weight:700;font-size:16px;color:var(--ink)}
+.ladder .rung .rs{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--faint2);margin-bottom:7px;text-transform:uppercase}
+.ladder .rung.hot{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.ladder .ra{font-size:20px;color:var(--faint2)}
+.ladder-notes{display:flex;justify-content:space-between;margin:16px 2px 0;font-family:var(--mono);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.ladder-notes .up{color:var(--accent)}
+.ladder-notes .down{color:var(--faint2)}
+
+/* nav */
+#bar{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:50;transition:width .2s}
+#count{position:fixed;bottom:14px;right:18px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  color:var(--faint2);z-index:50}
+.zoneL,.zoneR{position:fixed;top:0;bottom:0;width:16%;z-index:40;cursor:pointer}
+.zoneL{left:0}.zoneR{right:0}
+.assetnote{position:absolute;top:14px;right:84px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;
+  color:var(--faint);text-transform:uppercase;opacity:.7;max-width:260px;text-align:right}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="viewport"><div id="stage">
+
+<!-- 1 · TITLE (Airborne / Flight Plan style) -->
+<section class="slide titlecard active">
+  <div class="eyebrow"><span class="tl">A teaching talk on adaptive software</span><span class="r">Sequel to Getting Airborne · 2026</span></div>
+  <div class="tbody">
+    <div class="tbar"></div>
+    <h1 class="hero">Breaking<br>atmosphere</h1>
+    <p class="tsub">When software maintains itself — the sequel to Getting Airborne, crossing the <span class="hl">Kármán line</span>.</p>
+    <div class="tcredit">Rishi Dean · <span class="hl">github.com/rishidean/&lt;harness-repo&gt;</span></div>
+  </div>
+</section>
+
+<!-- 2 · KÁRMÁN LINE -->
+<section class="slide fullbleed">
+  <div class="earth"></div><div class="stars"></div><div class="glow"></div>
+  <div class="note">Asset: NASA ISS Earth-limb shot (public domain) — drop in here, full-bleed</div>
+  <div class="cap">The Kármán Line</div>
+  <div class="sub">100 km up, the air runs out. Wings stop working; flying becomes orbiting, and staying up takes a different kind of craft.<br>This talk is about crossing that line in software.</div>
+</section>
+
+<!-- AGENDA (roadmapping #2 style) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">How to read this</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The flight plan.</h2>
+    <p class="lead" style="margin-top:14px">Read straight through, or jump to the part you need.</p>
+    <div class="agenda">
+      <div class="acol">
+        <div class="aitem"><span class="an">01</span><div><h4>Where we left off</h4><p>The harness, in one breath — the full recap lives in Getting Airborne.</p></div></div>
+        <div class="aitem"><span class="an">02</span><div><h4>Jet fuel is expensive</h4><p>Dhaka 2019, the three cracks, and why the fix is orbit.</p></div></div>
+        <div class="aitem"><span class="an">03</span><div><h4>The three inventions</h4><p>Layered context, pipeline, progressive determinism.</p></div></div>
+        <div class="aitem"><span class="an">04</span><div><h4>One loop</h4><p>The flywheel, why it compounds, and Kormo rebuilt.</p></div></div>
+      </div>
+      <div class="acol">
+        <div class="aitem"><span class="an">05</span><div><h4>Watch the code get written</h4><p>The live demo: the flywheel turning.</p></div></div>
+        <div class="aitem"><span class="an">06</span><div><h4>The frontier</h4><p>What's flown, and what hasn't — yet.</p></div></div>
+        <div class="aitem"><span class="an">07</span><div><h4>What the rocket was built for</h4><p>Compiling the company, not the code, plus the ask.</p></div></div>
+      </div>
+    </div>
+    <p class="lead" style="font-size:18px;margin-top:24px">Every claim here is runnable: the harness learns a correction and compiles it, live.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+
+
+<!-- HARNESS REFRESHER (recap for anyone who skipped Getting Airborne) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Refresher · from getting airborne</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The harness, in one breath.</h2>
+    <div class="pipeline">
+      <div class="pbox"><div class="t">You</div><h4>Directive</h4><p>"Build the reporting endpoint." An outcome, not keystrokes.</p></div>
+      <div class="parrow">→</div>
+      <div class="pbox"><div class="t">The harness</div><h4>Context · Tools · Loop</h4><p>Feeds the model what it needs, hands it tools, runs plan → build → test, and checks the work.</p></div>
+      <div class="parrow">→</div>
+      <div class="pbox"><div class="t">Out the other side</div><h4>Working code</h4><p>Reviewed, tested, shipped — while you steer the next thing.</p></div>
+    </div>
+    <p class="lead">A harness is the structure <em>around</em> the model that turns "an AI that can code" into "a system that builds software." Getting Airborne built one. Today we teach it to remember.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- PART 2 DIVIDER · THE PROBLEM -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Part Two</div>
+    <h2>Flying is great, but<br>jet fuel is <span class="hl">expensive</span></h2>
+    <div class="subtitle">The bill scales with your success — a story from Dhaka about the cases flying still can't solve, and where we actually need to go.</div>
+    <div class="mono-note">What this answers: what airborne costs, what it can't fix, and what "adaptive" means.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- DHAKA 2019 (photo scene-setter) -->
+<section class="slide photo">
+  <img class="bg" src="kormo-images/dhaka-chariots.png" alt="Decorated rickshaws on a Dhaka street">
+  <div class="scrim"></div>
+  <div class="pc">
+    <div class="pk">The Dhaka problem</div>
+    <h2>Dhaka, 2019.</h2>
+    <p>Where this story starts.</p>
+  </div>
+  <div class="pfoot"><span>Dhaka, Bangladesh</span><span class="pg"></span></div>
+</section>
+
+<!-- WHAT WE WERE DOING (story beat a) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The Dhaka problem · what we were doing</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">We went to Dhaka to build a jobs marketplace.</h2>
+    <div class="imgrow two">
+      <figure><img src="kormo-images/kormo-canvasser-crowd.jpg" alt="A crowd around a Kormo canvasser in Dhaka"><figcaption>Signing up job seekers, street by street</figcaption></figure>
+      <figure><img src="kormo-images/daily-star-kormo-launch.png" alt="Daily Star coverage of the Kormo launch"><figcaption>Kormo launches · The Daily Star, 2019</figcaption></figure>
+    </div>
+    <p class="lead">Kormo was Google's job marketplace for the informal sector: drivers, retail staff, delivery riders. Millions of seekers, thousands of employers, and almost no digital rails between them. First we had to learn how hiring worked.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- CV BOXES (Dhaka 2019) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The Dhaka problem · what we learned</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">This is how you applied for a job.</h2>
+    <div class="imgrow four">
+      <figure><img src="kormo-images/cv-box-red-dropbox.png" alt="Red CV drop box"><figcaption>CV drop box</figcaption></figure>
+      <figure><img src="kormo-images/cv-box-mall.png" alt="Mall CV box"><figcaption>Mall pillar</figcaption></figure>
+      <figure><img src="kormo-images/cv-box-cardboard.png" alt="Cardboard CV box"><figcaption>Cardboard, taped</figcaption></figure>
+      <figure><img src="kormo-images/cv-box-wooden.png" alt="Wooden CV box"><figcaption>Behind the counter</figcaption></figure>
+    </div>
+    <p class="lead">You printed a CV, found a box, and dropped it in. A red drop box, a taped cardboard one, a wooden one behind a mall counter.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- ISSUE → INSIGHT → PRODUCT -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The Dhaka problem · the insight</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <div class="split">
+      <img src="kormo-images/internet-cafe-user.png" alt="A job seeker printing his CV at an internet cafe" style="height:490px;object-position:center 22%">
+      <div>
+        <h2 class="title" style="font-size:40px">The insight: a CV is just input.</h2>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:14px">
+          <div><div class="t" style="font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)">Issue</div><p class="lead" style="font-size:17px;margin-top:4px">Paper, at scale. Thousands of CVs in boxes; no structure, no search, no way to match a person to a job.</p></div>
+          <div><div class="t" style="font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)">Insight</div><p class="lead" style="font-size:17px;margin-top:4px">A CV is unstructured input. Parse it into a structured profile, and the whole market opens up.</p></div>
+          <div><div class="t" style="font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)">Product</div><p class="lead" style="font-size:17px;margin-top:4px">Scan or build your CV in Kormo; the parser turns paper into a profile. Jobs find you.</p></div>
+        </div>
+        <div class="callout" style="margin-top:22px;font-size:18px">So we built the parser. The boxes became searchable profiles, and jobs started finding people. It worked — to a point.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- BUT THE CATCH (prescriptive / brittle) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The Dhaka problem · to a point</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <div class="split">
+      <figure style="margin:0;text-align:center">
+        <img src="kormo-images/kormo-build-cv-feature.gif" alt="Kormo's Build CV feature in action" style="height:490px;width:auto;object-fit:contain;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.12)">
+        <figcaption style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint2);margin-top:10px">Kormo · Build CV, live in app</figcaption>
+      </figure>
+      <div>
+        <h2 class="title" style="font-size:42px">The parser assumed every CV looked one way.</h2>
+        <p class="lead">Real CVs in Dhaka didn't. Every mismatch became another special case — and the special cases never stopped. The software assumed it knew you, and asked you to bend.</p>
+        <div class="callout">This is the wound: prescriptive software, written once, for a world that won't hold still.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- IF BUILT TODAY -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The Dhaka problem · even today</span><span class="r">Self-paced</span></div>
+  <div class="body" style="align-items:center;text-align:center">
+    <div class="statement" style="text-align:center">Build it today, and you'd <span class="hl">still be stuck.</span></div>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">Put a modern agent on it — airborne mode, the harness from the recap. Parts get better: the model reads messy CVs a rules engine never could. But it still guesses from scratch every time, forgets between sessions, and can't show its work. Same wound, better model.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- THREE CRACKS (cost / memory / observability) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Why airborne isn't enough</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Three cracks in airborne-only.</h2>
+    <div class="cards">
+      <div class="card topbar a"><span class="tag">01 · Memory</span><h3>It never learns</h3><p>Every session starts cold; corrections evaporate. The system is smart, but no smarter on day 100 than day 1.</p></div>
+      <div class="card topbar b"><span class="tag">02 · Observability</span><h3>Can't audit a guess</h3><p>No single front door. You can't reproduce, verify, or trust what you can't see it do.</p></div>
+      <div class="card topbar c"><span class="tag">03 · Cost</span><h3>Full price, every time</h3><p>Every action hits the model. Cost scales with usage; usage is exponential. You're penalized for success.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- DAY 100 (the cost crack, evidence) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The cost crack · day 100</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Same exponential usage. Two very different bills.</h2>
+    <div class="chartwrap">
+      <div class="chart">
+        <div class="legend">
+          <span class="k"><span class="sw" style="background:var(--ink)"></span>Airborne · cost tracks usage</span>
+          <span class="k"><span class="sw" style="background:var(--accent)"></span>Adaptive · where we're going</span>
+        </div>
+        <svg viewBox="0 0 520 260" width="100%" height="230">
+          <line x1="40" y1="220" x2="500" y2="220" stroke="#D8D8D8"/>
+          <line x1="40" y1="20" x2="40" y2="220" stroke="#D8D8D8"/>
+          <text x="26" y="120" transform="rotate(-90 26 120)" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#9A9A9A" letter-spacing="1">COST</text>
+          <!-- airborne: every action hits the model, cost rides the usage curve -->
+          <path d="M40,216 C220,212 360,180 500,40" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+          <!-- adaptive: cost climbs while a new pattern is being learned, flatlines once compiled -->
+          <path d="M40,216 L130,186 L225,186 L305,162 L400,162 L455,150 L500,150" fill="none" stroke="#CF0090" stroke-width="3"/>
+          <text x="64" y="176" font-family="JetBrains Mono" font-size="10" fill="#CF0090" letter-spacing="1">NEW PATTERN</text>
+          <text x="234" y="206" font-family="JetBrains Mono" font-size="10" fill="#9A9A9A" letter-spacing="1">COMPILED → FLAT</text>
+          <text x="270" y="250" font-family="JetBrains Mono" font-size="11" fill="#9A9A9A" text-anchor="middle" letter-spacing="1">DAYS SINCE LAUNCH</text>
+        </svg>
+      </div>
+      <div>
+        <p class="lead" style="margin-top:0">Airborne pays the model full price for every action, forever; cost rides the usage curve.</p>
+        <p class="lead"><span class="kicker">The Day 100 Problem:</span> the system is as slow and expensive on day 100 as on day 1, because it learned nothing structural. The pink line is a different machine: it pays only for what's <em>new</em>. A pattern costs model calls until it's learned; repeating it is free.</p>
+        <div class="callout">You can't draw the pink line from the air. Building the machine that draws it is the rest of this talk.</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- ORBIT CONTINUUM (3-zone reveal, closes Part Two) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Where we actually need to go</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The last one isn't air. It's orbit.</h2>
+    <div class="zwrap">
+      <div class="zband n" style="left:0;width:49%"><div class="zlab">95% of teams live here</div><div class="zbot"><b>Ground</b> — using agents to code</div></div>
+      <div class="zband n" style="left:51%;width:31%;right:auto"><div class="zlab">The 10× live here</div><div class="zbot"><b>Air</b> — building agents that code</div></div>
+      <div class="zband o" style="left:84%;right:0"><div class="zlab">The frontier</div><div class="zbot" style="font-size:13.5px"><b>Orbit</b> — adaptive software</div></div>
+      <div class="contin">
+        <div class="cnode"><div class="ico"><svg class="ic" viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M13 6l-1.5 5 3 3 1 5"/><path d="M11.5 11l-4 1.5"/><path d="M14.5 14l3 1"/></svg></div><div class="no">01</div><div class="nm">Walking</div><div class="line"></div><div class="cap">Manual</div></div>
+        <div class="cnode"><div class="ico"><svg class="ic" viewBox="0 0 24 24"><circle cx="6" cy="17" r="3.2"/><circle cx="18" cy="17" r="3.2"/><path d="M6 17l4-7h4"/><path d="M10 10l3.5 7"/><path d="M13 7h3"/></svg></div><div class="no">02</div><div class="nm">Biking</div><div class="line"></div><div class="cap">Autocomplete</div></div>
+        <div class="cnode"><div class="ico"><svg class="ic" viewBox="0 0 24 24"><path d="M3 14l2-5h10l3 5"/><path d="M2 14h20v3h-2"/><path d="M8 17H4"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg></div><div class="no">03</div><div class="nm">Driving</div><div class="line"></div><div class="cap">Agent coding</div></div>
+        <div class="cnode"><div class="ico"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h16"/><path d="M11 5v3"/><path d="M5 12c1-2 4-3 7-3s6 1 8 3l-2 3H9c-3 0-5-1-4-3z"/><path d="M12 15v3h4"/></svg></div><div class="no">04</div><div class="nm">Helicopter</div><div class="line"></div><div class="cap">Agent harness</div></div>
+        <div class="cnode"><div class="ico"><svg class="ic" viewBox="0 0 24 24"><path d="M2 13l8-1 3-8h2l-1 8 6 2v2l-7-1-3 5h-2l1-5-7 0z"/></svg></div><div class="no">05</div><div class="nm">Jet</div><div class="line"></div><div class="cap">Agent swarms</div></div>
+        <div class="cnode on"><div class="ico"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2c3 2.5 4.5 6.5 4.5 10l1.5 3-4-1.5v3l-2 2-2-2v-3l-4 1.5 1.5-3c0-3.5 1.5-7.5 4.5-10z"/><circle cx="12" cy="9" r="1.6"/></svg></div><div class="no">06</div><div class="nm">Spaceship</div><div class="line"></div><div class="cap">Self-writing</div></div>
+      </div>
+    </div>
+    <p class="lead" style="font-size:18px;margin-top:26px"><span class="kicker">Adaptive software, precisely:</span> software that observes how it's used, remembers what it learns, and compiles stable behavior into real code. Call it adaptive, self-maintaining, or self-writing — same craft. Building one is the rest of this talk.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- PART 3 DIVIDER · THE INVENTIONS -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Part Three</div>
+    <h2>The three inventions</h2>
+    <div class="subtitle">Layered context, the execution pipeline, and progressive determinism: the machinery that makes it real.</div>
+    <div class="mono-note">What this answers: how the system runs.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- WHAT A SELF-MAINTAINING SYSTEM NEEDS (sets up the three inventions) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">To reach orbit</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">What a self-maintaining system needs.</h2>
+    <div class="cards">
+      <div class="card topbar a"><div class="num">01</div><span class="tag">Heals crack 01 · memory</span><h3>Remember</h3><p>A place to keep what it learns — knowledge sorted by how fast it changes, so it can be edited, audited, and trusted.</p></div>
+      <div class="card topbar b"><div class="num">02</div><span class="tag">Heals crack 02 · observability</span><h3>Observe</h3><p>One front door for every action, so the system can watch the user work — every decision logged, replayable, auditable.</p></div>
+      <div class="card topbar c"><div class="num">03</div><span class="tag">Heals crack 03 · cost</span><h3>Compile</h3><p>A way to graduate repeated, confirmed behavior — measured against a stability threshold — out of the model into fast, free, deterministic code.</p></div>
+    </div>
+    <p class="lead" style="font-size:18px">One need per crack, one invention per need: <span class="kicker">layered context</span> to remember, <span class="kicker">the pipeline</span> to observe, <span class="kicker">progressive determinism</span> to compile.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 15b · WHY MEMORY IS LAYERED (lead-in to invention 1) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Invention 1 · the setup</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">"Remember" isn't one thing.</h2>
+    <p class="lead" style="margin-top:14px">Say "take me to the airport." Four different kinds of knowing are in play — and they change at four different speeds.</p>
+    <div class="agenda" style="margin-top:20px">
+      <div class="acol">
+        <div class="aitem"><span class="an">What</span><div><h4>What things are</h4><p>A trip has an origin, a destination, a time. Almost never changes.</p></div></div>
+        <div class="aitem"><span class="an">Why</span><div><h4>How it should behave</h4><p>Never spend money without confirming. Changes rarely, and deliberately.</p></div></div>
+      </div>
+      <div class="acol">
+        <div class="aitem"><span class="an">How</span><div><h4>How the work flows</h4><p>Are we planning the trip, or booking it right now? Changes per task.</p></div></div>
+        <div class="aitem"><span class="an">Who</span><div><h4>What's true about you</h4><p>Home is San Francisco; your airport is SFO. Changes all the time.</p></div></div>
+      </div>
+    </div>
+    <p class="lead" style="font-size:18px;margin-top:22px">Cram all four into one prompt and they blur together. Store them in layers — sorted by how fast they change — and each can be edited, trusted, and compiled on its own schedule.</p>
+  </div>
+  <div class="foot"><span>rishidean.com/layered-context · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 16 · INVENTION 1 -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Invention 1 · the navigation system</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Layered context: four layers of memory,<br>at four densities.</h2>
+    <div class="layers">
+      <div class="layer l0"><span class="lt">What</span><h4>Ontology</h4><p>The world model: the objects, their shapes, what operations are legal. The physics of the agent's world.<span class="ex">e.g. a trip = origin + destination + time</span></p><span class="ld">Crystallized · schema</span></div>
+      <div class="layer l1"><span class="lt">Why</span><h4>Character</h4><p>Identity, norms, guardrails. What makes the same world model feel like a chief of staff vs. a code reviewer.<span class="ex">e.g. never book without confirming</span></p><span class="ld">Solid · config</span></div>
+      <div class="layer l2"><span class="lt">How</span><h4>Workflow</h4><p>The active process: what's legal and what's preferred right now. "Let's plan" vs. "just do it" selects one.<span class="ex">e.g. planning mode vs. booking mode</span></p><span class="ld">Fluid · process</span></div>
+      <div class="layer l3"><span class="lt">Who</span><h4>Memory</h4><p>This user, right now: a living model of their intent, not a vector store of old chats.<span class="ex">e.g. home: SF → nearest_major_airport = SFO</span></p><span class="ld">Volatile · retrieved</span></div>
+    </div>
+    <p class="lead" style="font-size:18px;margin-top:20px">Stop writing specs for humans. This machine-readable corpus is the source of truth: solid at the top, molten at the bottom.</p>
+  </div>
+  <div class="foot"><span>rishidean.com/layered-context · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 16b · INVENTION 1 — LEARNING -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Invention 1 · continued</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The layers are state. Learning is what moves patterns between them.</h2>
+    <div class="ladder">
+      <div class="rung"><span class="rs">Seen once</span>Episodic</div>
+      <div class="ra">→</div>
+      <div class="rung"><span class="rs">Seen again</span>Repeated</div>
+      <div class="ra">→</div>
+      <div class="rung"><span class="rs">Acted on</span>Routine</div>
+      <div class="ra">→</div>
+      <div class="rung hot"><span class="rs">Baked in</span>Default</div>
+    </div>
+    <div class="ladder-notes"><span class="up">→ Promotion · recurring behavior crystallizes upward</span><span class="down">← Demotion · stale defaults dissolve, never silently</span></div>
+    <p class="lead" style="font-size:19px">The most valuable signal is the <span class="kicker">gap</span> between what the layers say and what the user actually does. Friction means redesign the path; obsolescence means prune it.</p>
+  </div>
+  <div class="foot"><span>rishidean.com/layered-context · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 17 · INVENTION 2 (pipeline hero) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Invention 2 · the flight computer</span><span class="r">Self-paced</span></div>
+  <div class="assetnote">Hero · execution pipeline</div>
+  <div class="body">
+    <h2 class="title">The execution pipeline: one door, three routes, one writer.</h2>
+    <svg viewBox="0 0 1120 360" width="100%" style="margin-top:24px" font-family="Manrope,sans-serif">
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#9A9A9A"/></marker></defs>
+      <!-- directive -->
+      <rect x="8" y="140" width="132" height="66" rx="4" fill="#F2F1EE"/>
+      <text x="74" y="169" text-anchor="middle" font-family="JetBrains Mono" font-size="12" letter-spacing="2" fill="#6B6B6B">DIRECTIVE</text>
+      <text x="74" y="189" text-anchor="middle" font-size="12" fill="#9A9A9A">"take me to…"</text>
+      <line x1="140" y1="173" x2="172" y2="173" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <!-- resolver -->
+      <rect x="178" y="118" width="184" height="110" rx="4" fill="#fff" stroke="#0A0A0A" stroke-width="1.6"/>
+      <text x="270" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2.5" fill="#CF0090">SINGLE FRONT DOOR</text>
+      <text x="270" y="178" text-anchor="middle" font-size="22" font-weight="800" fill="#0A0A0A">Resolver</text>
+      <text x="270" y="200" text-anchor="middle" font-size="12.5" fill="#6B6B6B">picks exactly one route,</text>
+      <text x="270" y="216" text-anchor="middle" font-size="12.5" fill="#6B6B6B">based on what it already knows</text>
+      <!-- orchestrator frame around routes -->
+      <rect x="420" y="8" width="290" height="320" rx="6" fill="none" stroke="#D8D8D8" stroke-width="1.4" stroke-dasharray="6 5"/>
+      <text x="565" y="350" text-anchor="middle" font-family="JetBrains Mono" font-size="10.5" letter-spacing="2" fill="#9A9A9A">ORCHESTRATOR · SEQUENCES THE WORK · EVERY TURN LOGGED</text>
+      <!-- branch lines -->
+      <line x1="362" y1="140" x2="438" y2="70" stroke="#CF0090" stroke-width="1.8" marker-end="url(#arr)"/>
+      <line x1="362" y1="173" x2="438" y2="173" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <line x1="362" y1="206" x2="438" y2="278" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <!-- route 1: hard rule -->
+      <rect x="442" y="34" width="246" height="72" rx="4" fill="#FFF5FB" stroke="#CF0090" stroke-width="1.6"/>
+      <text x="565" y="58" text-anchor="middle" font-size="16" font-weight="800" fill="#CF0090">Hard rule</text>
+      <text x="565" y="78" text-anchor="middle" font-size="11.5" fill="#6B6B6B">seen &amp; confirmed enough → compiled</text>
+      <text x="565" y="95" text-anchor="middle" font-size="11.5" fill="#9A9A9A">no model · single-digit ms · free</text>
+      <!-- route 2 -->
+      <rect x="442" y="137" width="246" height="72" rx="4" fill="#fff" stroke="#E6E6E6"/>
+      <text x="565" y="161" text-anchor="middle" font-size="16" font-weight="800" fill="#0A0A0A">Rule + LLM</text>
+      <text x="565" y="181" text-anchor="middle" font-size="11.5" fill="#6B6B6B">a pattern is forming → the model decides,</text>
+      <text x="565" y="198" text-anchor="middle" font-size="11.5" fill="#9A9A9A">nudged by what you've already confirmed</text>
+      <!-- route 3 -->
+      <rect x="442" y="242" width="246" height="72" rx="4" fill="#fff" stroke="#E6E6E6"/>
+      <text x="565" y="266" text-anchor="middle" font-size="16" font-weight="800" fill="#0A0A0A">LLM only</text>
+      <text x="565" y="286" text-anchor="middle" font-size="11.5" fill="#6B6B6B">never seen it before → a cold guess</text>
+      <text x="565" y="303" text-anchor="middle" font-size="11.5" fill="#9A9A9A">~seconds · full price</text>
+      <!-- converge -->
+      <line x1="688" y1="70" x2="770" y2="140" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <line x1="688" y1="173" x2="770" y2="173" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <line x1="688" y1="278" x2="770" y2="206" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <!-- workers -->
+      <rect x="776" y="118" width="196" height="110" rx="4" fill="#141414"/>
+      <text x="874" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2.5" fill="#CF0090">SOLE DB WRITERS</text>
+      <text x="874" y="180" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">Workers</text>
+      <text x="874" y="205" text-anchor="middle" font-size="13" fill="#c9c9c9">one write shape, one log</text>
+      <!-- log -->
+      <line x1="972" y1="173" x2="1010" y2="173" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr)"/>
+      <text x="1016" y="164" font-family="JetBrains Mono" font-size="10.5" letter-spacing="1.5" fill="#9A9A9A">OBSERVATION</text>
+      <text x="1016" y="182" font-family="JetBrains Mono" font-size="10.5" letter-spacing="1.5" fill="#9A9A9A">LOG</text>
+    </svg>
+    <p class="lead" style="font-size:18px;margin-top:18px">The resolver's choice is just memory: a compiled rule if one exists, a nudged guess if a pattern is forming, a cold guess if it's brand new. Every directive enters one door and exits through one writer — you can only adapt to behavior you can see.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 17b · THE SEAM (why identical writes make compilation safe) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Invention 2 · continued</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The seam: a rule and a guess are interchangeable.</h2>
+    <svg viewBox="0 0 1000 300" width="100%" style="margin-top:26px" font-family="Manrope,sans-serif">
+      <defs><marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#9A9A9A"/></marker></defs>
+      <rect x="30" y="34" width="250" height="86" rx="4" fill="#FFF5FB" stroke="#CF0090" stroke-width="1.6"/>
+      <text x="155" y="70" text-anchor="middle" font-size="19" font-weight="800" fill="#CF0090">Compiled rule</text>
+      <text x="155" y="96" text-anchor="middle" font-size="13" fill="#6B6B6B">deterministic · milliseconds</text>
+      <rect x="30" y="180" width="250" height="86" rx="4" fill="#fff" stroke="#E6E6E6"/>
+      <text x="155" y="216" text-anchor="middle" font-size="19" font-weight="800" fill="#0A0A0A">Model guess</text>
+      <text x="155" y="242" text-anchor="middle" font-size="13" fill="#6B6B6B">probabilistic · seconds</text>
+      <line x1="280" y1="77" x2="400" y2="138" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <line x1="280" y1="223" x2="400" y2="162" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <rect x="406" y="105" width="280" height="90" rx="4" fill="#141414"/>
+      <text x="546" y="142" text-anchor="middle" font-size="19" font-weight="800" fill="#fff">The same write</text>
+      <text x="546" y="168" text-anchor="middle" font-size="13" fill="#c9c9c9">one shape · one store · one log</text>
+      <line x1="686" y1="150" x2="760" y2="150" stroke="#9A9A9A" stroke-width="1.6" marker-end="url(#arr2)"/>
+      <rect x="766" y="112" width="204" height="76" rx="4" fill="#fff" stroke="#CF0090" stroke-width="1.6"/>
+      <text x="868" y="144" text-anchor="middle" font-size="17" font-weight="800" fill="#CF0090">Diffable ✓</text>
+      <text x="868" y="168" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="1.5" fill="#6B6B6B">THE EQUIVALENCE CHECK</text>
+    </svg>
+    <p class="lead" style="font-size:19px">Because both paths produce identical writes, you can run them side by side and diff the results. When the rule matches the guess every time, swapping it in changes nothing downstream. <span class="kicker">That's the equivalence check: the seam that makes compilation safe.</span> An anchor — a check that can't argue back.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 18 · INVENTION 3 (lifecycle hero) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Invention 3 · the autopilot that writes itself</span><span class="r">Self-paced</span></div>
+  <div class="assetnote">Hero · lifecycle bar (recurs in demo &amp; frontier)</div>
+  <div class="body">
+    <h2 class="title">Progressive determinism.</h2>
+    <div class="lifecycle" style="margin-top:18px">
+      <div class="stage-pill"><span class="s">01</span>Unknown<span class="d">never seen it</span></div>
+      <div class="stage-pill live"><span class="s">02</span>AI-Mediated<span class="d">the model guesses cold</span></div>
+      <div class="stage-pill live"><span class="s">03</span>Observed<span class="d">same guess, confirmed — the system is counting</span></div>
+      <div class="stage-pill live"><span class="s">04</span>Compiled<span class="d">a rule answers · no model</span></div>
+      <div class="stage-pill frontier"><span class="s">05 · frontier</span>Spawned<span class="d">invents a new capability</span></div>
+    </div>
+    <div class="mono-note" style="margin-top:10px">Pink = live in the harness today · hatched = the frontier, not yet built</div>
+    <svg viewBox="0 0 1000 178" width="100%" style="margin-top:16px" font-family="Manrope,sans-serif">
+      <defs><marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#CF0090"/></marker></defs>
+      <!-- soft -->
+      <rect x="16" y="52" width="360" height="92" rx="4" fill="#fff" stroke="#E6E6E6"/>
+      <text x="196" y="84" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#9A9A9A">THE SOFT PATH · STAGES 02–03</text>
+      <text x="196" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#0A0A0A">The pattern is whispered into the prompt.</text>
+      <text x="196" y="132" text-anchor="middle" font-size="13.5" fill="#6B6B6B">The model still decides — it's just nudged.</text>
+      <!-- gate -->
+      <line x1="376" y1="98" x2="452" y2="98" stroke="#CF0090" stroke-width="2" marker-end="url(#arr3)"/>
+      <rect x="458" y="40" width="12" height="116" rx="2" fill="#CF0090"/>
+      <rect x="530" y="40" width="12" height="116" rx="2" fill="#CF0090"/>
+      <rect x="458" y="40" width="84" height="14" rx="2" fill="#CF0090"/>
+      <text x="500" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="10.5" letter-spacing="1" fill="#CF0090">CONFIRMATIONS ≥ THRESHOLD</text>
+      <text x="500" y="174" text-anchor="middle" font-family="JetBrains Mono" font-size="10.5" letter-spacing="2" fill="#CF0090">THE GRADUATION GATE</text>
+      <line x1="548" y1="98" x2="624" y2="98" stroke="#CF0090" stroke-width="2" marker-end="url(#arr3)"/>
+      <!-- hard -->
+      <rect x="630" y="52" width="360" height="92" rx="4" fill="#FFF5FB" stroke="#CF0090" stroke-width="1.6"/>
+      <text x="810" y="84" text-anchor="middle" font-family="JetBrains Mono" font-size="11" letter-spacing="2" fill="#CF0090">THE HARD PATH · STAGE 04</text>
+      <text x="810" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#0A0A0A">The answer comes from the rule store.</text>
+      <text x="810" y="132" text-anchor="middle" font-size="13.5" fill="#6B6B6B">The model is skipped entirely.</text>
+    </svg>
+    <p class="lead" style="font-size:18px;margin-top:14px">User behavior is the source code; the learning loop is the compiler. A pattern only crosses the gate when it's repeated, confirmed, and stable past a threshold: <span class="kicker">the system earns its own determinism.</span></p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- PART 6 DIVIDER · ONE LOOP -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Part Four</div>
+    <h2>One loop</h2>
+    <div class="subtitle">Three inventions collapse into one living flywheel — a loop where every turn feeds the next.</div>
+    <div class="mono-note">What this answers: why it compounds.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 20 · AIR LOOP VS ORBIT LOOP -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">One loop</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The air loop runs. The orbit loop closes.</h2>
+    <div class="cards two" style="margin-top:30px">
+      <div class="card"><span class="tag">Air · the harness loop</span><h3>Plan → build → test → ship</h3><p>Fast, tireless — and amnesiac. Every run starts cold, corrections die with the session, and the 401st request costs exactly what the 1st did.</p></div>
+      <div class="card dark"><span class="tag">Orbit · the flywheel</span><h3>Observe → nudge → compile → free</h3><p>Every run teaches the next. Corrections accumulate, stable patterns leave the loop as hard code, and the model stays aimed at whatever is still unknown.</p></div>
+    </div>
+    <p class="lead" style="font-size:19px">Same harness underneath. The difference is the loop feeds back into itself: the pipeline observes → context remembers and nudges the next guess → determinism compiles → the pipeline runs faster → the model is freed for new unknowns.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 21 · FLYWHEEL (hero) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Draw the flywheel</span><span class="r">Self-paced</span></div>
+  <div class="assetnote">Hero · the flywheel — give it the most design love</div>
+  <div class="body">
+    <div class="flywheel">
+      <div class="wheel">
+        <span class="ah ne">▸</span><span class="ah se">▸</span><span class="ah sw">▸</span><span class="ah nw">▸</span>
+        <div class="wlabel n">Observe</div>
+        <div class="wlabel e">Nudge</div>
+        <div class="wlabel s">Compile</div>
+        <div class="wlabel w">Freed compute</div>
+        <div class="ctr"><b>↻ the loop</b><span>Unknown → … → Spawned</span></div>
+        <div class="wexit">↓ compiled patterns exit the loop → rule store</div>
+      </div>
+      <ul class="wtext">
+        <li>The system gets <b>cheaper and faster exactly where you use it most.</b></li>
+        <li>It keeps its intelligence <b>aimed at the frontier.</b></li>
+        <li>The opposite of normal software, which <b>rots where you use it most.</b></li>
+        <li>Ship the kernel: usage writes the code, and more of it becomes <b>yours.</b></li>
+        <li>Rules, indexes, saved workflows — the graphs everyone screenshots are <b>this loop's exhaust.</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 22 · SHIP THE KERNEL -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Ship the kernel</span><span class="r">Self-paced</span></div>
+  <div class="body" style="align-items:center;text-align:center">
+    <div class="statement" style="text-align:center">Ship the kernel, not the <span class="hl">finished product.</span></div>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">The more you use it, the more of it becomes yours — compiled, instant, and unique to how you work.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 22b · BACK TO DHAKA (closing the story) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Back to Dhaka</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">So how would we build Kormo today?</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><h4>One front door</h4><p>Every CV — photo, paper scan, app form — enters the same pipeline, and every parse is logged.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h4>The model reads the messy ones</h4><p>A layout it's never seen gets a cold guess; a human confirms or corrects the parse.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h4>Confirmed layouts compile</h4><p>After enough confirmations, that layout becomes a rule. The next thousand CVs in that format parse instantly, for free.</p></div></div>
+      <div class="step"><div class="n">4</div><div><h4>The model stays on the frontier</h4><p>Only genuinely new layouts ever reach it. The parser grows a rulebook shaped by Dhaka's real CVs — not our assumptions about them.</p></div></div>
+    </div>
+    <div class="callout">The 2019 parser asked people to bend to the software. This one bends to them, <span class="hl">one compiled layout at a time.</span> That's the wound, closed.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- PART 5 DIVIDER · DEMO -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Part Five · Demo</div>
+    <h2>Watch the code get written</h2>
+    <div class="subtitle">The flywheel was the diagram. This is the diagram turning, live.</div>
+    <div class="mono-note">If one thing from this talk gets filmed and shared, it's this.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 24 · LEAD-IN -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The question</span><span class="r">Live demo</span></div>
+  <div class="body" style="align-items:center;text-align:center">
+    <div class="statement" style="text-align:center">So who <span class="hl">writes the rule?</span></div>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">A human didn't hand-write it. The LLM only guessed. So who wrote it, when, and where did it go? <span class="kicker">Let me show you.</span></p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 25 · THE DEMO (run sheet) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The demo · four hand-cranks</span><span class="r">Live · mock model</span></div>
+  <div class="body">
+    <h2 class="title">"Take me to the airport."</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><h4>Resolve</h4><p>~1200 ms, source <code>llm</code>. Slow, probabilistic — the Unknown.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h4>Observe ×2</h4><p>Click <b>Accept</b>. The stability meter climbs; the system is watching you work.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h4>Compile</h4><p><b>Run Learning Sweep.</b> This is the code getting written — it stores the lookup <code>$context.nearest_major_airport</code>, not <code>"SFO"</code>.</p></div></div>
+      <div class="step"><div class="n">4</div><div><h4>Resolve again</h4><p>Single-digit ms, source <code>user_rule</code>, zero LLM. The latency gauge falls off a cliff.</p></div></div>
+    </div>
+    <div class="callout">Then hit <span class="hl">Move to NYC</span>: the same rule returns JFK without recompiling. It compiled the lookup, not the value.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 25b · THE CLIFF (before/after latency) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The demo · before and after</span><span class="r">Live · mock model</span></div>
+  <div class="body">
+    <h2 class="title">Same directive, same write: off a cliff.</h2>
+    <svg viewBox="0 0 1000 240" width="100%" style="margin-top:36px" font-family="Manrope,sans-serif">
+      <text x="10" y="46" font-family="JetBrains Mono" font-size="12" letter-spacing="2" fill="#9A9A9A">BEFORE · SOURCE: LLM</text>
+      <rect x="10" y="60" width="940" height="52" rx="3" fill="#0A0A0A"/>
+      <text x="936" y="92" text-anchor="end" font-size="20" font-weight="800" fill="#fff">~1,200 ms · full price</text>
+      <text x="10" y="166" font-family="JetBrains Mono" font-size="12" letter-spacing="2" fill="#CF0090">AFTER · SOURCE: USER_RULE</text>
+      <rect x="10" y="180" width="7" height="52" rx="2" fill="#CF0090"/>
+      <text x="30" y="212" font-size="20" font-weight="800" fill="#CF0090">~6 ms · zero model calls · free</text>
+    </svg>
+    <p class="lead" style="margin-top:30px">Roughly <span class="kicker">200× faster and free at the margin</span> — and because the rule stores the lookup, not the answer, it survives you moving to NYC. That's "compiling the problem away," on a latency gauge.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 26 · WHAT YOU JUST WATCHED -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">What you just watched</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Three inventions, three answers to one question.</h2>
+    <div class="cards">
+      <div class="card"><span class="tag">Who wrote it</span><h3>The compiler</h3><p>The Learning Sweep, not the model. You were the gate: your confirmations plus the stability threshold.</p></div>
+      <div class="card"><span class="tag">How it's safe</span><h3>The seam</h3><p>The rule and the guess wrote identically — the equivalence check passed, so the rule is a safe drop-in.</p></div>
+      <div class="card"><span class="tag">Where it lives</span><h3>The hard path</h3><p>The rule store. The front door now routes there and skips the model entirely.</p></div>
+    </div>
+    <p class="lead">Context is what the rule points at. The Pipeline is where it lives and how it's proven safe. Progressive Determinism is the compiler that wrote it. You just watched all three in ninety seconds.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- PART 8 DIVIDER · FRONTIER -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Part Six</div>
+    <h2>The frontier</h2>
+    <div class="subtitle">What's real, what's vision, and the honest altitude we're at.</div>
+    <div class="mono-note">What this answers: where the floor ends and the frontier begins.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 28 · ORBIT NOT WARP (opens the frontier) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The frontier · where we stand</span><span class="r">Self-paced</span></div>
+  <div class="body" style="align-items:center;text-align:center">
+    <div class="statement" style="text-align:center">We're in orbit. <span class="hl">Not at warp.</span></div>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">We're in space — but we're Apollo, not the Enterprise. Compiling rules out of behavior is the first step. The real goal is a system that <span class="kicker">autonomously authors and deploys new code paths</span> — capabilities nobody specced. We haven't figured out exactly how to do that yet. We will.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow"><span class="l">What this is, and isn't</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Two ways to be a spaceship.</h2>
+    <div class="cards two">
+      <div class="card"><span class="tag">Apollo · built &amp; flown</span><h3>COMPILE</h3><p>The system watches how you work and writes its own rules — but every rule passes a gate you control before it ships. Real spaceflight, hands on the controls; you watched it compile a rule in the demo.</p></div>
+      <div class="card dark"><span class="tag">Enterprise · the frontier</span><h3>SPAWN</h3><p>The system inventing capabilities you never specced: point and go, warp drive. We haven't built it yet; the next slides show how it would work, and where the frontier begins.</p></div>
+    </div>
+    <p class="lead">Apollo wasn't a consolation prize for lacking warp drive. It was the step without which the Enterprise never gets built.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 28 · BUILT VS VISION -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Built vs. vision</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">What's flown, and what hasn't.</h2>
+    <p class="lead" style="margin-top:12px;font-size:18px">Three capabilities, one lifecycle: the same five stages from the autopilot slide, grouped by what they do.</p>
+    <div class="status">
+      <div class="row"><span class="b on">Live</span><h4>TEACH</h4><p>The soft path: your corrections sweep into context and nudge the next guess. <span style="font-family:var(--mono);font-size:13px;color:var(--faint2)">(Stages 02–03 · AI-Mediated → Observed)</span></p></div>
+      <div class="row"><span class="b on">Live</span><h4>COMPILE</h4><p>The graduation gate: stable patterns become hard rules that skip the model. <span style="font-family:var(--mono);font-size:13px;color:var(--faint2)">(Stage 04 · Compiled)</span></p></div>
+      <div class="row"><span class="b off">Not yet</span><h4>SPAWN</h4><p>The system generating new capabilities from observed workflows. <span style="font-family:var(--mono);font-size:13px;color:var(--faint2)">(Stage 05 · the frontier)</span></p></div>
+    </div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 29 · SPAWN -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">SPAWN · the true spaceship</span><span class="r">Frontier</span></div>
+  <div class="assetnote">Asset: mock generated PR / feature-spec; tie back to Kormo</div>
+  <div class="body">
+    <h2 class="title">When the system creates features nobody specced.</h2>
+    <p class="lead">The sweep finds the residue COMPILE can't absorb — corrections that cluster but fit no single rule. A detector reads it for a missing capability, backtests against logged history, writes a feature spec, hands it to a coding agent, and opens a PR for you to review.</p>
+    <div class="callout">The graduation gate, one level up: <span class="hl">a backtest replaces the equivalence check, human approval replaces the stability counter.</span> Apollo with a generated payload — not yet warp.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- PART 9 DIVIDER · APPLICATIONS -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Part Seven</div>
+    <h2>What the rocket was built for</h2>
+    <div class="subtitle">So, not at warp — but orbit is already incredible. The SDLC was the proving ground; the target is everything else.</div>
+    <div class="mono-note">What this answers: why this is the business, not a dev tool.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 32 · SDLC WAS JUST WHERE BUILDERS LIVE -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">What orbit is good for</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Almost everything we do is a translation:<br>format in, format out.</h2>
+    <table class="io">
+      <tr><th>Input</th><th>Output</th></tr>
+      <tr><td class="i">Insertion order (email, PDF, sheet)</td><td>Order management system</td></tr>
+      <tr><td class="i">Marketing brief</td><td>Campaign configuration</td></tr>
+      <tr><td class="i">Eligibility file</td><td>Authorized NEMT ride + claim</td></tr>
+      <tr><td class="i">Travel policy + request</td><td>Approved booking</td></tr>
+      <tr><td class="i">Customer email</td><td>Triaged, routed support ticket</td></tr>
+    </table>
+    <p class="lead">Something comes in, a human interprets it, transforms it, and produces something else — we do this all day, every day. The front door doesn't care whether it's a pull request or an insertion order. <span class="kicker">And none of it needs warp drive — today's compile loop already eats this entire list.</span></p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 33 · THE INVERSION -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The inversion</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">The LLM is the compiler, not the runtime.</h2>
+    <div class="cards two">
+      <div class="card"><span class="tag">Today</span><h3>LLM as runtime</h3><p>You put a model on the process. It reasons about the same insertion order for the four-hundred-and-first time. Faster, but it never learned.</p></div>
+      <div class="card dark"><span class="tag">The inversion</span><h3>LLM as compiler</h3><p>It interprets the order it hasn't seen, a human validates, the system extracts the reusable logic into a deterministic path. The next order never touches the model.</p></div>
+    </div>
+    <div class="callout">The goal inverts too: use <span class="hl">less</span> AI over time. Measure success by the model calls you've eliminated.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 33b · INDEPENDENT CONVERGENCE -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Independent convergence</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">Don't take my word for it.</h2>
+    <div class="cards two">
+      <div class="card"><span class="tag">The second-brain crowd</span><h3>The vault becomes a graph</h3><p>A raw note vault reads 2,000 notes to answer one question — full price, every time, no smarter on day 100. Their fix: a router, an index, edges. Retrieval compiled into logic; the model runs once, on what's left.</p></div>
+      <div class="card dark"><span class="tag">The agent-orchestration crowd</span><h3>The workflow gets saved</h3><p>A model drafts the fleet cold — full price. The run works, you confirm it, you save it — and it re-runs by name, deterministically, forever. Unknown → Observed → Compiled, in their own tooling, unnamed.</p></div>
+    </div>
+    <div class="callout">Different communities, different problems, same law: <span class="hl">structure what's stable, and spend the model only on the unknown.</span> They keep arriving here, one domain at a time.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 34 · ORG COMPILES ITSELF -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The payload</span><span class="r">Self-paced</span></div>
+  <div class="body" style="align-items:center;text-align:center">
+    <div class="statement" style="text-align:center">The org <span class="hl">compiles itself.</span></div>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">"AI-powered company" is the wrong goal; the goal is the operations that no longer call the model at all. Compiling business operations is Apollo — it runs on the same flywheel you watched compile "take me to the airport" live. The rocket wasn't built to refactor your code. It was built to compile your company.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 35 · THE ASK -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">The ask</span><span class="r">Self-paced</span></div>
+  <div class="body">
+    <h2 class="title">One process. 30 days.</h2>
+    <p class="lead">Pick the single operation that reasons from scratch every time — the insertion order re-read for the four-hundredth time, the ticket triaged by hand, the weekly deck built from the same five sources. Put an LLM behind one front door, log every run, add a graduation gate, and compile one path down to zero model calls.</p>
+    <p class="lead"><span class="kicker">Don't aim for the Enterprise; aim for your first rule.</span> The era of prescriptive software is ending, and the teams that build the graduation gate first win.</p>
+    <div class="mono-note">Clone it → github.com/rishidean/&lt;harness-repo&gt;</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 36 · SEND-OFF -->
+<section class="slide dark">
+  <div class="body">
+    <div class="statement" style="color:#fff;text-align:center;max-width:960px">Software that <span class="hl">watches you</span> and bends itself.</div>
+    <p class="lead" style="color:var(--faint);text-align:center;margin:24px auto 0;max-width:820px">We spent thirty years building software that assumed it knew you, and asked you to bend. Getting airborne was learning to fly; this is building a craft that flies itself — so you can point at where you want to go, and go.</p>
+  </div>
+  <div class="credit">github.com/rishidean/&lt;harness-repo&gt;</div>
+</section>
+
+<!-- APPENDIX DIVIDER -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Appendix</div>
+    <h2>Run it, read it, steal it</h2>
+    <div class="subtitle">The repo, the file map, and the parked slides.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 37 · APPENDIX A -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Appendix A · run it yourself</span><span class="r">Reference</span></div>
+  <div class="body">
+    <h2 class="title">Clone it. One command.</h2>
+    <pre class="code"><span class="c"># React + Vite + TypeScript · runs offline on a mock model</span>
+git clone https://github.com/rishidean/&lt;harness-repo&gt;
+cd &lt;harness-repo&gt;/harness
+./start.sh          <span class="c"># checks Node 18+, installs deps, starts the dev server</span>
+<span class="c"># → open</span> http://localhost:5173
+
+<span class="c"># then: Resolve → Accept ×2 → Run Learning Sweep → Resolve again → Move to NYC</span>
+<span class="g"># same directive, now instant, zero LLM</span></pre>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- 38 · APPENDIX B -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Appendix B · anatomy of the harness</span><span class="r">Reference</span></div>
+  <div class="body">
+    <h2 class="title">The repo is the three inventions, in files.</h2>
+    <table class="io">
+      <tr><th>File</th><th>Maps to</th></tr>
+      <tr><td class="i">core/context.ts — editable memory + $context lookups</td><td>Invention 1 · Layered Context</td></tr>
+      <tr><td class="i">core/resolver.ts — the single front door</td><td>Invention 2 · Pipeline</td></tr>
+      <tr><td class="i">core/store.ts — sole writer, observation log</td><td>Invention 2 · Pipeline</td></tr>
+      <tr><td class="i">core/compiler.ts — the Learning Sweep</td><td>Invention 3 · Progressive Determinism</td></tr>
+      <tr><td class="i">state/useHarness.ts — drives the four cranks</td><td>The flywheel, wired up</td></tr>
+    </table>
+    <p class="lead">A directive enters the front door, checks the rule engine, falls back to the model, and writes through one store. The sweep reads that log and writes a rule that points at your context. That's the whole spaceship in eight files.</p>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- GRAVEYARD DIVIDER -->
+<section class="slide divider">
+  <div class="body">
+    <div class="act">Graveyard</div>
+    <h2>To figure out</h2>
+    <div class="subtitle">Parked, not deleted: slides that need a home or a rewrite before they rejoin the deck.</div>
+    <div class="mono-note">Cut from the flow · kept for reference</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- GRAVEYARD · provocation (formerly the open, then Part Six) — overlaps with the send-off; rework or retire -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Graveyard · the provocation</span><span class="r">Parked</span></div>
+  <div class="body" style="align-items:center;text-align:center">
+    <div class="statement" style="text-align:center">Software that <span class="hl">rewrites itself</span> as you use it.</div>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">For thirty years software assumed it knew how you work, and you bent to fit it. Adaptive software flips that: it watches how you actually work and rewrites itself to match. The AI isn't the product — it's the scaffolding the software uses to build itself.</p>
+    <div class="mono-note" style="text-align:center">To figure out: near-duplicate of the send-off — merge, or find it a new job.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+<!-- GRAVEYARD · compressed ground/air zonemap (superseded by the direct airborne #8 mirror in Part One) -->
+<section class="slide">
+  <div class="eyebrow"><span class="l">Graveyard · ground / air, compressed</span><span class="r">Parked</span></div>
+  <div class="body">
+    <h2 class="title" style="font-size:40px">Six ways to move. Only some leave the ground.</h2>
+    <div class="zonemap">
+      <div class="zone ground">
+        <div class="ztop">95% of teams live here</div>
+        <div class="znodes">
+          <div class="zn"><svg class="ic" viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M13 6l-1.5 5 3 3 1 5"/><path d="M11.5 11l-4 1.5"/><path d="M14.5 14l3 1"/></svg>Walking</div>
+          <div class="zn"><svg class="ic" viewBox="0 0 24 24"><circle cx="6" cy="17" r="3.2"/><circle cx="18" cy="17" r="3.2"/><path d="M6 17l4-7h4"/><path d="M10 10l3.5 7"/><path d="M13 7h3"/></svg>Biking</div>
+          <div class="zn"><svg class="ic" viewBox="0 0 24 24"><path d="M3 14l2-5h10l3 5"/><path d="M2 14h20v3h-2"/><path d="M8 17H4"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Driving</div>
+        </div>
+        <div class="zcap"><b>Ground</b><br>Same work, faster</div>
+      </div>
+      <div class="zone air" style="flex:3">
+        <div class="ztop hl">the 10× live here</div>
+        <div class="znodes">
+          <div class="zn"><svg class="ic" viewBox="0 0 24 24"><path d="M3 5h16"/><path d="M11 5v3"/><path d="M5 12c1-2 4-3 7-3s6 1 8 3l-2 3H9c-3 0-5-1-4-3z"/><path d="M12 15v3h4"/></svg>Helicopter</div>
+          <div class="zn"><svg class="ic" viewBox="0 0 24 24"><path d="M2 13l8-1 3-8h2l-1 8 6 2v2l-7-1-3 5h-2l1-5-7 0z"/></svg>Jet</div>
+          <div class="zn"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2c3 2.5 4.5 6.5 4.5 10l1.5 3-4-1.5v3l-2 2-2-2v-3l-4 1.5 1.5-3c0-3.5 1.5-7.5 4.5-10z"/><circle cx="12" cy="9" r="1.6"/></svg>Spaceship</div>
+        </div>
+        <div class="zcap hl"><b>Air</b><br>A different process</div>
+      </div>
+    </div>
+    <div class="mono-note">Superseded by the direct airborne #8 mirror in Part One. Keep as an alternate compact layout.</div>
+  </div>
+  <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
+</section>
+
+</div></div>
+<div id="count"></div>
+<div class="zoneL" onclick="go(-1)"></div>
+<div class="zoneR" onclick="go(1)"></div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;
+slides.forEach((s,k)=>{const p=s.querySelector('.pg'); if(p)p.textContent=String(k).padStart(2,'0');});
+const stage=document.getElementById('stage');
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);stage.style.transform='scale('+s+')';}
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+  document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
+  document.getElementById('count').textContent=String(i).padStart(2,'0')+' / '+String(slides.length-1).padStart(2,'0');
+  location.hash=i;}
+function go(d){show(i+d);}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(1);}
+  else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(-1);}
+  else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+});
+addEventListener('resize',fit);
+const h=parseInt(location.hash.replace('#',''));
+fit();show(isNaN(h)?0:h);
+</script>
+</body>
+</html>
