@@ -27,6 +27,36 @@
     <text x="300" y="470" font-family="Manrope, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.5" fill="#FAFAFA">Roadmaps</text>
   </svg>
 </template>
+<script>
+// Footers stamp their own slide number (last span in each [data-deck-footer])
+// from the section's position among its siblings, so inserting or removing a
+// <section> needs no renumbering; markup numbers are the no-JS fallback.
+// The runtime boots async and relocates sections, hence the load retries.
+(function () {
+  function stampFooters() {
+    var groups = new Map();
+    document.querySelectorAll('section').forEach(function (s) {
+      var p = s.parentElement; if (!p) return;
+      if (!groups.has(p)) groups.set(p, []);
+      groups.get(p).push(s);
+    });
+    var best = null;
+    groups.forEach(function (list) { if (!best || list.length > best.length) best = list; });
+    if (!best || best.length < 2) return;
+    best.forEach(function (sec, i) {
+      var f = sec.querySelector('[data-deck-footer]'); if (!f) return;
+      var spans = f.querySelectorAll(':scope > span');
+      if (spans.length) spans[spans.length - 1].textContent = String(i + 1);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', stampFooters);
+  window.addEventListener('load', function () {
+    stampFooters();
+    setTimeout(stampFooters, 600);
+    setTimeout(stampFooters, 1800);
+  });
+})();
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
