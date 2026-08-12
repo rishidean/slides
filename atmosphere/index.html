@@ -384,7 +384,7 @@ svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;str
     <div class="pipeline">
       <div class="pbox"><div class="t">You</div><h4>Directive</h4><p>"Build the reporting endpoint." An outcome, not keystrokes.</p></div>
       <div class="parrow">→</div>
-      <div class="pbox"><div class="t">The harness</div><h4>Context · Tools · Loop</h4><p>Feeds the model what it needs, hands it tools, runs plan → build → test, and checks the work.</p></div>
+      <div class="pbox"><div class="t">The harness</div><h4>Context · Tools · Loop</h4><p>Feeds the model what it needs, hands it tools, runs build → verify → document, and checks the work.</p></div>
       <div class="parrow">→</div>
       <div class="pbox"><div class="t">Out the other side</div><h4>Working code</h4><p>Reviewed, tested, shipped — while you steer the next thing.</p></div>
     </div>
@@ -794,7 +794,7 @@ svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;str
   <div class="body">
     <h2 class="title">The air loop runs. The orbit loop closes.</h2>
     <div class="cards two" style="margin-top:30px">
-      <div class="card"><span class="tag">Air · the harness loop</span><h3>Plan → build → test → ship</h3><p>Fast, tireless — and amnesiac. Every run starts cold, corrections die with the session, and the 401st request costs exactly what the 1st did.</p></div>
+      <div class="card"><span class="tag">Air · the harness loop</span><h3>Build → verify → document</h3><p>Fast, tireless — and amnesiac. Every run starts cold, corrections die with the session, and the 401st request costs exactly what the 1st did.</p></div>
       <div class="card dark"><span class="tag">Orbit · the flywheel</span><h3>Observe → nudge → compile → free</h3><p>Every run teaches the next. Corrections accumulate, stable patterns leave the loop as hard code, and the model stays aimed at whatever is still unknown.</p></div>
     </div>
     <p class="lead" style="font-size:19px">Same harness underneath. The difference is the loop feeds back into itself: the pipeline observes → context remembers and nudges the next guess → determinism compiles → the pipeline runs faster → the model is freed for new unknowns.</p>
@@ -848,7 +848,7 @@ svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;str
       <div class="step"><div class="n">1</div><div><h4>One front door</h4><p>Every CV — photo, paper scan, app form — enters the same pipeline, and every parse is logged.</p></div></div>
       <div class="step"><div class="n">2</div><div><h4>The model reads the messy ones</h4><p>A layout it's never seen gets a cold guess; a human confirms or corrects the parse.</p></div></div>
       <div class="step"><div class="n">3</div><div><h4>Confirmed layouts compile</h4><p>After enough confirmations, that layout becomes a rule. The next thousand CVs in that format parse instantly, for free.</p></div></div>
-      <div class="step"><div class="n">4</div><div><h4>The model stays on the frontier</h4><p>Only genuinely new layouts ever reach it. The parser grows a rulebook shaped by Dhaka's real CVs — not our assumptions about them.</p></div></div>
+      <div class="step"><div class="n">4</div><div><h4>The model stays on the frontier</h4><p>Only unseen layouts ever reach it. The parser grows a rulebook shaped by Dhaka's real CVs — not our assumptions about them.</p></div></div>
     </div>
     <div class="callout">The 2019 parser asked people to bend to the software. This one bends to them, <span class="hl">one compiled layout at a time.</span> That's the wound, closed.</div>
   </div>
@@ -941,7 +941,7 @@ svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;str
   <div class="eyebrow"><span class="l">The frontier · where we stand</span><span class="r">Self-paced</span></div>
   <div class="body" style="align-items:center;text-align:center">
     <div class="statement" style="text-align:center">We're in orbit. <span class="hl">Not at warp.</span></div>
-    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">We're in space — but we're Apollo, not the Enterprise. Compiling rules out of behavior is the first step. The real goal is a system that <span class="kicker">autonomously authors and deploys new code paths</span> — capabilities nobody specced. We haven't figured out exactly how to do that yet. We will.</p>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">We're in space — but we're Apollo, not the Enterprise. Compiling rules out of behavior is the first step. The goal is a system that <span class="kicker">autonomously authors and deploys new code paths</span> — capabilities nobody specced. We haven't figured out exactly how to do that yet. We will.</p>
   </div>
   <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
 </section>
@@ -1024,7 +1024,7 @@ svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;str
       <div class="card"><span class="tag">Today</span><h3>LLM as runtime</h3><p>You put a model on the process. It reasons about the same insertion order for the four-hundred-and-first time. Faster, but it never learned.</p></div>
       <div class="card dark"><span class="tag">The inversion</span><h3>LLM as compiler</h3><p>It interprets the order it hasn't seen, a human validates, the system extracts the reusable logic into a deterministic path. The next order never touches the model.</p></div>
     </div>
-    <div class="callout">The goal inverts too: use <span class="hl">less</span> AI over time. Measure success by the model calls you've eliminated.</div>
+    <div class="callout">The goal inverts too: use <span class="hl">less</span> AI over time. Measure success by the model calls you've eliminated. It's still the keynote's thesis: <span class="hl">intent stays executable; execution stays governed</span>. The harness learned to compile.</div>
   </div>
   <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
 </section>
@@ -1058,7 +1058,7 @@ svg.ic{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;str
   <div class="eyebrow"><span class="l">The ask</span><span class="r">Self-paced</span></div>
   <div class="body">
     <h2 class="title">One process. 30 days.</h2>
-    <p class="lead">Pick the single operation that reasons from scratch every time — the insertion order re-read for the four-hundredth time, the ticket triaged by hand, the weekly deck built from the same five sources. Put an LLM behind one front door, log every run, add a graduation gate, and compile one path down to zero model calls.</p>
+    <p class="lead">Pick the single operation that reasons from scratch every time — the insertion order re-read for the four-hundredth time, the ticket triaged by hand, the weekly deck built from the same five sources. Put an LLM behind one front door, log every run, add a graduation gate (the stability threshold, not Part 1's QA gate), and compile one path down to zero model calls.</p>
     <p class="lead"><span class="kicker">Don't aim for the Enterprise; aim for your first rule.</span> The era of prescriptive software is ending, and the teams that build the graduation gate first win.</p>
     <div class="mono-note">Clone it → github.com/rishidean/&lt;harness-repo&gt;</div>
   </div>
@@ -1136,7 +1136,6 @@ cd &lt;harness-repo&gt;/harness
   <div class="body" style="align-items:center;text-align:center">
     <div class="statement" style="text-align:center">Software that <span class="hl">rewrites itself</span> as you use it.</div>
     <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">For thirty years software assumed it knew how you work, and you bent to fit it. Adaptive software flips that: it watches how you actually work and rewrites itself to match. The AI isn't the product — it's the scaffolding the software uses to build itself.</p>
-    <div class="mono-note" style="text-align:center">To figure out: near-duplicate of the send-off — merge, or find it a new job.</div>
   </div>
   <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
 </section>
@@ -1166,7 +1165,6 @@ cd &lt;harness-repo&gt;/harness
         <div class="zcap hl"><b>Air</b><br>A different process</div>
       </div>
     </div>
-    <div class="mono-note">Superseded by the direct airborne #8 mirror in Part One. Keep as an alternate compact layout.</div>
   </div>
   <div class="foot"><span>github.com/rishidean/&lt;harness-repo&gt; · Teaching talk</span><span class="pg"></span></div>
 </section>
