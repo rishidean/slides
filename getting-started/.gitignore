@@ -1,0 +1,6 @@
+.DS_Store
+.thumbnail
+scraps/
+.snap-*.html
+.sync-snapshot.html
+_qa.html
