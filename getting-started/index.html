@@ -238,6 +238,28 @@ window.__resources = {
   });
 })();
 </script>
+<script>
+// ── P toggles the thumbnail rail ─────────────────────────────────────────
+// Presenting to a room wants the full stage, so P slides the rail out and
+// back. The runtime already owns the behaviour (soft hide, 200ms transition,
+// re-fit, and the per-viewer preference in localStorage) behind a window
+// message; this only binds the key to it. Deliberately not a deck-stage.js
+// edit, so re-vendoring the runtime can't drop the binding.
+(function () {
+  function deck() { return document.querySelector('deck-stage'); }
+  window.addEventListener('keydown', function (e) {
+    if (e.key !== 'p' && e.key !== 'P') return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    // Same typing guard the runtime uses: composedPath()[0], not e.target,
+    // which a window-level keydown retargets to the shadow host.
+    var t = (e.composedPath ? e.composedPath()[0] : e.target);
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    var d = deck(); if (!d) return;
+    e.preventDefault();
+    window.postMessage({ type: '__deck_rail_visible', on: d._railVisible === false }, '*');
+  });
+})();
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
