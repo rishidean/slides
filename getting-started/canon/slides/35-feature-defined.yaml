@@ -1,0 +1,13 @@
+id: 35-feature-defined
+template: html-full
+html:
+  source: html/35-feature-defined.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  A feature is one verifiable behavior, and verifiable is doing all the work in that sentence. The
+  vague version reads rider can request a ride. A human reads that and asks questions; an agent
+  reads it and invents the answers. The explicit version lists criteria a machine can check:
+  estimate appears before request, matching runs as a staged sequence, assignment shows driver and
+  ETA, mock data only. Explicit criteria make the build trivial and QA decisive. Vague ones hand a
+  product decision to a code generator, and it ships with your product's name on it.

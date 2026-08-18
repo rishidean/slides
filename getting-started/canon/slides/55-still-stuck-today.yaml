@@ -1,0 +1,11 @@
+id: 55-still-stuck-today
+template: html-full
+html:
+  source: html/55-still-stuck-today.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Build it today and you would still be stuck. Put a modern agent on Kormo, airborne mode, the
+  harness we just built, and parts of it do get better; the model reads a messy CV that a rules
+  engine never could. It still guesses from scratch every time, forgets between sessions, and can't
+  show its work. Same wound, better model.

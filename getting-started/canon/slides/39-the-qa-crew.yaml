@@ -1,0 +1,13 @@
+id: 39-the-qa-crew
+template: html-full
+html:
+  source: html/39-the-qa-crew.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Open .claude/agents. Three specialists who verify and never build, each with one job and a narrow
+  scope. The linter catches formatting, the reviewer catches bugs, the tester catches broken
+  behavior. They run on a cheaper, faster model, because checking is all they do. Two of the three
+  are anchors, since the linter and the Playwright run are deterministic, while the code-reviewer is
+  a model giving a fresh-context opinion, and anchors outrank opinions. And none of them shares the
+  Builder's context, so nobody grades their own homework.

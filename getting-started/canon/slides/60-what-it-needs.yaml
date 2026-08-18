@@ -1,0 +1,11 @@
+id: 60-what-it-needs
+template: html-full
+html:
+  source: html/60-what-it-needs.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Three requirements, one for each crack. Remember, so a session doesn't start cold: a place to keep
+  what it learns, sorted by how fast it changes. Observe, so a decision can be audited: one front
+  door for every action, logged and replayable. And compile, so the curve bends: a way to graduate a
+  repeated answer into a rule.

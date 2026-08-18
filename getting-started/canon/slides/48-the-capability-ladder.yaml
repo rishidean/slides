@@ -1,0 +1,14 @@
+id: 48-the-capability-ladder
+template: html-full
+html:
+  source: html/48-the-capability-ladder.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  If you're wondering why execution is sequential, it's because that's the helicopter column, on
+  purpose; you learn the loop before you fleet it. Context goes from two files, to layered and
+  indexed, to self-maintaining. Execution goes sequential, then parallel with fan-out and reduce,
+  then self-routing. Verification goes from one QA gate, to a verifier on every edge, to equivalence
+  checks that graduate a rule into code. Memory, cost, and control flow follow the same arc: what
+  you hand-write at helicopter, the system draws for itself at spaceship. Everything in the last
+  half hour was column one. Column two is the same parts fanned wide, and column three starts now.

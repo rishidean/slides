@@ -1,0 +1,12 @@
+id: 28-the-loop
+template: html-full
+html:
+  source: html/28-the-loop.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  This is the loop you'll watch run for real in about fifteen minutes, simplified. A session starts
+  by reading the roadmap for what's NOW, builds it, verifies with tools that can't flatter it,
+  records what happened, advances the pointer, and the next session picks up from there. Notice
+  what's steering: no manager, no standup, a file. Which is why the file has to be right, and why
+  the next stretch is about what goes in it.

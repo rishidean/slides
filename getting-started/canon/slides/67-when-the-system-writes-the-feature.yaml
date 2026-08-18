@@ -1,0 +1,13 @@
+id: 67-when-the-system-writes-the-feature
+template: html-full
+html:
+  source: html/67-when-the-system-writes-the-feature.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Progressive determinism compiles the patterns it can name, and what's left over is residue:
+  corrections that cluster but fit no single rule. A detector reads that residue as a missing
+  capability, backtests it against logged history, writes a feature spec, hands it to a coding
+  agent, and opens a PR. That's the graduation gate one level up: the backtest replaces the
+  equivalence check, and your approval replaces the stability counter. Nobody specced the feature.
+  Somebody still reviews it.

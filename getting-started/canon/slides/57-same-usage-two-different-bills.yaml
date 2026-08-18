@@ -1,0 +1,12 @@
+id: 57-same-usage-two-different-bills
+template: html-full
+html:
+  source: html/57-same-usage-two-different-bills.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Both lines are the same exponential usage curve. Airborne pays the model full price for every
+  action, forever, so the bill rides the curve. The adaptive line pays only for what's new: a
+  pattern costs model calls until it's learned, and repeating it after that is free. That's the Day
+  100 problem. A system that learns nothing structural is exactly as slow and expensive on day 100
+  as it was on day 1.

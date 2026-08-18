@@ -1,0 +1,13 @@
+id: 07-operating-modes
+template: html-full
+html:
+  source: html/07-operating-modes.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  When people say they're using AI to code, they mean three different crafts. Vibe coding is prompt
+  and iterate and ship what looks right, which is fine for a weekend toy. AI-assisted has agents
+  writing bounded pieces with a human reviewing every line, and that's where most teams stop,
+  because the review becomes the ceiling. Agentic engineering means you build the harness: it codes
+  against specs, verifies its own work against acceptance criteria, and hands back evidence. That
+  third column is a different craft, and it's the one I'm here to talk about.

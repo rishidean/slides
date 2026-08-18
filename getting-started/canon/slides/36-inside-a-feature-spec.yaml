@@ -1,0 +1,15 @@
+id: 36-inside-a-feature-spec
+template: html-full
+html:
+  source: html/36-inside-a-feature-spec.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  One level down: the file an agent executes, small enough to build and verify in a single pass.
+  Overview, two paragraphs at most, what and why. Dependencies, which features must exist first.
+  Acceptance criteria as checkboxes a machine can tick, including commands like typecheck passes.
+  Files to create, with explicit paths, never create a component. Component specs where the shapes
+  matter. Verification, the exact commands to run. And a definition of done that ends in a commit
+  message format, so the git log becomes your ledger. Three writing rules carry all of it: be
+  specific, name the paths, make every criterion checkable. The kit ships a skill that drafts these
+  from your sprint spec, so the drafting is cheap; your judgment on what it drafted is the work.

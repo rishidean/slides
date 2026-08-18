@@ -1,0 +1,15 @@
+id: 34-inside-a-sprint-spec
+template: html-full
+html:
+  source: html/34-inside-a-sprint-spec.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Eight fields, and each one closes a category of guess. Outcome: what demos when it's done. Scope:
+  what's in, and explicitly what's out. Behavior: what the rider can do or observe. Rules: the
+  states and invariants that govern the work. Dependencies: what the agent may assume already
+  exists. Constraints: what it may not touch. Acceptance: the observable conditions that mean pass.
+  And verification and record: what evidence comes back, and where the result gets written. Read any
+  field and ask what an agent would do if it were blank; that blank is a product decision you just
+  delegated. In a few minutes you'll watch the harness consume these files directly, so this is the
+  contract it builds against.

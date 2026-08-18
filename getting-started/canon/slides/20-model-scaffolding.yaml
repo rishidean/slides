@@ -1,0 +1,11 @@
+id: 20-model-scaffolding
+template: html-full
+html:
+  source: html/20-model-scaffolding.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Before anyone writes this off as a GPT wrapper: the intelligence is the model plus the files plus
+  the loop. The model is the engine, the files are the judgment, the loop is the discipline. Take
+  any one of them away and it stops working, and most of what makes this good lives in the files
+  rather than the weights.

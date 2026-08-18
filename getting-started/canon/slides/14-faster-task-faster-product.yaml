@@ -1,0 +1,11 @@
+id: 14-faster-task-faster-product
+template: html-full
+html:
+  source: html/14-faster-task-faster-product.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Say AI makes your engineers write code ten times faster, and watch what happens to the pipeline.
+  The build box shrinks, and the pile doesn't disappear; it moves. Your PM still takes weeks on
+  specs, your designer still takes a month on screens, and QA is still buried in manual passes.
+  You've relocated the bottleneck to the next functional boundary.

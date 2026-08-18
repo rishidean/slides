@@ -1,0 +1,15 @@
+id: 32-epic-defined
+template: html-full
+html:
+  source: html/32-epic-defined.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  An epic is durable intent: a named body of work that survives every reorder. Four parts. The name
+  is a real word, permanent, no numbers, because everything downstream points at it. The goal says
+  what's true when the epic is done. The scope says what's in. And the cut list, which is the part
+  agents care about most, says what's deliberately out, written down, because an agent can't tell a
+  gap from a decision unless the decision is on paper. Only the next epic gets decomposed into
+  sprints. Later epics stay directional, a goal and a short list, because detail written early is
+  detail you'll rewrite. Write them down anyway, since a future that lives only in your head is a
+  future the agent will helpfully build early.

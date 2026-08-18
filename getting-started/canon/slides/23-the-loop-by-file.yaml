@@ -1,0 +1,12 @@
+id: 23-the-loop-by-file
+template: html-full
+html:
+  source: html/23-the-loop-by-file.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Same loop, now concrete. The outer loop is run.sh, walking the docs/Roadmap.md manifest and
+  launching a fresh session each turn against prompt.md. Inside, the Builder reads CLAUDE.md and the
+  sprint spec, builds, and calls the run-qa skill, which runs the linter, the code-reviewer, and the
+  playwright-tester. Then it flips the glyph in Roadmap.md and appends to PROGRESS.md. Every box on
+  the conceptual diagram is a real file in the repo.

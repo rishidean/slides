@@ -1,0 +1,11 @@
+id: 38-meet-the-builder
+template: html-full
+html:
+  source: html/38-meet-the-builder.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  The Builder, and it's nothing exotic: one Claude Code session, spun up fresh for exactly one
+  sprint, then thrown away. It reads the context, writes the code, checks its own work, and hands
+  off. The leverage is the clean brain; every sprint starts with no accumulated confusion from the
+  last one.

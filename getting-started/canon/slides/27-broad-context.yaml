@@ -1,0 +1,11 @@
+id: 27-broad-context
+template: html-full
+html:
+  source: html/27-broad-context.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Open CLAUDE.md. Everything true for every sprint lives here: tech stack, conventions, and the
+  definition of done, which reads not done until run-qa returns GREEN. That one line does most of
+  the work. Then prompt.md, which the Builder reads at the start of every session, with the same
+  instructions every time. The prompt is the method and the specs are the content.

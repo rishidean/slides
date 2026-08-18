@@ -1,0 +1,10 @@
+id: 22-the-double-loop
+template: html-full
+html:
+  source: html/22-the-double-loop.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  One loop inside another. The outer loop marches through sprints with a fresh brain each time. The
+  inner loop is a single session doing build, QA, and document. RED sends it back to fix and
+  re-check; GREEN ticks the manifest, writes a handoff, and the outer loop moves on.

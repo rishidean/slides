@@ -1,0 +1,13 @@
+id: 40-the-inner-loop
+template: html-full
+html:
+  source: html/40-the-inner-loop.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  RED doesn't stop the loop and it doesn't ask you; it goes straight back to the Builder. The run-qa
+  verdict carries the actual failures with it: the failed assertion, the lint error, the bug the
+  reviewer flagged. The Builder reads those, fixes the code, and calls run-qa again, and it turns on
+  its own until the verdict comes back GREEN. One guardrail: three attempts. Still RED after the
+  third and it stops and marks the sprint blocked, which is your cue to step in. Autonomous, with a
+  floor.

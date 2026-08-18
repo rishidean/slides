@@ -1,0 +1,9 @@
+id: 21-part-2
+template: html-full
+html:
+  source: html/21-part-2.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Everything up to now was the case for a harness. From here we take a real one apart, piece by
+  piece, and then watch it build an app unattended.

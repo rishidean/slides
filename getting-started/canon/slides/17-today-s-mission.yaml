@@ -1,0 +1,10 @@
+id: 17-today-s-mission
+template: html-full
+html:
+  source: html/17-today-s-mission.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  By the end of this chapter you'll understand a multi-sprint, self-verifying, autonomous
+  development loop, and you'll have what you need to run it on your own service. Driving to
+  helicopter, demystified.

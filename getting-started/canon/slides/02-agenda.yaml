@@ -1,0 +1,9 @@
+id: 02-agenda
+template: html-full
+html:
+  source: html/02-agenda.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Four chapters and one demo. Chapter two takes half the clock, because it's the part you can use on
+  Monday.

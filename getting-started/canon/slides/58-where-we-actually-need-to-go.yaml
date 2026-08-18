@@ -1,0 +1,12 @@
+id: 58-where-we-actually-need-to-go
+template: html-full
+html:
+  source: html/58-where-we-actually-need-to-go.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Back to the continuum, now that the wound is on the table. We spent two chapters climbing to
+  helicopter and jet, and both of those still have you or your team driving the loop. The last rung
+  isn't more air. Adaptive software, precisely: software that observes how it's used, remembers what
+  it learns, and compiles stable behavior into real code. That's the move from using agents to write
+  code to building the conditions so the agents write code.

@@ -1,0 +1,12 @@
+id: 45-what-just-happened
+template: html-full
+html:
+  source: html/45-what-just-happened.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Three things happened there that matter. Continuity came from the files rather than memory, so
+  stateless sessions still made real progress. The gate caught a real bug: S2's matching timer
+  double-fired and assigned two drivers, the tester caught it, the Builder fixed it, and the loop
+  noticed rather than a human. And three sprints shipped with zero keystrokes from you; you wrote
+  specs, and it wrote, tested, fixed, and documented.

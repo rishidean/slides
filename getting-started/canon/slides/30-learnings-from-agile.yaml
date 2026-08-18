@@ -1,0 +1,11 @@
+id: 30-learnings-from-agile
+template: html-full
+html:
+  source: html/30-learnings-from-agile.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Twenty years of agile handed us the right units: epics for durable intent, sprints for increments,
+  features for behavior. Those survive. The ceremonies don't, because standups and grooming and
+  planning poker existed to synchronize humans, and the agent doesn't attend. Keep the nouns, drop
+  the meetings, and redefine each noun by what the agent needs from it.

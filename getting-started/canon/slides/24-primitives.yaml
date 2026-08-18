@@ -1,0 +1,15 @@
+id: 24-primitives
+template: html-full
+html:
+  source: html/24-primitives.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Seven words before we go deeper, and the rest of the chapter is these wired together. A session is
+  one run of Claude Code with a fresh memory, so nothing carries over. The context window is the
+  working memory that session holds at once; it's finite, and quality drops as it fills, which is
+  why fresh sessions matter. CLAUDE.md is the context file it reads automatically at the start of
+  every session. The Task tool is how a session hands a job to a subagent and gets the result back,
+  which is how run-qa calls its three agents. A skill is a reusable procedure Claude invokes by
+  name, like run-qa. A command is a saved prompt you trigger with a slash, like /review. And a
+  subagent is a scoped helper spun up for one narrow job, often on a cheaper, faster model.

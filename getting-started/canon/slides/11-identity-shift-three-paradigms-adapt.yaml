@@ -1,0 +1,13 @@
+id: 11-identity-shift-three-paradigms-adapt
+template: html-full
+html:
+  source: html/11-identity-shift-three-paradigms-adapt.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Three ways to work with AI, and your role changes in each one. Autocomplete is linear: you're in
+  every step, and you're still the player on the field. Agentic is cyclical: you set the goal, the
+  agent runs plan, act, and verify on its own, and you've stepped back to coach. Orchestration is
+  systemic: you set strategy, a fleet works in parallel checking each other, and you're conducting,
+  verifying outcomes instead of plays. Hold onto those three roles, because in a few minutes the
+  question becomes how a whole team makes that shift, not one engineer.

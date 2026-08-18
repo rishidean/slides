@@ -1,0 +1,12 @@
+id: 63-progressive-determinism
+template: html-full
+html:
+  source: html/63-progressive-determinism.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  The third crack, and the reason the cost curve bends. Today's model call becomes tomorrow's rule
+  once the pattern proves out, and what decides is the graduation gate: an equivalence check plus a
+  stability counter. The model resolves it, the system watches, and when the compiled version agrees
+  with the model often enough for long enough, the rule takes over and the model stops getting
+  called. Remember the phrase graduation gate, because it comes back.

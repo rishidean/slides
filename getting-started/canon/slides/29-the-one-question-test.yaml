@@ -1,0 +1,11 @@
+id: 29-the-one-question-test
+template: html-full
+html:
+  source: html/29-the-one-question-test.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Every document exists to answer a single question a fresh, amnesiac session asks. If you can't
+  name the question, you don't need the file. It works in both directions: a design test while
+  you're writing, and a pruning test when your docs sprawl. Every piece of the roadmap I'm about to
+  show you gets introduced by the question it answers. Hold your own docs to the same bar.

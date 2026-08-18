@@ -1,0 +1,13 @@
+id: 05-same-car
+template: html-full
+html:
+  source: html/05-same-car.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Every objection you have heard lives on this slide: it hallucinates, it can't do X, somebody
+  watched it fail at another company. Put an automatic-only driver in an F1 car and they'll spin it
+  into the wall, then file a report on why the car is undrivable. Put a pro in the same seat and
+  it's the fastest thing on earth. Those failure reports are real, all of them, and they're about
+  drivers. So stop asking whether the car is good and count your laps. Mine was zero for a long
+  time, and I have a story about that.

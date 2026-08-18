@@ -1,0 +1,13 @@
+id: 33-sprint-defined
+template: html-full
+html:
+  source: html/33-sprint-defined.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  A sprint ends in something you can demo in two minutes, and you get there by slicing vertically.
+  The horizontal instinct is to build all the data models, then all the APIs, then all the UI, so
+  nothing works until everything works and you can't verify a thing until the end. Slice vertically
+  and each sprint cuts through the whole stack and ships something that runs: the shell comes up, a
+  rider gets matched, a full ride completes. Demoable outcomes are how you verify agent work without
+  reading every line, which makes this the verification interface rather than a style preference.

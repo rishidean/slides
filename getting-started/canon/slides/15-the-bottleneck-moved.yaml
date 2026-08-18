@@ -1,0 +1,12 @@
+id: 15-the-bottleneck-moved
+template: html-full
+html:
+  source: html/15-the-bottleneck-moved.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Walk the standard SDLC with me. Specs still take weeks, screens still take a month, the build runs
+  ten times faster, and everything downstream turns pink with unreviewed code and manual test
+  passes. Local speed is not system throughput. Accelerate one step in isolation and all you
+  manufacture is work in flight that nobody has reviewed, verified, or decided on. If you want
+  faster products, the unit of change has to be the team.

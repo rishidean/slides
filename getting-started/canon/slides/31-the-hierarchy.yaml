@@ -1,0 +1,11 @@
+id: 31-the-hierarchy
+template: html-full
+html:
+  source: html/31-the-hierarchy.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Four levels. The roadmap is the manifest and holds everything. An epic is a named body of durable
+  intent. A sprint is one demoable increment inside an epic. And a feature is one verifiable
+  behavior inside a sprint. Each level answers a different question, and the next three slides
+  define them properly.

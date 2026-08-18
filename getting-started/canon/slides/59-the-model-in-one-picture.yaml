@@ -1,0 +1,12 @@
+id: 59-the-model-in-one-picture
+template: html-full
+html:
+  source: html/59-the-model-in-one-picture.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  The whole chapter in one picture. A request the system has never seen goes to the model, which
+  resolves it and logs the context. Then the gate. If that pattern holds up across enough runs it
+  gets compiled, and every future request like it takes the magenta path instead: instant,
+  deterministic, no model call. If it doesn't hold up yet, it loops back and keeps learning. The
+  magenta path is the only one on this slide that costs nothing to run.

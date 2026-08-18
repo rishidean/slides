@@ -1,0 +1,11 @@
+id: 43-the-orchestrator
+template: html-full
+html:
+  source: html/43-the-orchestrator.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  This is run.sh. While there are unfinished sprints and we haven't hit the max, launch a Claude
+  session with the prompt; if anything gets blocked, stop. It's dumb on purpose, because all the
+  intelligence sits in the files it reads. Ten lines of bash running a multi-sprint autonomous
+  pipeline.

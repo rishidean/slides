@@ -1,0 +1,10 @@
+id: 01-title
+template: html-full
+html:
+  source: html/01-title.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Ninety minutes, and by the end of them I want agentic engineering to feel smaller than it has been
+  sold to you. Nobody leaves here a rocket scientist. You get one rung up the ladder and a clear
+  look at the rung after that.

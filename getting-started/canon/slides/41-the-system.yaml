@@ -1,0 +1,9 @@
+id: 41-the-system
+template: html-full
+html:
+  source: html/41-the-system.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Setup and actors are done, so what's left is the thing that closes a sprint and starts the next
+  one. Ten lines of bash, and we'll open it in a moment.

@@ -1,0 +1,16 @@
+id: 42-the-document-step
+template: html-full
+html:
+  source: html/42-the-document-step.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Before the session ends, and only once QA is GREEN, it writes itself down in three places. It
+  flips the glyph in docs/Roadmap.md so the next turn knows this sprint is closed. It appends a
+  handoff to PROGRESS.md: what it built, the decisions it made, whatever the next session needs. And
+  if it learned something durable, a convention or a gotcha that should hold for every future
+  sprint, it promotes that into CLAUDE.md. Roadmap is state, PROGRESS is memory, CLAUDE is learning,
+  and that's how a stateless session compounds. I'll be honest about one thing, the way a physics
+  class is honest about friction: the single-file handoff is a simplification, and in production
+  you'd shard this across a real context-management system. The mechanism is the part that
+  transfers.

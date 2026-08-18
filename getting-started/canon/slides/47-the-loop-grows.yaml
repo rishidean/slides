@@ -1,0 +1,11 @@
+id: 47-the-loop-grows
+template: html-full
+html:
+  source: html/47-the-loop-grows.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  The loop you just watched is the smallest graph that still works. Insert a planning node in front
+  of it and it's still the loop. Fan verify out into three clean contexts that reduce to a single
+  verdict, still the loop. Hang a human gate and a ship edge off the end, still the loop. Every
+  extension is a node or an edge, which is all a graph is.

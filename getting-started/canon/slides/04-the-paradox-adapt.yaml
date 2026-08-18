@@ -1,0 +1,11 @@
+id: 04-the-paradox-adapt
+template: html-full
+html:
+  source: html/04-the-paradox-adapt.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Your company bought the tools and ran the pilots, so where are the gains? Two realities are true
+  at the same time. 95% of businesses report no meaningful return on AI, and solo builders are
+  shipping in a week what used to take a quarter. Effort doesn't explain that gap and neither does
+  talent. The difference is how they move, and that's what the next ninety minutes is about.

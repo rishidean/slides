@@ -1,0 +1,12 @@
+id: 61-layered-context
+template: html-full
+html:
+  source: html/61-layered-context.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Four layers of memory at four densities, from the standing rules everything obeys down to the
+  single correction somebody made last Tuesday. The interesting part is promotion: a pattern that
+  keeps recurring moves up a layer, and moving up a layer is what learning means in this system.
+  This is the layer that would have caught the Kormo parser. The correction a user in Dhaka made
+  would have lived here instead of evaporating.

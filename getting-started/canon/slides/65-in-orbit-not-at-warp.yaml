@@ -1,0 +1,10 @@
+id: 65-in-orbit-not-at-warp
+template: html-full
+html:
+  source: html/65-in-orbit-not-at-warp.html
+  width: 1920
+  height: 1080
+speaker_notes: >-
+  Compiling rules out of observed behavior is real, it works, and it's the first step. Apollo, not
+  the Enterprise. Nobody I know is running the next thing at scale, a system that authors and ships
+  capabilities nobody specced, and I'm not going to pretend otherwise from a stage.

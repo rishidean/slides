@@ -1,0 +1,72 @@
+<div class="velocity-light-slide-canvas-7">
+  <div class="velocity-section-label-6">
+    <span class="velocity-content-block">THE QUALITY TEAM</span>
+  </div>
+  <div class="velocity-pink-divider-4"></div>
+  <h2 class="velocity-slide-heading-21">Each team member has a very specific job.</h2>
+  <div class="velocity-centered-row-19"><span class="velocity-content-card-31">.claude/agents/</span><span class="velocity-content-block">They check, they don't build — cheaper, faster models.</span></div>
+  <div class="velocity-mono-label-21">This is the scaffolding that earns the trust — the answer to the doubt loop from Part 1.</div>
+  <div class="velocity-mono-label-21">Every verdict is a contract — GREEN / RED · CRITICAL / WARN / NIT — a shape the next step consumes, never prose.</div>
+  <div class="velocity-centered-row-20">
+    <span class="velocity-content-card-32">Judgment · latent</span>
+    <span class="velocity-content-block-67">vs</span>
+    <span class="velocity-pink-highlight-28">Verification · anchored</span>
+    <span class="velocity-content-block-68">Two anchors and one opinion — lint and tests are deterministic; the reviewer is a fresh-context judgment, and the anchors outrank it.</span>
+  </div>
+  <div class="velocity-content-grid-14">
+    
+      <div class="velocity-content-stack-22">
+        <div class="velocity-centered-row-21">
+          <div class="velocity-pink-label-26"><span class="velocity-content-block">{ }</span></div>
+          <div class="velocity-content-block-69"><span class="velocity-content-block">Linter</span></div>
+          <div class="velocity-pink-highlight-29"><span class="velocity-content-block">haiku</span></div>
+        </div>
+        <div class="velocity-content-block-70"><span class="velocity-content-block">Formatting &amp; style.</span></div>
+        <pre class="velocity-content-card-33"><span class="velocity-content-block">name: linter
+tools: Bash, Read, Edit
+model: haiku
+---
+1. npm run typecheck
+2. npm run lint
+3. auto-fix trivial only
+→ LINTER: GREEN | RED</span></pre>
+        <div class="velocity-mono-label-22"><span class="velocity-content-block">.claude/agents/linter.md</span></div>
+      </div>
+    
+      <div class="velocity-content-stack-22">
+        <div class="velocity-centered-row-21">
+          <div class="velocity-pink-label-26"><span class="velocity-content-block">✓</span></div>
+          <div class="velocity-content-block-69"><span class="velocity-content-block">Code reviewer</span></div>
+          <div class="velocity-pink-highlight-29"><span class="velocity-content-block">sonnet</span></div>
+        </div>
+        <div class="velocity-content-block-70"><span class="velocity-content-block">Bugs &amp; security — read-only.</span></div>
+        <pre class="velocity-content-card-33"><span class="velocity-content-block">name: code-reviewer
+tools: Read, Grep, Glob
+---
+Review vs the invariants
+BR-007 · BR-008 · BR-016
+boundary: no network, no random
+→ CRITICAL / WARN / NIT</span></pre>
+        <div class="velocity-mono-label-22"><span class="velocity-content-block">.claude/agents/code-reviewer.md</span></div>
+      </div>
+    
+      <div class="velocity-content-stack-22">
+        <div class="velocity-centered-row-21">
+          <div class="velocity-pink-label-26"><span class="velocity-content-block">▶</span></div>
+          <div class="velocity-content-block-69"><span class="velocity-content-block">E2E tester</span></div>
+          <div class="velocity-pink-highlight-29"><span class="velocity-content-block">sonnet</span></div>
+        </div>
+        <div class="velocity-content-block-70"><span class="velocity-content-block">Behavior &amp; acceptance criteria.</span></div>
+        <pre class="velocity-content-card-33"><span class="velocity-content-block">name: playwright-tester
+tools: Read, Write, Bash
+---
+Author + run e2e vs criteria
+matching assigns exactly once
+state survives refresh
+→ "GREEN" or "RED" + details</span></pre>
+        <div class="velocity-mono-label-22"><span class="velocity-content-block">.claude/agents/playwright-tester.md</span></div>
+      </div>
+    
+  </div>
+
+  <div class="velocity-section-label-2"><span class="velocity-content-block">slides.rishidean.com/getting-started</span><span class="velocity-content-block">39</span></div></div>
