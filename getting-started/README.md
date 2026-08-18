@@ -10,8 +10,13 @@ written fresh. 74 slides.
   is applied last so it can never move a slide. The pulled slides shipped with
   notes written for their original decks (a keynote, a Session 2, a sequel);
   those are replaced.
-- Speaker notes travel with each slide (`data-speaker-notes`). `N` for notes,
-  `P` for presentation mode.
+- Speaker notes travel with each slide (`data-speaker-notes`), where the
+  runtime picks them up for a presenter view. This static build has no in-deck
+  notes panel, so there is no notes key.
+- `P` toggles the thumbnail rail, so the slide runs edge to edge for a room.
+  The choice sticks across reloads (per browser). Keys the runtime already
+  owns: `←`/`→`/`↑`/`↓`/space to page, `Home`/`End`, `R` to restart, `1`–`9`
+  to jump.
 
 ## Running order
 
