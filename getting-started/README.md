@@ -38,8 +38,9 @@ orchestrator sections, and a twenty-slide lab appended for the workshop.
 | 62–70 | What it needs, the three inventions, the orbit loop, and the frontier (incl. spawn) | `../atmosphere/` |
 | 71–74 | The invitation and the close | new |
 
-The table above numbers the original assembly. The workshop build inserts twelve
-slides into it and appends twenty; see below.
+The table above numbers the original assembly. The workshop build inserts sixteen
+slides into it and appends twenty-five; see below. Insertions shift every number
+after them, so the ranges below are current as of this pass.
 
 ## The workshop build
 
@@ -54,14 +55,18 @@ order is unchanged:
 | 37–40 | Inside a Feature Spec | The cost of each blank field, the five-question readiness gate, the three ways a spec fails, and how a draft is revised under critique |
 | 45–48 | The Inner Loop | Separation of duties, the anatomy of a subagent, the anatomy of a skill, and why the two only work as a pair |
 | 54–56 | What Just Happened | The orchestrator's three decisions, the three shapes it can arrange, and the failures that return success |
-| 75 | Progressive determinism | Where a spec runs out, and why the measurement and the threshold are different jobs |
+| 17–20 | What Has to Change (Why You) | A divider that opens the workshop, the two-session shape, and the product on screen | Where a spec runs out, and why the measurement and the threshold are different jobs |
 
-**A twenty-slide lab**, slides 83–102, appended after the close. A divider, ground
+**A twenty-slide lab**, slides 87–106, appended after the close. A divider, ground
 rules, four stages at four slides each, and a two-slide capstone. Every stage runs
 the same five beats: the idea, the contrast, the exercise, the artifact, the check.
 The stages are spec rigor, agents and skills, topology, and judgment. Each carries
 an exercise, an artifact the participant commits, and a check they run on their own
 work; the capstone turns the room onto their own projects.
+
+**A five-slide appendix**, slides 107–111. The pre-work: a divider, the three pieces, the
+loop run in detail, the project and the first spec, and where the material lives. It is
+written to be sent before session one, so the room does not arrive cold.
 
 Only nine slides are new: title, agenda, the "this is organizational, not
 personal" statement, the helicopter-to-jet divider, the loop-grows diagram, the
