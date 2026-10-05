@@ -2,8 +2,8 @@
 
 *How to use agentic engineering to go from 10% to 10X more productive.*
 
-One 90-minute working session, assembled from three existing decks rather than
-written fresh, now carrying the hands-on workshop as well. 102 slides: the
+One working session, assembled from three existing decks rather than written
+fresh, now carrying the hands-on workshop as well. 102 slides: the
 70-slide talk, twelve slides of depth inserted into the spec, crew, and
 orchestrator sections, a four-slide workshop frame, a twenty-slide lab, and a
 five-slide pre-work appendix. 111 slides in all.
