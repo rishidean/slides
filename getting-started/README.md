@@ -5,7 +5,8 @@
 One 90-minute working session, assembled from three existing decks rather than
 written fresh, now carrying the hands-on workshop as well. 102 slides: the
 70-slide talk, twelve slides of depth inserted into the spec, crew, and
-orchestrator sections, and a twenty-slide lab appended for the workshop.
+orchestrator sections, a four-slide workshop frame, a twenty-slide lab, and a
+five-slide pre-work appendix. 111 slides in all.
 
 - Live: https://slides.rishidean.com/getting-started/
 - Speaker track lives in `notes.py` in the build, keyed by slide number, and
@@ -52,10 +53,14 @@ order is unchanged:
 
 | Slides | Inserted after | What they add |
 | --- | --- | --- |
-| 37–40 | Inside a Feature Spec | The cost of each blank field, the five-question readiness gate, the three ways a spec fails, and how a draft is revised under critique |
-| 45–48 | The Inner Loop | Separation of duties, the anatomy of a subagent, the anatomy of a skill, and why the two only work as a pair |
-| 54–56 | What Just Happened | The orchestrator's three decisions, the three shapes it can arrange, and the failures that return success |
-| 17–20 | What Has to Change (Why You) | A divider that opens the workshop, the two-session shape, and the product on screen | Where a spec runs out, and why the measurement and the threshold are different jobs |
+| 41–44 | Inside a Feature Spec | The cost of each blank field, the five-question readiness gate, the three ways a spec fails, and how a draft is revised under critique |
+| 49–52 | The Inner Loop | Separation of duties, the anatomy of a subagent, the anatomy of a skill, and why the two only work as a pair |
+| 58–60 | What Just Happened | The orchestrator's three decisions, the three shapes it can arrange, and the failures that return success |
+| 79 | Progressive determinism | Where a spec runs out, and why the measurement and the threshold are different jobs |
+
+**A four-slide workshop frame**, slides 17–20, inserted after the intro: a divider
+that opens the workshop, the two-session shape, the product on screen, and what
+each person leaves with.
 
 **A twenty-slide lab**, slides 87–106, appended after the close. A divider, ground
 rules, four stages at four slides each, and a two-slide capstone. Every stage runs
