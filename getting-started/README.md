@@ -3,7 +3,9 @@
 *How to use agentic engineering to go from 10% to 10X more productive.*
 
 One 90-minute working session, assembled from three existing decks rather than
-written fresh. 74 slides.
+written fresh, now carrying the hands-on workshop as well. 102 slides: the
+70-slide talk, twelve slides of depth inserted into the spec, crew, and
+orchestrator sections, and a twenty-slide lab appended for the workshop.
 
 - Live: https://slides.rishidean.com/getting-started/
 - Speaker track lives in `notes.py` in the build, keyed by slide number, and
@@ -35,6 +37,31 @@ written fresh. 74 slides.
 | 61 | The model, in one picture (progressive determinism flowchart) | new |
 | 62–70 | What it needs, the three inventions, the orbit loop, and the frontier (incl. spawn) | `../atmosphere/` |
 | 71–74 | The invitation and the close | new |
+
+The table above numbers the original assembly. The workshop build inserts twelve
+slides into it and appends twenty; see below.
+
+## The workshop build
+
+Two additions, neither of which touches the talk's argument. Every new slide
+carries `data-speaker-notes` like the rest of the deck.
+
+**Twelve slides of depth**, inserted after an anchor slide so the surrounding
+order is unchanged:
+
+| Slides | Inserted after | What they add |
+| --- | --- | --- |
+| 37–40 | Inside a Feature Spec | The cost of each blank field, the five-question readiness gate, the three ways a spec fails, and how a draft is revised under critique |
+| 45–48 | The Inner Loop | Separation of duties, the anatomy of a subagent, the anatomy of a skill, and why the two only work as a pair |
+| 54–56 | What Just Happened | The orchestrator's three decisions, the three shapes it can arrange, and the failures that return success |
+| 75 | Progressive determinism | Where a spec runs out, and why the measurement and the threshold are different jobs |
+
+**A twenty-slide lab**, slides 83–102, appended after the close. A divider, ground
+rules, four stages at four slides each, and a two-slide capstone. Every stage runs
+the same five beats: the idea, the contrast, the exercise, the artifact, the check.
+The stages are spec rigor, agents and skills, topology, and judgment. Each carries
+an exercise, an artifact the participant commits, and a check they run on their own
+work; the capstone turns the room onto their own projects.
 
 Only nine slides are new: title, agenda, the "this is organizational, not
 personal" statement, the helicopter-to-jet divider, the loop-grows diagram, the
