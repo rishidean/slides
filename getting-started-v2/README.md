@@ -2,7 +2,7 @@
 
 Review deck. The live deck stays at [`getting-started/`](../getting-started/) and is not edited here. Once this folder is published it is served at `slides.rishidean.com/getting-started-v2`, beside the original.
 
-Assets (CSS, JS, fonts, images, vendor scripts) are shared from `../getting-started/`. This folder has no `canon/` directory. The original `getting-started/canon/` is untouched.
+CSS, JS, fonts, and vendor scripts are shared from `../getting-started/`. Image directories (`uploads/`, `pedal-shots/`, `kormo-images/`) are symlinks to that folder, because frozen slides keep relative `src` attributes and the browser fetches those before any script can rewrite them. A small head script still prefixes `img` `src` if a symlink is not followed. This folder has no `canon/` directory. The original `getting-started/canon/` is untouched.
 
 ## Four parts
 
