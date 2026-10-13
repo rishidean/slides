@@ -2,11 +2,19 @@
 
 *How to use agentic engineering to go from 10% to 10X more productive.*
 
-One working session, assembled from three existing decks rather than written
-fresh, now carrying the hands-on workshop as well. 102 slides: the
-70-slide talk, twelve slides of depth inserted into the spec, crew, and
-orchestrator sections, a four-slide workshop frame, a twenty-slide lab, and a
-five-slide pre-work appendix. 111 slides in all.
+Assembled from three existing decks rather than written fresh, and now carrying the hands-on part as
+well. 111 slides in three contiguous modules.
+
+| Module | Slides | Opens on |
+| --- | --- | --- |
+| The talk | 1–59 | the title |
+| The practice | 60–88 | the practice divider, then the pre-work (61–65), then the frame, ground rules, the stages, and the capstone |
+| The follow-ups | 89–111 | the Kármán line divider |
+
+Nothing in the deck states a duration, a session count, or a count of parts. The parts are named rather
+than numbered, so the deck runs in a tight container and a generous one without an edit, and the times
+are voiced. Keep it that way: if you need to add or drop a stage, the copy around it should not need to
+change.
 
 - Live: https://slides.rishidean.com/getting-started/
 - Speaker track lives in `notes.py` in the build, keyed by slide number, and
@@ -21,7 +29,11 @@ five-slide pre-work appendix. 111 slides in all.
   owns: `←`/`→`/`↑`/`↓`/space to page, `Home`/`End`, `R` to restart, `1`–`9`
   to jump.
 
-## Running order
+## Where the slides came from
+
+Historical, and it numbers the original assembly before the workshop build. The insertions below shifted
+every number after them, and the later module pass moved the pre-work and the Kármán block, so treat this
+table as provenance rather than as positions.
 
 | Slides | Chapter | Source |
 | --- | --- | --- |
@@ -39,51 +51,41 @@ five-slide pre-work appendix. 111 slides in all.
 | 62–70 | What it needs, the three inventions, the orbit loop, and the frontier (incl. spawn) | `../atmosphere/` |
 | 71–74 | The invitation and the close | new |
 
-The table above numbers the original assembly. The workshop build inserts sixteen
-slides into it and appends twenty-five; see below. Insertions shift every number
-after them, so the ranges below are current as of this pass.
+## The practice build
 
-## The workshop build
+Two additions, neither of which touches the talk's argument. Every new slide carries `data-speaker-notes`
+like the rest of the deck.
 
-Two additions, neither of which touches the talk's argument. Every new slide
-carries `data-speaker-notes` like the rest of the deck.
+**Twelve slides of depth**, inserted after an anchor slide so the surrounding order is unchanged:
 
-**Twelve slides of depth**, inserted after an anchor slide so the surrounding
-order is unchanged:
+| Inserted after | What they add |
+| --- | --- |
+| Inside a Feature Spec | The cost of each blank field, the five-question readiness gate, the ways a spec fails, and how a draft is revised under critique |
+| The Inner Loop | Separation of duties, the anatomy of a subagent, the anatomy of a skill, and why the two only work as a pair |
+| What Just Happened | The orchestrator's decisions, the shapes it can arrange, and the failures that return success |
+| Progressive determinism | Where a spec runs out, and why the measurement and the threshold are different jobs |
 
-| Slides | Inserted after | What they add |
-| --- | --- | --- |
-| 41–44 | Inside a Feature Spec | The cost of each blank field, the five-question readiness gate, the three ways a spec fails, and how a draft is revised under critique |
-| 49–52 | The Inner Loop | Separation of duties, the anatomy of a subagent, the anatomy of a skill, and why the two only work as a pair |
-| 58–60 | What Just Happened | The orchestrator's three decisions, the three shapes it can arrange, and the failures that return success |
-| 79 | Progressive determinism | Where a spec runs out, and why the measurement and the threshold are different jobs |
+**The frame**, at 66–68: what the shape is, the product on screen, and what each person leaves with.
 
-**A four-slide workshop frame**, slides 17–20, inserted after the intro: a divider
-that opens the workshop, the two-session shape, the product on screen, and what
-each person leaves with.
+**The stages**, at 69–88. A divider, ground rules, four stages at four slides each, and a two-slide
+capstone. Every stage runs the same beats: the idea, the contrast, the exercise, the artifact, the check.
+The stages are spec rigor, agents and skills, topology, and judgment. Each carries an exercise, an
+artifact the participant commits, and a check they run on their own work; the capstone turns the room
+onto their own projects.
 
-**A twenty-slide lab**, slides 87–106, appended after the close. A divider, ground
-rules, four stages at four slides each, and a two-slide capstone. Every stage runs
-the same five beats: the idea, the contrast, the exercise, the artifact, the check.
-The stages are spec rigor, agents and skills, topology, and judgment. Each carries
-an exercise, an artifact the participant commits, and a check they run on their own
-work; the capstone turns the room onto their own projects.
+**The pre-work**, at 61–65. A divider, the pieces, the loop run in detail, the project and the first spec,
+and where the material lives. It is written to be sent before the first part, so the room does not arrive
+cold.
 
-**A five-slide appendix**, slides 107–111. The pre-work: a divider, the three pieces, the
-loop run in detail, the project and the first spec, and where the material lives. It is
-written to be sent before session one, so the room does not arrive cold.
-
-Only nine slides are new: title, agenda, the "this is organizational, not
-personal" statement, the helicopter-to-jet divider, the loop-grows diagram, the
-progressive-determinism flowchart, the invitation, the Go divider, and the two
-close slides. Everything else is a source slide pulled intact, with its
+Only nine slides are new: title, agenda, the "this is organizational, not personal" statement, the
+helicopter-to-jet divider, the loop-grows diagram, the progressive-determinism flowchart, the invitation,
+the Go divider, and the two close slides. Everything else is a source slide pulled intact, with its
 original speaker notes.
 
-## Slide 48 is interactive
+## The loop-grows slide is interactive
 
-Click the slide to walk the diagram through four stages: the loop, insert a node,
-fan out and reduce, add a conditional edge. Arrow keys are deliberately left to
-the deck, so nothing fights over them.
+Click the slide to walk the diagram through its stages: the loop, insert a node, fan out and reduce, add a
+conditional edge. Arrow keys are deliberately left to the deck, so nothing fights over them.
 
 Restyled from a standalone prototype onto this palette. The prototype used four
 hues for its node kinds; this system allows one accent, so magenta marks the two
@@ -139,5 +141,6 @@ Static deck. `index.html` loads these by relative path, so keep them together:
 
 No build step; edit `index.html` directly. Footer numbers stamp themselves from
 each section's position, so inserting or deleting a slide never leaves a stale
-number. To re-pull a slide from a source deck, copy its `<section>` across and
-swap the footer's left-hand label.
+number. `data-label` is what the rail displays, so keep it descriptive. To re-pull
+a slide from a source deck, copy its `<section>` across and swap the footer's
+left-hand label.
