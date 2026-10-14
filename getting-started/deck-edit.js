@@ -142,7 +142,10 @@
   }
 
   async function buildFile() {
-    const res = await fetch('index.html', { cache: 'no-store' });
+    /* Resolve against the directory, not the document, so this works whether the
+       deck is opened as /getting-started/ or /getting-started/index.html. */
+    const src = location.origin + location.pathname.replace(/[^/]*$/, '') + 'index.html';
+    const res = await fetch(src, { cache: 'no-store' });
     if (!res.ok) throw new Error('index.html returned ' + res.status);
     const file = await res.text();
     const blocks = file.match(SECTION_RE) || [];
