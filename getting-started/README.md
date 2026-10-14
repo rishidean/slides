@@ -65,21 +65,21 @@ like the rest of the deck.
 | What Just Happened | The orchestrator's decisions, the shapes it can arrange, and the failures that return success |
 | Progressive determinism | Where a spec runs out, and why the measurement and the threshold are different jobs |
 
-**The frame**, at 66–68: what the shape is, the product on screen, and what each person leaves with.
 
-**The stages**, at 69–88. A divider, ground rules, four stages at four slides each, and a two-slide
-capstone. Every stage runs the same beats: the idea, the contrast, the exercise, the artifact, the check.
-The stages are spec rigor, agents and skills, topology, and judgment. Each carries an exercise, an
-artifact the participant commits, and a check they run on their own work; the capstone turns the room
-onto their own projects.
+**The frame**, at 43–45: what the shape is, the product on screen, and what each person leaves with.
 
-**The pre-work**, at 61–65. A divider, the pieces, the loop run in detail, the project and the first spec,
-and where the material lives. It is written to be sent before the first part, so the room does not arrive
-cold.
+**The stages**, in Your Turn and in Appendices. A divider, ground rules, four stages at four slides each,
+and a two-slide capstone. Every stage runs four beats: the idea, the contrast, the exercise, then the
+artifact and the check, which share a slide. The stages are spec rigor, agents and skills, topology, and
+judgment. Each carries an exercise, an artifact the participant commits, and a check they run on their own
+work; the capstone turns the room onto their own projects.
 
-Only nine slides are new: title, agenda, the "this is organizational, not personal" statement, the
-helicopter-to-jet divider, the loop-grows diagram, the progressive-determinism flowchart, the invitation,
-the Go divider, and the two close slides. Everything else is a source slide pulled intact, with its
+**The pre-work**, in Appendices. A divider, the pieces, the loop run in detail, the project and the first
+spec, and where the material lives. It is written to be sent before the first part, so the room does not
+arrive cold.
+
+The deck marks six sections, named only, with the internal subsection dividers given a lighter treatment
+so they read as subordinate to the sections. Everything else is a source slide pulled intact, with its
 original speaker notes.
 
 ## The loop-grows slide is interactive
