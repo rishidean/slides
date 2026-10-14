@@ -1231,6 +1231,46 @@ window.__resources = {
 
   <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B6B;pointer-events:none;z-index:5;"><span>slides.rishidean.com/getting-started</span><span></span></div>
 </section>
+<section data-label="Primitives" data-speaker-notes="Seven words before we go deeper, and the rest of this is these wired together. A session is one run of Claude Code with a fresh memory, so nothing carries over. The context window is the working memory that session holds at once; it&#x27;s finite, and quality drops as it fills, which is why fresh sessions matter. CLAUDE.md is the context file it reads automatically at the start of every session. The Task tool is how a session hands a job to a subagent and gets the result back, which is how run-qa calls its three agents. A skill is a reusable procedure Claude invokes by name, like run-qa. A command is a saved prompt you trigger with a slash, like /review. And a subagent is a scoped helper spun up for one narrow job, often on a cheaper, faster model." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
+    <span>THE PRIMITIVES</span>
+  </div>
+  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:14px 0 0;"></div>
+  <h2 style="margin:24px 0 0;font-weight:700;font-size:54px;letter-spacing:-0.03em;line-height:1.0;max-width:1320px;">A few words to help speak the language.</h2>
+  <p style="margin:16px 0 0;max-width:1120px;font-size:28px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">New to Claude Code? Everything that follows is just some form of these terms.</p>
+  <div style="display:flex;flex-direction:column;margin-top:30px;border-top:1px solid #E6E6E6;">
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Session</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">One run of Claude Code. <span style="color:#6B6B6B;">Fresh memory every time.&nbsp;Nothing carries over.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Context window</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">The working memory a session holds at once. <span style="color:#6B6B6B;">Finite.&nbsp;Fill it and quality drops.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">CLAUDE.md</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A context file Claude reads <span style="color:#6B6B6B;">automatically at the start of every session.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Task tool</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">How a session hands a job to a subagent — <span style="color:#6B6B6B;">and gets the result back. It's how <span style="font-family:'JetBrains Mono',monospace;font-size:25px;">run-qa</span> calls its three agents.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Skill</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A reusable procedure Claude can invoke by name — <span style="color:#6B6B6B;">like <span style="font-family:'JetBrains Mono',monospace;font-size:25px;">run-qa</span>.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Command</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A saved prompt you trigger with a slash — <span style="color:#6B6B6B;">like <span style="font-family:'JetBrains Mono',monospace;font-size:25px;">/review</span>.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
+      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Subagent</div>
+      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A scoped helper for one narrow job. <span style="color:#6B6B6B;">Often a cheaper, faster model.</span></div>
+    </div>
+  </div>
+
+  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/getting-started</span><span></span></div>
+</section>
 <section data-label="The Double Loop" data-speaker-notes="One loop inside another. The outer loop marches through sprints with a fresh brain each time. The inner loop is a single session doing build, QA, and document. RED sends it back to fix and re-check; GREEN ticks the manifest, writes a handoff, and the outer loop moves on." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:88px 120px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
   <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
     <span>THE TOPOLOGY</span>
@@ -1347,46 +1387,6 @@ window.__resources = {
         </div>
       </div>
       <div style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:17px;letter-spacing:0.04em;color:#CF0090;text-align:center;">↺&nbsp;&nbsp;RED → fix → re-run [skill] run-qa &nbsp;(max 3 attempts, then stop)</div>
-    </div>
-  </div>
-
-  <div data-deck-footer="" style="position:absolute;left:56px;right:56px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B5B5;pointer-events:none;z-index:5;"><span>slides.rishidean.com/getting-started</span><span></span></div>
-</section>
-<section data-label="Primitives" data-speaker-notes="Seven words before we go deeper, and the rest of this is these wired together. A session is one run of Claude Code with a fresh memory, so nothing carries over. The context window is the working memory that session holds at once; it&#x27;s finite, and quality drops as it fills, which is why fresh sessions matter. CLAUDE.md is the context file it reads automatically at the start of every session. The Task tool is how a session hands a job to a subagent and gets the result back, which is how run-qa calls its three agents. A skill is a reusable procedure Claude invokes by name, like run-qa. A command is a saved prompt you trigger with a slash, like /review. And a subagent is a scoped helper spun up for one narrow job, often on a cheaper, faster model." style="width:100%;height:100%;background:#FAFAFA;color:#0A0A0A;font-family:'Manrope',sans-serif;padding:92px 140px;display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden;">
-  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:0.28em;text-transform:uppercase;color:#B5B5B5;">
-    <span>THE PRIMITIVES</span>
-  </div>
-  <div style="width:56px;height:5px;background:#CF0090;border-radius:2px;margin:14px 0 0;"></div>
-  <h2 style="margin:24px 0 0;font-weight:700;font-size:54px;letter-spacing:-0.03em;line-height:1.0;max-width:1320px;">A few words to help speak the language.</h2>
-  <p style="margin:16px 0 0;max-width:1120px;font-size:28px;line-height:1.35;color:#6B6B6B;letter-spacing:-0.01em;">New to Claude Code? Everything that follows is just some form of these terms.</p>
-  <div style="display:flex;flex-direction:column;margin-top:30px;border-top:1px solid #E6E6E6;">
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Session</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">One run of Claude Code. <span style="color:#6B6B6B;">Fresh memory every time.&nbsp;Nothing carries over.</span></div>
-    </div>
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Context window</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">The working memory a session holds at once. <span style="color:#6B6B6B;">Finite.&nbsp;Fill it and quality drops.</span></div>
-    </div>
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">CLAUDE.md</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A context file Claude reads <span style="color:#6B6B6B;">automatically at the start of every session.</span></div>
-    </div>
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Task tool</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">How a session hands a job to a subagent — <span style="color:#6B6B6B;">and gets the result back. It's how <span style="font-family:'JetBrains Mono',monospace;font-size:25px;">run-qa</span> calls its three agents.</span></div>
-    </div>
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Skill</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A reusable procedure Claude can invoke by name — <span style="color:#6B6B6B;">like <span style="font-family:'JetBrains Mono',monospace;font-size:25px;">run-qa</span>.</span></div>
-    </div>
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Command</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A saved prompt you trigger with a slash — <span style="color:#6B6B6B;">like <span style="font-family:'JetBrains Mono',monospace;font-size:25px;">/review</span>.</span></div>
-    </div>
-    <div style="display:grid;grid-template-columns:360px 1fr;align-items:baseline;gap:56px;padding:16px 0;border-bottom:1px solid #EFEFEF;">
-      <div style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:31px;letter-spacing:-0.01em;color:#CF0090;">Subagent</div>
-      <div style="font-size:28px;line-height:1.3;color:#0A0A0A;letter-spacing:-0.01em;">A scoped helper for one narrow job. <span style="color:#6B6B6B;">Often a cheaper, faster model.</span></div>
     </div>
   </div>
 
