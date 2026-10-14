@@ -129,6 +129,7 @@ normalised. If you paste in a new slide from an older deck, check that gap.
 Static deck. `index.html` loads these by relative path, so keep them together:
 
 - `deck-stage.js`, `support.js`, `image-slot.js` — the runtime
+- `deck-edit.js` — the rail's host, and the reorder bar (see Editing)
 - `vendor/` — React, React DOM, Babel, vendored so the deck presents with no
   network. `window.__resources` in the head maps the CDN URLs to these copies.
 - `fonts.css` + `fonts/` — vendored Manrope and JetBrains Mono, same reason
@@ -144,3 +145,28 @@ each section's position, so inserting or deleting a slide never leaves a stale
 number. `data-label` is what the rail displays, so keep it descriptive. To re-pull
 a slide from a source deck, copy its `<section>` across and swap the footer's
 left-hand label.
+
+## Reordering from the rail
+`deck-stage.js` ships the whole authoring rail: drag a thumbnail to reorder,
+right-click for Move up / Move down / Duplicate / Delete / Skip, shift-click for a
+range. None of it ran here, and the reason was one line in the runtime.
+
+When `window.__dcUpdate` exists, the component assumes an editor host owns the
+light DOM, so it emits a `dc-op` event, locks the rail, and waits for a
+`{__dc_op_ack, applied}` reply. This page loads `support.js`, so `__dcUpdate`
+exists, so every gesture emitted an op that nobody answered. Drag, move, delete
+and duplicate were all silently dead.
+
+`deck-edit.js` is that host. It applies the op to the light DOM, acks so the rail
+unlocks, and keeps the arrangement in `localStorage` so a reload does not lose it.
+
+Add `?author=1` to the URL for the export bar:
+- **Download index.html** writes the reordered source, ready to commit. It is
+  built from the file rather than the live DOM, so the runtime's mount-time
+  attributes never reach disk: same bytes, new order, nothing else.
+- **Copy order** puts the label list on the clipboard, for handing the order over.
+- **Reset** drops the stored arrangement and returns to the file's order.
+
+Without `?author=1` the bar is not built. Presenting is unaffected either way,
+since the rail is hidden there. `window.deckEdit` exposes `order()` and
+`buildFile()` in the console.
