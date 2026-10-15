@@ -82,6 +82,29 @@ The deck marks six sections, named only, with the internal subsection dividers g
 so they read as subordinate to the sections. Everything else is a source slide pulled intact, with its
 original speaker notes.
 
+## The loop, built and tracked
+Section two opens the loop the way the room will remember it: one element at a
+time. Eight slides build the same diagram, and each one adds a single thing.
+
+1. Build, alone. 2. Verify, with the path back when it fails. 3. Document, with
+the path forward when it passes. 4. The inner-loop frame, because those three
+steps are one session. 5. The outer loop, with stage two tied to that frame.
+6. Governance, the script that starts each stage. 7. Context, what every session
+reads first. 8. The numerals and block names, which make it the wayfinder for
+everything after.
+
+Every region is reserved from step one, so nothing shifts as elements arrive.
+The frame's chrome and its contents reveal on different steps, and they are
+separate layers for that reason: hiding the frame would hide the boxes inside it,
+since `visibility` inherits.
+
+After the build, four tracker slides return to the same diagram with one block at
+full strength and the rest faded, and the detail slides for that block sit
+directly after it. The last tracker lights every block and closes the section.
+
+The diagram is HTML, not SVG, so it inherits the deck's type and colour. Both
+series come from one builder, `loop_build.py`, kept outside the deck.
+
 ## The loop-grows slide is interactive
 
 Click the slide to walk the diagram through its stages: the loop, insert a node, fan out and reduce, add a
